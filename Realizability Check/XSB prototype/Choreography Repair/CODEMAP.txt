@@ -1,0 +1,157 @@
+
+FILE: project.P
+*****
+project: 
+- inside project.P
+
+- takes as input dynamically loaded gtrans
+- asserts 
+  - ptranswep: peer transitions with epsilons (should be used everywhere)
+  - ptrans: peer transitions without epsilons (should be used for drawing)
+  - startPeer: start state of each peers
+  - mapep: maps the states that are connected by epsilon transition (explored in Depth-first)
+
+There are three rules for project. 
+- First rule generates ptrans and ptranswep
+- Second rule generates startPeer
+- Third rule claims to remove the epsilons.
+  - removeAlleps
+  - updateMapEp: needs to make sure s -epsilon-> s1 and s -> -someaction-> -> s1 implies s -epsilon-> s1 is removed
+
+*****
+updateMapEp
+- uses pathExists
+
+*****
+pathExists(S, T)
+- uses ptransWOep1: this is present in library.P
+- uses ptrans: SHOULD use ptranswep
+************************************************************************************************************
+
+FILE unrealize1.P
+
+chgRealize
+- system state, choreography state, action, previous choreography state
+  - last two parameters necessary for addTransitions i.e., to add behavior
+
+notMatching
+- invokes addTransitions or addRestrictions
+- uses negatetrans assertions in the the choreography description to disallow adds
+
+*****
+
+addTransition
+- inputs: 
+  - choreo state TPrev that leads to the state which witnesses the mismatch T
+  - choreo action from TPrev to T 
+  - choreo state T from where the transitions don't match
+  - source state S of the system 
+  - action M that witnesses the mismatch
+  - destination state S1 of the system 
+(S-M->S1 is not matched by any transition from T, which is reached via A actoni from TPrev)
+ 
+*** ALGO ***
+checkState: 
+- the sender peer has something in its queue
+
+  - yes: invoke consumeViaPtrans to find the state where the sender peer goes after consuming all the pending
+         messages
+         - Case 1: does not consume all messages, end up at an intermediate state and return false as the last arg
+         - Case 2: consumes all the message, end up at the state with empty queue and return true.
+         - uses ptransWOep in library.P
+           - *** redo with ptranswep?
+
+  - No:  nothing to consume, just create a new state and return false as the last arg.
+
+- Nothing to consume: Case 2
+  - Does the sender peer has a cycle from the goal state where the transition is going to get added
+    - pReach + mapping
+      - Can we remove the mapping part?
+      - CHANGED TO USE ptransEpStar instead of mapping
+
+      - YES
+        - findNextAction (2(a)-i and ii)
+          - present in library  
+      - NO  
+        - canReach1: check whether the goal state projected onto P can be reached from 
+                     the local system state via some other path
+          - uses mapping and ptrans (ptrans is supposed to be w/o epsilon)
+          - Can we replace mapping with ptransEpStar
+          - Can we replace ptrans with ptranswep with the guard that the action is going to be not-epsilon 
+          - CHANGED:
+            - one issue in both implementation
+              - why is it necessary to consider epsilon reachability as well. 
+      
+        - YES (2b corrected)
+          - add intermediate states and transitions to avoid having loops
+        
+        - NO ** CORRECTION JULY 24 BASED ON DANIEL'S EX4
+          - canReach2: check whether the goal state from where the sender is sending the witness message
+                       can reach a goal state after sending the message that was last sent by the goal - this
+                       is necessary to create the diamond - otherwise unnecessary new states will get generated
+            - YES - add the new transition to the existing state
+            - NO (2b-ii existing version: new state generated)
+
+- Something is consumed: Case 1
+  - YES Just point to the state reached after the consumption
+  
+  - NO
+    reach(PS, PS): check whether there is a cycle
+    - it just checks for cyles involving output actions at the top - why?
+    - REMOVED reach/3 to use ptransStarWOEp to involve a non-epsilon loop 
+
+************************************************************************************************************
+ptransWOep1
+- inside library.P
+- finds a path between two states in a peer that involves at least one non-epsilon transition
+- SHOULD use ptranswep (instead uses ptrans)
+  - CHANGED TO USE ptranswep
+
+****
+ptransWOep
+- inside library.P
+- used in addTransition inside consumeViaPtrans
+  - uses ptrans1
+  - SHOULD use ptranswep + ptransEpStar
+  - CHANGED TO USE ptranswep
+ 
+*****
+ptrans1/4: mapping(S, S1).ptrans
+- inside library.P
+
+*****
+pReach/4: Peer, PeerState, Action, PeerDestinationState)
+- inside library.P
+
+- used in addTransitions for Case 2a. Does there exist a sequence of
+  epsilon followed by a transition over Action, which is set of output
+  action, and then followed by any action
+
+- uses ptrans1
+
+*****
+retractPeers
+- inside library.P
+
+- removes ptrans, ptranswep, startPeer, mapep
+
+*****
+findNextAction: 
+- inside library.P
+
+- Peer, outputmessage, Source, IntermediateState, Destination
+  - result intermediateState
+
+- uses onlyep in library.P
+- uses ptrans1
+
+*****
+
+onlyep: tabled
+
+- inside library.P
+
+- Peer, Action, Source, Destination
+- 
+
+

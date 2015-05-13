@@ -1,0 +1,201 @@
+-- @nsURI BPMN2=http://www.omg.org/spec/BPMN/20100524/MODEL
+-- @nsURI WFG=http://workflowgraph/1.0.4
+
+module fromBPMN2toWFT;
+create OUT : WFG from IN : BPMN2;
+
+
+
+rule BPMNchor2WFG
+	{
+	 from
+	 	 chor : BPMN2!Choreography
+	  to
+	  	 wfg : WFG!WorkFlowGraph
+		 (-- the transformation of gateways and CTs are performed by lazy rules
+		  -- because, otherwise, the wfg.init() could be executed before the transformations
+		  -- of the other elements ends.
+		  actions <- chor.flowElements->select(gtw | gtw.oclIsKindOf(BPMN2!ChoreographyTask))->collect(e | thisModule.FlowNode2Node(e)),
+		  gateways <- chor.flowElements->select(gtw | gtw.oclIsKindOf(BPMN2!Gateway))->collect(e | thisModule.FlowNode2Node(e)),
+		  --startingNodes <- chor.getStartingNodes(),
+		  --endingNodes <- chor.getEndingNodes(),
+		  participants <- chor.participants -> collect(p | thisModule.BPMNparticipant2WFGparticipant(p))
+		 )
+		 do
+		 {
+		  wfg.initialize();
+		 }
+	}
+
+
+
+unique lazy abstract rule FlowNode2Node {
+   from 
+		flowElem : BPMN2!FlowNode
+		(flowElem.oclIsTypeOf(BPMN2!ChoreographyTask) or
+		 flowElem.oclIsTypeOf(BPMN2!ParallelGateway) or
+		 flowElem.oclIsTypeOf(BPMN2!ExclusiveGateway)
+		)
+	to
+	    node : WFG!WfgNode
+		  (
+		  	name <- flowElem.name,
+		    id <- flowElem.id
+		  )
+ }
+
+
+lazy abstract rule FlowNode2Gateway extends FlowNode2Node
+  {
+	from 
+		flowElem : BPMN2!Gateway
+	to
+		 node : WFG!Gateway
+		  (
+		  	successors <- flowElem.getSuccessors()->
+										select(gtw | gtw.oclIsKindOf(BPMN2!ChoreographyTask) or gtw.oclIsKindOf(BPMN2!Gateway))->
+													collect(e | thisModule.FlowNode2Node(e)),
+			predecessors <- flowElem.getPredecessors()->
+										select(gtw | gtw.oclIsKindOf(BPMN2!ChoreographyTask) or gtw.oclIsKindOf(BPMN2!Gateway))->
+													collect(e | thisModule.FlowNode2Node(e))													
+		  )
+   }
+
+
+lazy rule Xgateway2Xgateway extends FlowNode2Gateway{
+	from
+		flowElem :  BPMN2!ExclusiveGateway
+	to
+       node : WFG!ExclusiveChoice ()
+}
+
+lazy rule Pgateway2Pgateway extends FlowNode2Gateway{
+	from
+		flowElem :  BPMN2!ParallelGateway
+	to
+       node : WFG!ParallelExecution ()
+}
+
+
+
+
+lazy rule CT2MessageExchange extends FlowNode2Node{
+	from
+		flowElem :  BPMN2!ChoreographyTask
+	to
+       node : WFG!MessageExchange
+	   	(
+		 sender <- thisModule.BPMNparticipant2WFGparticipant(flowElem.initiatingParticipantRef),
+		 receiver <- thisModule.BPMNparticipant2WFGparticipant(flowElem.getReceiver()),
+		 request <- flowElem.getRequest(),
+		 synchResponse <- flowElem.getSyncResponse(),
+		 successor <- if (flowElem.getSuccessor() <> OclUndefined)
+							then thisModule.FlowNode2Node(flowElem.getSuccessor())
+							else OclUndefined
+							endif, 
+		 predecessor <- if (flowElem.getPredecessor() <> OclUndefined)
+							then thisModule.FlowNode2Node(flowElem.getPredecessor())
+							else OclUndefined
+							endif
+		)
+	   	
+}
+
+
+
+unique lazy rule BPMNparticipant2WFGparticipant 
+{
+	from
+		bpart : BPMN2!Participant
+	to
+		wpart: WFG!Participant
+		(
+		 name <- bpart.name,
+		 id <- bpart.id -- ,
+		-- participantRef <- bpart
+		)
+}
+
+
+helper context BPMN2!ChoreographyTask def: getPredecessor(): BPMN2!FlowNode = 
+			if (self.incoming.first().sourceRef.oclIsKindOf(BPMN2!ChoreographyTask) or 
+				self.incoming.first().sourceRef.oclIsKindOf(BPMN2!Gateway)
+			   )
+				then self.incoming.first().sourceRef
+				else OclUndefined
+			endif;
+
+helper context BPMN2!ChoreographyTask def: getSuccessor(): BPMN2!FlowNode = 
+			if (self.outgoing.first().targetRef .oclIsKindOf(BPMN2!ChoreographyTask) or 
+				self.outgoing.first().targetRef .oclIsKindOf(BPMN2!Gateway)
+				)
+				then self.outgoing.first().targetRef 
+				else OclUndefined
+			endif;
+
+helper context BPMN2!Gateway def: getSuccessors(): Sequence(BPMN2!FlowNode) =
+	 self.outgoing->iterate(arrow; successors: Sequence(BPMN2!FlowNode) = Sequence{} |
+	                        successors.including(arrow.targetRef)
+                           );
+
+helper context BPMN2!Gateway def: getPredecessors(): Sequence(BPMN2!FlowNode) =
+	 self.incoming->iterate(arrow; predecessors: Sequence(BPMN2!FlowNode) = Sequence{} |
+	                        predecessors.including(arrow.sourceRef)
+                           );
+
+
+helper context BPMN2!ChoreographyTask def: getReceiver(): BPMN2!Participant =
+	
+	self.participantRefs->any(participant | participant <> self.initiatingParticipantRef);
+
+
+helper context BPMN2!ChoreographyTask def: getSyncResponse(): String =
+	 if  self.messageFlowRef->any(message | message.sourceRef.toString() <> self.initiatingParticipantRef.toString()) <> OclUndefined
+	 	then
+			self.messageFlowRef->any(message | message.sourceRef.toString() <> self.initiatingParticipantRef.toString()).messageRef.name
+		else
+			''
+	endif;
+	   
+helper context BPMN2!ChoreographyTask def: getRequest(): String =
+	   self.messageFlowRef->any(message | message.sourceRef.toString() = self.initiatingParticipantRef.toString()).messageRef.name;
+
+ 
+--helper context BPMN2!Choreography def: getStartingNodes(): Sequence(BPMN2!FlowElement) =
+--	self.flowElements
+--		->iterate(startElem; startingNodes: Sequence(BPMN2!FlowElement) = Sequence{} |
+--	                startingNodes.including
+--						(
+--						 if startElem.oclIsTypeOf(BPMN2!StartEvent)
+--						 	 then thisModule.FlowNode2Node( 
+--						 	 								startElem.outgoing->collect(startNode | startNode.targetRef)->first() 
+--														  )
+--						 else
+--						 	 OclUndefined
+--						 endif
+--	       				)
+ --                );
+
+--helper context BPMN2!Choreography def: getEndingNodes(): Sequence(BPMN2!FlowElement) =
+--	self.flowElements
+--		->iterate(endElem; endingNodes: Sequence(BPMN2!FlowElement) = Sequence{} |
+--	                endingNodes.including
+--						(
+--						 if endElem.oclIsTypeOf(BPMN2!EndEvent)
+--						 	 then thisModule.FlowNode2Node(  
+--						 	 	                           endElem.incoming->collect(startNode | startNode.sourceRef)->first()
+--														   )
+--						 else
+--						 	 OclUndefined
+--						 endif
+--	       				)
+--                );
+	
+	   		
+
+
+
+
+
+
+

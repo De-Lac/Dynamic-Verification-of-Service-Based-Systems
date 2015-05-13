@@ -1,0 +1,81 @@
+**** START Partes FROM ECLIPSE or CLI *****
+To start Partes Test Generator directly (not from WS), 
+the main() is contained in "partes.service.PartesMain".
+
+usage: PartesMain [-d] [-p <arg>] [-y <arg>]
+ -d,--debug          build xml files for debug [optional, very slow. print many graphs]
+ -p,--partes <arg>   specify bpmn path [required]
+ -y,--yaml <arg>     specify yaml path with list of wsdl [required]
+
+if no argument is passed, default is taken (hard coded in the main() for testing purpose)
+
+
+
+
+**** START Partes AS WS *****
+run the Maven project with the command "package". It will generate in the "target" folder the .war
+to deploy on tomcat
+
+-) if tomcat rises the error "java.lang.Out of memory", add this line
+
+          JAVA_OPTS="-Djava.awt.headless=true -Dfile.encoding=UTF-8 -server -Xms512m -Xmx1024m -XX:NewSize=256m -XX:MaxNewSize=256m -XX:PermSize=256m -XX:MaxPermSize=256m -XX:+DisableExplicitGC"
+          
+    to the catalina.sh file.
+
+
+ALL THE GENERATED FILES ARE STORED IN THE PATH WRITTEN IN THE partes.properties FILE, 
+under the folder named as choreographyTModelKey if generation started by Partes4SP plugin
+or under the folder "DefaultChoreography" if started manually PartesMain
+
+
+
+
+**** REQUIREMENTS *****
+
+-) choreography must have only SESE fragments (for each starting gateway, must be exists a closing gateway).
+-) just one entry point and one exit point (one for each choreography and sub-choreography)
+-) starting gateway must be named as "start_gatewayName"
+-) closing gateway must be named as "end_gatewayName", with the "gatewayName" as for the starting one
+-) messages must be equal to operations listed by relative WSDL
+-) each participant must have a WSDL (listed in a separated .yml file)
+
+
+**** EXAMPLE OF .bpmn STRUCTURE TO BE USED WITHOUT .YML FILE ****
+
+// import of wsdl
+<bpmn2:import importType="http://schemas.xmlsoap.org/wsdl/" location="http:/.../AirTrafficControl.wsdl" namespace="http://namespace/"/>
+<bpmn2:import ..
+<bpmn2:import ..
+
+// reference between participant and implementationInterface
+<bpmn2:choreography id="Choreography_1" name="Default Choreography">
+    <bpmn2:participant id="Participant_3" name="ATC">
+		<bpmn2:interfaceRef>Interface_2</bpmn2:interfaceRef>
+    </bpmn2:participant>
+    <bpmn2:participant id="Participant_4" name="Airport">
+		<bpmn2:interfaceRef>Interface_3</bpmn2:interfaceRef>
+    </bpmn2:participant>
+....
+...
+</bpmn2:choreography>
+
+// reference between implementationInterface and portType
+<bpmn2:interface id="Interface_2" implementationRef="file:///Users/DeLac/Desktop/rpst/ATC.wsdl#//@ePortTypes.0" name="IATC">
+    <bpmn2:operation id="Operation_53" implementationRef="file:///Users/DeLac/Desktop/rpst/ATC.wsdl#//@ePortTypes.0/@eOperations.0" name="setInvocationAddress">
+      <bpmn2:inMessageRef>Message_181</bpmn2:inMessageRef>
+      <bpmn2:outMessageRef>Message_182</bpmn2:outMessageRef>
+    </bpmn2:operation>
+</bpmn2:interface>
+
+
+
+
+**** EXAMPLE OF .YML FILE ****
+
+participants:
+-   modelImplClass: role_name     
+    portTypeToSearch: port_type_name
+    wsdlLocation: path_of_the_wsdl
+-   modelImplClass: ATC
+    portTypeToSearch: IAirTrafficControl
+    wsdlLocation: /Users/DeLac/Desktop/rpst/AirTrafficControl.wsdl

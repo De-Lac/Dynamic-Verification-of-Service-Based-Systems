@@ -1,0 +1,16 @@
+it/unicam/cassandra/example/sso/contract/sp/ObjectFactory.class
+service/SpPortTypeImpl.class
+service/SOAPmessages.class
+it/unicam/cassandra/example/sso/contract/sp/IdentifiedResponse.class
+it/unicam/cassandra/example/sso/contract/sp/RequestResourceResponse.class
+it/unicam/cassandra/example/sso/contract/sp/NotIdentified.class
+it/unicam/cassandra/example/sso/contract/sp/Response.class
+it/unicam/cassandra/example/sso/contract/sp/IdentityPrincipalResponse.class
+it/unicam/cassandra/example/sso/contract/sp/SpService.class
+it/unicam/cassandra/example/sso/contract/sp/IdentityPrincipal.class
+it/unicam/cassandra/example/sso/contract/sp/SpPortType.class
+it/unicam/cassandra/example/sso/contract/sp/ResponseResponse.class
+it/unicam/cassandra/example/sso/contract/sp/Identified.class
+it/unicam/cassandra/example/sso/contract/sp/package-info.class
+it/unicam/cassandra/example/sso/contract/sp/RequestResource.class
+it/unicam/cassandra/example/sso/contract/sp/NotIdentifiedResponse.class

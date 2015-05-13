@@ -1,0 +1,10 @@
+gtrans(s0, ('A', 'B', msg1), s1).
+gtrans(s1, ('B', 'A', msg2), s2).
+gtrans(s2, ('C', 'A', msg3), s3).
+
+peer('A').
+peer('B').
+peer('C').
+
+start(s0).
+negategtrans(false, false).

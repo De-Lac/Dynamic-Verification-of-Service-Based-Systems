@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.eclipse.equinox</groupId>
+  <artifactId>osgi</artifactId>
+  <version>3.7.2.v20120110-1415</version>
+  <versioning>
+    <versions>
+      <version>3.7.2.v20120110-1415</version>
+    </versions>
+    <lastUpdated>20120702171750</lastUpdated>
+  </versioning>
+</metadata>

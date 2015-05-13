@@ -1,0 +1,59 @@
+% -*- Mode: Prolog -*-
+
+%:- load_dyn('peer').
+:- import append/3 from basics. 
+
+sysstart(Config) :-
+	findall((P, S), startPeer(P, S), L),
+	createStartConfig(L, Config).
+
+createStartConfig([(P, S)], ([S], [P-[]])) :- !.
+createStartConfig([(P, S)|Rest], ([S|StateList], [P-[]|QueueList])) :-
+	createStartConfig(Rest, (StateList, QueueList)).
+	
+
+%% system transtion relation: K = -1 implies unbounded queue
+strans((State, Queue), (P1, P2, X), (State1, Queue1), K) :-
+       ptranswep(P1, S, out(X, P2), S1),
+       stateBelongsTo(S, State),
+       changeStateTo(S, S1, State, State1),
+       addToQueue(P2, X, Queue, Queue1, K).
+
+strans((State, Queue), (epsilon), (State1, Queue1), _K) :-
+       ptranswep(P1, S, in(X, _P2), S1),
+       stateBelongsTo(S, State),
+       remFrmQueue(P1, X, Queue, Queue1),
+       changeStateTo(S, S1, State, State1).
+
+strans((State, Queue), (epsilon), (State1, Queue), _K) :-
+	ptranswep(_P, S, (epsilon), S1),
+	stateBelongsTo(S, State),
+	changeStateTo(S, S1, State, State1).
+
+stateBelongsTo(S, [S|_]) :- !.
+
+stateBelongsTo(S, [_|State]) :- stateBelongsTo(S, State).
+
+changeStateTo(S, S1, [S|State], [S1|State]) :- !.
+changeStateTo(S, S1, [O|State], [O|State1]) :- 
+              changeStateTo(S, S1, State, State1).
+
+addToQueue(Peer, Msg, [Peer-Q|Queue], [Peer-Q1|Queue], K) :-
+              !, size(Q, Length),
+              ((Length < K; K == -1)  -> 
+                       append(Q, [Msg], Q1)
+	             ; fail
+	      ).
+addToQueue(Peer, Msg, [H|Queue], [H|Queue1], K) :-
+              addToQueue(Peer, Msg, Queue, Queue1, K).
+
+
+remFrmQueue(Peer, Msg, [Peer-[Msg|Q]|_Queue], [Peer-Q|_Queue]) :- !.
+remFrmQueue(Peer, Msg, [H|Queue], [H|Queue1]) :-
+              remFrmQueue(Peer, Msg, Queue, Queue1).
+
+
+size([], 0) :- !.
+size([_H|L], Len) :- 
+    !, size(L, Len1),
+    Len is Len1 + 1.

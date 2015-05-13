@@ -1,0 +1,5 @@
+this project has been written  following this tutorial using a maven's plugin
+
+http://geertschuring.wordpress.com/2009/06/26/how-to-create-a-webservice-client-with-maven-and-jax-ws/
+
+	(the wsdl address of Partes4SP should be something like     http://127.0.0.1:8080/PartesWsTestGenerator/services/PartesWsTestGenerator?wsdl)

@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:peerbehavior="http://peerbehavior/1.0.2">
+  <peerbehavior:Peer initialState="0" name="MID" id="Participant_1">
+    <in name="?selectSocialNet"/>
+    <in name="?nearFriendsResp"/>
+    <in name="?selectFriend"/>
+    <in name="?respMeeting"/>
+    <in name="?respConfirmMeeting"/>
+    <out name="!listSocialNet"/>
+    <out name="!whoIsNear"/>
+    <out name="!showNearFriends"/>
+    <out name="!reqMeeting"/>
+    <out name="!reqConfirmMeeting"/>
+    <states name="0" outcoming="/0/@transictions.0"/>
+    <states name="1" incoming="/0/@transictions.0" outcoming="/0/@transictions.1"/>
+    <states name="4" incoming="/0/@transictions.1" outcoming="/0/@transictions.19"/>
+    <states name="22" incoming="/0/@transictions.19" outcoming="/0/@transictions.2"/>
+    <states name="23" incoming="/0/@transictions.2" outcoming="/0/@transictions.3"/>
+    <states name="26" incoming="/0/@transictions.3" outcoming="/0/@transictions.20"/>
+    <states name="44" incoming="/0/@transictions.10" outcoming="/0/@transictions.4"/>
+    <states name="45" incoming="/0/@transictions.4" outcoming="/0/@transictions.5"/>
+    <states name="48" incoming="/0/@transictions.5" outcoming="/0/@transictions.11"/>
+    <states name="66" incoming="/0/@transictions.11" outcoming="/0/@transictions.6"/>
+    <states name="67" incoming="/0/@transictions.6" outcoming="/0/@transictions.12"/>
+    <states name="88" incoming="/0/@transictions.12" outcoming="/0/@transictions.7"/>
+    <states name="89" incoming="/0/@transictions.7" outcoming="/0/@transictions.13"/>
+    <states name="106" incoming="/0/@transictions.13" outcoming="/0/@transictions.8"/>
+    <states name="107" incoming="/0/@transictions.8" outcoming="/0/@transictions.9"/>
+    <states name="110" incoming="/0/@transictions.9" outcoming="/0/@transictions.14"/>
+    <states name="128" incoming="/0/@transictions.17" outcoming="/0/@transictions.10 /0/@transictions.15"/>
+    <states name="138" incoming="/0/@transictions.14 /0/@transictions.15" outcoming="/0/@transictions.16"/>
+    <states name="148" incoming="/0/@transictions.16" outcoming="/0/@transictions.18"/>
+    <states name="158" incoming="/0/@transictions.18 /0/@transictions.20" outcoming="/0/@transictions.17"/>
+    <transictions xsi:type="peerbehavior:Send" from="0" to="1" message="/0/@out[name='!listSocialNet']"/>
+    <transictions xsi:type="peerbehavior:Receive" from="1" to="4" message="/0/@in[name='?selectSocialNet']"/>
+    <transictions xsi:type="peerbehavior:Send" from="22" to="23" message="/0/@out[name='!whoIsNear']"/>
+    <transictions xsi:type="peerbehavior:Receive" from="23" to="26" message="/0/@in[name='?nearFriendsResp']"/>
+    <transictions xsi:type="peerbehavior:Send" from="44" to="45" message="/0/@out[name='!showNearFriends']"/>
+    <transictions xsi:type="peerbehavior:Receive" from="45" to="48" message="/0/@in[name='?selectFriend']"/>
+    <transictions xsi:type="peerbehavior:Send" from="66" to="67" message="/0/@out[name='!reqMeeting']"/>
+    <transictions xsi:type="peerbehavior:Receive" from="88" to="89" message="/0/@in[name='?respMeeting']"/>
+    <transictions xsi:type="peerbehavior:Send" from="106" to="107" message="/0/@out[name='!reqConfirmMeeting']"/>
+    <transictions xsi:type="peerbehavior:Receive" from="107" to="110" message="/0/@in[name='?respConfirmMeeting']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="128" to="44"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="48" to="66"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="67" to="88"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="89" to="106"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="110" to="138"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="128" to="138"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="138" to="148"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="158" to="128"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="148" to="158"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="4" to="22"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="26" to="158"/>
+    <participantRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#//@participants.0"/>
+  </peerbehavior:Peer>
+  <peerbehavior:Peer initialState="2" name="Citizen" id="Participant_2">
+    <in name="?listSocialNet"/>
+    <in name="?showNearFriends"/>
+    <in name="?reqConfirmMeeting"/>
+    <out name="!selectSocialNet"/>
+    <out name="!selectFriend"/>
+    <out name="!respConfirmMeeting"/>
+    <states name="2" outcoming="/1/@transictions.0"/>
+    <states name="3" incoming="/1/@transictions.0" outcoming="/1/@transictions.1"/>
+    <states name="5" incoming="/1/@transictions.1" outcoming="/1/@transictions.18"/>
+    <states name="28" incoming="/1/@transictions.18" outcoming="/1/@transictions.2"/>
+    <states name="36" incoming="/1/@transictions.2" outcoming="/1/@transictions.19"/>
+    <states name="46" incoming="/1/@transictions.9" outcoming="/1/@transictions.3"/>
+    <states name="47" incoming="/1/@transictions.3" outcoming="/1/@transictions.4"/>
+    <states name="49" incoming="/1/@transictions.4" outcoming="/1/@transictions.10"/>
+    <states name="70" incoming="/1/@transictions.10" outcoming="/1/@transictions.5"/>
+    <states name="78" incoming="/1/@transictions.5" outcoming="/1/@transictions.11"/>
+    <states name="90" incoming="/1/@transictions.11" outcoming="/1/@transictions.6"/>
+    <states name="98" incoming="/1/@transictions.6" outcoming="/1/@transictions.12"/>
+    <states name="108" incoming="/1/@transictions.12" outcoming="/1/@transictions.7"/>
+    <states name="109" incoming="/1/@transictions.7" outcoming="/1/@transictions.8"/>
+    <states name="111" incoming="/1/@transictions.8" outcoming="/1/@transictions.13"/>
+    <states name="129" incoming="/1/@transictions.16" outcoming="/1/@transictions.9 /1/@transictions.14"/>
+    <states name="139" incoming="/1/@transictions.13 /1/@transictions.14" outcoming="/1/@transictions.15"/>
+    <states name="149" incoming="/1/@transictions.15" outcoming="/1/@transictions.17"/>
+    <states name="159" incoming="/1/@transictions.17 /1/@transictions.19" outcoming="/1/@transictions.16"/>
+    <transictions xsi:type="peerbehavior:Receive" from="2" to="3" message="/1/@in[name='?listSocialNet']"/>
+    <transictions xsi:type="peerbehavior:Send" from="3" to="5" message="/1/@out[name='!selectSocialNet']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="28" to="36"/>
+    <transictions xsi:type="peerbehavior:Receive" from="46" to="47" message="/1/@in[name='?showNearFriends']"/>
+    <transictions xsi:type="peerbehavior:Send" from="47" to="49" message="/1/@out[name='!selectFriend']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="70" to="78"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="90" to="98"/>
+    <transictions xsi:type="peerbehavior:Receive" from="108" to="109" message="/1/@in[name='?reqConfirmMeeting']"/>
+    <transictions xsi:type="peerbehavior:Send" from="109" to="111" message="/1/@out[name='!respConfirmMeeting']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="129" to="46"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="49" to="70"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="78" to="90"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="98" to="108"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="111" to="139"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="129" to="139"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="139" to="149"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="159" to="129"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="149" to="159"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="5" to="28"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="36" to="159"/>
+    <participantRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#//@participants.1"/>
+  </peerbehavior:Peer>
+  <peerbehavior:Peer initialState="6" name="TaxiCompany" id="Participant_6">
+    <states name="6" outcoming="/2/@transictions.0"/>
+    <states name="14" incoming="/2/@transictions.0" outcoming="/2/@transictions.15"/>
+    <states name="29" incoming="/2/@transictions.15" outcoming="/2/@transictions.1"/>
+    <states name="37" incoming="/2/@transictions.1" outcoming="/2/@transictions.16"/>
+    <states name="50" incoming="/2/@transictions.6" outcoming="/2/@transictions.2"/>
+    <states name="58" incoming="/2/@transictions.2" outcoming="/2/@transictions.7"/>
+    <states name="71" incoming="/2/@transictions.7" outcoming="/2/@transictions.3"/>
+    <states name="79" incoming="/2/@transictions.3" outcoming="/2/@transictions.8"/>
+    <states name="91" incoming="/2/@transictions.8" outcoming="/2/@transictions.4"/>
+    <states name="99" incoming="/2/@transictions.4" outcoming="/2/@transictions.9"/>
+    <states name="112" incoming="/2/@transictions.9" outcoming="/2/@transictions.5"/>
+    <states name="120" incoming="/2/@transictions.5" outcoming="/2/@transictions.10"/>
+    <states name="130" incoming="/2/@transictions.13" outcoming="/2/@transictions.6 /2/@transictions.11"/>
+    <states name="140" incoming="/2/@transictions.10 /2/@transictions.11" outcoming="/2/@transictions.12"/>
+    <states name="150" incoming="/2/@transictions.12" outcoming="/2/@transictions.14"/>
+    <states name="160" incoming="/2/@transictions.14 /2/@transictions.16" outcoming="/2/@transictions.13"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="6" to="14"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="29" to="37"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="50" to="58"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="71" to="79"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="91" to="99"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="112" to="120"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="130" to="50"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="58" to="71"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="79" to="91"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="99" to="112"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="120" to="140"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="130" to="140"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="140" to="150"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="160" to="130"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="150" to="160"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="14" to="29"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="37" to="160"/>
+    <participantRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#//@participants.2"/>
+  </peerbehavior:Peer>
+  <peerbehavior:Peer initialState="7" name="Destinator Service" id="Participant_15">
+    <states name="7" outcoming="/3/@transictions.0"/>
+    <states name="15" incoming="/3/@transictions.0" outcoming="/3/@transictions.15"/>
+    <states name="30" incoming="/3/@transictions.15" outcoming="/3/@transictions.1"/>
+    <states name="38" incoming="/3/@transictions.1" outcoming="/3/@transictions.16"/>
+    <states name="51" incoming="/3/@transictions.6" outcoming="/3/@transictions.2"/>
+    <states name="59" incoming="/3/@transictions.2" outcoming="/3/@transictions.7"/>
+    <states name="72" incoming="/3/@transictions.7" outcoming="/3/@transictions.3"/>
+    <states name="80" incoming="/3/@transictions.3" outcoming="/3/@transictions.8"/>
+    <states name="92" incoming="/3/@transictions.8" outcoming="/3/@transictions.4"/>
+    <states name="100" incoming="/3/@transictions.4" outcoming="/3/@transictions.9"/>
+    <states name="113" incoming="/3/@transictions.9" outcoming="/3/@transictions.5"/>
+    <states name="121" incoming="/3/@transictions.5" outcoming="/3/@transictions.10"/>
+    <states name="131" incoming="/3/@transictions.13" outcoming="/3/@transictions.6 /3/@transictions.11"/>
+    <states name="141" incoming="/3/@transictions.10 /3/@transictions.11" outcoming="/3/@transictions.12"/>
+    <states name="151" incoming="/3/@transictions.12" outcoming="/3/@transictions.14"/>
+    <states name="161" incoming="/3/@transictions.14 /3/@transictions.16" outcoming="/3/@transictions.13"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="7" to="15"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="30" to="38"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="51" to="59"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="72" to="80"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="92" to="100"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="113" to="121"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="131" to="51"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="59" to="72"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="80" to="92"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="100" to="113"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="121" to="141"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="131" to="141"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="141" to="151"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="161" to="131"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="151" to="161"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="15" to="30"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="38" to="161"/>
+    <participantRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#//@participants.3"/>
+  </peerbehavior:Peer>
+  <peerbehavior:Peer initialState="8" name="TaxiCabin" id="Participant_16">
+    <states name="8" outcoming="/4/@transictions.0"/>
+    <states name="16" incoming="/4/@transictions.0" outcoming="/4/@transictions.15"/>
+    <states name="31" incoming="/4/@transictions.15" outcoming="/4/@transictions.1"/>
+    <states name="39" incoming="/4/@transictions.1" outcoming="/4/@transictions.16"/>
+    <states name="52" incoming="/4/@transictions.6" outcoming="/4/@transictions.2"/>
+    <states name="60" incoming="/4/@transictions.2" outcoming="/4/@transictions.7"/>
+    <states name="73" incoming="/4/@transictions.7" outcoming="/4/@transictions.3"/>
+    <states name="81" incoming="/4/@transictions.3" outcoming="/4/@transictions.8"/>
+    <states name="93" incoming="/4/@transictions.8" outcoming="/4/@transictions.4"/>
+    <states name="101" incoming="/4/@transictions.4" outcoming="/4/@transictions.9"/>
+    <states name="114" incoming="/4/@transictions.9" outcoming="/4/@transictions.5"/>
+    <states name="122" incoming="/4/@transictions.5" outcoming="/4/@transictions.10"/>
+    <states name="132" incoming="/4/@transictions.13" outcoming="/4/@transictions.6 /4/@transictions.11"/>
+    <states name="142" incoming="/4/@transictions.10 /4/@transictions.11" outcoming="/4/@transictions.12"/>
+    <states name="152" incoming="/4/@transictions.12" outcoming="/4/@transictions.14"/>
+    <states name="162" incoming="/4/@transictions.14 /4/@transictions.16" outcoming="/4/@transictions.13"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="8" to="16"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="31" to="39"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="52" to="60"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="73" to="81"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="93" to="101"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="114" to="122"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="132" to="52"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="60" to="73"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="81" to="93"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="101" to="114"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="122" to="142"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="132" to="142"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="142" to="152"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="162" to="132"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="152" to="162"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="16" to="31"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="39" to="162"/>
+    <participantRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#//@participants.4"/>
+  </peerbehavior:Peer>
+  <peerbehavior:Peer initialState="9" name="TouristPlace" id="Participant_17">
+    <states name="9" outcoming="/5/@transictions.0"/>
+    <states name="17" incoming="/5/@transictions.0" outcoming="/5/@transictions.15"/>
+    <states name="32" incoming="/5/@transictions.15" outcoming="/5/@transictions.1"/>
+    <states name="40" incoming="/5/@transictions.1" outcoming="/5/@transictions.16"/>
+    <states name="53" incoming="/5/@transictions.6" outcoming="/5/@transictions.2"/>
+    <states name="61" incoming="/5/@transictions.2" outcoming="/5/@transictions.7"/>
+    <states name="74" incoming="/5/@transictions.7" outcoming="/5/@transictions.3"/>
+    <states name="82" incoming="/5/@transictions.3" outcoming="/5/@transictions.8"/>
+    <states name="94" incoming="/5/@transictions.8" outcoming="/5/@transictions.4"/>
+    <states name="102" incoming="/5/@transictions.4" outcoming="/5/@transictions.9"/>
+    <states name="115" incoming="/5/@transictions.9" outcoming="/5/@transictions.5"/>
+    <states name="123" incoming="/5/@transictions.5" outcoming="/5/@transictions.10"/>
+    <states name="133" incoming="/5/@transictions.13" outcoming="/5/@transictions.6 /5/@transictions.11"/>
+    <states name="143" incoming="/5/@transictions.10 /5/@transictions.11" outcoming="/5/@transictions.12"/>
+    <states name="153" incoming="/5/@transictions.12" outcoming="/5/@transictions.14"/>
+    <states name="163" incoming="/5/@transictions.14 /5/@transictions.16" outcoming="/5/@transictions.13"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="9" to="17"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="32" to="40"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="53" to="61"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="74" to="82"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="94" to="102"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="115" to="123"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="133" to="53"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="61" to="74"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="82" to="94"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="102" to="115"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="123" to="143"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="133" to="143"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="143" to="153"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="163" to="133"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="153" to="163"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="17" to="32"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="40" to="163"/>
+    <participantRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#//@participants.5"/>
+  </peerbehavior:Peer>
+  <peerbehavior:Peer initialState="10" name="TrafficService" id="Participant_25">
+    <states name="10" outcoming="/6/@transictions.0"/>
+    <states name="18" incoming="/6/@transictions.0" outcoming="/6/@transictions.15"/>
+    <states name="33" incoming="/6/@transictions.15" outcoming="/6/@transictions.1"/>
+    <states name="41" incoming="/6/@transictions.1" outcoming="/6/@transictions.16"/>
+    <states name="54" incoming="/6/@transictions.6" outcoming="/6/@transictions.2"/>
+    <states name="62" incoming="/6/@transictions.2" outcoming="/6/@transictions.7"/>
+    <states name="75" incoming="/6/@transictions.7" outcoming="/6/@transictions.3"/>
+    <states name="83" incoming="/6/@transictions.3" outcoming="/6/@transictions.8"/>
+    <states name="95" incoming="/6/@transictions.8" outcoming="/6/@transictions.4"/>
+    <states name="103" incoming="/6/@transictions.4" outcoming="/6/@transictions.9"/>
+    <states name="116" incoming="/6/@transictions.9" outcoming="/6/@transictions.5"/>
+    <states name="124" incoming="/6/@transictions.5" outcoming="/6/@transictions.10"/>
+    <states name="134" incoming="/6/@transictions.13" outcoming="/6/@transictions.6 /6/@transictions.11"/>
+    <states name="144" incoming="/6/@transictions.10 /6/@transictions.11" outcoming="/6/@transictions.12"/>
+    <states name="154" incoming="/6/@transictions.12" outcoming="/6/@transictions.14"/>
+    <states name="164" incoming="/6/@transictions.14 /6/@transictions.16" outcoming="/6/@transictions.13"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="10" to="18"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="33" to="41"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="54" to="62"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="75" to="83"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="95" to="103"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="116" to="124"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="134" to="54"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="62" to="75"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="83" to="95"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="103" to="116"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="124" to="144"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="134" to="144"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="144" to="154"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="164" to="134"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="154" to="164"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="18" to="33"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="41" to="164"/>
+    <participantRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#//@participants.6"/>
+  </peerbehavior:Peer>
+  <peerbehavior:Peer initialState="11" name="TrafficCompany" id="Participant_26">
+    <states name="11" outcoming="/7/@transictions.0"/>
+    <states name="19" incoming="/7/@transictions.0" outcoming="/7/@transictions.15"/>
+    <states name="34" incoming="/7/@transictions.15" outcoming="/7/@transictions.1"/>
+    <states name="42" incoming="/7/@transictions.1" outcoming="/7/@transictions.16"/>
+    <states name="55" incoming="/7/@transictions.6" outcoming="/7/@transictions.2"/>
+    <states name="63" incoming="/7/@transictions.2" outcoming="/7/@transictions.7"/>
+    <states name="76" incoming="/7/@transictions.7" outcoming="/7/@transictions.3"/>
+    <states name="84" incoming="/7/@transictions.3" outcoming="/7/@transictions.8"/>
+    <states name="96" incoming="/7/@transictions.8" outcoming="/7/@transictions.4"/>
+    <states name="104" incoming="/7/@transictions.4" outcoming="/7/@transictions.9"/>
+    <states name="117" incoming="/7/@transictions.9" outcoming="/7/@transictions.5"/>
+    <states name="125" incoming="/7/@transictions.5" outcoming="/7/@transictions.10"/>
+    <states name="135" incoming="/7/@transictions.13" outcoming="/7/@transictions.6 /7/@transictions.11"/>
+    <states name="145" incoming="/7/@transictions.10 /7/@transictions.11" outcoming="/7/@transictions.12"/>
+    <states name="155" incoming="/7/@transictions.12" outcoming="/7/@transictions.14"/>
+    <states name="165" incoming="/7/@transictions.14 /7/@transictions.16" outcoming="/7/@transictions.13"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="11" to="19"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="34" to="42"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="55" to="63"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="76" to="84"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="96" to="104"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="117" to="125"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="135" to="55"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="63" to="76"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="84" to="96"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="104" to="117"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="125" to="145"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="135" to="145"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="145" to="155"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="165" to="135"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="155" to="165"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="19" to="34"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="42" to="165"/>
+    <participantRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#//@participants.7"/>
+  </peerbehavior:Peer>
+  <peerbehavior:Peer initialState="12" name="SocialProximity" id="Participant_39">
+    <in name="?whoIsNear"/>
+    <out name="!nearFriendsResp"/>
+    <states name="12" outcoming="/8/@transictions.0"/>
+    <states name="20" incoming="/8/@transictions.0" outcoming="/8/@transictions.16"/>
+    <states name="24" incoming="/8/@transictions.16" outcoming="/8/@transictions.1"/>
+    <states name="25" incoming="/8/@transictions.1" outcoming="/8/@transictions.2"/>
+    <states name="27" incoming="/8/@transictions.2" outcoming="/8/@transictions.17"/>
+    <states name="56" incoming="/8/@transictions.7" outcoming="/8/@transictions.3"/>
+    <states name="64" incoming="/8/@transictions.3" outcoming="/8/@transictions.8"/>
+    <states name="77" incoming="/8/@transictions.8" outcoming="/8/@transictions.4"/>
+    <states name="85" incoming="/8/@transictions.4" outcoming="/8/@transictions.9"/>
+    <states name="97" incoming="/8/@transictions.9" outcoming="/8/@transictions.5"/>
+    <states name="105" incoming="/8/@transictions.5" outcoming="/8/@transictions.10"/>
+    <states name="118" incoming="/8/@transictions.10" outcoming="/8/@transictions.6"/>
+    <states name="126" incoming="/8/@transictions.6" outcoming="/8/@transictions.11"/>
+    <states name="136" incoming="/8/@transictions.14" outcoming="/8/@transictions.7 /8/@transictions.12"/>
+    <states name="146" incoming="/8/@transictions.11 /8/@transictions.12" outcoming="/8/@transictions.13"/>
+    <states name="156" incoming="/8/@transictions.13" outcoming="/8/@transictions.15"/>
+    <states name="166" incoming="/8/@transictions.15 /8/@transictions.17" outcoming="/8/@transictions.14"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="12" to="20"/>
+    <transictions xsi:type="peerbehavior:Receive" from="24" to="25" message="/8/@in[name='?whoIsNear']"/>
+    <transictions xsi:type="peerbehavior:Send" from="25" to="27" message="/8/@out[name='!nearFriendsResp']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="56" to="64"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="77" to="85"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="97" to="105"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="118" to="126"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="136" to="56"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="64" to="77"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="85" to="97"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="105" to="118"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="126" to="146"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="136" to="146"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="146" to="156"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="166" to="136"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="156" to="166"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="20" to="24"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="27" to="166"/>
+    <participantRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#//@participants.8"/>
+  </peerbehavior:Peer>
+  <peerbehavior:Peer initialState="13" name="Friends" id="Participant_43">
+    <in name="?reqMeeting"/>
+    <out name="!respMeeting"/>
+    <states name="13" outcoming="/9/@transictions.0"/>
+    <states name="21" incoming="/9/@transictions.0" outcoming="/9/@transictions.15"/>
+    <states name="35" incoming="/9/@transictions.15" outcoming="/9/@transictions.1"/>
+    <states name="43" incoming="/9/@transictions.1" outcoming="/9/@transictions.16"/>
+    <states name="57" incoming="/9/@transictions.6" outcoming="/9/@transictions.2"/>
+    <states name="65" incoming="/9/@transictions.2" outcoming="/9/@transictions.7"/>
+    <states name="68" incoming="/9/@transictions.7" outcoming="/9/@transictions.3"/>
+    <states name="69" incoming="/9/@transictions.3" outcoming="/9/@transictions.8"/>
+    <states name="86" incoming="/9/@transictions.8" outcoming="/9/@transictions.4"/>
+    <states name="87" incoming="/9/@transictions.4" outcoming="/9/@transictions.9"/>
+    <states name="119" incoming="/9/@transictions.9" outcoming="/9/@transictions.5"/>
+    <states name="127" incoming="/9/@transictions.5" outcoming="/9/@transictions.10"/>
+    <states name="137" incoming="/9/@transictions.13" outcoming="/9/@transictions.6 /9/@transictions.11"/>
+    <states name="147" incoming="/9/@transictions.10 /9/@transictions.11" outcoming="/9/@transictions.12"/>
+    <states name="157" incoming="/9/@transictions.12" outcoming="/9/@transictions.14"/>
+    <states name="167" incoming="/9/@transictions.14 /9/@transictions.16" outcoming="/9/@transictions.13"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="13" to="21"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="35" to="43"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="57" to="65"/>
+    <transictions xsi:type="peerbehavior:Receive" from="68" to="69" message="/9/@in[name='?reqMeeting']"/>
+    <transictions xsi:type="peerbehavior:Send" from="86" to="87" message="/9/@out[name='!respMeeting']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="119" to="127"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="137" to="57"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="65" to="68"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="69" to="86"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="87" to="119"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="127" to="147"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="137" to="147"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="147" to="157"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="167" to="137"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="157" to="167"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="21" to="35"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="43" to="167"/>
+    <participantRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#//@participants.9"/>
+  </peerbehavior:Peer>
+</xmi:XMI>

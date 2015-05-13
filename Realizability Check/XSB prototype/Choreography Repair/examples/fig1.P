@@ -1,0 +1,15 @@
+% -*- Mode: Prolog -*-
+% Bultan's FSE 10 paper
+
+gtrans(s0, ('P1', 'P2', ms), s1).
+
+gtrans(s1, ('P1', 'P2', mc), s2).
+gtrans(s1, ('P2', 'P1', mf), s3).
+gtrans(s2, ('P2', 'P1', mf), s4).
+
+start(s0).
+
+peer('P1').
+peer('P2').
+
+negategtrans(false, false).

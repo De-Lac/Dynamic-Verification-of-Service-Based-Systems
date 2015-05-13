@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1422028437629
+Build-Jdk: 1.8.0_25
+Built-By: deLac
+Bundle-Blueprint: OSGI-INF/blueprint/service.xml
+Bundle-ManifestVersion: 2
+Bundle-Name: -- Web Service Provider
+Bundle-SymbolicName: sp.service
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: service;version="1.0.0";uses:="javax.jws,javax.xml.soap"
+Import-Package: javax.jws,javax.xml.bind.annotation,javax.xml.namespace,
+ javax.xml.soap;version="[1.3,2)",javax.xml.ws,org.osgi.service.blueprin
+ t;version="[1.0.0,2.0.0)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+Tool: Bnd-2.3.0.201405100607

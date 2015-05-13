@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:peerbehavior="http://peerbehavior/1.0.2">
+  <peerbehavior:Peer initialState="64" name="Porter" id="Participant_1">
+    <in name="?takeLuggage"/>
+    <in name="?callPorter"/>
+    <in name="?sendPorterData"/>
+    <out name="!notifyCheckin"/>
+    <out name="!giveBackLug"/>
+    <out name="!acceptCall"/>
+    <out name="!pickupLug"/>
+    <out name="!departureCheck"/>
+    <states name="0" incoming="/0/@transictions.16" outcoming="/0/@transictions.0"/>
+    <states name="1" incoming="/0/@transictions.0" outcoming="/0/@transictions.17"/>
+    <states name="8" incoming="/0/@transictions.17" outcoming="/0/@transictions.1"/>
+    <states name="9" incoming="/0/@transictions.1" outcoming="/0/@transictions.2"/>
+    <states name="12" incoming="/0/@transictions.2"/>
+    <states name="20" incoming="/0/@transictions.8" outcoming="/0/@transictions.3"/>
+    <states name="21" incoming="/0/@transictions.3" outcoming="/0/@transictions.9"/>
+    <states name="26" incoming="/0/@transictions.9" outcoming="/0/@transictions.4"/>
+    <states name="27" incoming="/0/@transictions.4" outcoming="/0/@transictions.5"/>
+    <states name="30" incoming="/0/@transictions.5" outcoming="/0/@transictions.10"/>
+    <states name="36" incoming="/0/@transictions.11" outcoming="/0/@transictions.6"/>
+    <states name="37" incoming="/0/@transictions.6" outcoming="/0/@transictions.12"/>
+    <states name="44" incoming="/0/@transictions.12" outcoming="/0/@transictions.7"/>
+    <states name="45" incoming="/0/@transictions.7" outcoming="/0/@transictions.13"/>
+    <states name="52" incoming="/0/@transictions.15" outcoming="/0/@transictions.8 /0/@transictions.11"/>
+    <states name="56" incoming="/0/@transictions.10 /0/@transictions.13" outcoming="/0/@transictions.14"/>
+    <states name="60" incoming="/0/@transictions.14" outcoming="/0/@transictions.16 /0/@transictions.18"/>
+    <states name="64" incoming="/0/@transictions.18" outcoming="/0/@transictions.15"/>
+    <transictions xsi:type="peerbehavior:Send" from="0" to="1" message="/0/@out[name='!notifyCheckin']"/>
+    <transictions xsi:type="peerbehavior:Send" from="8" to="9" message="/0/@out[name='!giveBackLug']"/>
+    <transictions xsi:type="peerbehavior:Receive" from="9" to="12" message="/0/@in[name='?takeLuggage']"/>
+    <transictions xsi:type="peerbehavior:Receive" from="20" to="21" message="/0/@in[name='?callPorter']"/>
+    <transictions xsi:type="peerbehavior:Send" from="26" to="27" message="/0/@out[name='!acceptCall']"/>
+    <transictions xsi:type="peerbehavior:Receive" from="27" to="30" message="/0/@in[name='?sendPorterData']"/>
+    <transictions xsi:type="peerbehavior:Send" from="36" to="37" message="/0/@out[name='!pickupLug']"/>
+    <transictions xsi:type="peerbehavior:Send" from="44" to="45" message="/0/@out[name='!departureCheck']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="52" to="20"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="21" to="26"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="30" to="56"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="52" to="36"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="37" to="44"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="45" to="56"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="56" to="60"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="64" to="52"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="60" to="0"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="1" to="8"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="60" to="64"/>
+    <participantRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#//@participants.0"/>
+  </peerbehavior:Peer>
+  <peerbehavior:Peer initialState="65" name="MID" id="Participant_2">
+    <in name="?notifyCheckin"/>
+    <in name="?acceptCall"/>
+    <out name="!callPorter"/>
+    <out name="!sendPorterData"/>
+    <states name="2" incoming="/1/@transictions.15" outcoming="/1/@transictions.0"/>
+    <states name="3" incoming="/1/@transictions.0" outcoming="/1/@transictions.16"/>
+    <states name="14" incoming="/1/@transictions.16" outcoming="/1/@transictions.1"/>
+    <states name="16" incoming="/1/@transictions.1"/>
+    <states name="18" incoming="/1/@transictions.7" outcoming="/1/@transictions.2"/>
+    <states name="19" incoming="/1/@transictions.2" outcoming="/1/@transictions.8"/>
+    <states name="28" incoming="/1/@transictions.8" outcoming="/1/@transictions.3"/>
+    <states name="29" incoming="/1/@transictions.3" outcoming="/1/@transictions.4"/>
+    <states name="31" incoming="/1/@transictions.4" outcoming="/1/@transictions.9"/>
+    <states name="40" incoming="/1/@transictions.10" outcoming="/1/@transictions.5"/>
+    <states name="42" incoming="/1/@transictions.5" outcoming="/1/@transictions.11"/>
+    <states name="48" incoming="/1/@transictions.11" outcoming="/1/@transictions.6"/>
+    <states name="50" incoming="/1/@transictions.6" outcoming="/1/@transictions.12"/>
+    <states name="53" incoming="/1/@transictions.14" outcoming="/1/@transictions.7 /1/@transictions.10"/>
+    <states name="57" incoming="/1/@transictions.9 /1/@transictions.12" outcoming="/1/@transictions.13"/>
+    <states name="61" incoming="/1/@transictions.13" outcoming="/1/@transictions.15 /1/@transictions.17"/>
+    <states name="65" incoming="/1/@transictions.17" outcoming="/1/@transictions.14"/>
+    <transictions xsi:type="peerbehavior:Receive" from="2" to="3" message="/1/@in[name='?notifyCheckin']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="14" to="16"/>
+    <transictions xsi:type="peerbehavior:Send" from="18" to="19" message="/1/@out[name='!callPorter']"/>
+    <transictions xsi:type="peerbehavior:Receive" from="28" to="29" message="/1/@in[name='?acceptCall']"/>
+    <transictions xsi:type="peerbehavior:Send" from="29" to="31" message="/1/@out[name='!sendPorterData']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="40" to="42"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="48" to="50"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="53" to="18"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="19" to="28"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="31" to="57"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="53" to="40"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="42" to="48"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="50" to="57"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="57" to="61"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="65" to="53"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="61" to="2"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="3" to="14"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="61" to="65"/>
+    <participantRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#//@participants.1"/>
+  </peerbehavior:Peer>
+  <peerbehavior:Peer initialState="66" name="Citizen" id="Participant_8">
+    <in name="?giveBackLug"/>
+    <in name="?pickupLug"/>
+    <out name="!takeLuggage"/>
+    <states name="4" incoming="/2/@transictions.15" outcoming="/2/@transictions.0"/>
+    <states name="6" incoming="/2/@transictions.0" outcoming="/2/@transictions.16"/>
+    <states name="10" incoming="/2/@transictions.16" outcoming="/2/@transictions.1"/>
+    <states name="11" incoming="/2/@transictions.1" outcoming="/2/@transictions.2"/>
+    <states name="13" incoming="/2/@transictions.2"/>
+    <states name="22" incoming="/2/@transictions.7" outcoming="/2/@transictions.3"/>
+    <states name="24" incoming="/2/@transictions.3" outcoming="/2/@transictions.8"/>
+    <states name="32" incoming="/2/@transictions.8" outcoming="/2/@transictions.4"/>
+    <states name="34" incoming="/2/@transictions.4" outcoming="/2/@transictions.9"/>
+    <states name="38" incoming="/2/@transictions.10" outcoming="/2/@transictions.5"/>
+    <states name="39" incoming="/2/@transictions.5" outcoming="/2/@transictions.11"/>
+    <states name="49" incoming="/2/@transictions.11" outcoming="/2/@transictions.6"/>
+    <states name="51" incoming="/2/@transictions.6" outcoming="/2/@transictions.12"/>
+    <states name="54" incoming="/2/@transictions.14" outcoming="/2/@transictions.7 /2/@transictions.10"/>
+    <states name="58" incoming="/2/@transictions.9 /2/@transictions.12" outcoming="/2/@transictions.13"/>
+    <states name="62" incoming="/2/@transictions.13" outcoming="/2/@transictions.15 /2/@transictions.17"/>
+    <states name="66" incoming="/2/@transictions.17" outcoming="/2/@transictions.14"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="4" to="6"/>
+    <transictions xsi:type="peerbehavior:Receive" from="10" to="11" message="/2/@in[name='?giveBackLug']"/>
+    <transictions xsi:type="peerbehavior:Send" from="11" to="13" message="/2/@out[name='!takeLuggage']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="22" to="24"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="32" to="34"/>
+    <transictions xsi:type="peerbehavior:Receive" from="38" to="39" message="/2/@in[name='?pickupLug']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="49" to="51"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="54" to="22"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="24" to="32"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="34" to="58"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="54" to="38"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="39" to="49"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="51" to="58"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="58" to="62"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="66" to="54"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="62" to="4"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="6" to="10"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="62" to="66"/>
+    <participantRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#//@participants.2"/>
+  </peerbehavior:Peer>
+  <peerbehavior:Peer initialState="67" name="Airport" id="Participant_14">
+    <in name="?departureCheck"/>
+    <states name="5" incoming="/3/@transictions.14" outcoming="/3/@transictions.0"/>
+    <states name="7" incoming="/3/@transictions.0" outcoming="/3/@transictions.15"/>
+    <states name="15" incoming="/3/@transictions.15" outcoming="/3/@transictions.1"/>
+    <states name="17" incoming="/3/@transictions.1"/>
+    <states name="23" incoming="/3/@transictions.6" outcoming="/3/@transictions.2"/>
+    <states name="25" incoming="/3/@transictions.2" outcoming="/3/@transictions.7"/>
+    <states name="33" incoming="/3/@transictions.7" outcoming="/3/@transictions.3"/>
+    <states name="35" incoming="/3/@transictions.3" outcoming="/3/@transictions.8"/>
+    <states name="41" incoming="/3/@transictions.9" outcoming="/3/@transictions.4"/>
+    <states name="43" incoming="/3/@transictions.4" outcoming="/3/@transictions.10"/>
+    <states name="46" incoming="/3/@transictions.10" outcoming="/3/@transictions.5"/>
+    <states name="47" incoming="/3/@transictions.5" outcoming="/3/@transictions.11"/>
+    <states name="55" incoming="/3/@transictions.13" outcoming="/3/@transictions.6 /3/@transictions.9"/>
+    <states name="59" incoming="/3/@transictions.8 /3/@transictions.11" outcoming="/3/@transictions.12"/>
+    <states name="63" incoming="/3/@transictions.12" outcoming="/3/@transictions.14 /3/@transictions.16"/>
+    <states name="67" incoming="/3/@transictions.16" outcoming="/3/@transictions.13"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="5" to="7"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="15" to="17"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="23" to="25"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="33" to="35"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="41" to="43"/>
+    <transictions xsi:type="peerbehavior:Receive" from="46" to="47" message="/3/@in[name='?departureCheck']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="55" to="23"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="25" to="33"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="35" to="59"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="55" to="41"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="43" to="46"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="47" to="59"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="59" to="63"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="67" to="55"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="63" to="5"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="7" to="15"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="63" to="67"/>
+    <participantRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#//@participants.3"/>
+  </peerbehavior:Peer>
+</xmi:XMI>

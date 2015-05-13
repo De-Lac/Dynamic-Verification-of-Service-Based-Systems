@@ -1,0 +1,365 @@
+% -*- Mode: Prolog -*-
+:- import member/2 from basics.
+
+assertOnce(T) :-
+	(T -> !, true; assert(T)).
+
+
+%%%%%%%used in project.P%%%%%%%%%%%%%%%%
+:- table ptransWOep1/2.
+ptransWOep1(S, S1) :-
+	ptranswep(_, S, A, S1), 
+	A \= (epsilon).
+ptransWOep1(S, S1) :-
+	ptranswep(_, S, _, T),
+	ptransWOep1(T, S1).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Used in unrealize1 as consumeViaPtrans
+%%% Should be using ptranswep
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+:- table ptransWOep/4.
+ptransWOep(P, S, A, S1) :-
+	A \= (epsilon),  ptransEpStar(P, S, T), ptranswep(P, T, A, S1). 
+ptransWOep(P, S, A, S1) :-
+	ptransEpStar(P, S, T),
+	ptransWOep(P, T, A, S1).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% used in addTransitions
+%% changing pReach to only consider output actions will cause non-termination: example testgoal3.P
+:- table pReach/4.
+pReach(P, S, A, T) :-
+	ptranswep(P, S, A, T). 
+pReach(P, S, A, T) :-
+	ptranswep(P, S, X, S1),
+	X == (epsilon),
+	pReach(P, S1, A, T).
+pReach(P, S, A, T) :-
+	ptranswep(P, S, A, S1),
+	pReach(P, S1, _X, T). 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% used in addTransitions and other places
+% instead of mapping: it is better to use transitive closure of epsilon-transitions
+
+%% transition closure over epsilons
+:- table ptransEpStar/3.
+ptransEpStar(P, S, S).
+ptransEpStar(P, S, T) :-
+	ptranswep(P, S, epsilon, T).
+ptransEpStar(P, S, T) :-
+	ptranswep(P, S, epsilon, S1),
+	ptransEpStar(P, S1, T).
+
+%% transitive closure
+:- table ptransStar/3.
+ptransStar(P, S, S).
+ptransStar(P, S, T) :-
+	ptransEpStar(P, S, S1), ptranswep(P, S1, _, T1), ptransEpStar(P, T1, T).
+ptransStar(P, S, T) :-
+	ptransEpStar(P, S, S1), ptranswep(P, S1, _, S2), ptransStar(P, S2, T).
+
+%% Weak transition relation
+ptransStarWOEp(P, S, A, T) :-
+	ptransEpStar(P, S, S1), ptranswep(P, S1, A, T1), A \= (epsilon), ptransEpStar(P, T1, T).
+
+%% Modified Weak transition relation used in drawing deterministic systems
+ptransStarWOEp1(P, S, A, T1) :-
+	ptransEpStar(P, S, S1), ptranswep(P, S1, A, T1), A \= (epsilon).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+findPeerState(P, ([State-P|_], [P-_|_]), State-P) :- !.
+
+findPeerState(P, ([_|Rest], [_|Queues]), PS) :-
+	findPeerState(P, (Rest, Queues), PS).
+
+
+getFromPeer(([State-P|_], _), P, State) :- !.
+getFromPeer(([_|Rest], _), P, State) :-
+	getFromPeer((Rest, _), P, State).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% used in addTransitions
+%% First case: there is no intermediate action
+findNextAction(P, A, S, S, T) :-
+	ptransEpStar(P, S, S1), ptranswep(P, S1, A, T1), ptransEpStar(P, T1, T).
+
+findNextAction(P, A, S, S2, T) :-
+	ptransEpStar(P, S, S1),
+	ptranswep(P, S1, A, S2),
+        ptransStarWOEp(P, S2, _, T1),
+	ptransStar(P, T1, T).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% canReach1: 
+canReach1(SystemState, Peer, PeerDest) :-
+	findPeerState(Peer, SystemState, PeerSource),
+	(ptransEpStar(Peer, PeerSource, PeerDest) 
+	->   true
+        ;    ptransStarWOEp(Peer, PeerSource, _, Temp),
+	     ptransStar(Peer, Temp, PeerDest)
+	).
+
+% canReach1:
+findGoalStateForP(([G-P|_], _), P, G) :- !.
+findGoalStateForP(([_|Rest], _), P, G) :-
+	findGoalStateForP((Rest, _), P, G).
+
+:- table canReach2/3.
+canReach2(T, M, T1) :-
+	gtrans(T, M, T1).
+canReach2(T, M, T1) :-
+	gtrans(T, M1, Temp), M \= M1, canReach2(Temp, M, T1).
+
+% canReach2(SystemState, Peer, PeerSource) :-
+% 	findPeerState(Peer, SystemState, PeerDest),
+% 	(PeerSource \= PeerDest, ptransEpStar(Peer, PeerSource, PeerDest) %% first condition is added to make sure that peers that do not move at all is not considered
+% 	->   true
+%         ;    ptransStarWOEp(Peer, PeerSource, _, Temp),
+% 	     ptransStar(Peer, Temp, PeerDest)
+% 	).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% S: destination state of a transition that is
+% not matched by goal transition system (choreographer).
+% Unmatching is due to some peer P sending a message
+% by moving along a goal-path while the receiver
+% is moving along a different goal-path.
+
+% Starting from local state of P in S, we check whether
+% and how much P can consume the messages in its
+% buffer.
+
+% We identify the corresponding goal-state from which
+% the projected local state of P is formed.
+
+% We return that goalstate to caller so that a
+% new transition can be added 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+:- import conget/2, conset/2 from gensym.
+
+checkState((P, _, _), S, GoalState, Flag) :-
+	findGoalState(P, S, GoalState, Flag).
+
+%% if the Queue is empty create a new state: best example testgoal.P
+%% will not work for testgoal2.P 
+findGoalState(P, ([State-P|_], [P-[]|_]), ns(NS), false) :- !,
+	conget(newState, NS),
+	NewStateNumber is NS + 1,
+	conset(newState, NewStateNumber).
+
+findGoalState(P, ([State-P|_], [P-Queue|_]), GoalState, Flag) :-
+	Queue \= [], !,
+	consumeViaPtrans(P, State-P, Queue, GoalState, Flag).
+	
+findGoalState(P, ([_|Rest], [_|Queues]), GoalState, Flag) :-
+	findGoalState(P, (Rest, Queues), GoalState, Flag).
+
+consumeViaPtrans(P, State-P, [], State, true) :- !.
+
+% remove case 1b and include this
+consumeViaPtrans(P, State-P, [M|_Ms], State, false) :-
+	not ptransWOep(P, State-P, in(M, _), _), !.
+
+consumeViaPtrans(P, State, [M|Ms], GoalState, true) :-
+	ptransWOep(P, State, in(M, _), State1),
+	consumeViaPtrans(P, State1, Ms, GoalState, _).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+:- dynamic replicate/2.
+generateReplicate(GoalState, ns(NS)) :-
+	findall((A, Dest), gtrans(GoalState, A, Dest), L),
+	conget(newState, NS),
+	NewStateNumber is NS + 1,
+	conset(newState, NewStateNumber),
+	assertOnce(replicate(GoalState, ns(NS))),
+	addTransitionsTo(ns(NS), L).
+
+:- table generateReplicate/3.
+generateReplicate(T, new(T), _) :-
+	gtrans(T, A, T1),
+	assertOnce(gtrans_1(new(T), A, new(T1))),
+	assertOnce(added(new(T), A, new(T1))),
+	write('Added transition: '),
+	writeln(new(T)-A-new(T1)),	
+	generateReplicate(T1, new(T1), _).
+generateReplicate(_, _, _).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+addTransitionsTo(_, []).
+addTransitionsTo(S, [(A, T)|Rest]) :-
+	replicate(T, T1), !,
+	assertOnce(gtrans_1(S, A, T1)),
+	assertOnce(added(S, A, T1)),
+	write('Added transition: '),
+	writeln(S-A-T1),
+	addTransitionsTo(S, Rest).
+
+addTransitionsTo(S, [(A, T)|Rest]) :-
+	generateReplicate(T, new(T)),
+	assertOnce(gtrans_1(S, A, new(T))),
+	assertOnce(added(S, A, new(T))),
+	write('Added transition: '),
+	writeln(S-A-new(T)),
+	addTransitionsTo(S, Rest).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+findInBranch(T1, A, Src, Dest) :-
+	findInBranchLow(T1, A, Src, Dest, [T1], _).
+
+findInBranchLow(T, A, Src, Dest, _SetIn, _SetOut) :-
+	gtrans(T, A, T1),
+	Src = T,
+	Dest = T1, !.
+findInBranchLow(T, A, Src, Dest, SetIn, SetOut) :-
+	gtrans(T, _, T1),
+	not member(T1, SetIn),
+	SetOut = [T1|SetIn],
+	findInBranchLow(T1, A, Src, Dest, SetOut, _).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+assertNewTrans :-
+	(gtrans_1(X, Y, Z)
+	->      assert(gtrans(X, Y, Z)),
+	        retract(gtrans_1(X, Y, Z)),
+	        assertNewTrans
+	;       fail
+	).
+assertNewTrans :- true.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% NOT USED 
+sys_old :- project, sysstart(S), assertAllSystemTrans(S, _, 1), draw('sysold', 3), abolish_all_tables, retractall(systemTrans(_, _, _)).
+sys_new :- project, sysstart(S), assertAllSystemTrans(S, _, 1), draw('sysnew', 3), abolish_all_tables, retractall(systemTrans(_, _, _)).
+sys_old_wep :- project, sysstart(S), assertSystemTransWep(S, _, 1), draw('sysoldwep', 4), abolish_all_tables, retractall(systemTransWep(_, _, _)).
+sys_new_wep :- project, sysstart(S), assertSystemTransWep(S, _, 1), draw('sysnewwep', 4), abolish_all_tables, retractall(systemTransWep(_, _, _)). 
+
+checksequence :-
+	sysstart(S),
+	stransWOepsilon(S, (_, _, bStartcp), T, 1),
+	stransWOepsilon(T, (_, _, aStartcp), T1, 1),
+	stransWOepsilon(T1, (_, _, bStartcp), T2, 1),
+	write('here').
+checksequence.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+:- table assertSystemTransWep/3.
+:- dynamic systemTransWep/3.
+assertSystemTransWep(S, _, K) :-
+	strans(S, M, S1, K),
+	pprint(S, NS), pprint(S1, NS1),
+	assertOnce(systemTransWep(NS, M, NS1)).
+assertSystemTransWep(S, _, K) :-
+	strans(S, _M, S1, K),
+	assertSystemTransWep(S1, _, K).
+
+pprint(([], []), []).
+pprint(([State-Peer|Rest], [Peer-Queue|Others]), [Peer:State:Queue|Result]) :-
+	pprint((Rest, Others), Result).
+
+pprint(State-Peer, Peer:State).
+
+:- table assertAllSystemTrans/3.
+:- dynamic systemTrans/3.
+assertAllSystemTrans(S, _, K) :-
+	stransWOepsilon(S, M, S1, K),
+	%%listing(systemTrans),
+	assertOnce(systemTrans(S, M, S1)).
+
+assertAllSystemTrans(S, _, K) :-
+	stransWOepsilon(S, _M, S1, K),
+	assertAllSystemTrans(S1, _, K).
+
+:- table stransWOepsilon/4.
+stransWOepsilon(S, M, S1, K) :-
+	strans(S, M, S1, K), M \= (epsilon).
+stransWOepsilon(S, M, S1, K) :-
+	strans(S, (epsilon), T, K),
+	stransWOepsilon(T, M, S1, K).
+
+% :- table mapping/2.
+% mapping(X, Y) :- mapep(X, Y).
+% mapping(X, Y) :- mapep(X, Z), mapping(Z, Y).
+% %mapping(X, Y) :- mapep(Z, X), mapping(Z, Y).
+% mapping(X, X).
+
+% ptrans1(P, S, A, T) :-
+% 	mapping(S, S1),
+% 	ptrans(P, S1, A, T).
+
+
+
+%% S can reach S1 - we know already
+%% we want to find S can reach T via an action other than A and epsilon and T can reach S1
+% :- table onlyep/4.
+% onlyep(P, A, S, S) :-
+% 	ptrans1(P, S, A, S), A \= (epsilon).
+% onlyep(P, (epsilon), S, S). 
+% onlyep(P, A, S, S1) :-
+% 	ptrans1(P, S, A, Temp),
+% 	onlyep(P, (epsilon), Temp, S1). 
+
+% findNextAction(P, A, S, S, T) :-
+% 	onlyep(P, A, S, T), !.
+% findNextAction(P, A, S, T, S1) :-
+% 	ptrans1(P, S, A, T),
+% 	ptrans1(P, T, X, Temp), X \= (epsilon),
+% 	pReach(P, Temp, _, S1).
+
+
+
+retractPeers :-
+	retractall(ptrans(_, _, _, _)),
+	retractall(ptranswep(_, _, _, _)),
+	retractall(startPeer(_, _)),
+	retractall(mapep(_, _)).
+
+% existNewTrans :-
+% 	gtrans_1(_, _, _).
+
+
+% removeDuplicates([], []) :- !.
+% removeDuplicates([X], [X]) :- !.
+% removeDuplicates([X|Xs], L) :-
+% 	in(X, Xs), !,
+% 	removeDuplicates(Xs, L).
+% removeDuplicates([X|Xs], [X|L]) :-
+% 	removeDuplicates(Xs, L).
+
+% in(X, [X|_]) :- !.
+% in(X, [_|L]) :- in(X, L).
+
+
+%%%%% Not Simulated %%%%
+
+%% K provides the buffer size information
+:- table nsim/3.
+
+nsim(S, T, K) :-
+	stransWOepsilon(S, M, S1, K),
+	noMatchingTrans(T, M, S1, K).
+
+noMatchingTrans(T, M, S1, K) :-
+	forAll(gtrans(T, M, T1), nsim(S1, T1, K)).
+
+forAll(P, Q) :-
+	findall(Q, P, L),
+	all(L).
+
+all([]).
+all([Q|Qs]) :- Q, all(Qs).
+

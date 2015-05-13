@@ -1,0 +1,214 @@
+
+package partes.service;
+
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.annotation.XmlElementDecl;
+import javax.xml.bind.annotation.XmlRegistry;
+import javax.xml.namespace.QName;
+
+
+/**
+ * This object contains factory methods for each 
+ * Java content interface and Java element interface 
+ * generated in the partes.service package. 
+ * <p>An ObjectFactory allows you to programatically 
+ * construct new instances of the Java representation 
+ * for XML content. The Java representation of XML 
+ * content can consist of schema derived interfaces 
+ * and classes representing the binding of schema 
+ * type definitions, element declarations and model 
+ * groups.  Factory methods for each of these are 
+ * provided in this class.
+ * 
+ */
+@XmlRegistry
+public class ObjectFactory {
+
+    private final static QName _GenerateSOAPuiTestSuiteFromYmlPathYmlPath_QNAME = new QName("http://service.partes", "ymlPath");
+    private final static QName _GenerateSOAPuiTestSuiteFromYmlPathChoreographyTModelKey_QNAME = new QName("http://service.partes", "choreographyTModelKey");
+    private final static QName _GenerateSOAPuiTestSuiteFromYmlPathBpmnPath_QNAME = new QName("http://service.partes", "bpmnPath");
+    private final static QName _GenerateSOAPuiTestSuiteFromYmlContentYmlContent_QNAME = new QName("http://service.partes", "ymlContent");
+    private final static QName _GenerateSOAPuiTestSuiteFromYmlContentBpmn_QNAME = new QName("http://service.partes", "bpmn");
+    private final static QName _GetTestSuiteResponseReturn_QNAME = new QName("http://service.partes", "return");
+    private final static QName _HelloServiceMsg_QNAME = new QName("http://service.partes", "msg");
+
+    /**
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: partes.service
+     * 
+     */
+    public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link GenerateSOAPuiTestSuiteFromYmlPath }
+     * 
+     */
+    public GenerateSOAPuiTestSuiteFromYmlPath createGenerateSOAPuiTestSuiteFromYmlPath() {
+        return new GenerateSOAPuiTestSuiteFromYmlPath();
+    }
+
+    /**
+     * Create an instance of {@link GenerateSOAPuiTestSuiteFromYmlContent }
+     * 
+     */
+    public GenerateSOAPuiTestSuiteFromYmlContent createGenerateSOAPuiTestSuiteFromYmlContent() {
+        return new GenerateSOAPuiTestSuiteFromYmlContent();
+    }
+
+    /**
+     * Create an instance of {@link GetTestSuiteResponse }
+     * 
+     */
+    public GetTestSuiteResponse createGetTestSuiteResponse() {
+        return new GetTestSuiteResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetTestSuite }
+     * 
+     */
+    public GetTestSuite createGetTestSuite() {
+        return new GetTestSuite();
+    }
+
+    /**
+     * Create an instance of {@link HelloService }
+     * 
+     */
+    public HelloService createHelloService() {
+        return new HelloService();
+    }
+
+    /**
+     * Create an instance of {@link GenerateSOAPuiTestSuiteFromYmlContentResponse }
+     * 
+     */
+    public GenerateSOAPuiTestSuiteFromYmlContentResponse createGenerateSOAPuiTestSuiteFromYmlContentResponse() {
+        return new GenerateSOAPuiTestSuiteFromYmlContentResponse();
+    }
+
+    /**
+     * Create an instance of {@link GenerateSOAPuiTestSuiteFromYmlPathResponse }
+     * 
+     */
+    public GenerateSOAPuiTestSuiteFromYmlPathResponse createGenerateSOAPuiTestSuiteFromYmlPathResponse() {
+        return new GenerateSOAPuiTestSuiteFromYmlPathResponse();
+    }
+
+    /**
+     * Create an instance of {@link HelloServiceResponse }
+     * 
+     */
+    public HelloServiceResponse createHelloServiceResponse() {
+        return new HelloServiceResponse();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.partes", name = "ymlPath", scope = GenerateSOAPuiTestSuiteFromYmlPath.class)
+    public JAXBElement<String> createGenerateSOAPuiTestSuiteFromYmlPathYmlPath(String value) {
+        return new JAXBElement<String>(_GenerateSOAPuiTestSuiteFromYmlPathYmlPath_QNAME, String.class, GenerateSOAPuiTestSuiteFromYmlPath.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.partes", name = "choreographyTModelKey", scope = GenerateSOAPuiTestSuiteFromYmlPath.class)
+    public JAXBElement<String> createGenerateSOAPuiTestSuiteFromYmlPathChoreographyTModelKey(String value) {
+        return new JAXBElement<String>(_GenerateSOAPuiTestSuiteFromYmlPathChoreographyTModelKey_QNAME, String.class, GenerateSOAPuiTestSuiteFromYmlPath.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.partes", name = "bpmnPath", scope = GenerateSOAPuiTestSuiteFromYmlPath.class)
+    public JAXBElement<String> createGenerateSOAPuiTestSuiteFromYmlPathBpmnPath(String value) {
+        return new JAXBElement<String>(_GenerateSOAPuiTestSuiteFromYmlPathBpmnPath_QNAME, String.class, GenerateSOAPuiTestSuiteFromYmlPath.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.partes", name = "ymlContent", scope = GenerateSOAPuiTestSuiteFromYmlContent.class)
+    public JAXBElement<String> createGenerateSOAPuiTestSuiteFromYmlContentYmlContent(String value) {
+        return new JAXBElement<String>(_GenerateSOAPuiTestSuiteFromYmlContentYmlContent_QNAME, String.class, GenerateSOAPuiTestSuiteFromYmlContent.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.partes", name = "bpmn", scope = GenerateSOAPuiTestSuiteFromYmlContent.class)
+    public JAXBElement<String> createGenerateSOAPuiTestSuiteFromYmlContentBpmn(String value) {
+        return new JAXBElement<String>(_GenerateSOAPuiTestSuiteFromYmlContentBpmn_QNAME, String.class, GenerateSOAPuiTestSuiteFromYmlContent.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.partes", name = "choreographyTModelKey", scope = GenerateSOAPuiTestSuiteFromYmlContent.class)
+    public JAXBElement<String> createGenerateSOAPuiTestSuiteFromYmlContentChoreographyTModelKey(String value) {
+        return new JAXBElement<String>(_GenerateSOAPuiTestSuiteFromYmlPathChoreographyTModelKey_QNAME, String.class, GenerateSOAPuiTestSuiteFromYmlContent.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.partes", name = "return", scope = GetTestSuiteResponse.class)
+    public JAXBElement<String> createGetTestSuiteResponseReturn(String value) {
+        return new JAXBElement<String>(_GetTestSuiteResponseReturn_QNAME, String.class, GetTestSuiteResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.partes", name = "choreographyTModelKey", scope = GetTestSuite.class)
+    public JAXBElement<String> createGetTestSuiteChoreographyTModelKey(String value) {
+        return new JAXBElement<String>(_GenerateSOAPuiTestSuiteFromYmlPathChoreographyTModelKey_QNAME, String.class, GetTestSuite.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.partes", name = "msg", scope = HelloService.class)
+    public JAXBElement<String> createHelloServiceMsg(String value) {
+        return new JAXBElement<String>(_HelloServiceMsg_QNAME, String.class, HelloService.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.partes", name = "return", scope = GenerateSOAPuiTestSuiteFromYmlContentResponse.class)
+    public JAXBElement<String> createGenerateSOAPuiTestSuiteFromYmlContentResponseReturn(String value) {
+        return new JAXBElement<String>(_GetTestSuiteResponseReturn_QNAME, String.class, GenerateSOAPuiTestSuiteFromYmlContentResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.partes", name = "return", scope = GenerateSOAPuiTestSuiteFromYmlPathResponse.class)
+    public JAXBElement<String> createGenerateSOAPuiTestSuiteFromYmlPathResponseReturn(String value) {
+        return new JAXBElement<String>(_GetTestSuiteResponseReturn_QNAME, String.class, GenerateSOAPuiTestSuiteFromYmlPathResponse.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.partes", name = "return", scope = HelloServiceResponse.class)
+    public JAXBElement<String> createHelloServiceResponseReturn(String value) {
+        return new JAXBElement<String>(_GetTestSuiteResponseReturn_QNAME, String.class, HelloServiceResponse.class, value);
+    }
+
+}

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+
+    Copyright (C) 2012  Midhat Ali, Andrea Polini, Guglielmo De Angelis
+
+    This file is part of ServicePot ver 0.1 .
+
+    ServicePot is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with ServicePot.  If not, see <http:www.gnu.org/licenses/>.
+
+-->
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+ <servlet id="bridge">
+		<servlet-name>equinoxbridgeservlet</servlet-name>
+		<display-name>Equinox Bridge Servlet</display-name>
+		<description>Equinox Bridge Servlet</description>
+		<servlet-class>org.eclipse.equinox.servletbridge.BridgeServlet</servlet-class>
+		<init-param>
+			<param-name>commandline</param-name>
+			<param-value>-console 9999</param-value>			
+		</init-param>		
+		<init-param>
+			<param-name>enableFrameworkControls</param-name>
+			<param-value>true</param-value>			
+		</init-param>
+		<!--
+		  org.eclipse.equinox.servletbridge and the Servlet API are exported automatically to the underlying OSGi framework.
+		  The extendedFrameworkExports parameter allows the specification of additional java package exports.
+		  The format is a comma separated list of exports as specified by the "Export-Package" bundle manifest header.
+		  For example: com.mycompany.exports; version=1.0.0, com.mycompany.otherexports; version=1.0.0
+		  -->
+		<init-param>
+			<param-name>extendedFrameworkExports</param-name>
+			<param-value></param-value>			
+		</init-param>
+
+		<!-- 
+		  You can specify your own framework launcher here.
+		  The default is: org.eclipse.equinox.servletbridge.FrameworkLauncher
+		<init-param>
+			<param-name>frameworkLauncherClass</param-name>
+			<param-value>org.eclipse.equinox.servletbridge.FrameworkLauncher</param-value>
+		</init-param>	
+		-->		
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	
+	
+	<servlet-mapping>
+		<servlet-name>equinoxbridgeservlet</servlet-name>
+		<url-pattern>/servicepot/*</url-pattern>
+	</servlet-mapping>
+</web-app>

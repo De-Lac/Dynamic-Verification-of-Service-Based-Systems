@@ -1,0 +1,7 @@
+2015-01-23 13:23:46,943 | INFO  | FelixStartLevel  | Activator                        | 28 - org.apache.karaf.service.guard - 2.4.0 | No role-based security for services as its system property is not set: karaf.secured.services
+2015-01-23 13:23:47,999 | INFO  | FelixStartLevel  | fileinstall                      | 6 - org.apache.felix.fileinstall - 3.4.2 | Updating configuration from org.ops4j.pax.url.mvn.cfg
+2015-01-23 13:23:48,031 | INFO  | FelixStartLevel  | fileinstall                      | 6 - org.apache.felix.fileinstall - 3.4.2 | Updating configuration from org.apache.karaf.shell.cfg
+2015-01-23 13:23:48,061 | INFO  | FelixStartLevel  | fileinstall                      | 6 - org.apache.felix.fileinstall - 3.4.2 | Creating configuration from org.apache.activemq.server-default.cfg
+2015-01-23 13:23:48,065 | INFO  | FelixStartLevel  | fileinstall                      | 6 - org.apache.felix.fileinstall - 3.4.2 | Updating configuration from org.apache.aries.transaction.cfg
+2015-01-23 13:23:48,073 | INFO  | FelixStartLevel  | fileinstall                      | 6 - org.apache.felix.fileinstall - 3.4.2 | Creating configuration from org.apache.felix.fileinstall-deploy.cfg
+2015-01-23 13:23:48,101 | INFO  | FelixStartLevel  | fileinstall                      | 6 - org.apache.felix.fileinstall - 3.4.2 | Updating configuration from org.ops4j.pax.logging.cfg

@@ -1,0 +1,10 @@
+EMF METAMODEL CREATION
+	http://www.vogella.com/tutorials/EclipseEMF/article.html
+	
+EMF Classes with GENERIC TYPE
+	http://eclipse.dzone.com/articles/generics-eclipse-modelling-fra
+	
+	
+	Every generated method is tagged with @generated. 
+	If you want to manually adjust the method you want to prevent that 
+	EMF overwrites the method during the next generation run you have to remove this tag.

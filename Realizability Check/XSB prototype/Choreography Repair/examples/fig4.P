@@ -1,0 +1,13 @@
+% -*- Mode: Prolog -*-
+
+gtrans(s1, ('P1', 'P2', m1), s2).
+gtrans(s1, ('P2', 'P1', n1), s3).
+gtrans(s2, ('P1', 'P2', m1), s2).
+
+peer('P1').
+peer('P2').
+
+
+start(s1).
+
+negategtrans(false, false).

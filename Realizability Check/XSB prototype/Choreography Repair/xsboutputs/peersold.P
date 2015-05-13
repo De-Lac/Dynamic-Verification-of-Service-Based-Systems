@@ -1,0 +1,54 @@
+ptranswep(Usr,s1 - Usr,out(reqRes,SP),s2 - Usr).
+ptranswep(SP,s1 - SP,in(reqRes,Usr),s2 - SP).
+ptranswep(IdP,s1 - IdP,epsilon,s2 - IdP).
+ptranswep(Log,s1 - Log,epsilon,s2 - Log).
+ptranswep(SP,s2 - SP,out(reqAuth,Usr),s3 - SP).
+ptranswep(Usr,s2 - Usr,in(reqAuth,SP),s3 - Usr).
+ptranswep(IdP,s2 - IdP,epsilon,s3 - IdP).
+ptranswep(Log,s2 - Log,epsilon,s3 - Log).
+ptranswep(SP,s2 - SP,out(log,Log),s4 - SP).
+ptranswep(Log,s2 - Log,in(log,SP),s4 - Log).
+ptranswep(Usr,s2 - Usr,epsilon,s4 - Usr).
+ptranswep(IdP,s2 - IdP,epsilon,s4 - IdP).
+ptranswep(SP,s4 - SP,out(reqAuth,Usr),s5 - SP).
+ptranswep(Usr,s4 - Usr,in(reqAuth,SP),s5 - Usr).
+ptranswep(IdP,s4 - IdP,epsilon,s5 - IdP).
+ptranswep(Log,s4 - Log,epsilon,s5 - Log).
+ptranswep(SP,s3 - SP,out(log,Log),s5 - SP).
+ptranswep(Log,s3 - Log,in(log,SP),s5 - Log).
+ptranswep(Usr,s3 - Usr,epsilon,s5 - Usr).
+ptranswep(IdP,s3 - IdP,epsilon,s5 - IdP).
+ptranswep(Usr,s5 - Usr,out(authenticate,IdP),s6 - Usr).
+ptranswep(IdP,s5 - IdP,in(authenticate,Usr),s6 - IdP).
+ptranswep(SP,s5 - SP,epsilon,s6 - SP).
+ptranswep(Log,s5 - Log,epsilon,s6 - Log).
+ptranswep(Usr,s6 - Usr,out(reqRes,SP),s7 - Usr).
+ptranswep(SP,s6 - SP,in(reqRes,Usr),s7 - SP).
+ptranswep(IdP,s6 - IdP,epsilon,s7 - IdP).
+ptranswep(Log,s6 - Log,epsilon,s7 - Log).
+ptranswep(SP,s7 - SP,out(validate,IdP),s8 - SP).
+ptranswep(IdP,s7 - IdP,in(validate,SP),s8 - IdP).
+ptranswep(Usr,s7 - Usr,epsilon,s8 - Usr).
+ptranswep(Log,s7 - Log,epsilon,s8 - Log).
+ptranswep(SP,s8 - SP,out(give_access,Usr),s9 - SP).
+ptranswep(Usr,s8 - Usr,in(give_access,SP),s9 - Usr).
+ptranswep(IdP,s8 - IdP,epsilon,s9 - IdP).
+ptranswep(Log,s8 - Log,epsilon,s9 - Log).
+ptranswep(SP,s8 - SP,out(log,Log),s10 - SP).
+ptranswep(Log,s8 - Log,in(log,SP),s10 - Log).
+ptranswep(Usr,s8 - Usr,epsilon,s10 - Usr).
+ptranswep(IdP,s8 - IdP,epsilon,s10 - IdP).
+ptranswep(SP,s10 - SP,out(give_access,Usr),s11 - SP).
+ptranswep(Usr,s10 - Usr,in(give_access,SP),s11 - Usr).
+ptranswep(IdP,s10 - IdP,epsilon,s11 - IdP).
+ptranswep(Log,s10 - Log,epsilon,s11 - Log).
+ptranswep(SP,s9 - SP,out(log,Log),s11 - SP).
+ptranswep(Log,s9 - Log,in(log,SP),s11 - Log).
+ptranswep(Usr,s9 - Usr,epsilon,s11 - Usr).
+ptranswep(IdP,s9 - IdP,epsilon,s11 - IdP).
+
+startPeer(Usr,s1 - Usr).
+startPeer(IdP,s1 - IdP).
+startPeer(SP,s1 - SP).
+startPeer(Log,s1 - Log).
+

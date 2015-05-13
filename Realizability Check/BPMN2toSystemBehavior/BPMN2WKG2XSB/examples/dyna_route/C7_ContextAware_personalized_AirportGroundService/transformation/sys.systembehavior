@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<systembehavior:SystemBehavior xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://workflowgraph/1.0.4" xmlns:peerbehavior="http://peerbehavior/1.0.2" xmlns:systembehavior="http://systembehavior/1.0.5" initialState="s15">
+  <peers href="/Users/deLac/Desktop/blabla//peers.peerbehavior#Participant_1"/>
+  <peers href="/Users/deLac/Desktop/blabla//peers.peerbehavior#Participant_2"/>
+  <peers href="/Users/deLac/Desktop/blabla//peers.peerbehavior#Participant_8"/>
+  <peers href="/Users/deLac/Desktop/blabla//peers.peerbehavior#Participant_14"/>
+  <states id="s0" outcoming="//@transitions.0" incoming="//@transitions.14">
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#4"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#5"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#0"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#2"/>
+  </states>
+  <states id="s1" outcoming="//@transitions.15" incoming="//@transitions.0">
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#6"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#7"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#1"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#3"/>
+  </states>
+  <states id="s2" outcoming="//@transitions.1" incoming="//@transitions.15">
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#14"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#15"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#8"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#10"/>
+  </states>
+  <states id="s3" incoming="//@transitions.1">
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#16"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#17"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#12"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#13"/>
+  </states>
+  <states id="s4" outcoming="//@transitions.2" incoming="//@transitions.6">
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#22"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#23"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#18"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#20"/>
+  </states>
+  <states id="s5" outcoming="//@transitions.7" incoming="//@transitions.2">
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#24"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#25"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#19"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#21"/>
+  </states>
+  <states id="s6" outcoming="//@transitions.3" incoming="//@transitions.7">
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#32"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#33"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#26"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#28"/>
+  </states>
+  <states id="s7" outcoming="//@transitions.8" incoming="//@transitions.3">
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#34"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#35"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#30"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#31"/>
+  </states>
+  <states id="s8" outcoming="//@transitions.4" incoming="//@transitions.9">
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#40"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#41"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#36"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#38"/>
+  </states>
+  <states id="s9" outcoming="//@transitions.10" incoming="//@transitions.4">
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#42"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#43"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#37"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#39"/>
+  </states>
+  <states id="s10" outcoming="//@transitions.5" incoming="//@transitions.10">
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#48"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#49"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#44"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#46"/>
+  </states>
+  <states id="s11" outcoming="//@transitions.11" incoming="//@transitions.5">
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#50"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#51"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#45"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#47"/>
+  </states>
+  <states id="s12" outcoming="//@transitions.6 //@transitions.9" incoming="//@transitions.13">
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#52"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#53"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#54"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#55"/>
+    <gatewayRef xsi:type="ExclusiveChoice" href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#ExclusiveGateway_3"/>
+  </states>
+  <states id="s13" outcoming="//@transitions.12" incoming="//@transitions.8 //@transitions.11">
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#56"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#57"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#58"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#59"/>
+    <gatewayRef xsi:type="ExclusiveChoice" href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#ExclusiveGateway_4"/>
+  </states>
+  <states id="s14" outcoming="//@transitions.14 //@transitions.16" incoming="//@transitions.12">
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#60"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#61"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#62"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#63"/>
+    <gatewayRef xsi:type="ExclusiveChoice" href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#ExclusiveGateway_2"/>
+  </states>
+  <states id="s15" outcoming="//@transitions.13" incoming="//@transitions.16">
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#64"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#65"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#66"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#67"/>
+    <gatewayRef xsi:type="ExclusiveChoice" href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#ExclusiveGateway_1"/>
+  </states>
+  <transitions xsi:type="systembehavior:Send" from="s0" to="s1">
+    <source href="/Users/deLac/Desktop/blabla//peers.peerbehavior#Participant_1"/>
+    <target href="/Users/deLac/Desktop/blabla//peers.peerbehavior#Participant_2"/>
+    <message xsi:type="peerbehavior:output" href="/Users/deLac/Desktop/blabla//peers.peerbehavior#/0/@out[name='!notifyCheckin']"/>
+    <messageExchangeRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#ChoreographyTask_3"/>
+  </transitions>
+  <transitions xsi:type="systembehavior:Send" from="s2" to="s3">
+    <source href="/Users/deLac/Desktop/blabla//peers.peerbehavior#Participant_1"/>
+    <target href="/Users/deLac/Desktop/blabla//peers.peerbehavior#Participant_8"/>
+    <message xsi:type="peerbehavior:output" href="/Users/deLac/Desktop/blabla//peers.peerbehavior#/0/@out[name='!giveBackLug']"/>
+    <messageExchangeRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#ChoreographyTask_4"/>
+  </transitions>
+  <transitions xsi:type="systembehavior:Send" from="s4" to="s5">
+    <source href="/Users/deLac/Desktop/blabla//peers.peerbehavior#Participant_2"/>
+    <target href="/Users/deLac/Desktop/blabla//peers.peerbehavior#Participant_1"/>
+    <message xsi:type="peerbehavior:output" href="/Users/deLac/Desktop/blabla//peers.peerbehavior#/1/@out[name='!callPorter']"/>
+    <messageExchangeRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#ChoreographyTask_2"/>
+  </transitions>
+  <transitions xsi:type="systembehavior:Send" from="s6" to="s7">
+    <source href="/Users/deLac/Desktop/blabla//peers.peerbehavior#Participant_1"/>
+    <target href="/Users/deLac/Desktop/blabla//peers.peerbehavior#Participant_2"/>
+    <message xsi:type="peerbehavior:output" href="/Users/deLac/Desktop/blabla//peers.peerbehavior#/0/@out[name='!acceptCall']"/>
+    <messageExchangeRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#ChoreographyTask_1"/>
+  </transitions>
+  <transitions xsi:type="systembehavior:Send" from="s8" to="s9">
+    <source href="/Users/deLac/Desktop/blabla//peers.peerbehavior#Participant_1"/>
+    <target href="/Users/deLac/Desktop/blabla//peers.peerbehavior#Participant_8"/>
+    <message xsi:type="peerbehavior:output" href="/Users/deLac/Desktop/blabla//peers.peerbehavior#/0/@out[name='!pickupLug']"/>
+    <messageExchangeRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#ChoreographyTask_5"/>
+  </transitions>
+  <transitions xsi:type="systembehavior:Send" from="s10" to="s11">
+    <source href="/Users/deLac/Desktop/blabla//peers.peerbehavior#Participant_1"/>
+    <target href="/Users/deLac/Desktop/blabla//peers.peerbehavior#Participant_14"/>
+    <message xsi:type="peerbehavior:output" href="/Users/deLac/Desktop/blabla//peers.peerbehavior#/0/@out[name='!departureCheck']"/>
+    <messageExchangeRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#ChoreographyTask_7"/>
+  </transitions>
+  <transitions xsi:type="systembehavior:InternalTransition" from="s12" to="s4"/>
+  <transitions xsi:type="systembehavior:InternalTransition" from="s5" to="s6"/>
+  <transitions xsi:type="systembehavior:InternalTransition" from="s7" to="s13"/>
+  <transitions xsi:type="systembehavior:InternalTransition" from="s12" to="s8"/>
+  <transitions xsi:type="systembehavior:InternalTransition" from="s9" to="s10"/>
+  <transitions xsi:type="systembehavior:InternalTransition" from="s11" to="s13"/>
+  <transitions xsi:type="systembehavior:InternalTransition" from="s13" to="s14"/>
+  <transitions xsi:type="systembehavior:InternalTransition" from="s15" to="s12"/>
+  <transitions xsi:type="systembehavior:InternalTransition" from="s14" to="s0"/>
+  <transitions xsi:type="systembehavior:InternalTransition" from="s1" to="s2"/>
+  <transitions xsi:type="systembehavior:LoopTransition" from="s14" to="s15"/>
+</systembehavior:SystemBehavior>

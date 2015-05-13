@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://sample.bpmn2.org/bpmn2/sample/choreography">
+  <bpmn2:choreography id="Choreography_1" name="Default Choreography">
+    <bpmn2:participant id="Participant_1" name="ATC"/>
+    <bpmn2:participant id="Participant_2" name="Airplane"/>
+    <bpmn2:participant id="Participant_8" name="Weather Forecast Service"/>
+    <bpmn2:participant id="Participant_11" name="Central Flow Management Unit"/>
+    <bpmn2:participant id="Participant_16" name="Airline"/>
+    <bpmn2:participant id="Participant_18" name="Airport"/>
+    <bpmn2:participant id="Participant_28" name="Airport Bus Company"/>
+    <bpmn2:participant id="Participant_30" name="Ground Transportation Compan"/>
+    <bpmn2:participant id="Participant_32" name="Luggage Handling Company"/>
+    <bpmn2:participant id="Participant_34" name="Security Company"/>
+    <bpmn2:participant id="Participant_6" name="Airline Ground Staff MID"/>
+    <bpmn2:participant id="Participant_9" name="Travel Agency"/>
+    <bpmn2:participant id="Participant_17" name="Stand and gate management"/>
+    <bpmn2:participant id="Participant_31" name="Bookable Amenity"/>
+    <bpmn2:participant id="Participant_40" name="Hotel"/>
+    <bpmn2:participant id="Participant_54" name="Amenity Provider"/>
+    <bpmn2:participant id="Participant_70" name="Airport Noise Sensors aggregator"/>
+    <bpmn2:participant id="Participant_73" name="Airport Speaker Actuators aggregator"/>
+    <bpmn2:messageFlow id="MessageFlow_1" messageRef="Message_1" name="Message Flow 1" sourceRef="Participant_8" targetRef="Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_2" messageRef="Message_2" name="Message Flow 2" sourceRef="Participant_11" targetRef="Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_3" messageRef="Message_3" name="Message Flow 3" sourceRef="Participant_1" targetRef="Participant_2"/>
+    <bpmn2:messageFlow id="MessageFlow_4" messageRef="Message_4" name="Message Flow 4" sourceRef="Participant_2" targetRef="Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_5" messageRef="Message_5" name="Message Flow 5" sourceRef="Participant_2" targetRef="Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_6" messageRef="Message_6" name="Message Flow 6" sourceRef="Participant_2" targetRef="Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_7" messageRef="Message_7" name="Message Flow 7" sourceRef="Participant_1" targetRef="Participant_11"/>
+    <bpmn2:messageFlow id="MessageFlow_8" messageRef="Message_8" name="Message Flow 8" sourceRef="Participant_11" targetRef="Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_10" messageRef="Message_11" name="Message Flow 10" sourceRef="Participant_1" targetRef="Participant_11"/>
+    <bpmn2:messageFlow id="MessageFlow_11" messageRef="Message_12" name="Message Flow 11" sourceRef="Participant_1" targetRef="Participant_11"/>
+    <bpmn2:messageFlow id="MessageFlow_12" messageRef="Message_7" name="Message Flow 12" sourceRef="Participant_1" targetRef="Participant_16"/>
+    <bpmn2:messageFlow id="MessageFlow_13" messageRef="Message_7" name="Message Flow 13" sourceRef="Participant_1" targetRef="Participant_18"/>
+    <bpmn2:messageFlow id="MessageFlow_14" messageRef="Message_16" name="Message Flow 14" sourceRef="Participant_16" targetRef="Participant_6"/>
+    <bpmn2:messageFlow id="MessageFlow_15" messageRef="Message_16" name="Message Flow 15" sourceRef="Participant_6" targetRef="Participant_9"/>
+    <bpmn2:messageFlow id="MessageFlow_16" messageRef="Message_18" name="Message Flow 16" sourceRef="Participant_6" targetRef="Participant_9"/>
+    <bpmn2:messageFlow id="MessageFlow_17" messageRef="Message_19" name="Message Flow 17" sourceRef="Participant_6" targetRef="Participant_8"/>
+    <bpmn2:messageFlow id="MessageFlow_18" messageRef="Message_1" name="Message Flow 18" sourceRef="Participant_8" targetRef="Participant_6"/>
+    <bpmn2:messageFlow id="MessageFlow_19" messageRef="Message_22" name="Message Flow 19" sourceRef="Participant_6" targetRef="Participant_16"/>
+    <bpmn2:messageFlow id="MessageFlow_20" messageRef="Message_22" name="Message Flow 20" sourceRef="Participant_6" targetRef="Participant_17"/>
+    <bpmn2:messageFlow id="MessageFlow_21" messageRef="Message_22" name="Message Flow 21" sourceRef="Participant_6" targetRef="Participant_18"/>
+    <bpmn2:messageFlow id="MessageFlow_22" messageRef="Message_25" name="Message Flow 22" sourceRef="Participant_16" targetRef="Participant_6"/>
+    <bpmn2:messageFlow id="MessageFlow_23" messageRef="Message_25" name="Message Flow 23" sourceRef="Participant_17" targetRef="Participant_6"/>
+    <bpmn2:messageFlow id="MessageFlow_24" messageRef="Message_25" name="Message Flow 24" sourceRef="Participant_18" targetRef="Participant_6"/>
+    <bpmn2:messageFlow id="MessageFlow_25" messageRef="Message_28" name="Message Flow 25" sourceRef="Participant_6" targetRef="Participant_31"/>
+    <bpmn2:messageFlow id="MessageFlow_26" messageRef="Message_29" name="Message Flow 26" sourceRef="Participant_6" targetRef="Participant_9"/>
+    <bpmn2:messageFlow id="MessageFlow_27" messageRef="Message_30" name="Message Flow 27" sourceRef="Participant_9" targetRef="Participant_6"/>
+    <bpmn2:messageFlow id="MessageFlow_28" messageRef="Message_31" name="Message Flow 28" sourceRef="Participant_6" targetRef="Participant_40"/>
+    <bpmn2:messageFlow id="MessageFlow_29" messageRef="Message_32" name="Message Flow 29" sourceRef="Participant_40" targetRef="Participant_6"/>
+    <bpmn2:messageFlow id="MessageFlow_30" messageRef="Message_33" name="Message Flow 30" sourceRef="Participant_6" targetRef="Participant_30"/>
+    <bpmn2:messageFlow id="MessageFlow_31" messageRef="Message_32" name="Message Flow 31" sourceRef="Participant_30" targetRef="Participant_6"/>
+    <bpmn2:messageFlow id="MessageFlow_32" messageRef="Message_16" name="Message Flow 32" sourceRef="Participant_18" targetRef="Participant_28"/>
+    <bpmn2:messageFlow id="MessageFlow_33" messageRef="Message_16" name="Message Flow 33" sourceRef="Participant_18" targetRef="Participant_30"/>
+    <bpmn2:messageFlow id="MessageFlow_34" messageRef="Message_16" name="Message Flow 34" sourceRef="Participant_18" targetRef="Participant_32"/>
+    <bpmn2:messageFlow id="MessageFlow_35" messageRef="Message_16" name="Message Flow 35" sourceRef="Participant_18" targetRef="Participant_34"/>
+    <bpmn2:messageFlow id="MessageFlow_36" messageRef="Message_32" name="Message Flow 36" sourceRef="Participant_2" targetRef="Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_37" messageRef="Message_42" name="Message Flow 37" sourceRef="Participant_1" targetRef="Participant_18"/>
+    <bpmn2:messageFlow id="MessageFlow_38" messageRef="Message_22" name="Message Flow 38" sourceRef="Participant_18" targetRef="Participant_17"/>
+    <bpmn2:messageFlow id="MessageFlow_39" messageRef="Message_28" name="Message Flow 39" sourceRef="Participant_18" targetRef="Participant_32"/>
+    <bpmn2:messageFlow id="MessageFlow_40" messageRef="Message_28" name="Message Flow 40" sourceRef="Participant_18" targetRef="Participant_34"/>
+    <bpmn2:messageFlow id="MessageFlow_41" messageRef="Message_28" name="Message Flow 41" sourceRef="Participant_18" targetRef="Participant_28"/>
+    <bpmn2:messageFlow id="MessageFlow_42" messageRef="Message_32" name="Message Flow 42" sourceRef="Participant_28" targetRef="Participant_18"/>
+    <bpmn2:messageFlow id="MessageFlow_43" messageRef="Message_32" name="Message Flow 43" sourceRef="Participant_34" targetRef="Participant_18"/>
+    <bpmn2:messageFlow id="MessageFlow_44" messageRef="Message_32" name="Message Flow 44" sourceRef="Participant_32" targetRef="Participant_18"/>
+    <bpmn2:messageFlow id="MessageFlow_45" messageRef="Message_50" name="Message Flow 45" sourceRef="Participant_18" targetRef="Participant_70"/>
+    <bpmn2:messageFlow id="MessageFlow_46" messageRef="Message_51" name="Message Flow 46" sourceRef="Participant_70" targetRef="Participant_18"/>
+    <bpmn2:messageFlow id="MessageFlow_47" messageRef="Message_52" name="Message Flow 47" sourceRef="Participant_18" targetRef="Participant_73"/>
+    <bpmn2:messageFlow id="MessageFlow_48" messageRef="Message_25" name="Message Flow 48" sourceRef="Participant_17" targetRef="Participant_18"/>
+    <bpmn2:messageFlow id="MessageFlow_49" messageRef="Message_28" name="Message Flow 49" sourceRef="Participant_18" targetRef="Participant_54"/>
+    <bpmn2:messageFlow id="MessageFlow_9" messageRef="Message_32" name="Message Flow 9" sourceRef="Participant_32" targetRef="Participant_18"/>
+    <bpmn2:messageFlow id="MessageFlow_50" messageRef="Message_32" name="Message Flow 50" sourceRef="Participant_34" targetRef="Participant_18"/>
+    <bpmn2:messageFlow id="MessageFlow_51" messageRef="Message_32" name="Message Flow 51" sourceRef="Participant_28" targetRef="Participant_18"/>
+    <bpmn2:messageFlow id="MessageFlow_52" messageRef="Message_28" name="Message Flow 52" sourceRef="Participant_18" targetRef="Participant_17"/>
+    <bpmn2:parallelGateway id="ParallelGateway_1" name="D" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_9</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_10</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_19</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_20</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:choreographyTask id="ChoreographyTask_5" name="send reroute Warning" initiatingParticipantRef="Participant_1">
+      <bpmn2:incoming>SequenceFlow_10</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_11</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_1</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_11</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_7</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_10" name="" sourceRef="ParallelGateway_1" targetRef="ChoreographyTask_5"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_11" name="" sourceRef="ChoreographyTask_5" targetRef="ExclusiveGateway_11"/>
+    <bpmn2:parallelGateway id="ParallelGateway_2" name="D" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_40</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_91</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_34</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_18</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:choreographyTask id="ChoreographyTask_12" name="Confirm Approach" initiatingParticipantRef="Participant_2">
+      <bpmn2:incoming>SequenceFlow_18</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_66</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_2</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_1</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_36</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_18" name="" sourceRef="ParallelGateway_2" targetRef="ChoreographyTask_12"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_19" name="" sourceRef="ParallelGateway_1" targetRef="ChoreographyTask_6"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_20" name="" sourceRef="ParallelGateway_1" targetRef="ChoreographyTask_7"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_7" name="Send Reroute Warning 3" initiatingParticipantRef="Participant_1">
+      <bpmn2:incoming>SequenceFlow_20</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_35</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_1</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_18</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_13</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:parallelGateway id="ParallelGateway_5" name="G" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_35</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_26</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_27</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_28</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_29</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_26" name="" sourceRef="ParallelGateway_5" targetRef="ChoreographyTask_10"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_27" name="" sourceRef="ParallelGateway_5" targetRef="ChoreographyTask_13"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_28" name="" sourceRef="ParallelGateway_5" targetRef="ChoreographyTask_14"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_29" name="" sourceRef="ParallelGateway_5" targetRef="ChoreographyTask_15"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_35" name="" sourceRef="ChoreographyTask_7" targetRef="ParallelGateway_5"/>
+    <bpmn2:startEvent id="StartEvent_1" name="Start Event 1">
+      <bpmn2:outgoing>SequenceFlow_25</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_5" name="A" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_25</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_21</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_36</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_21" name="" sourceRef="ExclusiveGateway_5" targetRef="ChoreographyTask_16"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_36" name="" sourceRef="ExclusiveGateway_5" targetRef="ChoreographyTask_4"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_16" name="receive warn from another airport" initiatingParticipantRef="Participant_11">
+      <bpmn2:incoming>SequenceFlow_21</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_22</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_11</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_1</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_2</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_22" name="" sourceRef="ChoreographyTask_16" targetRef="ExclusiveGateway_6"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_4" name="send weather forecast" initiatingParticipantRef="Participant_8">
+      <bpmn2:incoming>SequenceFlow_36</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_7</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_8</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_1</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_1</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_7" name="" sourceRef="ChoreographyTask_4" targetRef="ExclusiveGateway_6"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_6" name="A" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_22</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_7</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_37</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_37" name="" sourceRef="ExclusiveGateway_6" targetRef="ExclusiveGateway_1"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_11" name="Reject proposal" initiatingParticipantRef="Participant_1">
+      <bpmn2:incoming>SequenceFlow_13</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_14</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_1</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_11</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_11</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_14" name="" sourceRef="ChoreographyTask_11" targetRef="ExclusiveGateway_4"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_9" name="Accept Proposal" initiatingParticipantRef="Participant_1">
+      <bpmn2:incoming>SequenceFlow_38</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_16</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_1</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_11</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_10</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_16" name="" sourceRef="ChoreographyTask_9" targetRef="ExclusiveGateway_4"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_4" name="F" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_14</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_16</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_17</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_17" name="" sourceRef="ExclusiveGateway_4" targetRef="ExclusiveGateway_12"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_21" name="Request Amenities1" initiatingParticipantRef="Participant_6">
+      <bpmn2:incoming>SequenceFlow_45</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_48</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_6</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_16</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_19</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:parallelGateway id="ParallelGateway_7" name="I" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_44</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_45</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_46</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_47</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_45" name="" sourceRef="ParallelGateway_7" targetRef="ChoreographyTask_21"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_46" name="" sourceRef="ParallelGateway_7" targetRef="ChoreographyTask_23"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_47" name="" sourceRef="ParallelGateway_7" targetRef="ChoreographyTask_28"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_26" name="Provide Available Amenities1" initiatingParticipantRef="Participant_16">
+      <bpmn2:incoming>SequenceFlow_48</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_51</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_16</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_6</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_22</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:parallelGateway id="ParallelGateway_8" name="I" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_51</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_53</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_52</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_54</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_48" name="" sourceRef="ChoreographyTask_21" targetRef="ChoreographyTask_26"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_51" name="" sourceRef="ChoreographyTask_26" targetRef="ParallelGateway_8"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_54" name="" sourceRef="ParallelGateway_8" targetRef="ChoreographyTask_22"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_22" name="Book All Available Amenities" initiatingParticipantRef="Participant_6">
+      <bpmn2:incoming>SequenceFlow_54</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_55</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_6</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_31</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_25</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_55" name="" sourceRef="ChoreographyTask_22" targetRef="ExclusiveGateway_8"/>
+    <bpmn2:parallelGateway id="ParallelGateway_9" name="L" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_64</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_60</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_61</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:parallelGateway id="ParallelGateway_10" name="L" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_62</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_63</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_65</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:choreographyTask id="ChoreographyTask_30" name="Book hotels" initiatingParticipantRef="Participant_6">
+      <bpmn2:incoming>SequenceFlow_60</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_58</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_6</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_40</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_28</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:choreographyTask id="ChoreographyTask_31" name="Provide hotl confirmation" initiatingParticipantRef="Participant_40">
+      <bpmn2:incoming>SequenceFlow_58</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_62</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_40</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_6</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_29</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_58" name="" sourceRef="ChoreographyTask_30" targetRef="ChoreographyTask_31"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_60" name="" sourceRef="ParallelGateway_9" targetRef="ChoreographyTask_30"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_61" name="" sourceRef="ParallelGateway_9" targetRef="ChoreographyTask_32"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_62" name="" sourceRef="ChoreographyTask_31" targetRef="ParallelGateway_10"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_65" name="" sourceRef="ParallelGateway_10" targetRef="ExclusiveGateway_8"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_8" name="H" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_55</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_65</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_40</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_40" name="" sourceRef="ExclusiveGateway_8" targetRef="ParallelGateway_2"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_7" name="H" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_43</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_44</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_56</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_44" name="put passengers in transit" sourceRef="ExclusiveGateway_7" targetRef="ParallelGateway_7"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_56" name="keep passengers for the night" sourceRef="ExclusiveGateway_7" targetRef="ChoreographyTask_27"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_20" name="Get Weather Forecast" initiatingParticipantRef="Participant_6">
+      <bpmn2:incoming>SequenceFlow_42</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_43</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_6</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_8</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_17</bpmn2:messageFlowRef>
+      <bpmn2:messageFlowRef>MessageFlow_18</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_43" name="" sourceRef="ChoreographyTask_20" targetRef="ExclusiveGateway_7"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_19" name="Warns Unexpected Arrival2" initiatingParticipantRef="Participant_6">
+      <bpmn2:incoming>SequenceFlow_41</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_42</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_6</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_9</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_16</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_42" name="" sourceRef="ChoreographyTask_19" targetRef="ChoreographyTask_20"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_17" name="Warns Unexpected Arrival" initiatingParticipantRef="Participant_16">
+      <bpmn2:incoming>SequenceFlow_39</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_41</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_16</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_6</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_14</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_41" name="" sourceRef="ChoreographyTask_17" targetRef="ChoreographyTask_19"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_18" name="confirm Approach" initiatingParticipantRef="Participant_1">
+      <bpmn2:incoming>SequenceFlow_66</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_70</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_1</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_18</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_37</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_66" name="" sourceRef="ChoreographyTask_12" targetRef="ChoreographyTask_18"/>
+    <bpmn2:parallelGateway id="ParallelGateway_13" name="M" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_70</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_73</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_74</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_75</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:choreographyTask id="ChoreographyTask_39" name="Book Amenity2" initiatingParticipantRef="Participant_18">
+      <bpmn2:incoming>SequenceFlow_74</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_93</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_18</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_34</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_40</bpmn2:messageFlowRef>
+      <bpmn2:messageFlowRef>MessageFlow_50</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:parallelGateway id="ParallelGateway_14" name="M" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_92</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_93</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_23</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_73" name="" sourceRef="ParallelGateway_13" targetRef="ChoreographyTask_37"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_74" name="" sourceRef="ParallelGateway_13" targetRef="ChoreographyTask_39"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_75" name="" sourceRef="ParallelGateway_13" targetRef="ChoreographyTask_41"/>
+    <bpmn2:endEvent id="EndEvent_1" name="End Event 1">
+      <bpmn2:incoming>SequenceFlow_23</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_1" name="B" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_37</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_3" name="" sourceRef="ExclusiveGateway_1" targetRef="ChoreographyTask_1"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_1" name="Propose reroute" initiatingParticipantRef="Participant_1">
+      <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_1</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_2</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_3</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" name="" sourceRef="ChoreographyTask_1" targetRef="ExclusiveGateway_9"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_9" name="C" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_79</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_89</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_79" name="" sourceRef="ExclusiveGateway_9" targetRef="ChoreographyTask_3"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_89" name="" sourceRef="ExclusiveGateway_9" targetRef="ChoreographyTask_2"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_3" name="reject proposal" initiatingParticipantRef="Participant_2">
+      <bpmn2:incoming>SequenceFlow_79</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_6</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_2</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_1</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_5</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_6" name="" sourceRef="ChoreographyTask_3" targetRef="ExclusiveGateway_10"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_2" name="accept proposal" initiatingParticipantRef="Participant_2">
+      <bpmn2:incoming>SequenceFlow_89</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_5</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_2</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_1</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_4</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_5" name="" sourceRef="ChoreographyTask_2" targetRef="ExclusiveGateway_10"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_10" name="C" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_6</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_80</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_80" name="" sourceRef="ExclusiveGateway_10" targetRef="ExclusiveGateway_2"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_2" name="B" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_80</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_9</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_2" name="proposal rejected" sourceRef="ExclusiveGateway_2" targetRef="ExclusiveGateway_1"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_9" name="" sourceRef="ExclusiveGateway_2" targetRef="ParallelGateway_1"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_11" name="E" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_11</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_15</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_90</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_90" name="" sourceRef="ExclusiveGateway_11" targetRef="ChoreographyTask_8"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_8" name="Propose Reroute2" initiatingParticipantRef="Participant_11">
+      <bpmn2:incoming>SequenceFlow_90</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_12</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_11</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_1</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_8</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_12" name="" sourceRef="ChoreographyTask_8" targetRef="ExclusiveGateway_3"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_3" name="F" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_12</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_13</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_38</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_13" name="" sourceRef="ExclusiveGateway_3" targetRef="ChoreographyTask_11"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_38" name="" sourceRef="ExclusiveGateway_3" targetRef="ChoreographyTask_9"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_12" name="E" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_17</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_15</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_91</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_15" name="" sourceRef="ExclusiveGateway_12" targetRef="ExclusiveGateway_11"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_91" name="" sourceRef="ExclusiveGateway_12" targetRef="ParallelGateway_2"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_28" name="Request Amenities3" initiatingParticipantRef="Participant_6">
+      <bpmn2:incoming>SequenceFlow_47</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_50</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_6</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_18</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_21</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_50" name="" sourceRef="ChoreographyTask_28" targetRef="ChoreographyTask_24"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_23" name="Request Amenities2" initiatingParticipantRef="Participant_6">
+      <bpmn2:incoming>SequenceFlow_46</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_49</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_6</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_17</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_20</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_49" name="" sourceRef="ChoreographyTask_23" targetRef="ChoreographyTask_25"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_24" name="Provide Available Amenities3" initiatingParticipantRef="Participant_18">
+      <bpmn2:incoming>SequenceFlow_50</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_53</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_18</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_6</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_24</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_53" name="" sourceRef="ChoreographyTask_24" targetRef="ParallelGateway_8"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_25" name="Provide Available Amenities2" initiatingParticipantRef="Participant_17">
+      <bpmn2:incoming>SequenceFlow_49</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_52</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_17</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_6</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_23</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_52" name="" sourceRef="ChoreographyTask_25" targetRef="ParallelGateway_8"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_27" name="Requests Hotels" initiatingParticipantRef="Participant_6">
+      <bpmn2:incoming>SequenceFlow_56</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_57</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_6</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_9</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_26</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_57" name="" sourceRef="ChoreographyTask_27" targetRef="ChoreographyTask_29"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_29" name="Provide Hotels" initiatingParticipantRef="Participant_9">
+      <bpmn2:incoming>SequenceFlow_57</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_64</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_9</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_6</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_27</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_64" name="" sourceRef="ChoreographyTask_29" targetRef="ParallelGateway_9"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_32" name="book transportation" initiatingParticipantRef="Participant_6">
+      <bpmn2:incoming>SequenceFlow_61</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_59</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_6</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_30</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_30</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_59" name="" sourceRef="ChoreographyTask_32" targetRef="ChoreographyTask_33"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_33" name="Provide trans confirmation" initiatingParticipantRef="Participant_30">
+      <bpmn2:incoming>SequenceFlow_59</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_63</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_30</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_6</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_31</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_63" name="" sourceRef="ChoreographyTask_33" targetRef="ParallelGateway_10"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_15" name="Warn Unexpected Arrival4" initiatingParticipantRef="Participant_18">
+      <bpmn2:incoming>SequenceFlow_29</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_33</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_18</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_34</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_35</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_33" name="" sourceRef="ChoreographyTask_15" targetRef="ParallelGateway_6"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_10" name="Warn Unexpected Arrival" initiatingParticipantRef="Participant_18">
+      <bpmn2:incoming>SequenceFlow_26</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_30</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_18</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_28</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_32</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_30" name="" sourceRef="ChoreographyTask_10" targetRef="ParallelGateway_6"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_14" name="Warn Unexpected Arrival3" initiatingParticipantRef="Participant_18">
+      <bpmn2:incoming>SequenceFlow_28</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_32</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_18</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_32</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_34</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_32" name="" sourceRef="ChoreographyTask_14" targetRef="ParallelGateway_6"/>
+    <bpmn2:parallelGateway id="ParallelGateway_6" name="G" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_30</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_32</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_33</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_31</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_34</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_34" name="" sourceRef="ParallelGateway_6" targetRef="ParallelGateway_2"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_13" name="Warn Unexpected Arrival2" initiatingParticipantRef="Participant_18">
+      <bpmn2:incoming>SequenceFlow_27</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_31</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_18</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_30</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_33</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_31" name="" sourceRef="ChoreographyTask_13" targetRef="ParallelGateway_6"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_37" name="Book Amenity" initiatingParticipantRef="Participant_18">
+      <bpmn2:incoming>SequenceFlow_73</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_92</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_18</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_32</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_39</bpmn2:messageFlowRef>
+      <bpmn2:messageFlowRef>MessageFlow_9</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:choreographyTask id="ChoreographyTask_41" name="Book Amenity3" initiatingParticipantRef="Participant_18">
+      <bpmn2:incoming>SequenceFlow_75</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_18</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_28</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_41</bpmn2:messageFlowRef>
+      <bpmn2:messageFlowRef>MessageFlow_51</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_4" name="" sourceRef="ChoreographyTask_41" targetRef="ParallelGateway_14"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_92" name="" sourceRef="ChoreographyTask_37" targetRef="ParallelGateway_14"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_93" name="" sourceRef="ChoreographyTask_39" targetRef="ParallelGateway_14"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_70" name="" sourceRef="ChoreographyTask_18" targetRef="ParallelGateway_13"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_6" name="Send Reroute Warning2" initiatingParticipantRef="Participant_1">
+      <bpmn2:incoming>SequenceFlow_19</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_39</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_1</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_16</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_12</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_39" name="" sourceRef="ChoreographyTask_6" targetRef="ChoreographyTask_17"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_23" name="" sourceRef="ParallelGateway_14" targetRef="EndEvent_1"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_25" name="" sourceRef="StartEvent_1" targetRef="ExclusiveGateway_5"/>
+  </bpmn2:choreography>
+  <bpmn2:message id="Message_1" name="weather_forecast"/>
+  <bpmn2:message id="Message_2" name="warning_rerout"/>
+  <bpmn2:message id="Message_3" name="proposal"/>
+  <bpmn2:message id="Message_4" name="proposal accepted"/>
+  <bpmn2:message id="Message_5" name="proposal rejected"/>
+  <bpmn2:message id="Message_6" name="response_pr"/>
+  <bpmn2:message id="Message_7" name="reroute_warning"/>
+  <bpmn2:message id="Message_8" name="reroute_proposal"/>
+  <bpmn2:message id="Message_11" name="reroute_proposal accepted"/>
+  <bpmn2:message id="Message_12" name="reroute_proposal rejected"/>
+  <bpmn2:message id="Message_16" name="warning_unexpected_arrival"/>
+  <bpmn2:message id="Message_18" name="unexpected_arrival_coming"/>
+  <bpmn2:message id="Message_19" name="ask_weather_forecast"/>
+  <bpmn2:message id="Message_22" name="req amenities"/>
+  <bpmn2:message id="Message_25" name="amenities"/>
+  <bpmn2:message id="Message_28" name="book amenities"/>
+  <bpmn2:message id="Message_29" name="req hotel"/>
+  <bpmn2:message id="Message_30" name="hotel list"/>
+  <bpmn2:message id="Message_31" name="book hotel"/>
+  <bpmn2:message id="Message_32" name="confirm"/>
+  <bpmn2:message id="Message_33" name="book transportation"/>
+  <bpmn2:message id="Message_42" name="confirmed"/>
+  <bpmn2:message id="Message_50" name="req_noise_level"/>
+  <bpmn2:message id="Message_51" name="noise_level"/>
+  <bpmn2:message id="Message_52" name="adjust volume"/>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1" name="airport">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Choreography_1">
+      <bpmndi:BPMNShape id="BPMNShape_1" bpmnElement="ChoreographyTask_1">
+        <dc:Bounds height="61.0" width="151.0" x="395.0" y="48.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_2" bpmnElement="Participant_1" choreographyActivityShape="BPMNShape_1" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="395.0" y="48.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_3" bpmnElement="Participant_2" choreographyActivityShape="BPMNShape_1" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="395.0" y="89.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_1" bpmnElement="ExclusiveGateway_1" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="350.0" y="203.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_2" bpmnElement="ExclusiveGateway_2" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="816.0" y="184.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="SequenceFlow_1" sourceElement="BPMNShape_1" targetElement="BPMNShape_ExclusiveGateway_9">
+        <di:waypoint xsi:type="dc:Point" x="546.0" y="78.0"/>
+        <di:waypoint xsi:type="dc:Point" x="564.0" y="79.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="SequenceFlow_2" sourceElement="BPMNShape_ExclusiveGateway_2" targetElement="BPMNShape_ExclusiveGateway_1">
+        <di:waypoint xsi:type="dc:Point" x="816.0" y="209.0"/>
+        <di:waypoint xsi:type="dc:Point" x="769.0" y="258.0"/>
+        <di:waypoint xsi:type="dc:Point" x="513.0" y="258.0"/>
+        <di:waypoint xsi:type="dc:Point" x="460.0" y="258.0"/>
+        <di:waypoint xsi:type="dc:Point" x="436.0" y="258.0"/>
+        <di:waypoint xsi:type="dc:Point" x="401.0" y="228.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_1" bpmnElement="ChoreographyTask_2">
+        <dc:Bounds height="60.0" width="150.0" x="627.0" y="128.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_2" bpmnElement="ChoreographyTask_3">
+        <dc:Bounds height="60.0" width="151.0" x="610.0" y="0.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_3" bpmnElement="ChoreographyTask_4">
+        <dc:Bounds height="61.0" width="150.0" x="141.0" y="197.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_2" bpmnElement="Participant_2" choreographyActivityShape="BPMNShape_ChoreographyTask_1" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="150.0" x="627.0" y="128.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_3" bpmnElement="Participant_1" choreographyActivityShape="BPMNShape_ChoreographyTask_1" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="150.0" x="627.0" y="168.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_5" bpmnElement="Participant_2" choreographyActivityShape="BPMNShape_ChoreographyTask_2" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="610.0" y="0.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_6" bpmnElement="Participant_1" choreographyActivityShape="BPMNShape_ChoreographyTask_2" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="610.0" y="40.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_3" bpmnElement="SequenceFlow_3" sourceElement="BPMNShape_ExclusiveGateway_1" targetElement="BPMNShape_1">
+        <di:waypoint xsi:type="dc:Point" x="375.0" y="203.0"/>
+        <di:waypoint xsi:type="dc:Point" x="374.0" y="93.0"/>
+        <di:waypoint xsi:type="dc:Point" x="470.0" y="109.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_5" bpmnElement="SequenceFlow_5" sourceElement="BPMNShape_ChoreographyTask_1" targetElement="BPMNShape_ExclusiveGateway_10">
+        <di:waypoint xsi:type="dc:Point" x="777.0" y="158.0"/>
+        <di:waypoint xsi:type="dc:Point" x="800.0" y="156.0"/>
+        <di:waypoint xsi:type="dc:Point" x="790.0" y="95.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_6" bpmnElement="SequenceFlow_6" sourceElement="BPMNShape_ChoreographyTask_2" targetElement="BPMNShape_ExclusiveGateway_10">
+        <di:waypoint xsi:type="dc:Point" x="761.0" y="30.0"/>
+        <di:waypoint xsi:type="dc:Point" x="788.0" y="47.0"/>
+        <di:waypoint xsi:type="dc:Point" x="790.0" y="95.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_8" bpmnElement="Participant_8" choreographyActivityShape="BPMNShape_ChoreographyTask_3" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="150.0" x="141.0" y="197.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_9" bpmnElement="Participant_1" choreographyActivityShape="BPMNShape_ChoreographyTask_3" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="150.0" x="141.0" y="238.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_7" bpmnElement="SequenceFlow_7" sourceElement="BPMNShape_ChoreographyTask_3" targetElement="BPMNShape_ExclusiveGateway_6">
+        <di:waypoint xsi:type="dc:Point" x="291.0" y="227.0"/>
+        <di:waypoint xsi:type="dc:Point" x="300.0" y="268.0"/>
+        <di:waypoint xsi:type="dc:Point" x="300.0" y="314.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_StartEvent_1" bpmnElement="StartEvent_1">
+        <dc:Bounds height="36.0" width="36.0" x="0.0" y="289.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_1" bpmnElement="ParallelGateway_1">
+        <dc:Bounds height="50.0" width="50.0" x="925.0" y="253.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_2" bpmnElement="ParallelGateway_2">
+        <dc:Bounds height="50.0" width="50.0" x="1900.0" y="281.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_9" bpmnElement="SequenceFlow_9" sourceElement="BPMNShape_ExclusiveGateway_2" targetElement="BPMNShape_ParallelGateway_1">
+        <di:waypoint xsi:type="dc:Point" x="867.0" y="209.0"/>
+        <di:waypoint xsi:type="dc:Point" x="925.0" y="278.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_4" bpmnElement="ChoreographyTask_5">
+        <dc:Bounds height="61.0" width="149.0" x="1010.0" y="173.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_11" bpmnElement="Participant_1" choreographyActivityShape="BPMNShape_ChoreographyTask_4" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="149.0" x="1010.0" y="173.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_12" bpmnElement="Participant_11" choreographyActivityShape="BPMNShape_ChoreographyTask_4" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="149.0" x="1010.0" y="214.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_5" bpmnElement="ChoreographyTask_6">
+        <dc:Bounds height="61.0" width="151.0" x="765.0" y="414.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_6" bpmnElement="ChoreographyTask_7">
+        <dc:Bounds height="61.0" width="151.0" x="1060.0" y="688.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_20" bpmnElement="Participant_1" choreographyActivityShape="BPMNShape_ChoreographyTask_5" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="765.0" y="414.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_21" bpmnElement="Participant_16" choreographyActivityShape="BPMNShape_ChoreographyTask_5" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="765.0" y="455.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_23" bpmnElement="Participant_1" choreographyActivityShape="BPMNShape_ChoreographyTask_6" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="1060.0" y="688.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_24" bpmnElement="Participant_18" choreographyActivityShape="BPMNShape_ChoreographyTask_6" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="1060.0" y="729.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_7" bpmnElement="ChoreographyTask_8">
+        <dc:Bounds height="67.0" width="151.0" x="1229.0" y="183.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_26" bpmnElement="Participant_11" choreographyActivityShape="BPMNShape_ChoreographyTask_7" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="1229.0" y="183.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_27" bpmnElement="Participant_1" choreographyActivityShape="BPMNShape_ChoreographyTask_7" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="1229.0" y="230.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_3" bpmnElement="ExclusiveGateway_3" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="1408.0" y="184.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_4" bpmnElement="ExclusiveGateway_4" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="1733.0" y="203.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_8" bpmnElement="ChoreographyTask_9">
+        <dc:Bounds height="61.0" width="151.0" x="1530.0" y="148.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_9" bpmnElement="ChoreographyTask_10">
+        <dc:Bounds height="70.0" width="149.0" x="1339.0" y="551.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_10" bpmnElement="ChoreographyTask_11">
+        <dc:Bounds height="61.0" width="150.0" x="1531.0" y="283.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_29" bpmnElement="Participant_1" choreographyActivityShape="BPMNShape_ChoreographyTask_10" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="150.0" x="1531.0" y="283.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_30" bpmnElement="Participant_11" choreographyActivityShape="BPMNShape_ChoreographyTask_10" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="150.0" x="1531.0" y="324.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_32" bpmnElement="Participant_1" choreographyActivityShape="BPMNShape_ChoreographyTask_8" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="1530.0" y="148.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_33" bpmnElement="Participant_11" choreographyActivityShape="BPMNShape_ChoreographyTask_8" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="1530.0" y="189.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_10" bpmnElement="SequenceFlow_10" sourceElement="BPMNShape_ParallelGateway_1" targetElement="BPMNShape_ChoreographyTask_4">
+        <di:waypoint xsi:type="dc:Point" x="976.0" y="278.0"/>
+        <di:waypoint xsi:type="dc:Point" x="976.0" y="203.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1010.0" y="203.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_11" bpmnElement="SequenceFlow_11" sourceElement="BPMNShape_ChoreographyTask_4" targetElement="BPMNShape_ExclusiveGateway_11">
+        <di:waypoint xsi:type="dc:Point" x="1159.0" y="203.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1158.0" y="160.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1170.0" y="138.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_12" bpmnElement="SequenceFlow_12" sourceElement="BPMNShape_ChoreographyTask_7" targetElement="BPMNShape_ExclusiveGateway_3">
+        <di:waypoint xsi:type="dc:Point" x="1380.0" y="216.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1408.0" y="209.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_13" bpmnElement="SequenceFlow_13" sourceElement="BPMNShape_ExclusiveGateway_3" targetElement="BPMNShape_ChoreographyTask_10">
+        <di:waypoint xsi:type="dc:Point" x="1459.0" y="209.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1488.0" y="295.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1531.0" y="313.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_14" bpmnElement="SequenceFlow_14" sourceElement="BPMNShape_ChoreographyTask_10" targetElement="BPMNShape_ExclusiveGateway_4">
+        <di:waypoint xsi:type="dc:Point" x="1681.0" y="313.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1733.0" y="290.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1733.0" y="228.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_15" bpmnElement="SequenceFlow_15" sourceElement="BPMNShape_ExclusiveGateway_12" targetElement="BPMNShape_ExclusiveGateway_11">
+        <di:waypoint xsi:type="dc:Point" x="1820.0" y="228.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1800.0" y="277.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1770.0" y="312.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1675.0" y="378.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1540.0" y="378.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1296.0" y="378.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1180.0" y="253.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1221.0" y="138.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_16" bpmnElement="SequenceFlow_16" sourceElement="BPMNShape_ChoreographyTask_8" targetElement="BPMNShape_ExclusiveGateway_4">
+        <di:waypoint xsi:type="dc:Point" x="1681.0" y="178.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1733.0" y="178.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1733.0" y="228.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_17" bpmnElement="SequenceFlow_17" sourceElement="BPMNShape_ExclusiveGateway_4" targetElement="BPMNShape_ExclusiveGateway_12">
+        <di:waypoint xsi:type="dc:Point" x="1784.0" y="228.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1820.0" y="228.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_11" bpmnElement="ChoreographyTask_12">
+        <dc:Bounds height="66.0" width="150.0" x="2000.0" y="273.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_35" bpmnElement="Participant_2" choreographyActivityShape="BPMNShape_ChoreographyTask_11" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="150.0" x="2000.0" y="273.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_36" bpmnElement="Participant_1" choreographyActivityShape="BPMNShape_ChoreographyTask_11" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="150.0" x="2000.0" y="319.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_18" bpmnElement="SequenceFlow_18" sourceElement="BPMNShape_ParallelGateway_2" targetElement="BPMNShape_ChoreographyTask_11">
+        <di:waypoint xsi:type="dc:Point" x="1951.0" y="306.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2000.0" y="306.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_19" bpmnElement="SequenceFlow_19" sourceElement="BPMNShape_ParallelGateway_1" targetElement="BPMNShape_ChoreographyTask_5">
+        <di:waypoint xsi:type="dc:Point" x="950.0" y="304.0"/>
+        <di:waypoint xsi:type="dc:Point" x="915.0" y="346.0"/>
+        <di:waypoint xsi:type="dc:Point" x="916.0" y="444.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_20" bpmnElement="SequenceFlow_20" sourceElement="BPMNShape_ParallelGateway_1" targetElement="BPMNShape_ChoreographyTask_6">
+        <di:waypoint xsi:type="dc:Point" x="950.0" y="304.0"/>
+        <di:waypoint xsi:type="dc:Point" x="969.0" y="570.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1135.0" y="688.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_1" bpmnElement="EndEvent_1">
+        <dc:Bounds height="36.0" width="36.0" x="3230.0" y="448.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_38" bpmnElement="Participant_18" choreographyActivityShape="BPMNShape_ChoreographyTask_9" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="149.0" x="1339.0" y="551.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_39" bpmnElement="Participant_28" choreographyActivityShape="BPMNShape_ChoreographyTask_9" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="149.0" x="1339.0" y="601.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_12" bpmnElement="ChoreographyTask_13">
+        <dc:Bounds height="60.0" width="151.0" x="1480.0" y="639.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_41" bpmnElement="Participant_18" choreographyActivityShape="BPMNShape_ChoreographyTask_12" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="1480.0" y="639.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_42" bpmnElement="Participant_30" choreographyActivityShape="BPMNShape_ChoreographyTask_12" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="1480.0" y="679.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_13" bpmnElement="ChoreographyTask_14">
+        <dc:Bounds height="60.0" width="150.0" x="1338.0" y="748.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_44" bpmnElement="Participant_18" choreographyActivityShape="BPMNShape_ChoreographyTask_13" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="150.0" x="1338.0" y="748.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_45" bpmnElement="Participant_32" choreographyActivityShape="BPMNShape_ChoreographyTask_13" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="150.0" x="1338.0" y="788.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_14" bpmnElement="ChoreographyTask_15">
+        <dc:Bounds height="60.0" width="150.0" x="1424.0" y="851.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_47" bpmnElement="Participant_18" choreographyActivityShape="BPMNShape_ChoreographyTask_14" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="150.0" x="1424.0" y="851.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_48" bpmnElement="Participant_34" choreographyActivityShape="BPMNShape_ChoreographyTask_14" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="150.0" x="1424.0" y="891.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_5" bpmnElement="ParallelGateway_5">
+        <dc:Bounds height="50.0" width="50.0" x="1255.0" y="693.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_6" bpmnElement="ParallelGateway_6">
+        <dc:Bounds height="50.0" width="50.0" x="1680.0" y="699.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_26" bpmnElement="SequenceFlow_26" sourceElement="BPMNShape_ParallelGateway_5" targetElement="BPMNShape_ChoreographyTask_9">
+        <di:waypoint xsi:type="dc:Point" x="1306.0" y="718.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1320.0" y="636.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1413.0" y="621.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_27" bpmnElement="SequenceFlow_27" sourceElement="BPMNShape_ParallelGateway_5" targetElement="BPMNShape_ChoreographyTask_12">
+        <di:waypoint xsi:type="dc:Point" x="1306.0" y="718.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1344.0" y="668.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1480.0" y="669.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_28" bpmnElement="SequenceFlow_28" sourceElement="BPMNShape_ParallelGateway_5" targetElement="BPMNShape_ChoreographyTask_13">
+        <di:waypoint xsi:type="dc:Point" x="1306.0" y="718.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1315.0" y="763.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1338.0" y="778.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_29" bpmnElement="SequenceFlow_29" sourceElement="BPMNShape_ParallelGateway_5" targetElement="BPMNShape_ChoreographyTask_14">
+        <di:waypoint xsi:type="dc:Point" x="1306.0" y="718.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1304.0" y="845.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1424.0" y="881.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_30" bpmnElement="SequenceFlow_30" sourceElement="BPMNShape_ChoreographyTask_9" targetElement="BPMNShape_ParallelGateway_6">
+        <di:waypoint xsi:type="dc:Point" x="1488.0" y="586.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1678.0" y="584.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1680.0" y="724.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_31" bpmnElement="SequenceFlow_31" sourceElement="BPMNShape_ChoreographyTask_12" targetElement="BPMNShape_ParallelGateway_6">
+        <di:waypoint xsi:type="dc:Point" x="1631.0" y="669.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1640.0" y="668.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1680.0" y="724.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_32" bpmnElement="SequenceFlow_32" sourceElement="BPMNShape_ChoreographyTask_13" targetElement="BPMNShape_ParallelGateway_6">
+        <di:waypoint xsi:type="dc:Point" x="1488.0" y="778.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1630.0" y="776.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1680.0" y="724.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_33" bpmnElement="SequenceFlow_33" sourceElement="BPMNShape_ChoreographyTask_14" targetElement="BPMNShape_ParallelGateway_6">
+        <di:waypoint xsi:type="dc:Point" x="1574.0" y="881.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1678.0" y="848.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1680.0" y="724.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_34" bpmnElement="SequenceFlow_34" sourceElement="BPMNShape_ParallelGateway_6" targetElement="BPMNShape_ParallelGateway_2">
+        <di:waypoint xsi:type="dc:Point" x="1705.0" y="699.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1870.0" y="688.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1925.0" y="332.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_35" bpmnElement="SequenceFlow_35" sourceElement="BPMNShape_ChoreographyTask_6" targetElement="BPMNShape_ParallelGateway_5">
+        <di:waypoint xsi:type="dc:Point" x="1211.0" y="718.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1255.0" y="718.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_15" bpmnElement="ChoreographyTask_16">
+        <dc:Bounds height="71.0" width="151.0" x="140.0" y="366.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_4" bpmnElement="Participant_11" choreographyActivityShape="BPMNShape_ChoreographyTask_15" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="140.0" y="366.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_7" bpmnElement="Participant_1" choreographyActivityShape="BPMNShape_ChoreographyTask_15" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="140.0" y="417.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_5" bpmnElement="ExclusiveGateway_5" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="58.0" y="282.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_6" bpmnElement="ExclusiveGateway_6" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="300.0" y="289.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_21" bpmnElement="SequenceFlow_21" sourceElement="BPMNShape_ExclusiveGateway_5" targetElement="BPMNShape_ChoreographyTask_15">
+        <di:waypoint xsi:type="dc:Point" x="109.0" y="307.0"/>
+        <di:waypoint xsi:type="dc:Point" x="130.0" y="381.0"/>
+        <di:waypoint xsi:type="dc:Point" x="140.0" y="401.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_22" bpmnElement="SequenceFlow_22" sourceElement="BPMNShape_ChoreographyTask_15" targetElement="BPMNShape_ExclusiveGateway_6">
+        <di:waypoint xsi:type="dc:Point" x="291.0" y="401.0"/>
+        <di:waypoint xsi:type="dc:Point" x="316.0" y="373.0"/>
+        <di:waypoint xsi:type="dc:Point" x="300.0" y="314.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_36" bpmnElement="SequenceFlow_36" sourceElement="BPMNShape_ExclusiveGateway_5" targetElement="BPMNShape_ChoreographyTask_3">
+        <di:waypoint xsi:type="dc:Point" x="109.0" y="307.0"/>
+        <di:waypoint xsi:type="dc:Point" x="131.0" y="248.0"/>
+        <di:waypoint xsi:type="dc:Point" x="141.0" y="227.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_37" bpmnElement="SequenceFlow_37" sourceElement="BPMNShape_ExclusiveGateway_6" targetElement="BPMNShape_ExclusiveGateway_1">
+        <di:waypoint xsi:type="dc:Point" x="325.0" y="289.0"/>
+        <di:waypoint xsi:type="dc:Point" x="375.0" y="254.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_38" bpmnElement="SequenceFlow_38" sourceElement="BPMNShape_ExclusiveGateway_3" targetElement="BPMNShape_ChoreographyTask_8">
+        <di:waypoint xsi:type="dc:Point" x="1459.0" y="209.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1480.0" y="178.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1530.0" y="178.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_16" bpmnElement="ChoreographyTask_17">
+        <dc:Bounds height="71.0" width="150.0" x="221.0" y="1058.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_17" bpmnElement="ChoreographyTask_18">
+        <dc:Bounds height="66.0" width="150.0" x="2180.0" y="275.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_39" bpmnElement="SequenceFlow_39" sourceElement="BPMNShape_ChoreographyTask_5" targetElement="BPMNShape_ChoreographyTask_16">
+        <di:waypoint xsi:type="dc:Point" x="840.0" y="475.0"/>
+        <di:waypoint xsi:type="dc:Point" x="652.0" y="474.0"/>
+        <di:waypoint xsi:type="dc:Point" x="652.0" y="526.0"/>
+        <di:waypoint xsi:type="dc:Point" x="349.0" y="526.0"/>
+        <di:waypoint xsi:type="dc:Point" x="371.0" y="1093.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_40" bpmnElement="SequenceFlow_40" sourceElement="BPMNShape_ExclusiveGateway_8" targetElement="BPMNShape_ParallelGateway_2">
+        <di:waypoint xsi:type="dc:Point" x="1968.0" y="1032.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1776.0" y="796.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1777.0" y="541.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1777.0" y="431.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1777.0" y="387.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1925.0" y="332.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_13" bpmnElement="Participant_16" choreographyActivityShape="BPMNShape_ChoreographyTask_16" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="150.0" x="221.0" y="1058.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_14" bpmnElement="Participant_6" choreographyActivityShape="BPMNShape_ChoreographyTask_16" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="150.0" x="221.0" y="1109.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_18" bpmnElement="ChoreographyTask_19">
+        <dc:Bounds height="71.0" width="151.0" x="420.0" y="1058.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_16" bpmnElement="Participant_6" choreographyActivityShape="BPMNShape_ChoreographyTask_18" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="420.0" y="1058.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_17" bpmnElement="Participant_9" choreographyActivityShape="BPMNShape_ChoreographyTask_18" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="420.0" y="1109.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_19" bpmnElement="ChoreographyTask_20">
+        <dc:Bounds height="61.0" width="151.0" x="610.0" y="1063.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_19" bpmnElement="Participant_6" choreographyActivityShape="BPMNShape_ChoreographyTask_19" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="610.0" y="1063.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_22" bpmnElement="Participant_8" choreographyActivityShape="BPMNShape_ChoreographyTask_19" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="610.0" y="1104.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_41" bpmnElement="SequenceFlow_41" sourceElement="BPMNShape_ChoreographyTask_16" targetElement="BPMNShape_ChoreographyTask_18">
+        <di:waypoint xsi:type="dc:Point" x="371.0" y="1093.0"/>
+        <di:waypoint xsi:type="dc:Point" x="420.0" y="1093.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_42" bpmnElement="SequenceFlow_42" sourceElement="BPMNShape_ChoreographyTask_18" targetElement="BPMNShape_ChoreographyTask_19">
+        <di:waypoint xsi:type="dc:Point" x="571.0" y="1093.0"/>
+        <di:waypoint xsi:type="dc:Point" x="610.0" y="1093.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_7" bpmnElement="ExclusiveGateway_7" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="830.0" y="1079.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_8" bpmnElement="ExclusiveGateway_8" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="1943.0" y="1032.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_7" bpmnElement="ParallelGateway_7">
+        <dc:Bounds height="50.0" width="50.0" x="971.0" y="1018.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_8" bpmnElement="ParallelGateway_8">
+        <dc:Bounds height="50.0" width="50.0" x="1457.0" y="1026.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_20" bpmnElement="ChoreographyTask_21">
+        <dc:Bounds height="61.0" width="151.0" x="1069.0" y="924.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_21" bpmnElement="ChoreographyTask_22">
+        <dc:Bounds height="63.0" width="152.0" x="1563.0" y="1025.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_22" bpmnElement="ChoreographyTask_23">
+        <dc:Bounds height="61.0" width="149.0" x="1070.0" y="1041.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_23" bpmnElement="ChoreographyTask_24">
+        <dc:Bounds height="61.0" width="151.0" x="1242.0" y="1171.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_24" bpmnElement="ChoreographyTask_25">
+        <dc:Bounds height="70.0" width="154.0" x="1241.0" y="1037.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_25" bpmnElement="ChoreographyTask_26">
+        <dc:Bounds height="70.0" width="151.0" x="1255.0" y="920.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_26" bpmnElement="ChoreographyTask_27">
+        <dc:Bounds height="60.0" width="148.0" x="974.0" y="1343.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_27" bpmnElement="ChoreographyTask_28">
+        <dc:Bounds height="71.0" width="146.0" x="1072.0" y="1154.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_28" bpmnElement="Participant_6" choreographyActivityShape="BPMNShape_ChoreographyTask_20" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="1069.0" y="924.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_31" bpmnElement="Participant_16" choreographyActivityShape="BPMNShape_ChoreographyTask_20" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="1069.0" y="965.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_37" bpmnElement="Participant_6" choreographyActivityShape="BPMNShape_ChoreographyTask_22" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="149.0" x="1070.0" y="1041.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_40" bpmnElement="Participant_17" choreographyActivityShape="BPMNShape_ChoreographyTask_22" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="149.0" x="1070.0" y="1082.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_46" bpmnElement="Participant_6" choreographyActivityShape="BPMNShape_ChoreographyTask_27" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="146.0" x="1072.0" y="1154.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_49" bpmnElement="Participant_18" choreographyActivityShape="BPMNShape_ChoreographyTask_27" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="146.0" x="1072.0" y="1205.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_43" bpmnElement="SequenceFlow_43" sourceElement="BPMNShape_ChoreographyTask_19" targetElement="BPMNShape_ExclusiveGateway_7">
+        <di:waypoint xsi:type="dc:Point" x="761.0" y="1093.0"/>
+        <di:waypoint xsi:type="dc:Point" x="830.0" y="1104.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_44" bpmnElement="SequenceFlow_44" sourceElement="BPMNShape_ExclusiveGateway_7" targetElement="BPMNShape_ParallelGateway_7">
+        <di:waypoint xsi:type="dc:Point" x="881.0" y="1104.0"/>
+        <di:waypoint xsi:type="dc:Point" x="904.0" y="1041.0"/>
+        <di:waypoint xsi:type="dc:Point" x="971.0" y="1043.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_45" bpmnElement="SequenceFlow_45" sourceElement="BPMNShape_ParallelGateway_7" targetElement="BPMNShape_ChoreographyTask_20">
+        <di:waypoint xsi:type="dc:Point" x="1022.0" y="1043.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1069.0" y="954.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_46" bpmnElement="SequenceFlow_46" sourceElement="BPMNShape_ParallelGateway_7" targetElement="BPMNShape_ChoreographyTask_22">
+        <di:waypoint xsi:type="dc:Point" x="1022.0" y="1043.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1070.0" y="1071.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_47" bpmnElement="SequenceFlow_47" sourceElement="BPMNShape_ParallelGateway_7" targetElement="BPMNShape_ChoreographyTask_27">
+        <di:waypoint xsi:type="dc:Point" x="1022.0" y="1043.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1072.0" y="1189.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_51" bpmnElement="Participant_16" choreographyActivityShape="BPMNShape_ChoreographyTask_25" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="1255.0" y="920.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_52" bpmnElement="Participant_6" choreographyActivityShape="BPMNShape_ChoreographyTask_25" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="1255.0" y="970.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_54" bpmnElement="Participant_17" choreographyActivityShape="BPMNShape_ChoreographyTask_24" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="154.0" x="1241.0" y="1037.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_55" bpmnElement="Participant_6" choreographyActivityShape="BPMNShape_ChoreographyTask_24" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="154.0" x="1241.0" y="1087.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_57" bpmnElement="Participant_18" choreographyActivityShape="BPMNShape_ChoreographyTask_23" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="1242.0" y="1171.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_58" bpmnElement="Participant_6" choreographyActivityShape="BPMNShape_ChoreographyTask_23" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="1242.0" y="1212.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_48" bpmnElement="SequenceFlow_48" sourceElement="BPMNShape_ChoreographyTask_20" targetElement="BPMNShape_ChoreographyTask_25">
+        <di:waypoint xsi:type="dc:Point" x="1220.0" y="954.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1255.0" y="955.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_49" bpmnElement="SequenceFlow_49" sourceElement="BPMNShape_ChoreographyTask_22" targetElement="BPMNShape_ChoreographyTask_24">
+        <di:waypoint xsi:type="dc:Point" x="1219.0" y="1071.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1241.0" y="1072.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_50" bpmnElement="SequenceFlow_50" sourceElement="BPMNShape_ChoreographyTask_27" targetElement="BPMNShape_ChoreographyTask_23">
+        <di:waypoint xsi:type="dc:Point" x="1218.0" y="1189.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1242.0" y="1201.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_51" bpmnElement="SequenceFlow_51" sourceElement="BPMNShape_ChoreographyTask_25" targetElement="BPMNShape_ParallelGateway_8">
+        <di:waypoint xsi:type="dc:Point" x="1406.0" y="955.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1457.0" y="1051.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_52" bpmnElement="SequenceFlow_52" sourceElement="BPMNShape_ChoreographyTask_24" targetElement="BPMNShape_ParallelGateway_8">
+        <di:waypoint xsi:type="dc:Point" x="1395.0" y="1072.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1457.0" y="1051.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_53" bpmnElement="SequenceFlow_53" sourceElement="BPMNShape_ChoreographyTask_23" targetElement="BPMNShape_ParallelGateway_8">
+        <di:waypoint xsi:type="dc:Point" x="1393.0" y="1201.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1457.0" y="1051.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_54" bpmnElement="SequenceFlow_54" sourceElement="BPMNShape_ParallelGateway_8" targetElement="BPMNShape_ChoreographyTask_21">
+        <di:waypoint xsi:type="dc:Point" x="1508.0" y="1051.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1563.0" y="1056.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_55" bpmnElement="SequenceFlow_55" sourceElement="BPMNShape_ChoreographyTask_21" targetElement="BPMNShape_ExclusiveGateway_8">
+        <di:waypoint xsi:type="dc:Point" x="1715.0" y="1056.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1943.0" y="1057.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_60" bpmnElement="Participant_6" choreographyActivityShape="BPMNShape_ChoreographyTask_21" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="152.0" x="1563.0" y="1025.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_61" bpmnElement="Participant_31" choreographyActivityShape="BPMNShape_ChoreographyTask_21" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="152.0" x="1563.0" y="1068.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_63" bpmnElement="Participant_6" choreographyActivityShape="BPMNShape_ChoreographyTask_26" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="148.0" x="974.0" y="1343.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_64" bpmnElement="Participant_9" choreographyActivityShape="BPMNShape_ChoreographyTask_26" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="148.0" x="974.0" y="1383.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_56" bpmnElement="SequenceFlow_56" sourceElement="BPMNShape_ExclusiveGateway_7" targetElement="BPMNShape_ChoreographyTask_26">
+        <di:waypoint xsi:type="dc:Point" x="855.0" y="1130.0"/>
+        <di:waypoint xsi:type="dc:Point" x="876.0" y="1356.0"/>
+        <di:waypoint xsi:type="dc:Point" x="974.0" y="1373.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_28" bpmnElement="ChoreographyTask_29">
+        <dc:Bounds height="58.0" width="146.0" x="1170.0" y="1343.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_66" bpmnElement="Participant_9" choreographyActivityShape="BPMNShape_ChoreographyTask_28" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="146.0" x="1170.0" y="1343.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_67" bpmnElement="Participant_6" choreographyActivityShape="BPMNShape_ChoreographyTask_28" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="146.0" x="1170.0" y="1381.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_57" bpmnElement="SequenceFlow_57" sourceElement="BPMNShape_ChoreographyTask_26" targetElement="BPMNShape_ChoreographyTask_28">
+        <di:waypoint xsi:type="dc:Point" x="1122.0" y="1373.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1170.0" y="1372.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_9" bpmnElement="ParallelGateway_9">
+        <dc:Bounds height="50.0" width="50.0" x="1335.0" y="1273.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_10" bpmnElement="ParallelGateway_10">
+        <dc:Bounds height="50.0" width="50.0" x="1828.0" y="1258.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_29" bpmnElement="ChoreographyTask_30">
+        <dc:Bounds height="60.0" width="151.0" x="1440.0" y="1234.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_30" bpmnElement="ChoreographyTask_31">
+        <dc:Bounds height="70.0" width="150.0" x="1630.0" y="1229.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_31" bpmnElement="ChoreographyTask_32">
+        <dc:Bounds height="60.0" width="151.0" x="1440.0" y="1388.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_32" bpmnElement="ChoreographyTask_33">
+        <dc:Bounds height="60.0" width="156.0" x="1627.0" y="1388.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_69" bpmnElement="Participant_6" choreographyActivityShape="BPMNShape_ChoreographyTask_29" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="1440.0" y="1234.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_70" bpmnElement="Participant_40" choreographyActivityShape="BPMNShape_ChoreographyTask_29" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="1440.0" y="1274.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_72" bpmnElement="Participant_6" choreographyActivityShape="BPMNShape_ChoreographyTask_31" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="1440.0" y="1388.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_73" bpmnElement="Participant_30" choreographyActivityShape="BPMNShape_ChoreographyTask_31" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="1440.0" y="1428.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_75" bpmnElement="Participant_40" choreographyActivityShape="BPMNShape_ChoreographyTask_30" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="150.0" x="1630.0" y="1229.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_76" bpmnElement="Participant_6" choreographyActivityShape="BPMNShape_ChoreographyTask_30" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="150.0" x="1630.0" y="1279.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_78" bpmnElement="Participant_30" choreographyActivityShape="BPMNShape_ChoreographyTask_32" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="156.0" x="1627.0" y="1388.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_79" bpmnElement="Participant_6" choreographyActivityShape="BPMNShape_ChoreographyTask_32" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="156.0" x="1627.0" y="1428.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_58" bpmnElement="SequenceFlow_58" sourceElement="BPMNShape_ChoreographyTask_29" targetElement="BPMNShape_ChoreographyTask_30">
+        <di:waypoint xsi:type="dc:Point" x="1591.0" y="1264.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1630.0" y="1264.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_59" bpmnElement="SequenceFlow_59" sourceElement="BPMNShape_ChoreographyTask_31" targetElement="BPMNShape_ChoreographyTask_32">
+        <di:waypoint xsi:type="dc:Point" x="1591.0" y="1418.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1627.0" y="1418.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_60" bpmnElement="SequenceFlow_60" sourceElement="BPMNShape_ParallelGateway_9" targetElement="BPMNShape_ChoreographyTask_29">
+        <di:waypoint xsi:type="dc:Point" x="1386.0" y="1298.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1440.0" y="1264.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_61" bpmnElement="SequenceFlow_61" sourceElement="BPMNShape_ParallelGateway_9" targetElement="BPMNShape_ChoreographyTask_31">
+        <di:waypoint xsi:type="dc:Point" x="1386.0" y="1298.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1440.0" y="1418.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_62" bpmnElement="SequenceFlow_62" sourceElement="BPMNShape_ChoreographyTask_30" targetElement="BPMNShape_ParallelGateway_10">
+        <di:waypoint xsi:type="dc:Point" x="1780.0" y="1264.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1828.0" y="1283.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_63" bpmnElement="SequenceFlow_63" sourceElement="BPMNShape_ChoreographyTask_32" targetElement="BPMNShape_ParallelGateway_10">
+        <di:waypoint xsi:type="dc:Point" x="1783.0" y="1418.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1828.0" y="1283.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_64" bpmnElement="SequenceFlow_64" sourceElement="BPMNShape_ChoreographyTask_28" targetElement="BPMNShape_ParallelGateway_9">
+        <di:waypoint xsi:type="dc:Point" x="1316.0" y="1372.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1335.0" y="1298.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_65" bpmnElement="SequenceFlow_65" sourceElement="BPMNShape_ParallelGateway_10" targetElement="BPMNShape_ExclusiveGateway_8">
+        <di:waypoint xsi:type="dc:Point" x="1853.0" y="1258.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1968.0" y="1083.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_81" bpmnElement="Participant_1" choreographyActivityShape="BPMNShape_ChoreographyTask_17" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="150.0" x="2180.0" y="275.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_82" bpmnElement="Participant_18" choreographyActivityShape="BPMNShape_ChoreographyTask_17" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="150.0" x="2180.0" y="321.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_36" bpmnElement="ChoreographyTask_37">
+        <dc:Bounds height="59.0" width="151.0" x="2625.0" y="393.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_93" bpmnElement="Participant_18" choreographyActivityShape="BPMNShape_ChoreographyTask_36" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="2625.0" y="393.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_94" bpmnElement="Participant_32" choreographyActivityShape="BPMNShape_ChoreographyTask_36" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="2625.0" y="432.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_38" bpmnElement="ChoreographyTask_39">
+        <dc:Bounds height="61.0" width="151.0" x="2530.0" y="524.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_99" bpmnElement="Participant_18" choreographyActivityShape="BPMNShape_ChoreographyTask_38" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="2530.0" y="524.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_100" bpmnElement="Participant_34" choreographyActivityShape="BPMNShape_ChoreographyTask_38" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="2530.0" y="565.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_40" bpmnElement="ChoreographyTask_41">
+        <dc:Bounds height="60.0" width="151.0" x="2741.0" y="631.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_106" bpmnElement="Participant_18" choreographyActivityShape="BPMNShape_ChoreographyTask_40" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="2741.0" y="631.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_107" bpmnElement="Participant_28" choreographyActivityShape="BPMNShape_ChoreographyTask_40" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="2741.0" y="671.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_66" bpmnElement="SequenceFlow_66" sourceElement="BPMNShape_ChoreographyTask_11" targetElement="BPMNShape_ChoreographyTask_17">
+        <di:waypoint xsi:type="dc:Point" x="2150.0" y="306.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2180.0" y="308.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_13" bpmnElement="ParallelGateway_13">
+        <dc:Bounds height="50.0" width="50.0" x="2420.0" y="502.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_14" bpmnElement="ParallelGateway_14">
+        <dc:Bounds height="50.0" width="50.0" x="2919.0" y="502.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_73" bpmnElement="SequenceFlow_73" sourceElement="BPMNShape_ParallelGateway_13" targetElement="BPMNShape_ChoreographyTask_36">
+        <di:waypoint xsi:type="dc:Point" x="2471.0" y="527.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2506.0" y="421.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2625.0" y="422.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_74" bpmnElement="SequenceFlow_74" sourceElement="BPMNShape_ParallelGateway_13" targetElement="BPMNShape_ChoreographyTask_38">
+        <di:waypoint xsi:type="dc:Point" x="2471.0" y="527.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2530.0" y="554.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_75" bpmnElement="SequenceFlow_75" sourceElement="BPMNShape_ParallelGateway_13" targetElement="BPMNShape_ChoreographyTask_40">
+        <di:waypoint xsi:type="dc:Point" x="2471.0" y="527.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2542.0" y="661.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2741.0" y="661.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_9" bpmnElement="ExclusiveGateway_9" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="564.0" y="54.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_10" bpmnElement="ExclusiveGateway_10" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="790.0" y="70.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_79" bpmnElement="SequenceFlow_79" sourceElement="BPMNShape_ExclusiveGateway_9" targetElement="BPMNShape_ChoreographyTask_2">
+        <di:waypoint xsi:type="dc:Point" x="615.0" y="79.0"/>
+        <di:waypoint xsi:type="dc:Point" x="610.0" y="30.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_80" bpmnElement="SequenceFlow_80" sourceElement="BPMNShape_ExclusiveGateway_10" targetElement="BPMNShape_ExclusiveGateway_2">
+        <di:waypoint xsi:type="dc:Point" x="815.0" y="121.0"/>
+        <di:waypoint xsi:type="dc:Point" x="840.0" y="144.0"/>
+        <di:waypoint xsi:type="dc:Point" x="841.0" y="184.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_89" bpmnElement="SequenceFlow_89" sourceElement="BPMNShape_ExclusiveGateway_9" targetElement="BPMNShape_ChoreographyTask_1">
+        <di:waypoint xsi:type="dc:Point" x="615.0" y="79.0"/>
+        <di:waypoint xsi:type="dc:Point" x="627.0" y="158.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_11" bpmnElement="ExclusiveGateway_11" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="1170.0" y="113.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_12" bpmnElement="ExclusiveGateway_12" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="1820.0" y="203.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_90" bpmnElement="SequenceFlow_90" sourceElement="BPMNShape_ExclusiveGateway_11" targetElement="BPMNShape_ChoreographyTask_7">
+        <di:waypoint xsi:type="dc:Point" x="1221.0" y="138.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1228.0" y="152.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1229.0" y="216.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_91" bpmnElement="SequenceFlow_91" sourceElement="BPMNShape_ExclusiveGateway_12" targetElement="BPMNShape_ParallelGateway_2">
+        <di:waypoint xsi:type="dc:Point" x="1871.0" y="228.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1900.0" y="306.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_4" bpmnElement="SequenceFlow_4" sourceElement="BPMNShape_ChoreographyTask_40" targetElement="BPMNShape_ParallelGateway_14">
+        <di:waypoint xsi:type="dc:Point" x="2892.0" y="661.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2944.0" y="553.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_92" bpmnElement="SequenceFlow_92" sourceElement="BPMNShape_ChoreographyTask_36" targetElement="BPMNShape_ParallelGateway_14">
+        <di:waypoint xsi:type="dc:Point" x="2776.0" y="422.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2919.0" y="527.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_93" bpmnElement="SequenceFlow_93" sourceElement="BPMNShape_ChoreographyTask_38" targetElement="BPMNShape_ParallelGateway_14">
+        <di:waypoint xsi:type="dc:Point" x="2681.0" y="554.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2919.0" y="527.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_70" bpmnElement="SequenceFlow_70" sourceElement="BPMNShape_ChoreographyTask_17" targetElement="BPMNShape_ParallelGateway_13">
+        <di:waypoint xsi:type="dc:Point" x="2330.0" y="308.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2445.0" y="502.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_23" bpmnElement="SequenceFlow_23" sourceElement="BPMNShape_ParallelGateway_14" targetElement="BPMNShape_EndEvent_1">
+        <di:waypoint xsi:type="dc:Point" x="2970.0" y="527.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3230.0" y="466.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_25" bpmnElement="SequenceFlow_25" sourceElement="BPMNShape_StartEvent_1" targetElement="BPMNShape_ExclusiveGateway_5">
+        <di:waypoint xsi:type="dc:Point" x="36.0" y="307.0"/>
+        <di:waypoint xsi:type="dc:Point" x="58.0" y="307.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

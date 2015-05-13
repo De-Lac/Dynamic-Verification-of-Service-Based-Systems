@@ -1,0 +1,33 @@
+% -*- Mode: Prolog -*-     
+
+gtrans(s26, ('A', 'B', hello), s27).
+gtrans(s27, ('A', 'C', oneOne), s28).
+gtrans(s28, ('A', 'D', twoOne), s29).
+gtrans(s29, ('C', 'E', oneTwo), s30).
+gtrans(s30, ('D', 'F', twoTwo), s31).
+gtrans(s31, ('C', 'B', bye), s33).
+gtrans(s29, ('D', 'F', twoTwo), s34).
+gtrans(s34, ('C', 'E', oneTwo), s31).
+gtrans(s28, ('C', 'E', oneTwo), s35).
+gtrans(s35, ('A', 'D', twoOne), s30).
+gtrans(s27, ('A', 'D', twoOne), s36).
+gtrans(s36, ('A', 'C', oneOne), s29).
+gtrans(s36, ('D', 'F', twoTwo), s37).
+gtrans(s37, ('A', 'C', oneOne), s34).
+
+peer('A').
+peer('B').
+peer('C').
+peer('D').
+peer('E').
+peer('F').
+
+start(s26).
+
+
+%% negategtrans(false, false).  --> use a default setting 
+%% this fact is used in the extension where automatic repair is performed using
+%% some simple domain knowledge. negatetrans(false, false) implies no such domain
+%% knowledge is available/provided. 
+negategtrans(false, false).  
+

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:peerbehavior="http://peerbehavior/1.0.2">
+  <peerbehavior:Peer initialState="12" name="Airline" id="Participant_1">
+    <out name="!announceService"/>
+    <states name="4" incoming="/0/@transictions.3" outcoming="/0/@transictions.0"/>
+    <states name="5" incoming="/0/@transictions.0" outcoming="/0/@transictions.4"/>
+    <states name="10" incoming="/0/@transictions.4" outcoming="/0/@transictions.1"/>
+    <states name="11" incoming="/0/@transictions.1"/>
+    <states name="12" outcoming="/0/@transictions.2"/>
+    <states name="13" incoming="/0/@transictions.2" outcoming="/0/@transictions.3"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="4" to="5"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="10" to="11"/>
+    <transictions xsi:type="peerbehavior:Send" from="12" to="13" message="/0/@out[name='!announceService']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="13" to="4"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="5" to="10"/>
+    <participantRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#//@participants.0"/>
+  </peerbehavior:Peer>
+  <peerbehavior:Peer initialState="14" name="Citizen" id="Participant_2">
+    <in name="?displayAirlineNotification"/>
+    <in name="?announceService"/>
+    <out name="!readAck"/>
+    <states name="2" incoming="/1/@transictions.3" outcoming="/1/@transictions.0"/>
+    <states name="3" incoming="/1/@transictions.0" outcoming="/1/@transictions.4"/>
+    <states name="6" incoming="/1/@transictions.4" outcoming="/1/@transictions.1"/>
+    <states name="7" incoming="/1/@transictions.1"/>
+    <states name="14" outcoming="/1/@transictions.2"/>
+    <states name="15" incoming="/1/@transictions.2" outcoming="/1/@transictions.3"/>
+    <transictions xsi:type="peerbehavior:Receive" from="2" to="3" message="/1/@in[name='?displayAirlineNotification']"/>
+    <transictions xsi:type="peerbehavior:Send" from="6" to="7" message="/1/@out[name='!readAck']"/>
+    <transictions xsi:type="peerbehavior:Receive" from="14" to="15" message="/1/@in[name='?announceService']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="15" to="2"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="3" to="6"/>
+    <participantRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#//@participants.1"/>
+  </peerbehavior:Peer>
+  <peerbehavior:Peer initialState="16" name="MID" id="Participant_4">
+    <in name="?readAck"/>
+    <out name="!displayAirlineNotification"/>
+    <states name="0" incoming="/2/@transictions.3" outcoming="/2/@transictions.0"/>
+    <states name="1" incoming="/2/@transictions.0" outcoming="/2/@transictions.4"/>
+    <states name="8" incoming="/2/@transictions.4" outcoming="/2/@transictions.1"/>
+    <states name="9" incoming="/2/@transictions.1"/>
+    <states name="16" outcoming="/2/@transictions.2"/>
+    <states name="17" incoming="/2/@transictions.2" outcoming="/2/@transictions.3"/>
+    <transictions xsi:type="peerbehavior:Send" from="0" to="1" message="/2/@out[name='!displayAirlineNotification']"/>
+    <transictions xsi:type="peerbehavior:Receive" from="8" to="9" message="/2/@in[name='?readAck']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="16" to="17"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="17" to="0"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="1" to="8"/>
+    <participantRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#//@participants.2"/>
+  </peerbehavior:Peer>
+</xmi:XMI>

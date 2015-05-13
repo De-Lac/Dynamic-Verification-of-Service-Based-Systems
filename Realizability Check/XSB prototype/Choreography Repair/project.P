@@ -1,0 +1,73 @@
+% -*- Mode: Prolog -*-
+
+% Project:
+%   takes as input goal (file using project must include a dynamically loaded goal/gtrans file)
+%   and outputs projected peers, and their start states. 
+
+% Peer states:
+%   state of the goal-peer name
+% Peer transitions:
+%   ptrans(Peername, Peer state, in(M, Source of message Peer), nextstate)
+%   ptrans(Peername, Peer state, out(M, destination of message Peer), nextstate)
+%   ptrans(Peername, Peer state, (epsilon), nextstate) -- for the peers that do not move as per the goal transition.
+
+% [library]: compile the library to make sure assertOnce can be used. 
+
+:- [library].
+:- dynamic ptranswep/4.
+:- dynamic ptrans/4.
+:- dynamic startPeer/2.
+:- dynamic mapep/2.
+
+project :-
+	% get the goal trans
+	gtrans(S, (P0, P1, M), S1),
+	% create the state of peers
+	
+	createState(S, P0, SP0),
+	createState(S1, P0, S1P0),
+	createState(S, P1, SP1),
+	createState(S1, P1, S1P1),
+
+	% create the transitions of the sender and receiver peers
+	%assertOnce(ptrans(P0, SP0, out(M, P1), S1P0)), 
+	%assertOnce(ptrans(P1, SP1, in(M, P0), S1P1)),
+	assertOnce(ptranswep(P0, SP0, out(M, P1), S1P0)), 
+	assertOnce(ptranswep(P1, SP1, in(M, P0), S1P1)),
+	
+	% create the transitions of the peers not participating in the goal transition
+	findall(P, (peer(P), P\=P0, P\=P1), L),
+	createTrans(L, S, S1),
+
+	fail.
+
+% create the start state of the peers
+project :-
+	start(S), 
+	peer(P),
+	createState(S, P, SP),	
+	assertOnce(startPeer(P, SP)),
+	fail.
+
+%% in case the user provides peers which do not participate in the communication
+%% we need to remove ep-transitions from these peers ahead of time so that
+%% system-transition-wo-epsilon does not get overloaded
+project :-
+	peer(P),
+	findall(A, (ptranswep(P, _, A, _), A \= epsilon), L),
+	(L == [] -> retractall(ptranswep(P, _, _, _)); true),
+	fail.
+
+project.
+
+
+createState(S, P0, S-P0).
+
+createTrans([], _S, _S1).
+createTrans([P|Ps], S, S1) :-
+	createState(S, P, SP),
+	createState(S1, P, S1P),
+	%assert(ptrans(P, SP, (epsilon), S1P)),
+	assertOnce(ptranswep(P, SP, (epsilon), S1P)),
+	createTrans(Ps, S, S1).
+

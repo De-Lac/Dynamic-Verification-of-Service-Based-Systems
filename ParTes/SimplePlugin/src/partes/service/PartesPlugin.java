@@ -1,0 +1,304 @@
+package partes.service;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import org.ow2.choreos.registry.messages.AddChoreographyParticipantIn;
+import org.ow2.choreos.registry.messages.RolesAndParticipantIn;
+import org.ow2.choreos.registry.messages.SaveChoreographyIn;
+import org.ow2.choreos.registry.plugin.v2.CHOReOSPublishMonitor;
+import org.ow2.choreos.registry.plugin.v2.Wrapper;
+import org.uddi.api_v3.DeleteTModel;
+import org.uddi.api_v3.ServiceDetail;
+import org.uddi.api_v3.TModel;
+import org.uddi.api_v3.TModelDetail;
+
+
+
+public class PartesPlugin  implements CHOReOSPublishMonitor
+
+{
+ 	
+	/*  <String ,   HashMap<String,String>>
+	 * ================================
+	 * |            || -p | bpmn_path |
+	 * | sessionID  || -y | yml_path  |
+	 * |            || -d | if_debug  |
+	 * ================================
+	 */      
+	HashMap<String, HashMap<String, String> > choreographiesURI = new HashMap<String, HashMap<String, String> >();
+	private HashMap<String, String> commands;
+	private List<TModel> rolesList;
+	private String choreographyTModelKey;
+	public static PartesPlugin instance;
+
+	public PartesPlugin()
+	{
+	 instance = this;
+	}
+	
+	
+
+	@Override
+	public void afterAddChoreographyParticipant(Wrapper<ServiceDetail> arg0,
+			String arg1) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void afterAddRolesToParticipant(Wrapper<ServiceDetail> arg0,
+			String arg1) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void afterProcessChoreography(Wrapper<Map<TModel, List<TModel>>> arg0, String arg1) 
+	{}
+
+	@Override
+	public void afterRemoveChoreography(String arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void afterRemoveRolesFromParticipant(Wrapper<ServiceDetail> arg0,
+			String arg1) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void afterSaveChoreography(Wrapper<TModelDetail> arg0, String arg1) 
+	{
+		HashMap<String, String> commands = choreographiesURI.get(arg1);
+		if (commands == null || commands.get("-p") == null)
+			{return;} // no partes execution required
+		choreographiesURI.remove(arg1);
+		System.out.println("[Partes] opid="+arg1+" starting Partes generation for "+commands.get("-p"));
+		System.out.println(new PartesWsTestGenerator().getPartesWsTestGeneratorHttpSoap12Endpoint().helloService("I'm the PartesPlugin [test service]"));
+		TModel choreography = arg0.getContents().getTModel().get(0); 
+		if (commands.get("-y") != null)
+		{ // I have the .yml file already filled
+			System.out.println("generateTestSuiteAccordingToYamlFile");
+			// start a new thread because the execution needs time, and waiting can
+			this.commands = commands;
+			this.choreographyTModelKey = choreography.getTModelKey();
+			new Thread(  new Runnable() 
+			{
+				public void run() 
+				{
+					generateTestSuiteAccordingToYamlFile(PartesPlugin.instance.commands, PartesPlugin.instance.choreographyTModelKey);
+				}
+			}).start();
+
+		}
+		else
+		{ // I don't have a .yml file provided. I create one reading participants info from bpmn
+			System.out.println("generateTestSuiteAccordingToBpmnParticipantsInfo");
+			this.commands = commands;
+			this.choreographyTModelKey = choreography.getTModelKey();
+			this.rolesList = arg0.getContents().getTModel().subList(1, arg0.getContents().getTModel().size()); // roles
+			new Thread(    new Runnable() 
+			{
+				public void run() 
+				{
+					try
+					{
+					
+						generateTestSuiteAccordingToBpmnParticipantsInfo(PartesPlugin.instance.commands, PartesPlugin.instance.rolesList, PartesPlugin.instance.choreographyTModelKey);
+						System.out.println("[Partes] generation terminated of "+PartesPlugin.instance.choreographyTModelKey);
+					}
+					catch (ParticipantsMatchingException ex)
+					{System.out.println("[Partes] test generation NOT DONE!"); return;}
+					catch (PartesBpmnRequirementException ex)
+					{System.out.println("[Partes] test generation NOT DONE!");return;}
+				}
+			}).start();
+		}
+		
+
+
+	}
+
+	@Override
+	public void beforeAddChoreographyParticipant(
+			Wrapper<AddChoreographyParticipantIn> arg0, String arg1) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void beforeAddRolesToParticipant(
+			Wrapper<RolesAndParticipantIn> arg0, String arg1) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void beforeRemoveChoreography(Wrapper<DeleteTModel> arg0, String arg1) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void beforeRemoveRolesFromParticipant(
+			Wrapper<RolesAndParticipantIn> arg0, String arg1) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	/**
+	 * @param arg1 = opid (random UUID)
+	 */
+	public void beforeSaveChoreography(Wrapper<SaveChoreographyIn> arg0,String arg1) 
+	{
+		System.out.println("[Partes] opid="+arg1 +" saving choreography "+arg0.getContents().getChoreographyName()+" from "+arg0.getContents().getChoreographyURI());
+		HashMap<String, String> commands = new HashMap<String, String>();	
+
+		if (arg0.getContents().getChoreographyURI().contains("-p "))
+		{ //it has the bpmn URI and maybe the yml path and the debug option
+		  //       -y ../../xyz.yml;;-p ../../xyz.bpmn;;-d
+			String[] params = arg0.getContents().getChoreographyURI().split(";;");
+			for (int i=0; i<params.length; i++)
+			{
+				if ((params[i].split(" "))[0].equals("-p"))
+				{
+					System.out.println("-p "+(params[i].split(" "))[1]);
+					commands.put("-p", (params[i].split(" "))[1]);
+				}
+				else if ((params[i].split(" "))[0].equals("-y"))
+				{
+					System.out.println("-y "+(params[i].split(" "))[1]);
+					commands.put("-y", (params[i].split(" "))[1]); 
+				}
+				else if ((params[i].split(" "))[0].equals("-d"))
+				{
+					commands.put("-d", "true"); 
+				}
+				else
+				{
+				 String warning = "["+this.getClass().getName()+"] Warning. wrong parameters.";
+				 warning += "\n allowed parameters are :";
+				 warning += "\n    -p to call Partes to generate TestSuite";
+				 warning += "\n    -y to pass the .yml file with matching list of roles and services";
+				 warning += "\n    -d to start in debug mode (very slow)";
+				 warning += "\n parameters shoul be passed in this way (the order is not important):";
+				 warning += "\n -p http://../../*.bpmn;;-y http://../*.yml;;-d";
+				 warning += "\n be carefull! if needed parameters are missing, something may go wrong";
+				 System.out.println(warning);
+				}
+			}
+			choreographiesURI.put(arg1,  commands);
+			// delete Partes commands to let the normal execution of ServicePot
+			arg0.getContents().setChoreographyURI(choreographiesURI.get(arg1).get("-p"));
+		}
+		else
+		{ // it has just the URI of the bpmn file, no Partes exec required
+		}
+	}
+	
+	
+	
+	/**
+	 * a .yml file is provided through command, with matching between role and relative wsdl location.
+
+	 */
+	private String generateTestSuiteAccordingToYamlFile(HashMap<String, String> commands, String choreographyTModelKey)
+		{
+		String bpmn = commands.get("-p");
+		String ymlPath = commands.get("-y");
+		System.out.println("provided .yml = "+ymlPath);
+		boolean debug = false;
+		if (commands.get("-d") != null)
+			{
+			 debug = true;
+			}
+		return (new PartesWsTestGenerator().getPartesWsTestGeneratorHttpSoap12Endpoint().generateSOAPuiTestSuiteFromYmlPath(bpmn, ymlPath, debug, choreographyTModelKey));
+		}
+	
+	
+	/**
+	 * wsdl location of participants is retrieved from the bpmn file
+	 * @param rolesList 
+	 * @throws ParticipantsMatchingException 
+	 * @throws PartesBpmnRequirementException 
+	 */
+	private String generateTestSuiteAccordingToBpmnParticipantsInfo(HashMap<String, String> commands, List<TModel> rolesList, String choreographyTModelKey) throws ParticipantsMatchingException, PartesBpmnRequirementException
+	{
+		String ymlContent = "participants:\n";
+		Iterator<TModel> it = rolesList.iterator();
+		while (it.hasNext())
+		{
+			TModel tm = it.next();
+			try
+				{
+				 ymlContent+="-   modelImplClass: "+tm.getName().getValue()+"\n";
+				 ymlContent+="    portTypeToSearch: "+tm.getDescription().get(0).getValue()+"\n";
+				}
+			catch (NullPointerException | IndexOutOfBoundsException ex) 
+				{PartesBpmnRequirementException.rise(PartesBpmnRequirementException.WRONG_LINKED_WSDL_LOCATION, tm.getName().getValue(), this.getClass().getName());}
+			boolean isWsdlLocation = false;
+			for (int i=0; i<tm.getOverviewDoc().size(); i++)
+			{   
+				if (tm.getOverviewDoc().get(i).getOverviewURL().getUseType().equals("wsdlInterface"))
+				{
+					String wsdlURL = tm.getOverviewDoc().get(i).getOverviewURL().getValue();
+					ymlContent+="    wsdlLocation: "+wsdlURL+"\n";
+					isWsdlLocation = true;
+					break;
+				}
+			}
+			if (!isWsdlLocation)
+			{
+				PartesBpmnRequirementException.rise(PartesBpmnRequirementException.WRONG_LINKED_WSDL_LOCATION, tm.getName().getValue(), this.getClass().getName());
+			}
+		}
+		String bpmn = commands.get("-p");
+		boolean debug = false;
+		if (commands.get("-d") != null)
+			{
+			 debug = true;
+			}
+		System.out.println("yaml file:\n"+ymlContent);
+		return (new PartesWsTestGenerator().getPartesWsTestGeneratorHttpSoap12Endpoint().generateSOAPuiTestSuiteFromYmlContent(bpmn, ymlContent, debug, choreographyTModelKey));
+	}
+	
+	
+	private class ParticipantsMatchingException extends Exception
+	{
+		public ParticipantsMatchingException() { super(); }
+		
+		  public ParticipantsMatchingException(String message) 
+		  	{ super(message); }
+		  
+		  public ParticipantsMatchingException(String message, Throwable cause) 
+		  	{ super(message, cause); }
+		  
+		  public ParticipantsMatchingException(Throwable cause)
+		  	{ super(cause); }
+	}
+	
+	
+	private class SOAPrequestParametersException extends Exception
+	{
+		public SOAPrequestParametersException() { super(); }
+		
+		  public SOAPrequestParametersException(String message) 
+		  	{ super(message); }
+		  
+		  public SOAPrequestParametersException(String message, Throwable cause) 
+		  	{ super(message, cause); }
+		  
+		  public SOAPrequestParametersException(Throwable cause)
+		  	{ super(cause); }
+	}
+
+	
+
+}

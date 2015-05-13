@@ -1,0 +1,9 @@
+to create the WS PortTypeImpl skeleton from a WSDL, 
+I used the wsdl2java maven plugin. It needs to
+specify the wsdl path in the pom. After that, I run
+just the mave phase "generate-sources" on the 
+maven sub-project "impl_skeleton" and it generates all the
+classes in the target folder. Actually I need the interface
+under target/generated-sources/xxx/yyy//contract/serviceName/zzzPortType.java
+
+I need just the method names... i don't need all the annotations.

@@ -1,0 +1,264 @@
+2014-08-27 11:34:48,545 WARN  [DefaultSoapUICore] Missing folder [/Users/deLac/Documents/eclipse_workspace/Partes WS test generator/./ext] for external libraries
+2014-08-27 11:34:48,546 INFO  [DefaultSoapUICore] Creating new settings at [/Users/deLac/soapui-settings.xml]
+2014-08-27 11:34:50,572 INFO  [SchemaUtils] Added default schema from file:/Users/deLac/.m2/repository/eviware/soapui/3.5.1/soapui-3.5.1.jar!/com/eviware/soapui/resources/xsds/xop.xsd with targetNamespace http://www.w3.org/2004/08/xop/include
+2014-08-27 11:34:50,647 INFO  [SchemaUtils] Added default schema from file:/Users/deLac/.m2/repository/eviware/soapui/3.5.1/soapui-3.5.1.jar!/com/eviware/soapui/resources/xsds/XMLSchema.xsd with targetNamespace http://www.w3.org/2001/XMLSchema
+2014-08-27 11:34:50,650 INFO  [SchemaUtils] Added default schema from file:/Users/deLac/.m2/repository/eviware/soapui/3.5.1/soapui-3.5.1.jar!/com/eviware/soapui/resources/xsds/xml.xsd with targetNamespace http://www.w3.org/XML/1998/namespace
+2014-08-27 11:34:50,651 INFO  [SchemaUtils] Added default schema from file:/Users/deLac/.m2/repository/eviware/soapui/3.5.1/soapui-3.5.1.jar!/com/eviware/soapui/resources/xsds/swaref.xsd with targetNamespace http://ws-i.org/profiles/basic/1.1/xsd
+2014-08-27 11:34:50,653 INFO  [SchemaUtils] Added default schema from file:/Users/deLac/.m2/repository/eviware/soapui/3.5.1/soapui-3.5.1.jar!/com/eviware/soapui/resources/xsds/xmime200505.xsd with targetNamespace http://www.w3.org/2005/05/xmlmime
+2014-08-27 11:34:50,655 INFO  [SchemaUtils] Added default schema from file:/Users/deLac/.m2/repository/eviware/soapui/3.5.1/soapui-3.5.1.jar!/com/eviware/soapui/resources/xsds/xmime200411.xsd with targetNamespace http://www.w3.org/2004/11/xmlmime
+2014-08-27 11:34:50,661 INFO  [SchemaUtils] Added default schema from file:/Users/deLac/.m2/repository/eviware/soapui/3.5.1/soapui-3.5.1.jar!/com/eviware/soapui/resources/xsds/soapEnvelope.xsd with targetNamespace http://schemas.xmlsoap.org/soap/envelope/
+2014-08-27 11:34:50,688 INFO  [SchemaUtils] Added default schema from file:/Users/deLac/.m2/repository/eviware/soapui/3.5.1/soapui-3.5.1.jar!/com/eviware/soapui/resources/xsds/soapEncoding.xsd with targetNamespace http://schemas.xmlsoap.org/soap/encoding/
+2014-08-27 11:34:50,707 INFO  [SchemaUtils] Added default schema from file:/Users/deLac/.m2/repository/eviware/soapui/3.5.1/soapui-3.5.1.jar!/com/eviware/soapui/resources/xsds/soapEnvelope12.xsd with targetNamespace http://www.w3.org/2003/05/soap-envelope
+2014-08-27 11:34:50,726 INFO  [SchemaUtils] Added default schema from file:/Users/deLac/.m2/repository/eviware/soapui/3.5.1/soapui-3.5.1.jar!/com/eviware/soapui/resources/xsds/soapEncoding12.xsd with targetNamespace http://www.w3.org/2003/05/soap-encoding
+2014-08-27 11:34:51,056 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/BookableAmenity.wsdl]
+2014-08-27 11:34:51,057 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/BookableAmenity.wsdl
+2014-08-27 11:34:51,527 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}BookableAmenityImplPortBinding
+2014-08-27 11:34:51,531 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}BookableAmenityImplPortBinding
+2014-08-27 11:34:51,564 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8008/bookableamenity
+2014-08-27 11:34:51,626 INFO  [Soap11HttpBindingImporter] importing operation bookAllAvailableAmenities
+2014-08-27 11:34:51,652 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:34:53,697 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/MIDLocationSensorsAggregator.wsdl]
+2014-08-27 11:34:53,697 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/MIDLocationSensorsAggregator.wsdl
+2014-08-27 11:34:53,965 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}MIDLocationSensorsAggregatorImplPortBinding
+2014-08-27 11:34:53,966 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}MIDLocationSensorsAggregatorImplPortBinding
+2014-08-27 11:34:53,966 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8022/midlocationsensorsaggregator
+2014-08-27 11:34:53,967 INFO  [Soap11HttpBindingImporter] importing operation getAveragePosition
+2014-08-27 11:34:53,967 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:34:55,046 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/AirportPressureSensorsAggregator.wsdl]
+2014-08-27 11:34:55,046 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/AirportPressureSensorsAggregator.wsdl
+2014-08-27 11:34:55,227 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportPressureSensorsAggregatorImplPortBinding
+2014-08-27 11:34:55,227 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportPressureSensorsAggregatorImplPortBinding
+2014-08-27 11:34:55,228 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8019/airportpressuresensorsaggregator
+2014-08-27 11:34:55,228 INFO  [Soap11HttpBindingImporter] importing operation getStates
+2014-08-27 11:34:55,229 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:34:56,074 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/AirTrafficControl.wsdl]
+2014-08-27 11:34:56,074 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/AirTrafficControl.wsdl
+2014-08-27 11:34:56,263 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirTrafficControlImplPortBinding
+2014-08-27 11:34:56,263 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirTrafficControlImplPortBinding
+2014-08-27 11:34:56,264 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8007/airtrafficcontrol
+2014-08-27 11:34:56,264 INFO  [Soap11HttpBindingImporter] importing operation acceptProposal
+2014-08-27 11:34:56,265 INFO  [Soap11HttpBindingImporter] importing operation proposeReroute
+2014-08-27 11:34:56,265 INFO  [Soap11HttpBindingImporter] importing operation rejectProposal
+2014-08-27 11:34:56,265 INFO  [Soap11HttpBindingImporter] importing operation sendWeatherForecast
+2014-08-27 11:34:56,265 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:34:56,316 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/LuggageHandlingCompany.wsdl]
+2014-08-27 11:34:56,318 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/LuggageHandlingCompany.wsdl
+2014-08-27 11:34:56,452 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}LuggageHandlingCompanyImplPortBinding
+2014-08-27 11:34:56,453 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}LuggageHandlingCompanyImplPortBinding
+2014-08-27 11:34:56,453 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8012/luggagehandlingcompany
+2014-08-27 11:34:56,454 INFO  [Soap11HttpBindingImporter] importing operation bookAmenities
+2014-08-27 11:34:56,454 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:34:56,454 INFO  [Soap11HttpBindingImporter] importing operation warnUnexpectedArrival
+2014-08-27 11:34:56,782 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/AirportBusCompany.wsdl]
+2014-08-27 11:34:56,782 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/AirportBusCompany.wsdl
+2014-08-27 11:34:56,906 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportBusCompanyImplPortBinding
+2014-08-27 11:34:56,906 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportBusCompanyImplPortBinding
+2014-08-27 11:34:56,906 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8004/airportbuscompany
+2014-08-27 11:34:56,907 INFO  [Soap11HttpBindingImporter] importing operation bookAmenities
+2014-08-27 11:34:56,907 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:34:56,908 INFO  [Soap11HttpBindingImporter] importing operation warnUnexpectedArrival
+2014-08-27 11:34:57,208 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/SecurityCompany.wsdl]
+2014-08-27 11:34:57,208 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/SecurityCompany.wsdl
+2014-08-27 11:34:57,303 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}SecurityCompanyImplPortBinding
+2014-08-27 11:34:57,303 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}SecurityCompanyImplPortBinding
+2014-08-27 11:34:57,304 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8013/securitycompany
+2014-08-27 11:34:57,304 INFO  [Soap11HttpBindingImporter] importing operation bookAmenities
+2014-08-27 11:34:57,304 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:34:57,304 INFO  [Soap11HttpBindingImporter] importing operation warnUnexpectedArrival
+2014-08-27 11:34:57,613 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/AirportInfraredSensorsAggregator.wsdl]
+2014-08-27 11:34:57,613 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/AirportInfraredSensorsAggregator.wsdl
+2014-08-27 11:34:57,701 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportInfraredSensorsAggregatorImplPortBinding
+2014-08-27 11:34:57,701 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportInfraredSensorsAggregatorImplPortBinding
+2014-08-27 11:34:57,701 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8018/airportinfraredsensorsaggregator
+2014-08-27 11:34:57,701 INFO  [Soap11HttpBindingImporter] importing operation getStates
+2014-08-27 11:34:57,702 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:34:58,397 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/AirportDisplayActuatorsAggregator.wsdl]
+2014-08-27 11:34:58,397 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/AirportDisplayActuatorsAggregator.wsdl
+2014-08-27 11:34:58,498 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportDisplayActuatorsAggregatorImplPortBinding
+2014-08-27 11:34:58,499 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportDisplayActuatorsAggregatorImplPortBinding
+2014-08-27 11:34:58,499 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8017/airportdisplayactuatorsaggregator
+2014-08-27 11:34:58,500 INFO  [Soap11HttpBindingImporter] importing operation display
+2014-08-27 11:34:58,500 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:34:59,006 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/StandAndGateManagement.wsdl]
+2014-08-27 11:34:59,006 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/StandAndGateManagement.wsdl
+2014-08-27 11:34:59,089 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}StandAndGateManagementImplPortBinding
+2014-08-27 11:34:59,089 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}StandAndGateManagementImplPortBinding
+2014-08-27 11:34:59,089 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8014/standandgatemanagement
+2014-08-27 11:34:59,090 INFO  [Soap11HttpBindingImporter] importing operation requestAmenities
+2014-08-27 11:34:59,090 INFO  [Soap11HttpBindingImporter] importing operation requestAmenitiesChoreoC
+2014-08-27 11:34:59,090 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:35:00,160 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/AirportNoiseSensorsAggregator.wsdl]
+2014-08-27 11:35:00,160 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/AirportNoiseSensorsAggregator.wsdl
+2014-08-27 11:35:00,259 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportNoiseSensorsAggregatorImplPortBinding
+2014-08-27 11:35:00,259 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportNoiseSensorsAggregatorImplPortBinding
+2014-08-27 11:35:00,259 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8005/airportnoisesensorsaggregator
+2014-08-27 11:35:00,260 INFO  [Soap11HttpBindingImporter] importing operation getAverageSoundLevel
+2014-08-27 11:35:00,260 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:35:00,941 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/MIDDisplayActuatorsAggregator.wsdl]
+2014-08-27 11:35:00,941 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/MIDDisplayActuatorsAggregator.wsdl
+2014-08-27 11:35:01,037 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}MIDDisplayActuatorsAggregatorImplPortBinding
+2014-08-27 11:35:01,038 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}MIDDisplayActuatorsAggregatorImplPortBinding
+2014-08-27 11:35:01,038 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8021/middisplayactuatorsaggregator
+2014-08-27 11:35:01,039 INFO  [Soap11HttpBindingImporter] importing operation display
+2014-08-27 11:35:01,039 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:35:01,396 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/Airport.wsdl]
+2014-08-27 11:35:01,396 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/Airport.wsdl
+2014-08-27 11:35:01,460 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportImplPortBinding
+2014-08-27 11:35:01,461 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportImplPortBinding
+2014-08-27 11:35:01,461 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8003/airport
+2014-08-27 11:35:01,462 INFO  [Soap11HttpBindingImporter] importing operation confirmApproach
+2014-08-27 11:35:01,462 INFO  [Soap11HttpBindingImporter] importing operation getAvailableAmenities
+2014-08-27 11:35:01,462 INFO  [Soap11HttpBindingImporter] importing operation getBusConfirmation
+2014-08-27 11:35:01,462 INFO  [Soap11HttpBindingImporter] importing operation getLuggageConfirmation
+2014-08-27 11:35:01,462 INFO  [Soap11HttpBindingImporter] importing operation getSecurityConfirmation
+2014-08-27 11:35:01,462 INFO  [Soap11HttpBindingImporter] importing operation requestAmenities
+2014-08-27 11:35:01,462 INFO  [Soap11HttpBindingImporter] importing operation sendRerouteWarning
+2014-08-27 11:35:01,463 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:35:02,410 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/AirportSignActuatorsAggregator.wsdl]
+2014-08-27 11:35:02,410 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/AirportSignActuatorsAggregator.wsdl
+2014-08-27 11:35:02,478 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportSignActuatorsAggregatorImplPortBinding
+2014-08-27 11:35:02,479 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportSignActuatorsAggregatorImplPortBinding
+2014-08-27 11:35:02,483 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8020/airportsignactuatorsaggregator
+2014-08-27 11:35:02,485 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:35:02,486 INFO  [Soap11HttpBindingImporter] importing operation setStates
+2014-08-27 11:35:02,919 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/AirportSpeakerActuatorsAggregator.wsdl]
+2014-08-27 11:35:02,919 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/AirportSpeakerActuatorsAggregator.wsdl
+2014-08-27 11:35:02,973 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportSpeakerActuatorsAggregatorImplPortBinding
+2014-08-27 11:35:02,973 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportSpeakerActuatorsAggregatorImplPortBinding
+2014-08-27 11:35:02,974 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8006/airportspeakeractuatorsaggregator
+2014-08-27 11:35:02,974 INFO  [Soap11HttpBindingImporter] importing operation adjustSpeakersVolumeLevel
+2014-08-27 11:35:02,974 INFO  [Soap11HttpBindingImporter] importing operation say
+2014-08-27 11:35:02,975 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:35:04,518 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/MIDMicrophoneSensorsAggregator.wsdl]
+2014-08-27 11:35:04,518 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/MIDMicrophoneSensorsAggregator.wsdl
+2014-08-27 11:35:04,572 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}MIDMicrophoneSensorsAggregatorImplPortBinding
+2014-08-27 11:35:04,572 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}MIDMicrophoneSensorsAggregatorImplPortBinding
+2014-08-27 11:35:04,574 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8023/midmicrophonesensorsaggregator
+2014-08-27 11:35:04,574 INFO  [Soap11HttpBindingImporter] importing operation getAverageSound
+2014-08-27 11:35:04,575 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:35:05,006 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/AirTrafficControl.wsdl]
+2014-08-27 11:35:05,007 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/AirTrafficControl.wsdl
+2014-08-27 11:35:05,058 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirTrafficControlImplPortBinding
+2014-08-27 11:35:05,059 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirTrafficControlImplPortBinding
+2014-08-27 11:35:05,059 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8007/airtrafficcontrol
+2014-08-27 11:35:05,059 INFO  [Soap11HttpBindingImporter] importing operation acceptProposal
+2014-08-27 11:35:05,059 INFO  [Soap11HttpBindingImporter] importing operation proposeReroute
+2014-08-27 11:35:05,060 INFO  [Soap11HttpBindingImporter] importing operation rejectProposal
+2014-08-27 11:35:05,060 INFO  [Soap11HttpBindingImporter] importing operation sendWeatherForecast
+2014-08-27 11:35:05,060 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:35:05,300 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/Airport.wsdl]
+2014-08-27 11:35:05,300 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/Airport.wsdl
+2014-08-27 11:35:05,361 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportImplPortBinding
+2014-08-27 11:35:05,361 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportImplPortBinding
+2014-08-27 11:35:05,362 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8003/airport
+2014-08-27 11:35:05,362 INFO  [Soap11HttpBindingImporter] importing operation confirmApproach
+2014-08-27 11:35:05,362 INFO  [Soap11HttpBindingImporter] importing operation getAvailableAmenities
+2014-08-27 11:35:05,363 INFO  [Soap11HttpBindingImporter] importing operation getBusConfirmation
+2014-08-27 11:35:05,363 INFO  [Soap11HttpBindingImporter] importing operation getLuggageConfirmation
+2014-08-27 11:35:05,363 INFO  [Soap11HttpBindingImporter] importing operation getSecurityConfirmation
+2014-08-27 11:35:05,363 INFO  [Soap11HttpBindingImporter] importing operation requestAmenities
+2014-08-27 11:35:05,363 INFO  [Soap11HttpBindingImporter] importing operation sendRerouteWarning
+2014-08-27 11:35:05,363 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:35:05,400 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/StandAndGateManagement.wsdl]
+2014-08-27 11:35:05,400 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/StandAndGateManagement.wsdl
+2014-08-27 11:35:05,449 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}StandAndGateManagementImplPortBinding
+2014-08-27 11:35:05,449 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}StandAndGateManagementImplPortBinding
+2014-08-27 11:35:05,449 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8014/standandgatemanagement
+2014-08-27 11:35:05,450 INFO  [Soap11HttpBindingImporter] importing operation requestAmenities
+2014-08-27 11:35:05,450 INFO  [Soap11HttpBindingImporter] importing operation requestAmenitiesChoreoC
+2014-08-27 11:35:05,450 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:35:05,474 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/BookableAmenity.wsdl]
+2014-08-27 11:35:05,474 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/BookableAmenity.wsdl
+2014-08-27 11:35:05,524 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}BookableAmenityImplPortBinding
+2014-08-27 11:35:05,524 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}BookableAmenityImplPortBinding
+2014-08-27 11:35:05,525 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8008/bookableamenity
+2014-08-27 11:35:05,526 INFO  [Soap11HttpBindingImporter] importing operation bookAllAvailableAmenities
+2014-08-27 11:35:05,526 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:35:05,588 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/LuggageHandlingCompany.wsdl]
+2014-08-27 11:35:05,588 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/LuggageHandlingCompany.wsdl
+2014-08-27 11:35:05,644 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}LuggageHandlingCompanyImplPortBinding
+2014-08-27 11:35:05,644 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}LuggageHandlingCompanyImplPortBinding
+2014-08-27 11:35:05,644 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8012/luggagehandlingcompany
+2014-08-27 11:35:05,645 INFO  [Soap11HttpBindingImporter] importing operation bookAmenities
+2014-08-27 11:35:05,645 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:35:05,645 INFO  [Soap11HttpBindingImporter] importing operation warnUnexpectedArrival
+2014-08-27 11:35:05,675 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/SecurityCompany.wsdl]
+2014-08-27 11:35:05,675 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/SecurityCompany.wsdl
+2014-08-27 11:35:05,725 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}SecurityCompanyImplPortBinding
+2014-08-27 11:35:05,725 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}SecurityCompanyImplPortBinding
+2014-08-27 11:35:05,726 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8013/securitycompany
+2014-08-27 11:35:05,726 INFO  [Soap11HttpBindingImporter] importing operation bookAmenities
+2014-08-27 11:35:05,726 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:35:05,727 INFO  [Soap11HttpBindingImporter] importing operation warnUnexpectedArrival
+2014-08-27 11:35:05,759 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/AirportBusCompany.wsdl]
+2014-08-27 11:35:05,759 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/AirportBusCompany.wsdl
+2014-08-27 11:35:05,807 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportBusCompanyImplPortBinding
+2014-08-27 11:35:05,807 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportBusCompanyImplPortBinding
+2014-08-27 11:35:05,807 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8004/airportbuscompany
+2014-08-27 11:35:05,808 INFO  [Soap11HttpBindingImporter] importing operation bookAmenities
+2014-08-27 11:35:05,808 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:35:05,808 INFO  [Soap11HttpBindingImporter] importing operation warnUnexpectedArrival
+2014-08-27 11:35:05,820 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/AirportNoiseSensorsAggregator.wsdl]
+2014-08-27 11:35:05,820 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/AirportNoiseSensorsAggregator.wsdl
+2014-08-27 11:35:05,866 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportNoiseSensorsAggregatorImplPortBinding
+2014-08-27 11:35:05,866 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportNoiseSensorsAggregatorImplPortBinding
+2014-08-27 11:35:05,866 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8005/airportnoisesensorsaggregator
+2014-08-27 11:35:05,866 INFO  [Soap11HttpBindingImporter] importing operation getAverageSoundLevel
+2014-08-27 11:35:05,866 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:35:05,879 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/AirportSpeakerActuatorsAggregator.wsdl]
+2014-08-27 11:35:05,879 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/AirportSpeakerActuatorsAggregator.wsdl
+2014-08-27 11:35:05,925 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportSpeakerActuatorsAggregatorImplPortBinding
+2014-08-27 11:35:05,925 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportSpeakerActuatorsAggregatorImplPortBinding
+2014-08-27 11:35:05,926 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8006/airportspeakeractuatorsaggregator
+2014-08-27 11:35:05,926 INFO  [Soap11HttpBindingImporter] importing operation adjustSpeakersVolumeLevel
+2014-08-27 11:35:05,926 INFO  [Soap11HttpBindingImporter] importing operation say
+2014-08-27 11:35:05,926 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:35:05,940 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/MIDMicrophoneSensorsAggregator.wsdl]
+2014-08-27 11:35:05,940 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/MIDMicrophoneSensorsAggregator.wsdl
+2014-08-27 11:35:05,989 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}MIDMicrophoneSensorsAggregatorImplPortBinding
+2014-08-27 11:35:05,989 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}MIDMicrophoneSensorsAggregatorImplPortBinding
+2014-08-27 11:35:05,989 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8023/midmicrophonesensorsaggregator
+2014-08-27 11:35:05,989 INFO  [Soap11HttpBindingImporter] importing operation getAverageSound
+2014-08-27 11:35:05,990 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:35:06,002 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/AirportDisplayActuatorsAggregator.wsdl]
+2014-08-27 11:35:06,003 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/AirportDisplayActuatorsAggregator.wsdl
+2014-08-27 11:35:06,051 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportDisplayActuatorsAggregatorImplPortBinding
+2014-08-27 11:35:06,051 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportDisplayActuatorsAggregatorImplPortBinding
+2014-08-27 11:35:06,052 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8017/airportdisplayactuatorsaggregator
+2014-08-27 11:35:06,052 INFO  [Soap11HttpBindingImporter] importing operation display
+2014-08-27 11:35:06,052 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:35:06,065 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/AirportSignActuatorsAggregator.wsdl]
+2014-08-27 11:35:06,065 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/AirportSignActuatorsAggregator.wsdl
+2014-08-27 11:35:06,113 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportSignActuatorsAggregatorImplPortBinding
+2014-08-27 11:35:06,113 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportSignActuatorsAggregatorImplPortBinding
+2014-08-27 11:35:06,113 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8020/airportsignactuatorsaggregator
+2014-08-27 11:35:06,114 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:35:06,114 INFO  [Soap11HttpBindingImporter] importing operation setStates
+2014-08-27 11:35:06,126 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/MIDDisplayActuatorsAggregator.wsdl]
+2014-08-27 11:35:06,126 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/MIDDisplayActuatorsAggregator.wsdl
+2014-08-27 11:35:06,173 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}MIDDisplayActuatorsAggregatorImplPortBinding
+2014-08-27 11:35:06,174 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}MIDDisplayActuatorsAggregatorImplPortBinding
+2014-08-27 11:35:06,174 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8021/middisplayactuatorsaggregator
+2014-08-27 11:35:06,174 INFO  [Soap11HttpBindingImporter] importing operation display
+2014-08-27 11:35:06,174 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:35:06,206 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/AirportPressureSensorsAggregator.wsdl]
+2014-08-27 11:35:06,206 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/AirportPressureSensorsAggregator.wsdl
+2014-08-27 11:35:06,271 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportPressureSensorsAggregatorImplPortBinding
+2014-08-27 11:35:06,272 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportPressureSensorsAggregatorImplPortBinding
+2014-08-27 11:35:06,272 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8019/airportpressuresensorsaggregator
+2014-08-27 11:35:06,272 INFO  [Soap11HttpBindingImporter] importing operation getStates
+2014-08-27 11:35:06,272 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:35:06,286 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/MIDLocationSensorsAggregator.wsdl]
+2014-08-27 11:35:06,286 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/MIDLocationSensorsAggregator.wsdl
+2014-08-27 11:35:06,351 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}MIDLocationSensorsAggregatorImplPortBinding
+2014-08-27 11:35:06,351 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}MIDLocationSensorsAggregatorImplPortBinding
+2014-08-27 11:35:06,351 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8022/midlocationsensorsaggregator
+2014-08-27 11:35:06,351 INFO  [Soap11HttpBindingImporter] importing operation getAveragePosition
+2014-08-27 11:35:06,351 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress
+2014-08-27 11:35:06,364 INFO  [SchemaUtils] Loading schema types from [file:/Users/deLac/Desktop/partes/airport/AirportInfraredSensorsAggregator.wsdl]
+2014-08-27 11:35:06,364 INFO  [SchemaUtils] Getting schema file:/Users/deLac/Desktop/partes/airport/AirportInfraredSensorsAggregator.wsdl
+2014-08-27 11:35:06,416 INFO  [WsdlImporter] Finding importer for {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportInfraredSensorsAggregatorImplPortBinding
+2014-08-27 11:35:06,416 INFO  [WsdlImporter] Importing binding {http://scn2.wp6.thalesgroup.choreos.ow2.org/}AirportInfraredSensorsAggregatorImplPortBinding
+2014-08-27 11:35:06,417 INFO  [Soap11HttpBindingImporter] importing endpoint http://localhost:8018/airportinfraredsensorsaggregator
+2014-08-27 11:35:06,417 INFO  [Soap11HttpBindingImporter] importing operation getStates
+2014-08-27 11:35:06,417 INFO  [Soap11HttpBindingImporter] importing operation setInvocationAddress

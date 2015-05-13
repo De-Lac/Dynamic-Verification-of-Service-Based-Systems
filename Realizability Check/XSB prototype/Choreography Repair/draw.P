@@ -1,0 +1,210 @@
+dotSpec(X) :-
+	draw(X, 0).
+dotPeers(X, Y) :-
+	project,
+        draw(X, 2),
+	deter,
+	draw(Y, 3).
+        
+	
+
+
+:- import append/3 from basics.
+
+concat([X1, X2|Xs], Word) :-
+	atom_concat(X1, X2, X),
+	concat([X|Xs], Word).
+concat([X], X) :- !.
+
+draw(OutputFileName, Flag) :-
+	atom_concat('./dotoutputs/', OutputFileName, OutputFile),
+	(Flag \= 1 
+        -> file_open(OutputFile, w, F),
+           writeln(F, 'digraph G {'),
+	   (Flag == 0
+	    ->    start(State),
+     	          write(F, '\"'),
+	          write(F, State),
+	          write(F, '\"'),
+	          writeln(F, '[style=filled,fillcolor=green]')
+	   ;      writeAllStart(F)
+	   )
+	 ; true
+        ),
+        %% updated goal 
+	(Flag == 1
+         ->  file_open(OutputFileName, a, F)
+	 ;   true
+        ),
+	
+	drawTrans(F, Flag),
+
+	writeln(F, '}'),
+		
+	file_close(F),
+
+        concat(['dot ', OutputFile, ' -Tpdf ', '-O'], Command),
+        prefPdf(Draw), 
+        (Draw == 1 ->  shell(Command); true).
+
+
+writeAllStart(F) :-
+	startPeer(_, State),
+	pprint(State, S),
+	write(F, '\"'),
+	write(F, S),
+	write(F, '\"'),
+	writeln(F, '[style=filled,fillcolor=green]'),
+	fail.
+writeAllStart(_).
+
+%% Given choreography	
+drawTrans(F, 0) :-
+	   gtrans(S, (P, Q, M), S1),
+	   writeln(F, 'edge [color=black,style=filled,penwidth=1];'),
+           (added(S, (P, Q, M), S1)
+	    ->
+	            (S == S1 ->
+		                writeln(F, 'edge [penwidth=3,color=purple];')
+		             ;  writeln(F, 'edge [penwidth=3,color=blue];')
+		    )
+	   ; true),
+	   (removed(S, (P, Q, M), S1) -> writeln(F, 'edge [style=dotted,penwidth=3,color=red];'); true),
+	   write(F, '\"'),
+	   write(F, S),
+	   write(F, '\"'),
+	   write(F, ' -> '),
+	   write(F, '\"'),
+	   write(F, S1),
+	   write(F, '\"'),
+	   write(F, ' [label= \"'),
+	   write(F, M),
+           write(F, ':'),
+	   write(F, P),
+	   write(F, ' -> '),
+	   write(F, Q),
+	   writeln(F, '\"];'),
+	   fail.
+
+%% New choregraphy
+drawTrans(F, 1) :-
+	   gtrans(S, (P, Q, M), S1),
+	   writeln(F, 'edge [color=black];'),
+	   (added(S, (P, Q, M), S1) -> writeln(F, 'edge [color=blue];'); true),
+	   (removed(S, (P, Q, M), S1) -> writeln(F, 'edge [color=red];'); true),
+
+	   write(F, '\"'),
+	   write(F, S),
+	   write(F, '-new\"'),
+	   write(F, ' -> '),
+	   write(F, '\"'),
+	   write(F, S1),
+	   write(F, '-new\"'),
+	   write(F, ' [label= \"'),
+	   write(F, M),
+	   write(F, ':'),
+	   write(F, P),
+	   write(F, ' -> '),
+	   write(F, Q),
+	   writeln(F, '\"];'),
+	   fail.
+%% Peers
+drawTrans(F, 2) :-
+	   ptranswep(P, S, epsilon, S1),
+	   pprint(S, NS), pprint(S1, NS1),
+	   write(F, '\"'),
+	   write(F, NS),
+	   write(F, '\"'),
+	   write(F, ' -> '), %% changed 
+	   write(F, '\"'),
+	   write(F, NS1),
+	   write(F, '\"'),
+	   write(F, ' [label=\"'),
+	   writeln(F, 'epsilon\"];'),
+	   fail.
+
+drawTrans(F, N) :-
+	   (N == 2 -> ptranswep(P, S, in(M, P1), S1); (N == 3 -> ptrans(P, S, in(M, P1), S1); fail)), 
+	   pprint(S, NS), pprint(S1, NS1),
+	   write(F, '\"'),
+	   write(F, NS),
+	   write(F, '\"'),
+	   write(F, ' -> '), %% changed 
+	   write(F, '\"'),
+	   write(F, NS1),
+	   write(F, '\"'),
+	   write(F, ' [label=\"'),
+           write(F, ' ?'),
+	   write(F, M),
+	   writeln(F, '\"];'),
+	   fail.
+
+drawTrans(F, N) :-
+	   (N == 2 -> ptranswep(P, S, out(M, P1), S1); (N == 3 -> ptrans(P, S, out(M, P1), S1); fail)),
+	   pprint(S, NS), pprint(S1, NS1),
+	   write(F, '\"'),
+	   write(F, NS),
+	   write(F, '\"'),
+	   write(F, ' -> '),
+	   write(F, '\"'),
+	   write(F, NS1),
+	   write(F, '\"'),
+	   write(F, ' [label=\" !'),
+	   write(F, M),
+	   writeln(F, '\"];'),
+	   fail.
+
+
+drawTrans(F, 4) :-
+	   systemTrans(S, (P, Q, M), S1),
+	   write(F, '\"'),
+	   write(F, S),
+	   write(F, '\"'),
+	   write(F, ' -> '),
+	   write(F, '\"'),
+	   write(F, S1),
+	   write(F, '\"'),
+	   write(F, ' [label= \"'),
+	   write(F, M),
+	   write(F, ':'),
+	   write(F, P),
+	   write(F, ' -> '),
+	   write(F, Q),
+	   writeln(F, '\"];'),
+	   fail.
+
+
+drawTrans(F, 4) :-
+	   systemTransWep(S, (P, Q, M), S1),
+	   write(F, '\"'),
+	   write(F, S),
+	   write(F, '\"'),
+	   write(F, ' -> '),
+	   write(F, '\"'),
+	   write(F, S1),
+	   write(F, '\"'),
+	   write(F, ' [label= \"'),
+	   write(F, M),
+	   write(F, ':'),
+	   write(F, P),
+	   write(F, ' -> '),
+	   write(F, Q),
+	   writeln(F, '\"];'),
+	   fail.
+
+drawTrans(F, 4) :-
+	   systemTransWep(S, epsilon, S1),
+	   write(F, '\"'),
+	   write(F, S),
+	   write(F, '\"'),
+	   write(F, ' -> '),
+	   write(F, '\"'),
+	   write(F, S1),
+	   write(F, '\"'),
+	   write(F, ' [label= \"'),
+	   write(F, ' epsilon '),
+	   writeln(F, '\"];'),
+	   fail.
+
+drawTrans(_, _) :- true.
+

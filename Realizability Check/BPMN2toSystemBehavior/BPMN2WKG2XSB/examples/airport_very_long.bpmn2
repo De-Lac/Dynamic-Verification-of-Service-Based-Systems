@@ -1,0 +1,1532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://sample.bpmn2.org/bpmn2/sample/choreography">
+  <bpmn2:choreography id="Choreography_1" name="Default Choreography">
+    <bpmn2:participant id="Participant_1" name="ATC"/>
+    <bpmn2:participant id="Participant_2" name="Airplane"/>
+    <bpmn2:participant id="Participant_8" name="Weather Forecast Service"/>
+    <bpmn2:participant id="Participant_11" name="Central Flow Management Unit"/>
+    <bpmn2:participant id="Participant_16" name="Airline"/>
+    <bpmn2:participant id="Participant_18" name="Airport"/>
+    <bpmn2:participant id="Participant_28" name="Airport Bus Company"/>
+    <bpmn2:participant id="Participant_30" name="Ground Transportation Compan"/>
+    <bpmn2:participant id="Participant_32" name="Luggage Handling Company"/>
+    <bpmn2:participant id="Participant_34" name="Security Company"/>
+    <bpmn2:participant id="Participant_6" name="Airline Ground Staff MID"/>
+    <bpmn2:participant id="Participant_9" name="Travel Agency"/>
+    <bpmn2:participant id="Participant_17" name="Stand and gate management"/>
+    <bpmn2:participant id="Participant_31" name="Bookable Amenity"/>
+    <bpmn2:participant id="Participant_40" name="Hotel"/>
+    <bpmn2:participant id="Participant_54" name="Amenity Provider"/>
+    <bpmn2:participant id="Participant_70" name="Airport Noise Sensors aggregator"/>
+    <bpmn2:participant id="Participant_73" name="Airport Speaker Actuators aggregator"/>
+    <bpmn2:messageFlow id="MessageFlow_1" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_1" name="Message Flow 1" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_8" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_2" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_2" name="Message Flow 2" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_11" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_3" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_3" name="Message Flow 3" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_2"/>
+    <bpmn2:messageFlow id="MessageFlow_4" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_4" name="Message Flow 4" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_2" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_5" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_5" name="Message Flow 5" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_2" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_6" messageRef="Message_6" name="Message Flow 6" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_2" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_7" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_7" name="Message Flow 7" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_11"/>
+    <bpmn2:messageFlow id="MessageFlow_8" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_8" name="Message Flow 8" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_11" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_10" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_11" name="Message Flow 10" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_11"/>
+    <bpmn2:messageFlow id="MessageFlow_11" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_12" name="Message Flow 11" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_11"/>
+    <bpmn2:messageFlow id="MessageFlow_12" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_7" name="Message Flow 12" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_16"/>
+    <bpmn2:messageFlow id="MessageFlow_13" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_7" name="Message Flow 13" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18"/>
+    <bpmn2:messageFlow id="MessageFlow_14" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_16" name="Message Flow 14" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_16" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6"/>
+    <bpmn2:messageFlow id="MessageFlow_15" messageRef="Message_16" name="Message Flow 15" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_9"/>
+    <bpmn2:messageFlow id="MessageFlow_16" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_18" name="Message Flow 16" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_9"/>
+    <bpmn2:messageFlow id="MessageFlow_17" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_19" name="Message Flow 17" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_8"/>
+    <bpmn2:messageFlow id="MessageFlow_18" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_1" name="Message Flow 18" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_8" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6"/>
+    <bpmn2:messageFlow id="MessageFlow_19" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_22" name="Message Flow 19" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_16"/>
+    <bpmn2:messageFlow id="MessageFlow_20" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_22" name="Message Flow 20" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_17"/>
+    <bpmn2:messageFlow id="MessageFlow_21" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_22" name="Message Flow 21" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18"/>
+    <bpmn2:messageFlow id="MessageFlow_22" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_25" name="Message Flow 22" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_16" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6"/>
+    <bpmn2:messageFlow id="MessageFlow_23" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_25" name="Message Flow 23" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_17" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6"/>
+    <bpmn2:messageFlow id="MessageFlow_24" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_25" name="Message Flow 24" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6"/>
+    <bpmn2:messageFlow id="MessageFlow_25" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_28" name="Message Flow 25" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_31"/>
+    <bpmn2:messageFlow id="MessageFlow_26" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_29" name="Message Flow 26" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_9"/>
+    <bpmn2:messageFlow id="MessageFlow_27" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_30" name="Message Flow 27" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_9" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6"/>
+    <bpmn2:messageFlow id="MessageFlow_28" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_31" name="Message Flow 28" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_40"/>
+    <bpmn2:messageFlow id="MessageFlow_29" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_32" name="Message Flow 29" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_40" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6"/>
+    <bpmn2:messageFlow id="MessageFlow_30" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_33" name="Message Flow 30" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_30"/>
+    <bpmn2:messageFlow id="MessageFlow_31" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_32" name="Message Flow 31" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_30" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6"/>
+    <bpmn2:messageFlow id="MessageFlow_32" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_16" name="Message Flow 32" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_28"/>
+    <bpmn2:messageFlow id="MessageFlow_33" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_16" name="Message Flow 33" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_30"/>
+    <bpmn2:messageFlow id="MessageFlow_34" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_16" name="Message Flow 34" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_32"/>
+    <bpmn2:messageFlow id="MessageFlow_35" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_16" name="Message Flow 35" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_34"/>
+    <bpmn2:messageFlow id="MessageFlow_36" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_32" name="Message Flow 36" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_2" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_37" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_42" name="Message Flow 37" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18"/>
+    <bpmn2:messageFlow id="MessageFlow_38" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_22" name="Message Flow 38" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_17"/>
+    <bpmn2:messageFlow id="MessageFlow_39" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_28" name="Message Flow 39" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_32"/>
+    <bpmn2:messageFlow id="MessageFlow_40" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_28" name="Message Flow 40" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_34"/>
+    <bpmn2:messageFlow id="MessageFlow_41" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_28" name="Message Flow 41" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_28"/>
+    <bpmn2:messageFlow id="MessageFlow_42" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_32" name="Message Flow 42" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_28" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18"/>
+    <bpmn2:messageFlow id="MessageFlow_43" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_32" name="Message Flow 43" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_34" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18"/>
+    <bpmn2:messageFlow id="MessageFlow_44" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_32" name="Message Flow 44" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_32" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18"/>
+    <bpmn2:messageFlow id="MessageFlow_45" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_50" name="Message Flow 45" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_70"/>
+    <bpmn2:messageFlow id="MessageFlow_46" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_51" name="Message Flow 46" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_70" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18"/>
+    <bpmn2:messageFlow id="MessageFlow_47" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_52" name="Message Flow 47" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_73"/>
+    <bpmn2:messageFlow id="MessageFlow_48" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_25" name="Message Flow 48" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_17" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18"/>
+    <bpmn2:messageFlow id="MessageFlow_49" messageRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Message_28" name="Message Flow 49" sourceRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" targetRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_54"/>
+    <bpmn2:parallelGateway id="ParallelGateway_1" name="start_all" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_9</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_10</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_19</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_20</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:choreographyTask id="ChoreographyTask_5" name="send reroute Warning" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1">
+      <bpmn2:incoming>SequenceFlow_10</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_11</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_11</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_7</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_10" name="" sourceRef="ParallelGateway_1" targetRef="ChoreographyTask_5"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_11" name="" sourceRef="ChoreographyTask_5" targetRef="ExclusiveGateway_11"/>
+    <bpmn2:parallelGateway id="ParallelGateway_2" name="end_all" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_91</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_34</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_24</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_18</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:choreographyTask id="ChoreographyTask_12" name="Confirm Approach" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_2">
+      <bpmn2:incoming>SequenceFlow_18</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_66</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_2</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_36</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_18" name="" sourceRef="ParallelGateway_2" targetRef="ChoreographyTask_12"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_19" name="" sourceRef="ParallelGateway_1" targetRef="ChoreographyTask_6"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_20" name="" sourceRef="ParallelGateway_1" targetRef="ChoreographyTask_7"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_6" name="Send Reroute Warning2" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1">
+      <bpmn2:incoming>SequenceFlow_19</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_23</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_16</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_12</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_23" name="" sourceRef="ChoreographyTask_6" targetRef="ParallelGateway_3"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_25" name="" sourceRef="ParallelGateway_12" targetRef="EndEvent_1"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_7" name="Send Reroute Warning 3" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1">
+      <bpmn2:incoming>SequenceFlow_20</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_35</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_13</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:parallelGateway id="ParallelGateway_5" name="start_warn_unexpected_arrival" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_35</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_26</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_27</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_28</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_29</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_26" name="" sourceRef="ParallelGateway_5" targetRef="ChoreographyTask_10"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_27" name="" sourceRef="ParallelGateway_5" targetRef="ChoreographyTask_13"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_28" name="" sourceRef="ParallelGateway_5" targetRef="ChoreographyTask_14"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_29" name="" sourceRef="ParallelGateway_5" targetRef="ChoreographyTask_15"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_35" name="" sourceRef="ChoreographyTask_7" targetRef="ParallelGateway_5"/>
+    <bpmn2:startEvent id="StartEvent_1" name="Start Event 1">
+      <bpmn2:outgoing>SequenceFlow_8</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_8" name="" sourceRef="StartEvent_1" targetRef="ExclusiveGateway_5"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_5" name="start_init" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_8</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_21</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_36</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_21" name="" sourceRef="ExclusiveGateway_5" targetRef="ChoreographyTask_16"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_36" name="" sourceRef="ExclusiveGateway_5" targetRef="ChoreographyTask_4"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_16" name="receive warn from another airport" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_11">
+      <bpmn2:incoming>SequenceFlow_21</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_22</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_11</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_2</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_22" name="" sourceRef="ChoreographyTask_16" targetRef="ExclusiveGateway_6"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_4" name="send weather forecast" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_8">
+      <bpmn2:incoming>SequenceFlow_36</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_7</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_8</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_1</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_7" name="" sourceRef="ChoreographyTask_4" targetRef="ExclusiveGateway_6"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_6" name="end_init" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_22</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_7</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_37</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_37" name="" sourceRef="ExclusiveGateway_6" targetRef="ExclusiveGateway_1"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_11" name="Reject proposal" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1">
+      <bpmn2:incoming>SequenceFlow_13</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_14</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_11</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_11</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_14" name="" sourceRef="ChoreographyTask_11" targetRef="ExclusiveGateway_4"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_9" name="Accept Proposal" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1">
+      <bpmn2:incoming>SequenceFlow_38</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_16</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_11</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_10</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_16" name="" sourceRef="ChoreographyTask_9" targetRef="ExclusiveGateway_4"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_4" name="end_prop2" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_14</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_16</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_17</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_17" name="" sourceRef="ExclusiveGateway_4" targetRef="ExclusiveGateway_12"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_21" name="Request Amenities1" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6">
+      <bpmn2:incoming>SequenceFlow_45</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_48</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_16</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_19</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:parallelGateway id="ParallelGateway_7" name="start_req_amen" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_44</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_45</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_46</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_47</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_45" name="" sourceRef="ParallelGateway_7" targetRef="ChoreographyTask_21"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_46" name="" sourceRef="ParallelGateway_7" targetRef="ChoreographyTask_23"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_47" name="" sourceRef="ParallelGateway_7" targetRef="ChoreographyTask_28"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_26" name="Provide Available Amenities1" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_16">
+      <bpmn2:incoming>SequenceFlow_48</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_51</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_16</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_22</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:parallelGateway id="ParallelGateway_8" name="end_req_amen" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_51</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_53</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_52</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_54</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_48" name="" sourceRef="ChoreographyTask_21" targetRef="ChoreographyTask_26"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_51" name="" sourceRef="ChoreographyTask_26" targetRef="ParallelGateway_8"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_54" name="" sourceRef="ParallelGateway_8" targetRef="ChoreographyTask_22"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_22" name="Book All Available Amenities" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6">
+      <bpmn2:incoming>SequenceFlow_54</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_55</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_31</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_25</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_55" name="" sourceRef="ChoreographyTask_22" targetRef="ExclusiveGateway_8"/>
+    <bpmn2:parallelGateway id="ParallelGateway_9" name="start_book" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_64</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_60</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_61</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:parallelGateway id="ParallelGateway_10" name="end_book" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_62</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_63</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_65</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:choreographyTask id="ChoreographyTask_30" name="Book hotels" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6">
+      <bpmn2:incoming>SequenceFlow_60</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_58</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_40</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_28</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:choreographyTask id="ChoreographyTask_31" name="Provide hotl confirmation" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_40">
+      <bpmn2:incoming>SequenceFlow_58</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_62</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_40</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_29</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_58" name="" sourceRef="ChoreographyTask_30" targetRef="ChoreographyTask_31"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_60" name="" sourceRef="ParallelGateway_9" targetRef="ChoreographyTask_30"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_61" name="" sourceRef="ParallelGateway_9" targetRef="ChoreographyTask_32"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_62" name="" sourceRef="ChoreographyTask_31" targetRef="ParallelGateway_10"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_65" name="" sourceRef="ParallelGateway_10" targetRef="ExclusiveGateway_8"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_8" name="end_decide_based_on_weather" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_55</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_65</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_40</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_40" name="" sourceRef="ExclusiveGateway_8" targetRef="ParallelGateway_4"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_7" name="start_decide_based_on_weather" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_43</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_44</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_56</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_44" name="put passengers in transit" sourceRef="ExclusiveGateway_7" targetRef="ParallelGateway_7"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_56" name="keep passengers for the night" sourceRef="ExclusiveGateway_7" targetRef="ChoreographyTask_27"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_20" name="Get Weather Forecast" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6">
+      <bpmn2:incoming>SequenceFlow_42</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_43</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_8</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_17</bpmn2:messageFlowRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_18</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_43" name="" sourceRef="ChoreographyTask_20" targetRef="ExclusiveGateway_7"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_19" name="Warns Unexpected Arrival2" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6">
+      <bpmn2:incoming>SequenceFlow_41</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_42</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_9</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_16</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_42" name="" sourceRef="ChoreographyTask_19" targetRef="ChoreographyTask_20"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_17" name="Warns Unexpected Arrival" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_16">
+      <bpmn2:incoming>SequenceFlow_39</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_41</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_16</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_14</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_41" name="" sourceRef="ChoreographyTask_17" targetRef="ChoreographyTask_19"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_18" name="confirm Approach" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1">
+      <bpmn2:incoming>SequenceFlow_66</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_67</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_37</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:parallelGateway id="ParallelGateway_11" name="start_confirm_approach" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_67</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_68</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_72</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_88</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:choreographyTask id="ChoreographyTask_34" name="request Amenities 10" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18">
+      <bpmn2:incoming>SequenceFlow_68</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_69</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_17</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_38</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:choreographyTask id="ChoreographyTask_35" name="Get Available Amenities" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_17">
+      <bpmn2:incoming>SequenceFlow_69</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_70</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_17</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_48</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:choreographyTask id="ChoreographyTask_36" name="Book All Avaialbe Amenities" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18">
+      <bpmn2:incoming>SequenceFlow_70</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_71</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_54</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_49</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_66" name="" sourceRef="ChoreographyTask_12" targetRef="ChoreographyTask_18"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_67" name="" sourceRef="ChoreographyTask_18" targetRef="ParallelGateway_11"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_68" name="" sourceRef="ParallelGateway_11" targetRef="ChoreographyTask_34"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_69" name="" sourceRef="ChoreographyTask_34" targetRef="ChoreographyTask_35"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_70" name="" sourceRef="ChoreographyTask_35" targetRef="ChoreographyTask_36"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_71" name="" sourceRef="ChoreographyTask_36" targetRef="ParallelGateway_12"/>
+    <bpmn2:parallelGateway id="ParallelGateway_13" name="start_book_amenity" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_72</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_73</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_74</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_75</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:parallelGateway id="ParallelGateway_12" name="end_confirm_approach" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_71</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_85</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_87</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_25</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:choreographyTask id="ChoreographyTask_37" name="Book Amenity" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18">
+      <bpmn2:incoming>SequenceFlow_73</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_84</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_32</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_39</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:choreographyTask id="ChoreographyTask_39" name="Book Amenity2" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18">
+      <bpmn2:incoming>SequenceFlow_74</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_83</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_34</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_40</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:choreographyTask id="ChoreographyTask_40" name="Get Confirmation 20" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_34">
+      <bpmn2:incoming>SequenceFlow_83</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_77</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_34</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_43</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:parallelGateway id="ParallelGateway_14" name="end_book_amenity" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_77</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_81</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_76</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_85</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_72" name="" sourceRef="ParallelGateway_11" targetRef="ParallelGateway_13"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_73" name="" sourceRef="ParallelGateway_13" targetRef="ChoreographyTask_37"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_74" name="" sourceRef="ParallelGateway_13" targetRef="ChoreographyTask_39"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_75" name="" sourceRef="ParallelGateway_13" targetRef="ChoreographyTask_41"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_77" name="" sourceRef="ChoreographyTask_40" targetRef="ParallelGateway_14"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_83" name="" sourceRef="ChoreographyTask_39" targetRef="ChoreographyTask_40"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_84" name="" sourceRef="ChoreographyTask_37" targetRef="ChoreographyTask_38"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_85" name="" sourceRef="ParallelGateway_14" targetRef="ParallelGateway_12"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_43" name="Measure ambiant noise level" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18">
+      <bpmn2:incoming>SequenceFlow_88</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_86</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_70</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_45</bpmn2:messageFlowRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_46</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_86" name="" sourceRef="ChoreographyTask_43" targetRef="ChoreographyTask_44"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_88" name="" sourceRef="ParallelGateway_11" targetRef="ChoreographyTask_43"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_44" name="Adjust speakers volume" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18">
+      <bpmn2:incoming>SequenceFlow_86</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_87</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_73</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_47</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_87" name="" sourceRef="ChoreographyTask_44" targetRef="ParallelGateway_12"/>
+    <bpmn2:endEvent id="EndEvent_1" name="End Event 1">
+      <bpmn2:incoming>SequenceFlow_25</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_1" name="start_prop" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_37</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_3" name="" sourceRef="ExclusiveGateway_1" targetRef="ChoreographyTask_1"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_1" name="Propose reroute" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1">
+      <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_2</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_3</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" name="" sourceRef="ChoreographyTask_1" targetRef="ExclusiveGateway_9"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_9" name="start_verify_response" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_79</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_89</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_79" name="" sourceRef="ExclusiveGateway_9" targetRef="ChoreographyTask_3"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_89" name="" sourceRef="ExclusiveGateway_9" targetRef="ChoreographyTask_2"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_3" name="reject proposal" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_2">
+      <bpmn2:incoming>SequenceFlow_79</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_6</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_2</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_5</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_6" name="" sourceRef="ChoreographyTask_3" targetRef="ExclusiveGateway_10"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_2" name="accept proposal" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_2">
+      <bpmn2:incoming>SequenceFlow_89</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_5</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_2</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_4</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_5" name="" sourceRef="ChoreographyTask_2" targetRef="ExclusiveGateway_10"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_10" name="end_verify_response" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_6</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_80</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_80" name="" sourceRef="ExclusiveGateway_10" targetRef="ExclusiveGateway_2"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_2" name="end_prop" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_80</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_9</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_2" name="proposal rejected" sourceRef="ExclusiveGateway_2" targetRef="ExclusiveGateway_1"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_9" name="" sourceRef="ExclusiveGateway_2" targetRef="ParallelGateway_1"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_11" name="start_rer_pr" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_11</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_15</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_90</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_90" name="" sourceRef="ExclusiveGateway_11" targetRef="ChoreographyTask_8"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_8" name="Propose Reroute2" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_11">
+      <bpmn2:incoming>SequenceFlow_90</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_12</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_11</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_8</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_12" name="" sourceRef="ChoreographyTask_8" targetRef="ExclusiveGateway_3"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_3" name="start_prop2" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_12</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_13</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_38</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_13" name="" sourceRef="ExclusiveGateway_3" targetRef="ChoreographyTask_11"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_38" name="" sourceRef="ExclusiveGateway_3" targetRef="ChoreographyTask_9"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_12" name="end_rer_pr" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_17</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_15</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_91</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_15" name="" sourceRef="ExclusiveGateway_12" targetRef="ExclusiveGateway_11"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_91" name="" sourceRef="ExclusiveGateway_12" targetRef="ParallelGateway_2"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_28" name="Request Amenities3" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6">
+      <bpmn2:incoming>SequenceFlow_47</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_50</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_21</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_50" name="" sourceRef="ChoreographyTask_28" targetRef="ChoreographyTask_24"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_23" name="Request Amenities2" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6">
+      <bpmn2:incoming>SequenceFlow_46</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_49</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_17</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_20</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_49" name="" sourceRef="ChoreographyTask_23" targetRef="ChoreographyTask_25"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_24" name="Provide Available Amenities3" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18">
+      <bpmn2:incoming>SequenceFlow_50</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_53</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_24</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_53" name="" sourceRef="ChoreographyTask_24" targetRef="ParallelGateway_8"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_25" name="Provide Available Amenities2" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_17">
+      <bpmn2:incoming>SequenceFlow_49</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_52</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_17</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_23</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_52" name="" sourceRef="ChoreographyTask_25" targetRef="ParallelGateway_8"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_27" name="Requests Hotels" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6">
+      <bpmn2:incoming>SequenceFlow_56</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_57</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_9</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_26</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_57" name="" sourceRef="ChoreographyTask_27" targetRef="ChoreographyTask_29"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_29" name="Provide Hotels" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_9">
+      <bpmn2:incoming>SequenceFlow_57</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_64</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_9</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_27</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_64" name="" sourceRef="ChoreographyTask_29" targetRef="ParallelGateway_9"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_32" name="book transportation" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6">
+      <bpmn2:incoming>SequenceFlow_61</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_59</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_30</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_30</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_59" name="" sourceRef="ChoreographyTask_32" targetRef="ChoreographyTask_33"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_33" name="Provide trans confirmation" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_30">
+      <bpmn2:incoming>SequenceFlow_59</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_63</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_30</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_31</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_63" name="" sourceRef="ChoreographyTask_33" targetRef="ParallelGateway_10"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_15" name="Warn Unexpected Arrival4" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18">
+      <bpmn2:incoming>SequenceFlow_29</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_33</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_34</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_35</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_33" name="" sourceRef="ChoreographyTask_15" targetRef="ParallelGateway_6"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_10" name="Warn Unexpected Arrival" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18">
+      <bpmn2:incoming>SequenceFlow_26</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_30</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_28</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_32</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_30" name="" sourceRef="ChoreographyTask_10" targetRef="ParallelGateway_6"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_14" name="Warn Unexpected Arrival3" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18">
+      <bpmn2:incoming>SequenceFlow_28</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_32</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_32</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_34</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_32" name="" sourceRef="ChoreographyTask_14" targetRef="ParallelGateway_6"/>
+    <bpmn2:parallelGateway id="ParallelGateway_6" name="end_warn_unexpected_arrival" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_30</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_32</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_33</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_31</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_34</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_34" name="" sourceRef="ParallelGateway_6" targetRef="ParallelGateway_2"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_13" name="Warn Unexpected Arrival2" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18">
+      <bpmn2:incoming>SequenceFlow_27</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_31</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_30</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_33</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_31" name="" sourceRef="ChoreographyTask_13" targetRef="ParallelGateway_6"/>
+    <bpmn2:parallelGateway id="ParallelGateway_4" name="end_manage_unexpected_arrival" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_40</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_24</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_24" name="" sourceRef="ParallelGateway_4" targetRef="ParallelGateway_2"/>
+    <bpmn2:parallelGateway id="ParallelGateway_3" name="start_manage_unexpected_arrival" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_23</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_39</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_39" name="" sourceRef="ParallelGateway_3" targetRef="ChoreographyTask_17"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_41" name="Book Amenity3" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18">
+      <bpmn2:incoming>SequenceFlow_75</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_82</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_28</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_41</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_82" name="" sourceRef="ChoreographyTask_41" targetRef="ChoreographyTask_42"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_42" name="Get Confirmation 30" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_28">
+      <bpmn2:incoming>SequenceFlow_82</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_81</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_28</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_42</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_81" name="" sourceRef="ChoreographyTask_42" targetRef="ParallelGateway_14"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_38" name="Get Confirmation10" initiatingParticipantRef="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_32">
+      <bpmn2:incoming>SequenceFlow_84</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_76</bpmn2:outgoing>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_32</bpmn2:participantRef>
+      <bpmn2:participantRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#MessageFlow_44</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_76" name="" sourceRef="ChoreographyTask_38" targetRef="ParallelGateway_14"/>
+  </bpmn2:choreography>
+  <bpmn2:message id="Message_1" name="weather_forecast"/>
+  <bpmn2:message id="Message_2" name="warning_rerout"/>
+  <bpmn2:message id="Message_3" name="proposal"/>
+  <bpmn2:message id="Message_4" name="proposal accepted"/>
+  <bpmn2:message id="Message_5" name="proposal rejected"/>
+  <bpmn2:message id="Message_6" name="response_pr"/>
+  <bpmn2:message id="Message_7" name="reroute_warning"/>
+  <bpmn2:message id="Message_8" name="reroute_proposal"/>
+  <bpmn2:message id="Message_11" name="reroute_proposal accepted"/>
+  <bpmn2:message id="Message_12" name="reroute_proposal rejected"/>
+  <bpmn2:message id="Message_16" name="warning_unexpected_arrival"/>
+  <bpmn2:message id="Message_18" name="unexpected_arrival_coming"/>
+  <bpmn2:message id="Message_19" name="ask_weather_forecast"/>
+  <bpmn2:message id="Message_22" name="req amenities"/>
+  <bpmn2:message id="Message_25" name="amenities"/>
+  <bpmn2:message id="Message_28" name="book amenities"/>
+  <bpmn2:message id="Message_29" name="req hotel"/>
+  <bpmn2:message id="Message_30" name="hotel list"/>
+  <bpmn2:message id="Message_31" name="book hotel"/>
+  <bpmn2:message id="Message_32" name="confirm"/>
+  <bpmn2:message id="Message_33" name="book transportation"/>
+  <bpmn2:message id="Message_42" name="confirmed"/>
+  <bpmn2:message id="Message_50" name="req_noise_level"/>
+  <bpmn2:message id="Message_51" name="noise_level"/>
+  <bpmn2:message id="Message_52" name="adjust volume"/>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1" name="Passenger Friendly Airport">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Choreography_1">
+      <bpmndi:BPMNShape id="BPMNShape_1" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_1">
+        <dc:Bounds height="61.0" width="151.0" x="395.0" y="48.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_2" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_1" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="395.0" y="48.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_3" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_2" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_1" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="395.0" y="89.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_1" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ExclusiveGateway_1" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="350.0" y="203.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_2" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ExclusiveGateway_2" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="816.0" y="184.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_1" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_1" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_9">
+        <di:waypoint xsi:type="dc:Point" x="546.0" y="78.0"/>
+        <di:waypoint xsi:type="dc:Point" x="564.0" y="79.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_2" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_2" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_1">
+        <di:waypoint xsi:type="dc:Point" x="816.0" y="209.0"/>
+        <di:waypoint xsi:type="dc:Point" x="769.0" y="258.0"/>
+        <di:waypoint xsi:type="dc:Point" x="513.0" y="258.0"/>
+        <di:waypoint xsi:type="dc:Point" x="460.0" y="258.0"/>
+        <di:waypoint xsi:type="dc:Point" x="436.0" y="258.0"/>
+        <di:waypoint xsi:type="dc:Point" x="401.0" y="228.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_1" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_2">
+        <dc:Bounds height="60.0" width="150.0" x="627.0" y="128.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_2" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_3">
+        <dc:Bounds height="60.0" width="151.0" x="610.0" y="0.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_3" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_4">
+        <dc:Bounds height="61.0" width="150.0" x="141.0" y="197.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_2" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_2" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_1" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="150.0" x="627.0" y="128.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_3" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_1" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="150.0" x="627.0" y="168.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_5" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_2" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_2" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="610.0" y="0.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_6" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_2" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="610.0" y="40.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_3" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_3" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_1" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_1">
+        <di:waypoint xsi:type="dc:Point" x="375.0" y="203.0"/>
+        <di:waypoint xsi:type="dc:Point" x="374.0" y="93.0"/>
+        <di:waypoint xsi:type="dc:Point" x="470.0" y="109.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_5" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_5" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_1" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_10">
+        <di:waypoint xsi:type="dc:Point" x="777.0" y="158.0"/>
+        <di:waypoint xsi:type="dc:Point" x="800.0" y="156.0"/>
+        <di:waypoint xsi:type="dc:Point" x="790.0" y="95.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_6" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_6" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_2" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_10">
+        <di:waypoint xsi:type="dc:Point" x="761.0" y="30.0"/>
+        <di:waypoint xsi:type="dc:Point" x="788.0" y="47.0"/>
+        <di:waypoint xsi:type="dc:Point" x="790.0" y="95.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_8" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_8" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_3" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="150.0" x="141.0" y="197.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_9" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_3" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="150.0" x="141.0" y="238.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_7" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_7" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_3" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_6">
+        <di:waypoint xsi:type="dc:Point" x="291.0" y="227.0"/>
+        <di:waypoint xsi:type="dc:Point" x="300.0" y="268.0"/>
+        <di:waypoint xsi:type="dc:Point" x="300.0" y="314.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_StartEvent_1" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#StartEvent_1">
+        <dc:Bounds height="36.0" width="36.0" x="0.0" y="289.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_8" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_8" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_StartEvent_1" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_5">
+        <di:waypoint xsi:type="dc:Point" x="36.0" y="307.0"/>
+        <di:waypoint xsi:type="dc:Point" x="58.0" y="307.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_1" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ParallelGateway_1">
+        <dc:Bounds height="50.0" width="50.0" x="925.0" y="253.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_2" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ParallelGateway_2">
+        <dc:Bounds height="50.0" width="50.0" x="1900.0" y="281.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_9" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_9" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_2" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_1">
+        <di:waypoint xsi:type="dc:Point" x="867.0" y="209.0"/>
+        <di:waypoint xsi:type="dc:Point" x="925.0" y="278.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_4" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_5">
+        <dc:Bounds height="61.0" width="149.0" x="1010.0" y="173.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_11" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_4" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="149.0" x="1010.0" y="173.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_12" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_11" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_4" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="149.0" x="1010.0" y="214.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_5" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_6">
+        <dc:Bounds height="61.0" width="151.0" x="1060.0" y="434.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_6" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_7">
+        <dc:Bounds height="61.0" width="151.0" x="1060.0" y="688.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_20" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_5" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="1060.0" y="434.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_21" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_16" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_5" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="1060.0" y="475.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_23" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_6" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="1060.0" y="688.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_24" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_6" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="1060.0" y="729.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_7" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_8">
+        <dc:Bounds height="67.0" width="151.0" x="1229.0" y="183.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_26" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_11" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_7" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="1229.0" y="183.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_27" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_7" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="1229.0" y="230.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_3" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ExclusiveGateway_3" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="1408.0" y="184.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_4" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ExclusiveGateway_4" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="1733.0" y="203.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_8" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_9">
+        <dc:Bounds height="61.0" width="151.0" x="1530.0" y="148.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_9" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_10">
+        <dc:Bounds height="70.0" width="149.0" x="1339.0" y="551.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_10" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_11">
+        <dc:Bounds height="61.0" width="150.0" x="1531.0" y="283.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_29" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_10" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="150.0" x="1531.0" y="283.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_30" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_11" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_10" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="150.0" x="1531.0" y="324.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_32" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_8" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="1530.0" y="148.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_33" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_11" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_8" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="1530.0" y="189.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_10" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_10" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_1" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_4">
+        <di:waypoint xsi:type="dc:Point" x="976.0" y="278.0"/>
+        <di:waypoint xsi:type="dc:Point" x="976.0" y="203.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1010.0" y="203.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_11" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_11" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_4" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_11">
+        <di:waypoint xsi:type="dc:Point" x="1159.0" y="203.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1158.0" y="160.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1170.0" y="138.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_12" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_12" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_7" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_3">
+        <di:waypoint xsi:type="dc:Point" x="1380.0" y="216.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1408.0" y="209.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_13" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_13" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_3" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_10">
+        <di:waypoint xsi:type="dc:Point" x="1459.0" y="209.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1488.0" y="295.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1531.0" y="313.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_14" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_14" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_10" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_4">
+        <di:waypoint xsi:type="dc:Point" x="1681.0" y="313.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1733.0" y="290.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1733.0" y="228.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_15" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_15" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_12" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_11">
+        <di:waypoint xsi:type="dc:Point" x="1820.0" y="228.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1800.0" y="277.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1770.0" y="312.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1675.0" y="378.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1540.0" y="378.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1296.0" y="378.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1180.0" y="253.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1221.0" y="138.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_16" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_16" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_8" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_4">
+        <di:waypoint xsi:type="dc:Point" x="1681.0" y="178.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1733.0" y="178.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1733.0" y="228.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_17" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_17" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_4" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_12">
+        <di:waypoint xsi:type="dc:Point" x="1784.0" y="228.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1820.0" y="228.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_11" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_12">
+        <dc:Bounds height="66.0" width="150.0" x="2000.0" y="273.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_35" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_2" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_11" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="150.0" x="2000.0" y="273.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_36" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_11" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="150.0" x="2000.0" y="319.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_18" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_18" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_2" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_11">
+        <di:waypoint xsi:type="dc:Point" x="1951.0" y="306.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2000.0" y="306.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_19" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_19" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_1" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_5">
+        <di:waypoint xsi:type="dc:Point" x="950.0" y="304.0"/>
+        <di:waypoint xsi:type="dc:Point" x="997.0" y="436.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1060.0" y="464.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_20" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_20" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_1" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_6">
+        <di:waypoint xsi:type="dc:Point" x="950.0" y="304.0"/>
+        <di:waypoint xsi:type="dc:Point" x="969.0" y="570.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1135.0" y="688.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_3" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ParallelGateway_3">
+        <dc:Bounds height="50.0" width="50.0" x="1270.0" y="440.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_4" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ParallelGateway_4">
+        <dc:Bounds height="50.0" width="50.0" x="1506.0" y="440.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_23" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_23" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_5" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_3">
+        <di:waypoint xsi:type="dc:Point" x="1211.0" y="464.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1270.0" y="465.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_24" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_24" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_4" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_2">
+        <di:waypoint xsi:type="dc:Point" x="1557.0" y="465.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1875.0" y="465.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1900.0" y="306.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_1" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#EndEvent_1">
+        <dc:Bounds height="36.0" width="36.0" x="3230.0" y="448.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_25" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_25" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_12" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_EndEvent_1">
+        <di:waypoint xsi:type="dc:Point" x="3161.0" y="479.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3230.0" y="466.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_38" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_9" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="149.0" x="1339.0" y="551.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_39" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_28" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_9" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="149.0" x="1339.0" y="601.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_12" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_13">
+        <dc:Bounds height="60.0" width="151.0" x="1480.0" y="639.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_41" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_12" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="1480.0" y="639.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_42" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_30" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_12" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="1480.0" y="679.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_13" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_14">
+        <dc:Bounds height="60.0" width="150.0" x="1338.0" y="748.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_44" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_13" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="150.0" x="1338.0" y="748.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_45" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_32" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_13" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="150.0" x="1338.0" y="788.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_14" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_15">
+        <dc:Bounds height="60.0" width="150.0" x="1424.0" y="851.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_47" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_14" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="150.0" x="1424.0" y="851.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_48" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_34" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_14" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="150.0" x="1424.0" y="891.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_5" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ParallelGateway_5">
+        <dc:Bounds height="50.0" width="50.0" x="1255.0" y="693.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_6" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ParallelGateway_6">
+        <dc:Bounds height="50.0" width="50.0" x="1680.0" y="699.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_26" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_26" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_5" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_9">
+        <di:waypoint xsi:type="dc:Point" x="1306.0" y="718.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1320.0" y="636.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1413.0" y="621.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_27" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_27" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_5" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_12">
+        <di:waypoint xsi:type="dc:Point" x="1306.0" y="718.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1344.0" y="668.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1480.0" y="669.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_28" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_28" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_5" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_13">
+        <di:waypoint xsi:type="dc:Point" x="1306.0" y="718.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1315.0" y="763.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1338.0" y="778.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_29" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_29" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_5" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_14">
+        <di:waypoint xsi:type="dc:Point" x="1306.0" y="718.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1304.0" y="845.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1424.0" y="881.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_30" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_30" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_9" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_6">
+        <di:waypoint xsi:type="dc:Point" x="1488.0" y="586.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1678.0" y="584.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1680.0" y="724.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_31" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_31" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_12" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_6">
+        <di:waypoint xsi:type="dc:Point" x="1631.0" y="669.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1640.0" y="668.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1680.0" y="724.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_32" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_32" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_13" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_6">
+        <di:waypoint xsi:type="dc:Point" x="1488.0" y="778.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1630.0" y="776.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1680.0" y="724.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_33" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_33" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_14" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_6">
+        <di:waypoint xsi:type="dc:Point" x="1574.0" y="881.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1678.0" y="848.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1680.0" y="724.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_34" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_34" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_6" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_2">
+        <di:waypoint xsi:type="dc:Point" x="1705.0" y="699.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1870.0" y="688.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1925.0" y="332.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_35" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_35" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_6" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_5">
+        <di:waypoint xsi:type="dc:Point" x="1211.0" y="718.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1255.0" y="718.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_15" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_16">
+        <dc:Bounds height="71.0" width="151.0" x="140.0" y="366.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_4" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_11" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_15" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="140.0" y="366.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_7" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_15" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="140.0" y="417.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_5" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ExclusiveGateway_5" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="58.0" y="282.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_6" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ExclusiveGateway_6" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="300.0" y="289.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_21" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_21" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_5" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_15">
+        <di:waypoint xsi:type="dc:Point" x="109.0" y="307.0"/>
+        <di:waypoint xsi:type="dc:Point" x="130.0" y="381.0"/>
+        <di:waypoint xsi:type="dc:Point" x="140.0" y="401.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_22" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_22" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_15" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_6">
+        <di:waypoint xsi:type="dc:Point" x="291.0" y="401.0"/>
+        <di:waypoint xsi:type="dc:Point" x="316.0" y="373.0"/>
+        <di:waypoint xsi:type="dc:Point" x="300.0" y="314.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_36" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_36" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_5" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_3">
+        <di:waypoint xsi:type="dc:Point" x="109.0" y="307.0"/>
+        <di:waypoint xsi:type="dc:Point" x="131.0" y="248.0"/>
+        <di:waypoint xsi:type="dc:Point" x="141.0" y="227.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_37" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_37" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_6" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_1">
+        <di:waypoint xsi:type="dc:Point" x="325.0" y="289.0"/>
+        <di:waypoint xsi:type="dc:Point" x="375.0" y="254.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_38" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_38" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_3" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_8">
+        <di:waypoint xsi:type="dc:Point" x="1459.0" y="209.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1480.0" y="178.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1530.0" y="178.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_16" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_17">
+        <dc:Bounds height="71.0" width="150.0" x="221.0" y="1058.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_17" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_18">
+        <dc:Bounds height="66.0" width="150.0" x="2180.0" y="275.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_39" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_39" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_3" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_16">
+        <di:waypoint xsi:type="dc:Point" x="1270.0" y="465.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1357.0" y="465.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1357.0" y="526.0"/>
+        <di:waypoint xsi:type="dc:Point" x="349.0" y="526.0"/>
+        <di:waypoint xsi:type="dc:Point" x="371.0" y="1093.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_40" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_40" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_8" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_4">
+        <di:waypoint xsi:type="dc:Point" x="1968.0" y="1032.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1776.0" y="796.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1777.0" y="541.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1436.0" y="515.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1436.0" y="490.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1531.0" y="491.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_13" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_16" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_16" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="150.0" x="221.0" y="1058.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_14" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_16" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="150.0" x="221.0" y="1109.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_18" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_19">
+        <dc:Bounds height="71.0" width="151.0" x="420.0" y="1058.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_16" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_18" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="420.0" y="1058.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_17" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_9" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_18" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="420.0" y="1109.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_19" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_20">
+        <dc:Bounds height="61.0" width="151.0" x="610.0" y="1063.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_19" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_19" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="610.0" y="1063.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_22" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_8" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_19" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="610.0" y="1104.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_41" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_41" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_16" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_18">
+        <di:waypoint xsi:type="dc:Point" x="371.0" y="1093.0"/>
+        <di:waypoint xsi:type="dc:Point" x="420.0" y="1093.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_42" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_42" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_18" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_19">
+        <di:waypoint xsi:type="dc:Point" x="571.0" y="1093.0"/>
+        <di:waypoint xsi:type="dc:Point" x="610.0" y="1093.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_7" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ExclusiveGateway_7" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="830.0" y="1079.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_8" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ExclusiveGateway_8" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="1943.0" y="1032.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_7" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ParallelGateway_7">
+        <dc:Bounds height="50.0" width="50.0" x="971.0" y="1018.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_8" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ParallelGateway_8">
+        <dc:Bounds height="50.0" width="50.0" x="1457.0" y="1026.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_20" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_21">
+        <dc:Bounds height="61.0" width="151.0" x="1069.0" y="924.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_21" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_22">
+        <dc:Bounds height="63.0" width="152.0" x="1563.0" y="1025.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_22" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_23">
+        <dc:Bounds height="61.0" width="149.0" x="1070.0" y="1041.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_23" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_24">
+        <dc:Bounds height="61.0" width="151.0" x="1242.0" y="1171.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_24" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_25">
+        <dc:Bounds height="70.0" width="154.0" x="1241.0" y="1037.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_25" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_26">
+        <dc:Bounds height="70.0" width="151.0" x="1255.0" y="920.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_26" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_27">
+        <dc:Bounds height="60.0" width="148.0" x="974.0" y="1343.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_27" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_28">
+        <dc:Bounds height="71.0" width="146.0" x="1072.0" y="1154.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_28" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_20" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="1069.0" y="924.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_31" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_16" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_20" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="1069.0" y="965.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_37" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_22" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="149.0" x="1070.0" y="1041.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_40" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_17" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_22" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="149.0" x="1070.0" y="1082.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_46" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_27" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="146.0" x="1072.0" y="1154.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_49" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_27" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="146.0" x="1072.0" y="1205.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_43" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_43" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_19" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_7">
+        <di:waypoint xsi:type="dc:Point" x="761.0" y="1093.0"/>
+        <di:waypoint xsi:type="dc:Point" x="830.0" y="1104.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_44" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_44" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_7" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_7">
+        <di:waypoint xsi:type="dc:Point" x="881.0" y="1104.0"/>
+        <di:waypoint xsi:type="dc:Point" x="904.0" y="1041.0"/>
+        <di:waypoint xsi:type="dc:Point" x="971.0" y="1043.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_45" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_45" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_7" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_20">
+        <di:waypoint xsi:type="dc:Point" x="1022.0" y="1043.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1069.0" y="954.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_46" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_46" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_7" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_22">
+        <di:waypoint xsi:type="dc:Point" x="1022.0" y="1043.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1070.0" y="1071.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_47" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_47" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_7" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_27">
+        <di:waypoint xsi:type="dc:Point" x="1022.0" y="1043.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1072.0" y="1189.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_51" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_16" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_25" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="1255.0" y="920.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_52" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_25" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="1255.0" y="970.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_54" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_17" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_24" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="154.0" x="1241.0" y="1037.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_55" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_24" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="154.0" x="1241.0" y="1087.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_57" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_23" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="1242.0" y="1171.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_58" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_23" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="1242.0" y="1212.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_48" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_48" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_20" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_25">
+        <di:waypoint xsi:type="dc:Point" x="1220.0" y="954.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1255.0" y="955.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_49" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_49" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_22" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_24">
+        <di:waypoint xsi:type="dc:Point" x="1219.0" y="1071.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1241.0" y="1072.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_50" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_50" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_27" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_23">
+        <di:waypoint xsi:type="dc:Point" x="1218.0" y="1189.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1242.0" y="1201.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_51" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_51" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_25" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_8">
+        <di:waypoint xsi:type="dc:Point" x="1406.0" y="955.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1457.0" y="1051.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_52" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_52" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_24" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_8">
+        <di:waypoint xsi:type="dc:Point" x="1395.0" y="1072.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1457.0" y="1051.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_53" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_53" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_23" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_8">
+        <di:waypoint xsi:type="dc:Point" x="1393.0" y="1201.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1457.0" y="1051.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_54" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_54" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_8" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_21">
+        <di:waypoint xsi:type="dc:Point" x="1508.0" y="1051.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1563.0" y="1056.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_55" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_55" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_21" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_8">
+        <di:waypoint xsi:type="dc:Point" x="1715.0" y="1056.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1943.0" y="1057.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_60" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_21" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="152.0" x="1563.0" y="1025.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_61" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_31" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_21" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="152.0" x="1563.0" y="1068.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_63" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_26" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="148.0" x="974.0" y="1343.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_64" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_9" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_26" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="148.0" x="974.0" y="1383.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_56" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_56" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_7" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_26">
+        <di:waypoint xsi:type="dc:Point" x="855.0" y="1130.0"/>
+        <di:waypoint xsi:type="dc:Point" x="876.0" y="1356.0"/>
+        <di:waypoint xsi:type="dc:Point" x="974.0" y="1373.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_28" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_29">
+        <dc:Bounds height="58.0" width="146.0" x="1170.0" y="1343.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_66" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_9" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_28" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="146.0" x="1170.0" y="1343.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_67" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_28" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="146.0" x="1170.0" y="1381.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_57" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_57" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_26" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_28">
+        <di:waypoint xsi:type="dc:Point" x="1122.0" y="1373.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1170.0" y="1372.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_9" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ParallelGateway_9">
+        <dc:Bounds height="50.0" width="50.0" x="1335.0" y="1273.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_10" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ParallelGateway_10">
+        <dc:Bounds height="50.0" width="50.0" x="1828.0" y="1258.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_29" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_30">
+        <dc:Bounds height="60.0" width="151.0" x="1440.0" y="1234.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_30" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_31">
+        <dc:Bounds height="70.0" width="150.0" x="1630.0" y="1229.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_31" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_32">
+        <dc:Bounds height="60.0" width="151.0" x="1440.0" y="1388.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_32" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_33">
+        <dc:Bounds height="60.0" width="156.0" x="1627.0" y="1388.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_69" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_29" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="1440.0" y="1234.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_70" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_40" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_29" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="1440.0" y="1274.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_72" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_31" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="1440.0" y="1388.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_73" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_30" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_31" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="1440.0" y="1428.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_75" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_40" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_30" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="150.0" x="1630.0" y="1229.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_76" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_30" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="150.0" x="1630.0" y="1279.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_78" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_30" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_32" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="156.0" x="1627.0" y="1388.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_79" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_6" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_32" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="156.0" x="1627.0" y="1428.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_58" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_58" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_29" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_30">
+        <di:waypoint xsi:type="dc:Point" x="1591.0" y="1264.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1630.0" y="1264.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_59" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_59" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_31" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_32">
+        <di:waypoint xsi:type="dc:Point" x="1591.0" y="1418.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1627.0" y="1418.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_60" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_60" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_9" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_29">
+        <di:waypoint xsi:type="dc:Point" x="1386.0" y="1298.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1440.0" y="1264.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_61" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_61" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_9" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_31">
+        <di:waypoint xsi:type="dc:Point" x="1386.0" y="1298.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1440.0" y="1418.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_62" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_62" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_30" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_10">
+        <di:waypoint xsi:type="dc:Point" x="1780.0" y="1264.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1828.0" y="1283.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_63" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_63" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_32" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_10">
+        <di:waypoint xsi:type="dc:Point" x="1783.0" y="1418.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1828.0" y="1283.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_64" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_64" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_28" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_9">
+        <di:waypoint xsi:type="dc:Point" x="1316.0" y="1372.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1335.0" y="1298.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_65" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_65" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_10" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_8">
+        <di:waypoint xsi:type="dc:Point" x="1853.0" y="1258.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1968.0" y="1083.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_81" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_1" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_17" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="150.0" x="2180.0" y="275.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_82" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_17" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="150.0" x="2180.0" y="321.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_11" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ParallelGateway_11">
+        <dc:Bounds height="50.0" width="50.0" x="2339.0" y="433.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_12" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ParallelGateway_12">
+        <dc:Bounds height="50.0" width="50.0" x="3110.0" y="454.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_33" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_34">
+        <dc:Bounds height="63.0" width="150.0" x="2410.0" y="274.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_84" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_33" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="150.0" x="2410.0" y="274.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_85" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_17" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_33" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="150.0" x="2410.0" y="317.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_34" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_35">
+        <dc:Bounds height="56.0" width="152.0" x="2590.0" y="278.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_87" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_17" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_34" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="152.0" x="2590.0" y="278.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_88" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_34" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="152.0" x="2590.0" y="314.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_35" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_36">
+        <dc:Bounds height="69.0" width="150.0" x="2770.0" y="273.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_90" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_35" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="150.0" x="2770.0" y="273.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_91" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_54" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_35" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="150.0" x="2770.0" y="322.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_36" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_37">
+        <dc:Bounds height="59.0" width="151.0" x="2530.0" y="393.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_93" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_36" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="2530.0" y="393.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_94" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_32" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_36" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="2530.0" y="432.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_37" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_38">
+        <dc:Bounds height="64.0" width="151.0" x="2709.0" y="400.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_96" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_32" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_37" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="2709.0" y="400.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_97" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_37" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="2709.0" y="444.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_38" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_39">
+        <dc:Bounds height="61.0" width="151.0" x="2530.0" y="524.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_39" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_40">
+        <dc:Bounds height="65.0" width="151.0" x="2720.0" y="522.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_99" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_38" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="2530.0" y="524.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_100" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_34" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_38" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="2530.0" y="565.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_102" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_34" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_39" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="2720.0" y="522.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_103" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_39" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="2720.0" y="567.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_40" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_41">
+        <dc:Bounds height="60.0" width="151.0" x="2530.0" y="663.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_41" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_42">
+        <dc:Bounds height="63.0" width="150.0" x="2721.0" y="657.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_106" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_40" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="2530.0" y="663.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_107" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_28" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_40" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="2530.0" y="703.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_109" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_28" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_41" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="150.0" x="2721.0" y="657.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_110" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_41" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="150.0" x="2721.0" y="700.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_66" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_66" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_11" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_17">
+        <di:waypoint xsi:type="dc:Point" x="2150.0" y="306.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2180.0" y="308.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_67" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_67" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_17" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_11">
+        <di:waypoint xsi:type="dc:Point" x="2330.0" y="308.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2363.0" y="308.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2364.0" y="433.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_68" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_68" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_11" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_33">
+        <di:waypoint xsi:type="dc:Point" x="2364.0" y="433.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2404.0" y="363.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2485.0" y="337.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_69" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_69" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_33" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_34">
+        <di:waypoint xsi:type="dc:Point" x="2560.0" y="305.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2590.0" y="306.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_70" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_70" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_34" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_35">
+        <di:waypoint xsi:type="dc:Point" x="2742.0" y="306.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2770.0" y="307.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_71" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_71" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_35" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_12">
+        <di:waypoint xsi:type="dc:Point" x="2920.0" y="307.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3110.0" y="479.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_13" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ParallelGateway_13">
+        <dc:Bounds height="50.0" width="50.0" x="2420.0" y="502.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_14" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ParallelGateway_14">
+        <dc:Bounds height="50.0" width="50.0" x="2919.0" y="502.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_72" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_72" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_11" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_13">
+        <di:waypoint xsi:type="dc:Point" x="2390.0" y="458.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2420.0" y="527.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_73" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_73" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_13" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_36">
+        <di:waypoint xsi:type="dc:Point" x="2471.0" y="527.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2530.0" y="422.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_74" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_74" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_13" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_38">
+        <di:waypoint xsi:type="dc:Point" x="2471.0" y="527.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2530.0" y="554.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_75" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_75" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_13" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_40">
+        <di:waypoint xsi:type="dc:Point" x="2445.0" y="553.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2530.0" y="693.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_76" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_76" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_37" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_14">
+        <di:waypoint xsi:type="dc:Point" x="2860.0" y="432.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2919.0" y="527.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_77" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_77" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_39" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_14">
+        <di:waypoint xsi:type="dc:Point" x="2871.0" y="554.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2919.0" y="527.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_81" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_81" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_41" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_14">
+        <di:waypoint xsi:type="dc:Point" x="2871.0" y="688.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2944.0" y="553.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_82" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_82" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_40" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_41">
+        <di:waypoint xsi:type="dc:Point" x="2681.0" y="693.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2721.0" y="688.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_83" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_83" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_38" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_39">
+        <di:waypoint xsi:type="dc:Point" x="2681.0" y="554.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2720.0" y="554.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_84" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_84" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_36" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_37">
+        <di:waypoint xsi:type="dc:Point" x="2681.0" y="422.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2709.0" y="432.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_85" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_85" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_14" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_12">
+        <di:waypoint xsi:type="dc:Point" x="2970.0" y="527.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3054.0" y="526.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3110.0" y="479.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_42" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_43">
+        <dc:Bounds height="71.0" width="146.0" x="2430.0" y="778.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_43" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ChoreographyTask_44">
+        <dc:Bounds height="71.0" width="151.0" x="2626.0" y="778.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_112" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_42" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="146.0" x="2430.0" y="778.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_113" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_70" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_42" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="146.0" x="2430.0" y="829.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_116" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_18" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_43" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="2626.0" y="778.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_117" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#Participant_73" choreographyActivityShape="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_43" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="2626.0" y="829.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_86" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_86" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_42" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_43">
+        <di:waypoint xsi:type="dc:Point" x="2576.0" y="813.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2626.0" y="813.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_87" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_87" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_43" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_12">
+        <di:waypoint xsi:type="dc:Point" x="2777.0" y="813.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3023.0" y="762.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3110.0" y="479.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_88" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_88" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_11" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_42">
+        <di:waypoint xsi:type="dc:Point" x="2364.0" y="484.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2398.0" y="715.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2503.0" y="778.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_9" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ExclusiveGateway_9" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="564.0" y="54.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_10" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ExclusiveGateway_10" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="790.0" y="70.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_79" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_79" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_9" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_2">
+        <di:waypoint xsi:type="dc:Point" x="615.0" y="79.0"/>
+        <di:waypoint xsi:type="dc:Point" x="610.0" y="30.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_80" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_80" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_10" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_2">
+        <di:waypoint xsi:type="dc:Point" x="815.0" y="121.0"/>
+        <di:waypoint xsi:type="dc:Point" x="840.0" y="144.0"/>
+        <di:waypoint xsi:type="dc:Point" x="841.0" y="184.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_89" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_89" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_9" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_1">
+        <di:waypoint xsi:type="dc:Point" x="615.0" y="79.0"/>
+        <di:waypoint xsi:type="dc:Point" x="627.0" y="158.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_11" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ExclusiveGateway_11" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="1170.0" y="113.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_12" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#ExclusiveGateway_12" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="1820.0" y="203.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_90" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_90" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_11" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ChoreographyTask_7">
+        <di:waypoint xsi:type="dc:Point" x="1221.0" y="138.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1228.0" y="152.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1229.0" y="216.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_91" bpmnElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#SequenceFlow_91" sourceElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ExclusiveGateway_12" targetElement="platform:/resource/BPMN2WKG2XSB/src/main/java/partes/service/airport_long.bpmn2#BPMNShape_ParallelGateway_2">
+        <di:waypoint xsi:type="dc:Point" x="1871.0" y="228.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1900.0" y="306.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WorkFlowGraph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://workflowgraph/1.0.4" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL-XMI" startingNode="ChoreographyTask_2" endingNode="ChoreographyTask_7" innerGateway="ExclusiveGateway_5">
+  <gateways xsi:type="ExclusiveChoice" name="G" id="ExclusiveGateway_5" fork="true" refMerge="ExclusiveGateway_6" predecessors="ChoreographyTask_2 ExclusiveGateway_6" successors="ChoreographyTask_3">
+    <gatewayRef xsi:type="bpmn2:ExclusiveGateway" href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/2.bpmn2#ExclusiveGateway_5"/>
+  </gateways>
+  <gateways xsi:type="ExclusiveChoice" name="G" id="ExclusiveGateway_6" merge="true" refFork="ExclusiveGateway_5" predecessors="ChoreographyTask_4" successors="ExclusiveGateway_5 ChoreographyTask_5">
+    <gatewayRef xsi:type="bpmn2:ExclusiveGateway" href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/2.bpmn2#ExclusiveGateway_6"/>
+  </gateways>
+  <actions xsi:type="MessageExchange" name="Confirm taxi request" id="ChoreographyTask_2" successor="ExclusiveGateway_5" request="confirmProposal" synchResponse="validate" sender="//@participants.0" receiver="//@participants.1">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/2.bpmn2#ChoreographyTask_2"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Request Taxi Service" id="ChoreographyTask_3" successor="ChoreographyTask_4" predecessor="ExclusiveGateway_5" request="requestTaxi" synchResponse="" sender="//@participants.0" receiver="//@participants.2">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/2.bpmn2#ChoreographyTask_3"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Check Request" id="ChoreographyTask_4" successor="ExclusiveGateway_6" predecessor="ChoreographyTask_3" request="requestFromTaxi" synchResponse="" sender="//@participants.2" receiver="//@participants.0">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/2.bpmn2#ChoreographyTask_4"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Display Info Booking" id="ChoreographyTask_5" successor="ChoreographyTask_6" predecessor="ExclusiveGateway_6" request="showBookingInfo" synchResponse="" sender="//@participants.0" receiver="//@participants.1">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/2.bpmn2#ChoreographyTask_5"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Board Taxi" id="ChoreographyTask_6" successor="ChoreographyTask_7" predecessor="ChoreographyTask_5" request="reqGPSpair" synchResponse="respGPSpair" sender="//@participants.0" receiver="//@participants.4">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/2.bpmn2#ChoreographyTask_6"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Set Route" id="ChoreographyTask_7" predecessor="ChoreographyTask_6" request="sendDestCoord" synchResponse="" sender="//@participants.0" receiver="//@participants.3">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/2.bpmn2#ChoreographyTask_7"/>
+  </actions>
+  <participants name="MID" id="Participant_1">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/2.bpmn2#Participant_1"/>
+  </participants>
+  <participants name="Citizen" id="Participant_2">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/2.bpmn2#Participant_2"/>
+  </participants>
+  <participants name="TaxiCompany" id="Participant_6">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/2.bpmn2#Participant_6"/>
+  </participants>
+  <participants name="Destinator Service" id="Participant_15">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/2.bpmn2#Participant_15"/>
+  </participants>
+  <participants name="TaxiCabin" id="Participant_16">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/2.bpmn2#Participant_16"/>
+  </participants>
+  <participants name="TouristPlace" id="Participant_17">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/2.bpmn2#Participant_17"/>
+  </participants>
+  <participants name="TrafficService" id="Participant_25">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/2.bpmn2#Participant_25"/>
+  </participants>
+  <participants name="TrafficCompany" id="Participant_26">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/2.bpmn2#Participant_26"/>
+  </participants>
+  <participants name="SocialProximity" id="Participant_39">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/2.bpmn2#Participant_39"/>
+  </participants>
+  <participants name="Friends" id="Participant_43">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/2.bpmn2#Participant_43"/>
+  </participants>
+</WorkFlowGraph>

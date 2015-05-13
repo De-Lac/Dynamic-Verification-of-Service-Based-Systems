@@ -1,0 +1,21 @@
+% -*- Mode: Prolog -*-
+
+
+gtrans(rs, ('C', 'S', gettpmstatus), rs1).
+gtrans(rs, ('C', 'S', send), rs0).
+
+gtrans(rs0, ('S', 'C', ackstart), ior).
+
+gtrans(ior, ('S', 'C', sendcomplete), rs).
+gtrans(ior, ('C', 'S', gettpmstatus), ior0).
+
+gtrans(rs1, ('S', 'C', tpmstatus), rs).
+
+gtrans(ior0, ('S', 'C', tpmstatus), ior).
+
+peer('S').
+peer('C').
+
+start(rs).
+
+negategtrans(false, false).

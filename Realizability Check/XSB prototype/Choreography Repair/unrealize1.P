@@ -1,0 +1,314 @@
+% -*- Mode: Prolog -*-
+
+%% in each iteration - we add/remove one transition
+
+%% systems can be HUGE due to large number of epsilon transitions: ideally determinize before composing
+
+% Match every transition from I^C_1 and identify the ones that are not present
+% and add new transitions to the given choregraphy
+
+% any test code should have the following
+% dynamically load the choreography
+% compile project, call project to get the peers from project
+% compile sys to get the system transitions
+
+
+% this is needed if you want to add new transitions
+% to restrict the behavior 
+:- import conget/2, conset/2 from gensym.
+:- import abolish_all_tables/0 from tables.
+:- conset(newState,  0).
+:- conset(newMsg, 0).
+
+
+% compile the library to make sure assertOnce, stransWOepsilon are accessible
+:- [library,draw,deter].
+
+
+:- dynamic gtrans_1/3. 
+:- dynamic added/3.
+:- dynamic removed/3.
+
+
+%:- draw('specold', 0), project, tell('peersold.P'), listing(ptranswep), listing(startPeer), told, draw('peersold', 2).
+%:- dotSpec('specold'), dotPeers('peersold', 'peersdold').
+%:- tell('peersold.P'), listing(ptranswep), listing(startPeer), told.
+
+
+:- dynamic stop/0.
+topChgRealize :-
+	project,
+	sysstart(S),
+	start(T),
+	%nsim(S, T, 1),
+	%%checksequence,
+	chgRealize(S, T, epsilon, empty),
+	abolish_all_tables,
+	!,
+	(gtrans_1(_, _, _) -> true; fail),
+	assertNewTrans,
+	listing(gtrans),
+	writeln('***************New Iteration****************'),
+	pref(N),
+	(N == 0 -> read(X), !, write(X); !, true),
+        (X == 0 -> draw('specnew', 0), draw('peersnew', 2), fail; retractPeers, true),
+	topChgRealize.
+
+topChgRealize :-
+	%% This I/O can also be time consuming for large systems
+	%%%%% COMMENTING
+	% tell('./xsboutputs/specnew.P'),
+	% listing(gtrans),
+	% listing(start),
+	% listing(added),
+	% listing(removed),
+	% told,
+	
+	% tell('./xsboutputs/peersnew.P'),
+	% listing(ptranswep),
+	% listing(startPeer), 
+	% told,
+	
+	dotSpec('specnew'),
+	dotPeers('peersnew', 'peersdnew'),
+	
+	listing(gtrans).
+
+
+% find out all non-matching transitions
+% S is the system state
+% T is the choreography state that must replicate S's behavior
+% A is the action that led to T from TPrev
+% Last two parameters are essentially used to add transition when
+% s0 -A:B:m1-> s1 -A:C:m2-> s2 and s0 -D:E:m3 -> s2
+
+% m3 is followed by m1 is allowed in the system but not in choreography
+% Need to add behavior such that m3 followed by m1 is allowed.
+% - As A:s0 can reach A:s2, the addition cannot involve any state between s0 and s2, this will cause
+%   unnecessary cycles; instead add a new state s0 -D:E:m3 -> n(s0) - A:B:m1 -> s2
+
+% m1 is followed by m3 is allowed in the system but not in choreography
+% D:E:m3 can be added from s1 to s2 safely as D:s0 does not reach D:s1 - no loop is getting generated
+
+%% the last two parameters will be used in addTransitions involved from notMatching
+:- table chgRealize/4.
+chgRealize(S, T, A, TPrev) :-
+	stransWOepsilon(S, M, S1, 1),
+	notMatching([(S, M, S1)], T, A, TPrev, false, true).
+
+% now the list contains the matching transition M, T that can lead to the problem
+chgRealize(S, T, _A, _TPrev) :-
+	stransWOepsilon(S, M, S1, 1),
+	findall((T1, M, T),  gtrans(T, M, T1), L),
+	allChgRealize(S1, L).
+
+
+allChgRealize(S1, [(T, (P, P1, M), TPrev)|_]) :- A = (P, P1, M), chgRealize(S1, T, A, TPrev).
+allChgRealize(S1, [_T|Ts]) :-
+	allChgRealize(S1, Ts).
+
+
+%%%% HELPERS %%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% not matching
+   % - S-M->S1 is the system transition
+   % - T is the goal state
+   % - TPrev -A-> T is the previous matching transition
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Base case
+notMatching([(S, M, S1)|Rest], T, A, TPrev, _In, true) :-
+	not gtrans(T, M, _), !,
+	writeln('For the system transition:'),
+	write('     From State:'), writeln(S),
+	write('                Message:'), writeln(M),
+	write('     To State:'), writeln(S1),
+	write('There is no matching transition in choreograher from the state: '),
+	writeln(T),
+	nl, nl,
+	writeln('Listing of transitions from this state are: '),
+	listing(gtrans(T, _, _)),
+	pref(N), 
+	(negategtrans(T, M) ->
+	        (N == 0 ->
+	               writeln('Transitions cannot be added as per your specification [restrict by default, write: p. to proceed]'),
+	               read(_),
+	               Ans = 'remove'
+	        ;      Ans = 'remove'
+	        )
+	;       (N == 0 ->
+           	        writeln('Do you want to add new moves or restrict some moves? [write: add. or restrict.]'),
+                        read(Ans)
+		;       (N == 1 ->
+			        Ans = 'add'
+			;       Ans = 'restrict'
+			)
+		)
+	),
+	(Ans == 'add'
+	->
+	   addTransitions(TPrev, A, T, S, M, S1),
+	   writeln('Added new transition to existing states.'), writeln(' ')
+
+	;  M = (P, _, _),
+	   addRestrictions(TPrev, A, T, S, M, S1), 
+	   writeln('Added new transition to restrict moves.'), writeln(' ') 
+	),
+	notMatching(Rest, T, A, TPrev, true, true).
+
+% First element is not a witness to non-matching, look in the rest
+notMatching([_|Rest], T, A, TPrev, In, Out) :-
+	notMatching(Rest, T, A, TPrev, In, Out).
+
+% Successful only when at least one element in the list 
+notMatching([], _, _, _, true, true).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% add transitions
+% - checkState first to add a transition to an existing state 
+% - add gtrans_1 which will be converted to gtrans after all the
+%   additions are made
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%addTransitions(_T, _, _T, _, _) :- !.
+
+addTransitions(TPrev, A, T, S, M, S1) :-
+	%% nothing to consume returns Flag = false and GoalState is new
+	checkState(M, S1, GoalState, Flag),
+	M = (P, _, Msg),
+
+	%%%%%%%% SENDER DOES NOT HAVE ANYTHING TO CONSUME CASE 2
+        (GoalState = ns(NS), Flag == false %% independent transition - check whether this is part of a loop
+	  ->  
+                %%%%%%%%%% SENDER HAS AN INDEPENDENT TRANSITION CASE 2A
+	       ((pReach(P, T-P, out(Msg, _), T1), ptransEpStar(P, T1, T-P))
+		   ->
+		        %%%%%%%%%%% CASE 2A-I
+		        findNextAction(P, out(Msg, _), T-P, T2-P, T1), GS = T2
+		   ;
+		        %%%%%%%%%%% CASE 2B -
+		        (canReach1(S1, P, T-P) %% changed it to S1 from S: there is a different path
+			 ->
+			      GS = GoalState,
+			      assertOnce(gtrans_1(TPrev, A, GS)),
+			      assertOnce(gtrans_1(GS, M, T)),
+			      retract(gtrans(TPrev, A, T)),
+			      assertOnce(added(GS, M, T)),
+			 
+	                      write('Added transition: '),
+	                      writeln(GS-M-T),
+			      assert(stop)
+			 ;
+			      findGoalStateForP(S1, P, S1P),
+			      (canReach2(S1P, A, T1)
+			       ->    GS = T1	
+			       ;     GS = GoalState
+			      )
+			 )
+		   )
+	       ;
+		  %%%%%%%%%%% CASE 1A		
+		  (Flag == true   %% the peer consumes
+	           ->     GS = GoalState
+		   ;
+		          %%%%%%%%%%%%% CASE 1B
+         		  findPeerState(P, S1, PS),   %% peer does not consume
+		          (ptransStarWOEp(P, PS, _, PS) %, mapping(PS1, PS))   %% there is a loop
+			  ->
+			          %%%%%%%%%%%%% CASE 1B-I
+	                          generateReplicate(GoalState, GS) %% this is new addition for dealing with ordering
+			  ;
+			          %%%%%%%%%%%%% CASE 1B-II
+				  conget(newState, NewState),   %% peer does not consume and there is no loop
+		                  NewStateNumber is NewState + 1,
+	                          conset(newState, NewStateNumber),
+		                  GS = ns(NewState)
+			   )
+		  ) 
+	       ),
+	       (stop
+	       ->      true, retractall(stop) %%%%%%%%%%%%% CASE 2B
+	       ;
+      	               assertOnce(gtrans_1(T, M, GS)),
+	               assertOnce(added(T, M, GS)),
+	               write('Added transition: '),
+	               writeln(T-M-GS)
+	       ).
+	       
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+	
+
+%% Case 2:  No transition possible from T or same Peers transition
+%%          This implies that in the system S -A-> S1 is due to
+%%          peers moving in a different path
+%%          to Add restriction:
+%%            just add P1 -> P where P1 is the sender of M and P is sender of A
+%%            add the transition from the source state of S|P -> n(s) - A -> S1|P
+addRestrictions(TPrev, M, T, S, A, S1) :-
+	(
+	 not gtrans(T, _, T1);
+	 (
+	  gtrans(T, (P, _, _), T1),
+	  A = (P, _, _)
+	 )
+	), !,
+	M = (P1, _, Act),   
+	A = (P, _, _),
+	getFromPeer(S, P, Src),
+	getFromPeer(S1, P, Dest),
+        
+	
+	conget(newState, NS),
+	conget(newMsg, MS),
+	NewStateNumber is NS + 1,
+	NewMsgNumber is MS + 1,
+	conset(newState, NewStateNumber),
+	conset(newMsg, NewMsgNumber),
+
+        retractall(gtrans(Src, A, Dest)),
+	assertOnce(gtrans_1(Src, (P1, P, m(MS)), n(NS))),
+	assertOnce(removed(Src, (P1, P, m(MS)), n(NS))),
+	assertOnce(gtrans_1(n(NS), A, Dest)).
+
+% There is a transition from T. This implies
+% the S -A -> S1 is either in a different choreo path or in the same path
+% In either case, stop it by putting P1 -> P where P1 is the sender of the
+% transition from T and this new transition is added from S|P to n(S) to S1|P
+% NOT using the findGoalStateToRestrict 
+addRestrictions(TPrev, M, T, S, A, S1) :-
+	gtrans(T, (P1, _, _), T1),
+	A = (P, _, _),
+
+	conget(newState, NS),
+	conget(newMsg, MS),
+	NewStateNumber is NS + 1,
+	NewMsgNumber is MS + 1,
+	conset(newState, NewStateNumber),
+	conset(newMsg, NewMsgNumber),
+	
+        %% There are two cases:
+	%% Case 1: Action A is present in the same branch
+	%% Case 2: Action A is in a different branch
+
+        %% Case 1:
+	(findInBranch(T1, A, Src, Dest)
+	->    true
+	;
+	%% Case 2: 
+	      getFromPeer(S, P, Src),
+	      getFromPeer(S1, P, Dest)
+        ),  
+
+	retractall(gtrans(Src, A, Dest)),
+	assertOnce(gtrans_1(Src, (P1, P, m(MS)), n(NS))),
+	assertOnce(removed(Src, (P1, P, m(MS)), n(NS))),
+	assertOnce(gtrans_1(n(NS), A, Dest)),
+
+	fail.
+
+addRestrictions(_, _, _, _, _, _).
+
+

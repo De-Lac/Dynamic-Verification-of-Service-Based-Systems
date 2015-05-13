@@ -1,0 +1,9 @@
+digraph G {
+"P1 : s1" [style = filled, fillcolor = green]
+"P1 : s1" -> "P1 : s3" [label=" ?n1"];
+"P2 : s1" -> "P2 : s2" [label=" ?m1"];
+"P2 : s2" -> "P2 : s2" [label=" ?m1"];
+"P1 : s1" -> "P1 : s2" [label=" !m1"];
+"P1 : s2" -> "P1 : s2" [label=" !m1"];
+"P2 : s1" -> "P2 : s3" [label=" !n1"];
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint
+    xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+    http://www.osgi.org/xmlns/blueprint/v1.0.0
+    http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+    
+    <camelContext xmlns="http://camel.apache.org/schema/blueprint">
+        <route>
+            <from uri="jetty:http://0.0.0.0:6969/user_role?matchOnUriPrefix=true"/>
+            <!--
+             <setHeader headerName="Content-Type">
+             <groovy>"text/xml; charset=utf-8"</groovy>
+             </setHeader>
+             -->
+            <to uri="http://localhost:8080/user/services/user?bridgeEndpoint=true&throwExceptionOnFailure=false"/>
+            <to uri="file:/Users/deLac/Documents/Developer/sso/toUser"/>
+        </route>
+        <route>
+            <from uri="jetty:http://0.0.0.0:6969/sp_role?matchOnUriPrefix=true"/>
+            <!-- throwExceptionOnFailure=false  torna l'errore al sender senza gestirlo -->
+            <!-- bridgeEndpoint=true  la route fa solo da bridge -->
+            <to uri="http://localhost:8080/sp/services/sp?bridgeEndpoint=true&throwExceptionOnFailure=false"/>
+            <to uri="file:/Users/deLac/Documents/Developer/sso/toSp"/>
+        </route>
+        <route>
+            <from uri="jetty:http://0.0.0.0:6969/idp_role?matchOnUriPrefix=true"/>
+            <to uri="http://localhost:8080/idp/services/idp?bridgeEndpoint=true&throwExceptionOnFailure=false"/>
+            <to uri="file:/Users/deLac/Documents/Developer/sso/toIdp"/>
+        </route>
+    </camelContext>
+    <!-- REMEMBER TO DO
+               features:install camel-jetty 
+               features:install camel-groovy
+         IN SERVICEMIX -->
+</blueprint>

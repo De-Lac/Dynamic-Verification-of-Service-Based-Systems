@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WorkFlowGraph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://workflowgraph/1.0.4" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL-XMI" startingNode="ExclusiveGateway_3" endingNode="ExclusiveGateway_2" innerGateway="ParallelGateway_1">
+  <gateways xsi:type="ParallelExecution" name="B" id="ParallelGateway_2" merge="true" refFork="ParallelGateway_1" predecessors="ChoreographyTask_1 ChoreographyTask_2 ChoreographyTask_1_resp" successors="ExclusiveGateway_1">
+    <gatewayRef xsi:type="bpmn2:ParallelGateway" href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C4_collaborativeMarketing/C4.bpmn2#ParallelGateway_2"/>
+  </gateways>
+  <gateways xsi:type="ParallelExecution" name="B" id="ParallelGateway_1" fork="true" refMerge="ParallelGateway_2" predecessors="ExclusiveGateway_3" successors="ChoreographyTask_1 ChoreographyTask_2">
+    <gatewayRef xsi:type="bpmn2:ParallelGateway" href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C4_collaborativeMarketing/C4.bpmn2#ParallelGateway_1"/>
+  </gateways>
+  <gateways xsi:type="ExclusiveChoice" name="A" id="ExclusiveGateway_3" fork="true" refMerge="ExclusiveGateway_2" predecessors="ExclusiveGateway_2" successors="ParallelGateway_1">
+    <gatewayRef xsi:type="bpmn2:ExclusiveGateway" href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C4_collaborativeMarketing/C4.bpmn2#ExclusiveGateway_3"/>
+  </gateways>
+  <gateways xsi:type="ExclusiveChoice" name="C" id="ExclusiveGateway_4" merge="true" refFork="ExclusiveGateway_1" predecessors="ChoreographyTask_4 ChoreographyTask_4_resp" successors="ExclusiveGateway_1 ChoreographyTask_5">
+    <gatewayRef xsi:type="bpmn2:ExclusiveGateway" href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C4_collaborativeMarketing/C4.bpmn2#ExclusiveGateway_4"/>
+  </gateways>
+  <gateways xsi:type="ExclusiveChoice" name="C" id="ExclusiveGateway_1" fork="true" refMerge="ExclusiveGateway_4" predecessors="ParallelGateway_2 ExclusiveGateway_4" successors="ChoreographyTask_3">
+    <gatewayRef xsi:type="bpmn2:ExclusiveGateway" href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C4_collaborativeMarketing/C4.bpmn2#ExclusiveGateway_1"/>
+  </gateways>
+  <gateways xsi:type="ExclusiveChoice" name="A" id="ExclusiveGateway_2" merge="true" refFork="ExclusiveGateway_3" predecessors="ChoreographyTask_5" successors="ExclusiveGateway_3">
+    <gatewayRef xsi:type="bpmn2:ExclusiveGateway" href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C4_collaborativeMarketing/C4.bpmn2#ExclusiveGateway_2"/>
+  </gateways>
+  <actions xsi:type="MessageExchange" name="Stock analysis" id="ChoreographyTask_1" successor="ChoreographyTask_1_resp" predecessor="ParallelGateway_1" request="req_StockAnalysis" synchResponse="" sender="//@participants.0" receiver="//@participants.1">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C4_collaborativeMarketing/C4.bpmn2#ChoreographyTask_1"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Supply negotiation" id="ChoreographyTask_4" successor="ChoreographyTask_4_resp" predecessor="ChoreographyTask_3_resp" request="notifyNeed4Proposal" synchResponse="" sender="//@participants.0" receiver="//@participants.4">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C4_collaborativeMarketing/C4.bpmn2#ChoreographyTask_4"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Supply need estimation" id="ChoreographyTask_3" successor="ChoreographyTask_3_resp" predecessor="ExclusiveGateway_1" request="send_analysis" synchResponse="" sender="//@participants.0" receiver="//@participants.3">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C4_collaborativeMarketing/C4.bpmn2#ChoreographyTask_3"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Authorization" id="ChoreographyTask_5" successor="ExclusiveGateway_2" predecessor="ExclusiveGateway_4" request="req_authorization" synchResponse="resp_authorization" sender="//@participants.0" receiver="//@participants.5">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C4_collaborativeMarketing/C4.bpmn2#ChoreographyTask_5"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Sales analysis" id="ChoreographyTask_2" successor="ParallelGateway_2" predecessor="ParallelGateway_1" request="req_salesAnalysis" synchResponse="resp_salesAnalysis" sender="//@participants.0" receiver="//@participants.2">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C4_collaborativeMarketing/C4.bpmn2#ChoreographyTask_2"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Supply negotiation_resp" id="ChoreographyTask_4_resp" successor="ExclusiveGateway_4" predecessor="ChoreographyTask_4" request="asynch_sendProposal" synchResponse="" sender="//@participants.4" receiver="//@participants.0"/>
+  <actions xsi:type="MessageExchange" name="Supply need estimation_resp" id="ChoreographyTask_3_resp" successor="ChoreographyTask_4" predecessor="ChoreographyTask_3" request="asynch_setSupplyEstimation" synchResponse="" sender="//@participants.3" receiver="//@participants.0"/>
+  <actions xsi:type="MessageExchange" name="Stock analysis_resp" id="ChoreographyTask_1_resp" successor="ParallelGateway_2" predecessor="ChoreographyTask_1" request="asynch_respStockAnalysis" synchResponse="" sender="//@participants.1" receiver="//@participants.0"/>
+  <participants name="Marketing_app" id="Participant_1">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C4_collaborativeMarketing/C4.bpmn2#Participant_1"/>
+  </participants>
+  <participants name="Warehouses" id="Participant_2">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C4_collaborativeMarketing/C4.bpmn2#Participant_2"/>
+  </participants>
+  <participants name="Stores and shops" id="Participant_4">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C4_collaborativeMarketing/C4.bpmn2#Participant_4"/>
+  </participants>
+  <participants name="Marketing_manager" id="Participant_6">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C4_collaborativeMarketing/C4.bpmn2#Participant_6"/>
+  </participants>
+  <participants name="Commercial partners" id="Participant_8">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C4_collaborativeMarketing/C4.bpmn2#Participant_8"/>
+  </participants>
+  <participants name="Marketing director" id="Participant_10">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C4_collaborativeMarketing/C4.bpmn2#Participant_10"/>
+  </participants>
+</WorkFlowGraph>

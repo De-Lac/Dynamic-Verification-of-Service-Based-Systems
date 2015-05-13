@@ -1,0 +1,27 @@
+% -*- Mode: Prolog -*-
+
+%:- [lib]. %% stransWOepsilon
+:- table nsim/3.
+
+%% K provides the buffer size information
+topNSim(K) :-
+	sysstart(S),
+	start(T),
+	nsim(S, T, K).
+
+nsim(S, T, K) :-
+	stransWOepsilon(S, M, _S1, K), 
+	not gtrans(T, M, _T1),
+	write('system transition:'), writeln(S-M-_S1).
+
+nsim(S, T, K) :-
+	stransWOepsilon(S, M, S1, K),
+	findall(T1, gtrans(T, M, T1), L),
+	allNsim(S1, L, K),
+	write('system transition:'), writeln(S-M-S1).
+
+allNsim(S1, [T], K) :- !, nsim(S1, T, K).
+allNsim(S1, [T|Rest], K) :-
+	nsim(S1, T, K),
+	allNSim(S1, Rest, K).
+

@@ -1,0 +1,29 @@
+% -*- Mode: Prolog -*-     
+gtrans(s1, ('Usr', 'SP', reqRes), s2).
+gtrans(s2, ('SP', 'Usr', reqAuth), s3).
+gtrans(s2, ('SP', 'Log', log), s4).
+gtrans(s4, ('SP', 'Usr', reqAuth), s5).
+gtrans(s3, ('SP', 'Log', log), s5).
+gtrans(s5, ('Usr', 'IdP', authenticate), s6).
+gtrans(s6, ('Usr', 'SP', reqRes), s7).
+gtrans(s7, ('SP', 'IdP', validate), s8).
+gtrans(s8, ('SP', 'Usr', give_access), s9).
+gtrans(s8, ('SP', 'Log', log), s10).
+gtrans(s10, ('SP', 'Usr', give_access), s11).
+gtrans(s9, ('SP', 'Log', log), s11).
+     
+
+
+peer('Usr').
+peer('IdP').
+peer('SP').
+peer('Log').
+
+
+start(s1). 
+%% negategtrans(false, false).  --> use a default setting 
+%% this fact is used in the extension where automatic repair is performed using
+%% some simple domain knowledge. negatetrans(false, false) implies no such domain
+%% knowledge is available/provided. 
+negategtrans(false, false).  
+

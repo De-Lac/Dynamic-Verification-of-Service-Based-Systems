@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="Idp"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:di="http://www.unicam.it/cassandra/example/sso/schema/Idp"
+	xmlns:tns="http://www.unicam.it/cassandra/example/sso/contract/Idp"
+	targetNamespace="http://www.unicam.it/cassandra/example/sso/contract/Idp">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://www.unicam.it/cassandra/example/sso/contract/Idp">
+			<xsd:element name="authentication">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="sp_key" type="xsd:string" />
+						<xsd:element name="username" type="xsd:string"></xsd:element>
+						<xsd:element name="password" type="xsd:string"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="authenticationResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="authToken" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="authenticationRequest">
+		<wsdl:part element="tns:authentication" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="authenticationResponse">
+		<wsdl:part element="tns:authenticationResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:portType name="IdpPortType">
+		<wsdl:operation name="authentication">
+			<wsdl:input message="tns:authenticationRequest" />
+			<wsdl:output message="tns:authenticationResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="IdpBinding" type="tns:IdpPortType">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="authentication">
+			<soap:operation
+				soapAction="http://www.unicam.it/cassandra/example/sso/contract/Idp/authentication" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="IdpService">
+		<wsdl:port name="IdpPort" binding="tns:IdpBinding">
+			<!-- Default address for Tomcat deployment (CXF/Metro) -->
+			<soap:address location="http://localhost:8080/idp/services/idp" />
+			<!-- Default address for Karaf deployment (CXF only) -->
+			<!--soap:address location="http://localhost:8181/cxf/idp"/ -->
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions> 
+

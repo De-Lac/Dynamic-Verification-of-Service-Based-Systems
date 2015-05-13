@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated SystemBehavior -->
+      <package
+            uri="http://converesationprotocol/1.0"
+            class="ucsb.converesationprotocol.ConveresationprotocolPackage"
+            genModel="model/SystemBehavior.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated SystemBehavior -->
+      <package
+            uri="http://systembehavior/1.0.5"
+            class="ucsb.systembehavior.SystembehaviorPackage"
+            genModel="model/SystemBehavior.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated SystemBehavior -->
+      <package
+            uri="http://peerbehavior/1.0.2"
+            class="ucsb.peerbehavior.PeerbehaviorPackage"
+            genModel="model/SystemBehavior.genmodel"/>
+   </extension>
+
+</plugin>

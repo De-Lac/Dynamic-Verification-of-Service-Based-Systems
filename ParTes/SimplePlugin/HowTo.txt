@@ -1,0 +1,44 @@
+Partes
+22/7/2013
+Written by Daniele Fani' (Unicam)  
+daniele.fani@unicam.it
+
+
+========== GENERATE JAVA CLASSES FOR THE WEB SERVICE CLIENT =========
+
+If PartesTestGenerator WS changes the WSDL, the Partes4ServicePot plugin must be re-generated.
+
+The generation of the Partes4ServicePot code, could be done running the project Generator4WSclient
+
+The generated classes (PArtesWSPortType, ObjectFactory, ...) after running the maven project, must be moved in this package "partes.service".
+
+The Activator is the entry point of the OSGI bundle that registers the PartesPlugin.
+
+The Partes4ServicePot plugin calls the PartesWSclient at after&before save choreography event.
+
+
+========== CREATE THE OSGI BUNDLE for Partes4ServicePot ==========
+
+export the project as .jar, using the Manifest.mf as below:
+
+		Bundle-SymbolicName: Partes4ServicePot
+		Import-Package: org.ow2.choreos.registry.plugin.v2, org.uddi.api_v3, org.osgi.framework, org.ow2.choreos.registry.messages
+		Bundle-Name: Partes4ServicePot
+		Bundle-Activator: partes.service.Activator
+		Manifest-Version: 1.0
+		Bundle-Version: 1.0 
+		
+		
+========== ADD THE OSGI BUNDLE in ServicePot ==========
+
+-) open the console of ServicePot at       http://127.0.0.1:8080/servicepot%2Dwar%2D1%2E0%2DSNAPSHOT/servicepot/servlet/console
+-) click the directory folder and choose the .jar exported before
+-) refresh the page of the console, select the Partes plugin and click play
+-) if tomcat rises the error "java.lang.Out of memory", add this line
+
+          JAVA_OPTS="-Djava.awt.headless=true -Dfile.encoding=UTF-8 -server -Xms512m -Xmx1024m -XX:NewSize=256m -XX:MaxNewSize=256m -XX:PermSize=256m -XX:MaxPermSize=256m -XX:+DisableExplicitGC"
+          
+    to the catalina.sh file.
+    
+  ================== THE RESULT ============================
+ The generated TestSuite are stored in the path written in the partes.properties file, in the folder named as the choreographyTModelKey

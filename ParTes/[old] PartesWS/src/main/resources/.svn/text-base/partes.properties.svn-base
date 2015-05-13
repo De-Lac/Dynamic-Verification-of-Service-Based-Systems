@@ -1,0 +1,15 @@
+#
+# This file is part of Partes project.
+#
+# This program and the accompanying materials are made available under 
+# the terms of the  GPL license (the "GNU PUBLIC LICENSE") which 
+# accompanies this distribution, and is available at
+# http://www.gnu.org/licenses/gpl-3.0.txt
+#
+#############################################################################
+
+## PartesMain command line application configuration
+
+cmdline.tree_of_interaction_file=treeofinteraction.xml
+
+outputPath=/Users/DeLac/Desktop/rpst/refactoring

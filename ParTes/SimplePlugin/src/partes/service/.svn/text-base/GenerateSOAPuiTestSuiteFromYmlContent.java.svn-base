@@ -1,0 +1,170 @@
+/**
+ *
+ * Copyright (C) 2012  Daniele Fani', Andrea Polini, Francesco De Angelis
+ *
+ * This file is part of ServicePot ver 0.1 .
+ *
+ * ServicePot is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with ServicePot.  If not, see <http:www.gnu.org/licenses/>.
+ */
+/**
+ * Please modify this class to meet your needs This class is not complete
+ */
+
+package partes.service;
+
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+
+/**
+ * <p>Java class for anonymous complex type.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.
+ * 
+ * <pre>
+ * &lt;complexType>
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="bpmn" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="ymlContent" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="debug" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
+ *         &lt;element name="choreographyTModelKey" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
+ * </pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "", propOrder = {
+    "bpmn",
+    "ymlContent",
+    "debug",
+    "choreographyTModelKey"
+})
+@XmlRootElement(name = "generateSOAPuiTestSuiteFromYmlContent")
+public class GenerateSOAPuiTestSuiteFromYmlContent {
+
+    @XmlElementRef(name = "bpmn", namespace = "http://service.partes", type = JAXBElement.class)
+    protected JAXBElement<String> bpmn;
+    @XmlElementRef(name = "ymlContent", namespace = "http://service.partes", type = JAXBElement.class)
+    protected JAXBElement<String> ymlContent;
+    protected Boolean debug;
+    @XmlElementRef(name = "choreographyTModelKey", namespace = "http://service.partes", type = JAXBElement.class)
+    protected JAXBElement<String> choreographyTModelKey;
+
+    /**
+     * Gets the value of the bpmn property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     
+     */
+    public JAXBElement<String> getBpmn() {
+        return bpmn;
+    }
+
+    /**
+     * Sets the value of the bpmn property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     
+     */
+    public void setBpmn(JAXBElement<String> value) {
+        this.bpmn = ((JAXBElement<String> ) value);
+    }
+
+    /**
+     * Gets the value of the ymlContent property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     
+     */
+    public JAXBElement<String> getYmlContent() {
+        return ymlContent;
+    }
+
+    /**
+     * Sets the value of the ymlContent property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     
+     */
+    public void setYmlContent(JAXBElement<String> value) {
+        this.ymlContent = ((JAXBElement<String> ) value);
+    }
+
+    /**
+     * Gets the value of the debug property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
+     */
+    public Boolean isDebug() {
+        return debug;
+    }
+
+    /**
+     * Sets the value of the debug property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Boolean }
+     *     
+     */
+    public void setDebug(Boolean value) {
+        this.debug = value;
+    }
+
+    /**
+     * Gets the value of the choreographyTModelKey property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     
+     */
+    public JAXBElement<String> getChoreographyTModelKey() {
+        return choreographyTModelKey;
+    }
+
+    /**
+     * Sets the value of the choreographyTModelKey property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     
+     */
+    public void setChoreographyTModelKey(JAXBElement<String> value) {
+        this.choreographyTModelKey = ((JAXBElement<String> ) value);
+    }
+
+}

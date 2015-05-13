@@ -1,0 +1,6 @@
+Bundle-SymbolicName: Partes4SP
+Import-Package: org.ow2.choreos.registry.plugin.v2, org.uddi.api_v3, org.osgi.framework, org.ow2.choreos.registry.messages
+Bundle-Name: Partes4ServicePot
+Bundle-Activator: partes.service.Activator
+Manifest-Version: 1.0
+Bundle-Version: 1.0

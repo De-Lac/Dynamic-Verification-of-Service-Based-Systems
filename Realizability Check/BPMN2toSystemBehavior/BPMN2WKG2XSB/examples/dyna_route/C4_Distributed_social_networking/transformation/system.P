@@ -1,0 +1,28 @@
+% -*- Mode: Prolog -*-     
+        gtrans(s0, ('MID', 'Citizen', listSocialNet), s1).
+
+        gtrans(s1, ('MID', 'SocialProximity', whoIsNear), s3).
+
+        gtrans(s11, ('MID', 'Citizen', showNearFriends), s5).
+        gtrans(s3, ('MID', 'Citizen', showNearFriends), s5).
+        gtrans(s3, ('MID', 'Citizen', showNearFriends), s5).
+
+        gtrans(s5, ('MID', 'Friends', reqMeeting), s7).
+
+        gtrans(s7, ('Friends', 'MID', respMeeting), s9).
+
+        gtrans(s9, ('MID', 'Citizen', reqConfirmMeeting), s11).
+
+peer('MID').
+peer('Citizen').
+peer('SocialProximity').
+peer('Friends').
+
+
+start(s0).
+%% negategtrans(false, false).  --> use a default setting 
+%% this fact is used in the extension where automatic repair is performed using
+%% some simple domain knowledge. negatetrans(false, false) implies no such domain
+%% knowledge is available/provided. 
+negategtrans(false, false).  
+

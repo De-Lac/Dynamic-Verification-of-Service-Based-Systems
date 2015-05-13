@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="Sp"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+   xmlns:di="http://www.unicam.it/cassandra/example/sso/schema/Sp"
+   xmlns:tns="http://www.unicam.it/cassandra/example/sso/contract/Sp"
+   targetNamespace="http://www.unicam.it/cassandra/example/sso/contract/Sp">
+   <wsdl:types>
+      <xsd:schema targetNamespace="http://www.unicam.it/cassandra/example/sso/contract/Sp">
+         <xsd:element name="requestResource">
+            <xsd:complexType>
+               <xsd:sequence>
+               	<xsd:element name="resourceId" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="requestResourceResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="resourceAvailable" type="xsd:string" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="identified">
+        	<xsd:complexType>
+        		<xsd:sequence>
+        			<xsd:element name="resourceId" type="xsd:int"></xsd:element>
+        			<xsd:element name="token" type="xsd:string"></xsd:element>
+        		</xsd:sequence>
+        	</xsd:complexType>
+        </xsd:element>
+        <xsd:element name="identifiedResponse">
+        	<xsd:complexType>
+        		<xsd:sequence>
+        			<xsd:element name="out" type="xsd:string"></xsd:element>
+        		</xsd:sequence>
+        	</xsd:complexType>
+        </xsd:element>
+        <xsd:element name="notIdentified">
+        	<xsd:complexType>
+        		<xsd:sequence>
+        			<xsd:element name="in" type="xsd:string"></xsd:element>
+        			</xsd:sequence>
+        	</xsd:complexType>
+        </xsd:element>
+        <xsd:element name="notIdentifiedResponse">
+        	<xsd:complexType>
+        		<xsd:sequence>
+        			<xsd:element name="out" type="xsd:string"></xsd:element>
+        		</xsd:sequence>
+        	</xsd:complexType>
+        </xsd:element>
+  
+      </xsd:schema>
+    </wsdl:types>
+   <wsdl:message name="requestResourceRequest">
+      <wsdl:part element="tns:requestResource" name="parameters" />
+   </wsdl:message>
+   <wsdl:message name="requestResourceResponse">
+      <wsdl:part element="tns:requestResourceResponse" name="parameters" />
+   </wsdl:message>
+   <wsdl:message name="identifiedRequest">
+   	<wsdl:part name="parameters" element="tns:identified"></wsdl:part>
+   </wsdl:message>
+   <wsdl:message name="identifiedResponse">
+   	<wsdl:part name="parameters" element="tns:identifiedResponse"></wsdl:part>
+   </wsdl:message>
+   <wsdl:message name="notIdentifiedRequest">
+   	<wsdl:part name="parameters" element="tns:notIdentified"></wsdl:part>
+   </wsdl:message>
+   <wsdl:message name="notIdentifiedResponse">
+   	<wsdl:part name="parameters" element="tns:notIdentifiedResponse"></wsdl:part>
+   </wsdl:message>
+
+   <wsdl:portType name="SpPortType">
+      <wsdl:operation name="requestResource">
+         <wsdl:input message="tns:requestResourceRequest" />
+         <wsdl:output message="tns:requestResourceResponse" />
+      </wsdl:operation>
+      <wsdl:operation name="identified">
+      	<wsdl:input message="tns:identifiedRequest"></wsdl:input>
+      	<wsdl:output message="tns:identifiedResponse"></wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="notIdentified">
+      	<wsdl:input message="tns:notIdentifiedRequest"></wsdl:input>
+      	<wsdl:output message="tns:notIdentifiedResponse"></wsdl:output>
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="SpBinding" type="tns:SpPortType">
+   	<soap:binding style="document"
+   		transport="http://schemas.xmlsoap.org/soap/http" />
+   	<wsdl:operation name="requestResource">
+   		<soap:operation
+   			soapAction="http://www.unicam.it/cassandra/example/sso/contract/Sp/requestResource" />
+   		<wsdl:input>
+   			<soap:body use="literal" />
+   		</wsdl:input>
+   		<wsdl:output>
+   			<soap:body use="literal" />
+   		</wsdl:output>
+   	</wsdl:operation>
+   	<wsdl:operation name="identified">
+   		<soap:operation
+   			soapAction="http://www.unicam.it/cassandra/example/sso/contract/Sp/identified" />
+   		<wsdl:input>
+   			<soap:body use="literal" />
+   		</wsdl:input>
+   		<wsdl:output>
+   			<soap:body use="literal" />
+   		</wsdl:output>
+   	</wsdl:operation>
+   	<wsdl:operation name="notIdentified">
+   		<soap:operation
+   			soapAction="http://www.unicam.it/cassandra/example/sso/contract/Sp/notIdentified" />
+   		<wsdl:input>
+   			<soap:body use="literal" />
+   		</wsdl:input>
+   		<wsdl:output>
+   			<soap:body use="literal" />
+   		</wsdl:output>
+   	</wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="SpService">
+      <wsdl:port name="SpPort" binding="tns:SpBinding">
+         <!-- Default address for Tomcat deployment (CXF/Metro) -->
+         <soap:address
+            location="http://localhost:8080/sp/services/sp"/>
+         <!-- Default address for Karaf deployment (CXF only) -->
+         <!--soap:address
+            location="http://localhost:8181/cxf/sp"/-->
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions> 
+

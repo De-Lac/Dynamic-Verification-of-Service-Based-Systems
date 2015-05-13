@@ -1,0 +1,45 @@
+% -*- Mode: Prolog -*-
+
+
+%% uncomment to repair unrealizable choreographies in the example folder
+%% uncomment one file at a time
+
+%:- load_dyn('./examples/tcpContract.P').   %% realizable
+%:- load_dyn('./examples/tpmContract.P').
+%:- load_dyn('./examples/reservationSession.P').
+%:- load_dyn('./examples/metaconversation.P').
+%:- load_dyn('./examples/fig4.P').
+%:- load_dyn('./examples/fig5.P').  %% uses pReach: requires mapping
+
+%% From Daniele
+%:- load_dyn('./examples/ex1.P').
+%:- load_dyn('./examples/ex2.P').
+%:- load_dyn('./examples/ex3.P').
+%:- load_dyn('./examples/ex4.P').
+:- load_dyn('./examples/system.P').
+
+:- [project].
+:- [deter].
+:- [sys].
+:- [unrealize1].
+
+check(N) :-
+	assert(prefPdf(1)),
+	assert(pref(N)),
+	dotSpec('specold'), dotPeers('peersold', 'peersdold'),
+        tell('./xsboutputs/peersold.P'), listing(ptranswep), listing(startPeer), told,
+	topChgRealize,
+	retractall(pref(_)).
+
+check(F, N) :- atom_concat('./examples/', F, Res), atom_concat(Res, '.P', File), load_dyn(File), check(N).
+
+%% Draw: 0 or 1 (creates or does not create pdf)
+checkPref(Draw, Interaction) :-
+	assert(prefPdf(Draw)),      %% will be used in draw.P
+	assert(pref(Interaction)),  %% will be used in unrealize1.P
+
+	dotSpec('specold'), dotPeers('peersold', 'peersdold'),
+        %% tell('./xsboutputs/peersold.P'), listing(ptranswep), listing(startPeer), told,
+	topChgRealize,
+	retractall(pref(_)),
+	retractall(prefPdf(_)).

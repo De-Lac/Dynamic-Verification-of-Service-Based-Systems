@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WorkFlowGraph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://workflowgraph/1.0.4" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL-XMI" startingNode="ChoreographyTask_16" endingNode="ExclusiveGateway_16" innerGateway="ExclusiveGateway_14">
+  <gateways xsi:type="ExclusiveChoice" name="M" id="ExclusiveGateway_13" fork="true" refMerge="ExclusiveGateway_16" predecessors="ChoreographyTask_17 ExclusiveGateway_16" successors="ExclusiveGateway_14">
+    <gatewayRef xsi:type="bpmn2:ExclusiveGateway" href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C4_Distributed_social_networking/C4.bpmn2#ExclusiveGateway_13"/>
+  </gateways>
+  <gateways xsi:type="ExclusiveChoice" name="N" id="ExclusiveGateway_14" fork="true" refMerge="ExclusiveGateway_15" predecessors="ExclusiveGateway_13" successors="ChoreographyTask_18 ExclusiveGateway_15">
+    <gatewayRef xsi:type="bpmn2:ExclusiveGateway" href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C4_Distributed_social_networking/C4.bpmn2#ExclusiveGateway_14"/>
+  </gateways>
+  <gateways xsi:type="ExclusiveChoice" name="N" id="ExclusiveGateway_15" merge="true" refFork="ExclusiveGateway_14" predecessors="ChoreographyTask_21 ExclusiveGateway_14" successors="ExclusiveGateway_16">
+    <gatewayRef xsi:type="bpmn2:ExclusiveGateway" href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C4_Distributed_social_networking/C4.bpmn2#ExclusiveGateway_15"/>
+  </gateways>
+  <gateways xsi:type="ExclusiveChoice" name="M" id="ExclusiveGateway_16" merge="true" refFork="ExclusiveGateway_13" predecessors="ExclusiveGateway_15" successors="ExclusiveGateway_13">
+    <gatewayRef xsi:type="bpmn2:ExclusiveGateway" href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C4_Distributed_social_networking/C4.bpmn2#ExclusiveGateway_16"/>
+  </gateways>
+  <actions xsi:type="MessageExchange" name="Read Phone Directory" id="ChoreographyTask_16" successor="ChoreographyTask_17" request="listSocialNet" synchResponse="selectSocialNet" sender="//@participants.0" receiver="//@participants.1">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C4_Distributed_social_networking/C4.bpmn2#ChoreographyTask_16"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Matching GPS Location" id="ChoreographyTask_17" successor="ExclusiveGateway_13" predecessor="ChoreographyTask_16" request="whoIsNear" synchResponse="nearFriendsResp" sender="//@participants.0" receiver="//@participants.8">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C4_Distributed_social_networking/C4.bpmn2#ChoreographyTask_17"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Display Friend List" id="ChoreographyTask_18" successor="ChoreographyTask_19" predecessor="ExclusiveGateway_14" request="showNearFriends" synchResponse="selectFriend" sender="//@participants.0" receiver="//@participants.1">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C4_Distributed_social_networking/C4.bpmn2#ChoreographyTask_18"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Request Availability" id="ChoreographyTask_19" successor="ChoreographyTask_20" predecessor="ChoreographyTask_18" request="reqMeeting" synchResponse="" sender="//@participants.0" receiver="//@participants.9">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C4_Distributed_social_networking/C4.bpmn2#ChoreographyTask_19"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Send Availability" id="ChoreographyTask_20" successor="ChoreographyTask_21" predecessor="ChoreographyTask_19" request="respMeeting" synchResponse="" sender="//@participants.9" receiver="//@participants.0">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C4_Distributed_social_networking/C4.bpmn2#ChoreographyTask_20"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Choreography Task 21" id="ChoreographyTask_21" successor="ExclusiveGateway_15" predecessor="ChoreographyTask_20" request="reqConfirmMeeting" synchResponse="respConfirmMeeting" sender="//@participants.0" receiver="//@participants.1">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C4_Distributed_social_networking/C4.bpmn2#ChoreographyTask_21"/>
+  </actions>
+  <participants name="MID" id="Participant_1">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C4_Distributed_social_networking/C4.bpmn2#Participant_1"/>
+  </participants>
+  <participants name="Citizen" id="Participant_2">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C4_Distributed_social_networking/C4.bpmn2#Participant_2"/>
+  </participants>
+  <participants name="TaxiCompany" id="Participant_6">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C4_Distributed_social_networking/C4.bpmn2#Participant_6"/>
+  </participants>
+  <participants name="Destinator Service" id="Participant_15">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C4_Distributed_social_networking/C4.bpmn2#Participant_15"/>
+  </participants>
+  <participants name="TaxiCabin" id="Participant_16">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C4_Distributed_social_networking/C4.bpmn2#Participant_16"/>
+  </participants>
+  <participants name="TouristPlace" id="Participant_17">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C4_Distributed_social_networking/C4.bpmn2#Participant_17"/>
+  </participants>
+  <participants name="TrafficService" id="Participant_25">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C4_Distributed_social_networking/C4.bpmn2#Participant_25"/>
+  </participants>
+  <participants name="TrafficCompany" id="Participant_26">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C4_Distributed_social_networking/C4.bpmn2#Participant_26"/>
+  </participants>
+  <participants name="SocialProximity" id="Participant_39">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C4_Distributed_social_networking/C4.bpmn2#Participant_39"/>
+  </participants>
+  <participants name="Friends" id="Participant_43">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C4_Distributed_social_networking/C4.bpmn2#Participant_43"/>
+  </participants>
+</WorkFlowGraph>

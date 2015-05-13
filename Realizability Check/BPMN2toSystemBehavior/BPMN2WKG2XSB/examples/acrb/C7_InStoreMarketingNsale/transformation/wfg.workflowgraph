@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WorkFlowGraph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://workflowgraph/1.0.4" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL-XMI" startingNode="ParallelGateway_1" endingNode="ParallelGateway_4" innerGateway="ParallelGateway_1">
+  <gateways xsi:type="ParallelExecution" name="A" id="ParallelGateway_1" fork="true" refMerge="ParallelGateway_2" successors="ChoreographyTask_1 ChoreographyTask_2">
+    <gatewayRef xsi:type="bpmn2:ParallelGateway" href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C7_InStoreMarketingNsale/C7.bpmn2#ParallelGateway_1"/>
+  </gateways>
+  <gateways xsi:type="ParallelExecution" name="A" id="ParallelGateway_2" merge="true" refFork="ParallelGateway_1" predecessors="ChoreographyTask_2 ChoreographyTask_1" successors="ChoreographyTask_3">
+    <gatewayRef xsi:type="bpmn2:ParallelGateway" href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C7_InStoreMarketingNsale/C7.bpmn2#ParallelGateway_2"/>
+  </gateways>
+  <gateways xsi:type="ExclusiveChoice" name="B" id="ExclusiveGateway_1" fork="true" refMerge="ExclusiveGateway_2" predecessors="ChoreographyTask_3" successors="ChoreographyTask_4 ChoreographyTask_5 ChoreographyTask_6">
+    <gatewayRef xsi:type="bpmn2:ExclusiveGateway" href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C7_InStoreMarketingNsale/C7.bpmn2#ExclusiveGateway_1"/>
+  </gateways>
+  <gateways xsi:type="ExclusiveChoice" name="B" id="ExclusiveGateway_2" merge="true" refFork="ExclusiveGateway_1" predecessors="ChoreographyTask_6 ChoreographyTask_5 ChoreographyTask_4" successors="ChoreographyTask_7">
+    <gatewayRef xsi:type="bpmn2:ExclusiveGateway" href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C7_InStoreMarketingNsale/C7.bpmn2#ExclusiveGateway_2"/>
+  </gateways>
+  <gateways xsi:type="ParallelExecution" name="C" id="ParallelGateway_3" fork="true" refMerge="ParallelGateway_4" predecessors="ChoreographyTask_7" successors="ChoreographyTask_9 ChoreographyTask_8">
+    <gatewayRef xsi:type="bpmn2:ParallelGateway" href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C7_InStoreMarketingNsale/C7.bpmn2#ParallelGateway_3"/>
+  </gateways>
+  <gateways xsi:type="ParallelExecution" name="C" id="ParallelGateway_4" merge="true" refFork="ParallelGateway_3" predecessors="ChoreographyTask_8 ChoreographyTask_9">
+    <gatewayRef xsi:type="bpmn2:ParallelGateway" href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C7_InStoreMarketingNsale/C7.bpmn2#ParallelGateway_4"/>
+  </gateways>
+  <actions xsi:type="MessageExchange" name="charcaterize client in store" id="ChoreographyTask_1" successor="ParallelGateway_2" predecessor="ParallelGateway_1" request="sendClientId" synchResponse="" sender="//@participants.0" receiver="//@participants.1">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C7_InStoreMarketingNsale/C7.bpmn2#ChoreographyTask_1"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Load cart" id="ChoreographyTask_2" successor="ParallelGateway_2" predecessor="ParallelGateway_1" request="notifyAddedProducts" synchResponse="" sender="//@participants.2" receiver="//@participants.0">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C7_InStoreMarketingNsale/C7.bpmn2#ChoreographyTask_2"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Determine offer and advertisement" id="ChoreographyTask_3" successor="ExclusiveGateway_1" predecessor="ParallelGateway_2" request="sendDataCollected" synchResponse="developCustomizedOffer" sender="//@participants.0" receiver="//@participants.3">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C7_InStoreMarketingNsale/C7.bpmn2#ChoreographyTask_3"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Send personalized offer" id="ChoreographyTask_4" successor="ExclusiveGateway_2" predecessor="ExclusiveGateway_1" request="sendComplexOffer" synchResponse="" sender="//@participants.0" receiver="//@participants.1">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C7_InStoreMarketingNsale/C7.bpmn2#ChoreographyTask_4"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Checkout" id="ChoreographyTask_7" successor="ParallelGateway_3" predecessor="ExclusiveGateway_2" request="makeCheckout" synchResponse="completeTransaction" sender="//@participants.6" receiver="//@participants.7">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C7_InStoreMarketingNsale/C7.bpmn2#ChoreographyTask_7"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Record shopping" id="ChoreographyTask_8" successor="ParallelGateway_4" predecessor="ParallelGateway_3" request="recordBhoughtProducts" synchResponse="" sender="//@participants.7" receiver="//@participants.1">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C7_InStoreMarketingNsale/C7.bpmn2#ChoreographyTask_8"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Record shopping" id="ChoreographyTask_9" successor="ParallelGateway_4" predecessor="ParallelGateway_3" request="recordBhoughtProducts" synchResponse="" sender="//@participants.7" receiver="//@participants.0">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C7_InStoreMarketingNsale/C7.bpmn2#ChoreographyTask_9"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Display public offer and advert" id="ChoreographyTask_6" successor="ExclusiveGateway_2" predecessor="ExclusiveGateway_1" request="reqDisplayOffer" synchResponse="" sender="//@participants.0" receiver="//@participants.5">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C7_InStoreMarketingNsale/C7.bpmn2#ChoreographyTask_6"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Send simple offer message" id="ChoreographyTask_5" successor="ExclusiveGateway_2" predecessor="ExclusiveGateway_1" request="sendSimpleOffer" synchResponse="" sender="//@participants.0" receiver="//@participants.4">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C7_InStoreMarketingNsale/C7.bpmn2#ChoreographyTask_5"/>
+  </actions>
+  <participants name="Marketing_app" id="Participant_1">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C7_InStoreMarketingNsale/C7.bpmn2#Participant_1"/>
+  </participants>
+  <participants name="Shopping_assistant_app" id="Participant_2">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C7_InStoreMarketingNsale/C7.bpmn2#Participant_2"/>
+  </participants>
+  <participants name="Smart cart" id="Participant_3">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C7_InStoreMarketingNsale/C7.bpmn2#Participant_3"/>
+  </participants>
+  <participants name="Marketing_manager" id="Participant_6">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C7_InStoreMarketingNsale/C7.bpmn2#Participant_6"/>
+  </participants>
+  <participants name="Basic communication devices" id="Participant_10">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C7_InStoreMarketingNsale/C7.bpmn2#Participant_10"/>
+  </participants>
+  <participants name="In store totems and displays" id="Participant_12">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C7_InStoreMarketingNsale/C7.bpmn2#Participant_12"/>
+  </participants>
+  <participants name="Client" id="Participant_13">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C7_InStoreMarketingNsale/C7.bpmn2#Participant_13"/>
+  </participants>
+  <participants name="Self checkout machine" id="Participant_14">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/acrb/C7_InStoreMarketingNsale/C7.bpmn2#Participant_14"/>
+  </participants>
+</WorkFlowGraph>

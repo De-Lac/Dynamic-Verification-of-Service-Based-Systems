@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:peerbehavior="http://peerbehavior/1.0.2">
+  <peerbehavior:Peer initialState="220" name="Marketing_app" id="Participant_1">
+    <in name="?notifyAddedProducts"/>
+    <in name="?developCustomizedOffer"/>
+    <in name="?recordBhoughtProducts"/>
+    <out name="!sendClientId"/>
+    <out name="!sendDataCollected"/>
+    <out name="!sendComplexOffer"/>
+    <out name="!reqDisplayOffer"/>
+    <out name="!sendSimpleOffer"/>
+    <states name="32" incoming="/0/@transictions.25" outcoming="/0/@transictions.0"/>
+    <states name="33" incoming="/0/@transictions.0" outcoming="/0/@transictions.1"/>
+    <states name="36" incoming="/0/@transictions.1" outcoming="/0/@transictions.20"/>
+    <states name="50" incoming="/0/@transictions.12" outcoming="/0/@transictions.2"/>
+    <states name="51" incoming="/0/@transictions.2" outcoming="/0/@transictions.13"/>
+    <states name="72" incoming="/0/@transictions.18" outcoming="/0/@transictions.3"/>
+    <states name="78" incoming="/0/@transictions.3" outcoming="/0/@transictions.19"/>
+    <states name="116" incoming="/0/@transictions.16" outcoming="/0/@transictions.4"/>
+    <states name="117" incoming="/0/@transictions.4" outcoming="/0/@transictions.17"/>
+    <states name="132" incoming="/0/@transictions.14" outcoming="/0/@transictions.5"/>
+    <states name="133" incoming="/0/@transictions.5" outcoming="/0/@transictions.15"/>
+    <states name="148" incoming="/0/@transictions.19" outcoming="/0/@transictions.6"/>
+    <states name="164" incoming="/0/@transictions.6" outcoming="/0/@transictions.7 /0/@transictions.10"/>
+    <states name="172" incoming="/0/@transictions.7" outcoming="/0/@transictions.8"/>
+    <states name="180" incoming="/0/@transictions.8 /0/@transictions.11" outcoming="/0/@transictions.9"/>
+    <states name="188" incoming="/0/@transictions.9"/>
+    <states name="196" incoming="/0/@transictions.10" outcoming="/0/@transictions.11"/>
+    <states name="204" incoming="/0/@transictions.20" outcoming="/0/@transictions.12 /0/@transictions.14 /0/@transictions.16"/>
+    <states name="212" incoming="/0/@transictions.13 /0/@transictions.15 /0/@transictions.17" outcoming="/0/@transictions.18"/>
+    <states name="220" outcoming="/0/@transictions.21"/>
+    <states name="236" incoming="/0/@transictions.21" outcoming="/0/@transictions.22 /0/@transictions.26"/>
+    <states name="244" incoming="/0/@transictions.22" outcoming="/0/@transictions.23"/>
+    <states name="252" incoming="/0/@transictions.23 /0/@transictions.27" outcoming="/0/@transictions.24"/>
+    <states name="260" incoming="/0/@transictions.24" outcoming="/0/@transictions.25"/>
+    <states name="268" incoming="/0/@transictions.26" outcoming="/0/@transictions.27"/>
+    <transictions xsi:type="peerbehavior:Send" from="32" to="33" message="/0/@out[name='!sendDataCollected']"/>
+    <transictions xsi:type="peerbehavior:Receive" from="33" to="36" message="/0/@in[name='?developCustomizedOffer']"/>
+    <transictions xsi:type="peerbehavior:Send" from="50" to="51" message="/0/@out[name='!sendComplexOffer']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="72" to="78"/>
+    <transictions xsi:type="peerbehavior:Send" from="116" to="117" message="/0/@out[name='!reqDisplayOffer']"/>
+    <transictions xsi:type="peerbehavior:Send" from="132" to="133" message="/0/@out[name='!sendSimpleOffer']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="148" to="164"/>
+    <transictions xsi:type="peerbehavior:Receive" from="164" to="172" message="/0/@in[name='?recordBhoughtProducts']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="172" to="180"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="180" to="188"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="164" to="196"/>
+    <transictions xsi:type="peerbehavior:Receive" from="196" to="180" message="/0/@in[name='?recordBhoughtProducts']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="204" to="50"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="51" to="212"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="204" to="132"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="133" to="212"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="204" to="116"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="117" to="212"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="212" to="72"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="78" to="148"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="36" to="204"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="220" to="236"/>
+    <transictions xsi:type="peerbehavior:Send" from="236" to="244" message="/0/@out[name='!sendClientId']"/>
+    <transictions xsi:type="peerbehavior:Receive" from="244" to="252" message="/0/@in[name='?notifyAddedProducts']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="252" to="260"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="260" to="32"/>
+    <transictions xsi:type="peerbehavior:Receive" from="236" to="268" message="/0/@in[name='?notifyAddedProducts']"/>
+    <transictions xsi:type="peerbehavior:Send" from="268" to="252" message="/0/@out[name='!sendClientId']"/>
+    <participantRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#//@participants.0"/>
+  </peerbehavior:Peer>
+  <peerbehavior:Peer initialState="221" name="Shopping_assistant_app" id="Participant_2">
+    <in name="?sendClientId"/>
+    <in name="?sendComplexOffer"/>
+    <in name="?recordBhoughtProducts"/>
+    <states name="38" incoming="/1/@transictions.24" outcoming="/1/@transictions.0"/>
+    <states name="44" incoming="/1/@transictions.0" outcoming="/1/@transictions.19"/>
+    <states name="52" incoming="/1/@transictions.11" outcoming="/1/@transictions.1"/>
+    <states name="53" incoming="/1/@transictions.1" outcoming="/1/@transictions.12"/>
+    <states name="73" incoming="/1/@transictions.17" outcoming="/1/@transictions.2"/>
+    <states name="79" incoming="/1/@transictions.2" outcoming="/1/@transictions.18"/>
+    <states name="120" incoming="/1/@transictions.15" outcoming="/1/@transictions.3"/>
+    <states name="126" incoming="/1/@transictions.3" outcoming="/1/@transictions.16"/>
+    <states name="136" incoming="/1/@transictions.13" outcoming="/1/@transictions.4"/>
+    <states name="142" incoming="/1/@transictions.4" outcoming="/1/@transictions.14"/>
+    <states name="149" incoming="/1/@transictions.18" outcoming="/1/@transictions.5"/>
+    <states name="165" incoming="/1/@transictions.5" outcoming="/1/@transictions.6 /1/@transictions.9"/>
+    <states name="173" incoming="/1/@transictions.6" outcoming="/1/@transictions.7"/>
+    <states name="181" incoming="/1/@transictions.7 /1/@transictions.10" outcoming="/1/@transictions.8"/>
+    <states name="189" incoming="/1/@transictions.8"/>
+    <states name="197" incoming="/1/@transictions.9" outcoming="/1/@transictions.10"/>
+    <states name="205" incoming="/1/@transictions.19" outcoming="/1/@transictions.11 /1/@transictions.13 /1/@transictions.15"/>
+    <states name="213" incoming="/1/@transictions.12 /1/@transictions.14 /1/@transictions.16" outcoming="/1/@transictions.17"/>
+    <states name="221" outcoming="/1/@transictions.20"/>
+    <states name="237" incoming="/1/@transictions.20" outcoming="/1/@transictions.21 /1/@transictions.25"/>
+    <states name="245" incoming="/1/@transictions.21" outcoming="/1/@transictions.22"/>
+    <states name="253" incoming="/1/@transictions.22 /1/@transictions.26" outcoming="/1/@transictions.23"/>
+    <states name="261" incoming="/1/@transictions.23" outcoming="/1/@transictions.24"/>
+    <states name="269" incoming="/1/@transictions.25" outcoming="/1/@transictions.26"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="38" to="44"/>
+    <transictions xsi:type="peerbehavior:Receive" from="52" to="53" message="/1/@in[name='?sendComplexOffer']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="73" to="79"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="120" to="126"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="136" to="142"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="149" to="165"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="165" to="173"/>
+    <transictions xsi:type="peerbehavior:Receive" from="173" to="181" message="/1/@in[name='?recordBhoughtProducts']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="181" to="189"/>
+    <transictions xsi:type="peerbehavior:Receive" from="165" to="197" message="/1/@in[name='?recordBhoughtProducts']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="197" to="181"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="205" to="52"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="53" to="213"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="205" to="136"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="142" to="213"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="205" to="120"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="126" to="213"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="213" to="73"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="79" to="149"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="44" to="205"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="221" to="237"/>
+    <transictions xsi:type="peerbehavior:Receive" from="237" to="245" message="/1/@in[name='?sendClientId']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="245" to="253"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="253" to="261"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="261" to="38"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="237" to="269"/>
+    <transictions xsi:type="peerbehavior:Receive" from="269" to="253" message="/1/@in[name='?sendClientId']"/>
+    <participantRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#//@participants.1"/>
+  </peerbehavior:Peer>
+  <peerbehavior:Peer initialState="222" name="Smart cart" id="Participant_3">
+    <out name="!notifyAddedProducts"/>
+    <states name="39" incoming="/2/@transictions.24" outcoming="/2/@transictions.0"/>
+    <states name="45" incoming="/2/@transictions.0" outcoming="/2/@transictions.19"/>
+    <states name="54" incoming="/2/@transictions.11" outcoming="/2/@transictions.1"/>
+    <states name="60" incoming="/2/@transictions.1" outcoming="/2/@transictions.12"/>
+    <states name="74" incoming="/2/@transictions.17" outcoming="/2/@transictions.2"/>
+    <states name="80" incoming="/2/@transictions.2" outcoming="/2/@transictions.18"/>
+    <states name="121" incoming="/2/@transictions.15" outcoming="/2/@transictions.3"/>
+    <states name="127" incoming="/2/@transictions.3" outcoming="/2/@transictions.16"/>
+    <states name="137" incoming="/2/@transictions.13" outcoming="/2/@transictions.4"/>
+    <states name="143" incoming="/2/@transictions.4" outcoming="/2/@transictions.14"/>
+    <states name="150" incoming="/2/@transictions.18" outcoming="/2/@transictions.5"/>
+    <states name="166" incoming="/2/@transictions.5" outcoming="/2/@transictions.6 /2/@transictions.9"/>
+    <states name="174" incoming="/2/@transictions.6" outcoming="/2/@transictions.7"/>
+    <states name="182" incoming="/2/@transictions.7 /2/@transictions.10" outcoming="/2/@transictions.8"/>
+    <states name="190" incoming="/2/@transictions.8"/>
+    <states name="198" incoming="/2/@transictions.9" outcoming="/2/@transictions.10"/>
+    <states name="206" incoming="/2/@transictions.19" outcoming="/2/@transictions.11 /2/@transictions.13 /2/@transictions.15"/>
+    <states name="214" incoming="/2/@transictions.12 /2/@transictions.14 /2/@transictions.16" outcoming="/2/@transictions.17"/>
+    <states name="222" outcoming="/2/@transictions.20"/>
+    <states name="238" incoming="/2/@transictions.20" outcoming="/2/@transictions.21 /2/@transictions.25"/>
+    <states name="246" incoming="/2/@transictions.21" outcoming="/2/@transictions.22"/>
+    <states name="254" incoming="/2/@transictions.22 /2/@transictions.26" outcoming="/2/@transictions.23"/>
+    <states name="262" incoming="/2/@transictions.23" outcoming="/2/@transictions.24"/>
+    <states name="270" incoming="/2/@transictions.25" outcoming="/2/@transictions.26"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="39" to="45"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="54" to="60"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="74" to="80"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="121" to="127"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="137" to="143"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="150" to="166"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="166" to="174"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="174" to="182"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="182" to="190"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="166" to="198"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="198" to="182"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="206" to="54"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="60" to="214"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="206" to="137"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="143" to="214"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="206" to="121"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="127" to="214"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="214" to="74"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="80" to="150"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="45" to="206"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="222" to="238"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="238" to="246"/>
+    <transictions xsi:type="peerbehavior:Send" from="246" to="254" message="/2/@out[name='!notifyAddedProducts']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="254" to="262"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="262" to="39"/>
+    <transictions xsi:type="peerbehavior:Send" from="238" to="270" message="/2/@out[name='!notifyAddedProducts']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="270" to="254"/>
+    <participantRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#//@participants.2"/>
+  </peerbehavior:Peer>
+  <peerbehavior:Peer initialState="223" name="Marketing_manager" id="Participant_6">
+    <in name="?sendDataCollected"/>
+    <out name="!developCustomizedOffer"/>
+    <states name="34" incoming="/3/@transictions.25" outcoming="/3/@transictions.0"/>
+    <states name="35" incoming="/3/@transictions.0" outcoming="/3/@transictions.1"/>
+    <states name="37" incoming="/3/@transictions.1" outcoming="/3/@transictions.20"/>
+    <states name="55" incoming="/3/@transictions.12" outcoming="/3/@transictions.2"/>
+    <states name="61" incoming="/3/@transictions.2" outcoming="/3/@transictions.13"/>
+    <states name="75" incoming="/3/@transictions.18" outcoming="/3/@transictions.3"/>
+    <states name="81" incoming="/3/@transictions.3" outcoming="/3/@transictions.19"/>
+    <states name="122" incoming="/3/@transictions.16" outcoming="/3/@transictions.4"/>
+    <states name="128" incoming="/3/@transictions.4" outcoming="/3/@transictions.17"/>
+    <states name="138" incoming="/3/@transictions.14" outcoming="/3/@transictions.5"/>
+    <states name="144" incoming="/3/@transictions.5" outcoming="/3/@transictions.15"/>
+    <states name="151" incoming="/3/@transictions.19" outcoming="/3/@transictions.6"/>
+    <states name="167" incoming="/3/@transictions.6" outcoming="/3/@transictions.7 /3/@transictions.10"/>
+    <states name="175" incoming="/3/@transictions.7" outcoming="/3/@transictions.8"/>
+    <states name="183" incoming="/3/@transictions.8 /3/@transictions.11" outcoming="/3/@transictions.9"/>
+    <states name="191" incoming="/3/@transictions.9"/>
+    <states name="199" incoming="/3/@transictions.10" outcoming="/3/@transictions.11"/>
+    <states name="207" incoming="/3/@transictions.20" outcoming="/3/@transictions.12 /3/@transictions.14 /3/@transictions.16"/>
+    <states name="215" incoming="/3/@transictions.13 /3/@transictions.15 /3/@transictions.17" outcoming="/3/@transictions.18"/>
+    <states name="223" outcoming="/3/@transictions.21"/>
+    <states name="239" incoming="/3/@transictions.21" outcoming="/3/@transictions.22 /3/@transictions.26"/>
+    <states name="247" incoming="/3/@transictions.22" outcoming="/3/@transictions.23"/>
+    <states name="255" incoming="/3/@transictions.23 /3/@transictions.27" outcoming="/3/@transictions.24"/>
+    <states name="263" incoming="/3/@transictions.24" outcoming="/3/@transictions.25"/>
+    <states name="271" incoming="/3/@transictions.26" outcoming="/3/@transictions.27"/>
+    <transictions xsi:type="peerbehavior:Receive" from="34" to="35" message="/3/@in[name='?sendDataCollected']"/>
+    <transictions xsi:type="peerbehavior:Send" from="35" to="37" message="/3/@out[name='!developCustomizedOffer']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="55" to="61"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="75" to="81"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="122" to="128"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="138" to="144"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="151" to="167"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="167" to="175"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="175" to="183"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="183" to="191"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="167" to="199"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="199" to="183"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="207" to="55"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="61" to="215"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="207" to="138"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="144" to="215"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="207" to="122"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="128" to="215"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="215" to="75"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="81" to="151"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="37" to="207"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="223" to="239"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="239" to="247"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="247" to="255"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="255" to="263"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="263" to="34"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="239" to="271"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="271" to="255"/>
+    <participantRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#//@participants.3"/>
+  </peerbehavior:Peer>
+  <peerbehavior:Peer initialState="224" name="Basic communication devices" id="Participant_10">
+    <in name="?sendSimpleOffer"/>
+    <states name="40" incoming="/4/@transictions.24" outcoming="/4/@transictions.0"/>
+    <states name="46" incoming="/4/@transictions.0" outcoming="/4/@transictions.19"/>
+    <states name="56" incoming="/4/@transictions.11" outcoming="/4/@transictions.1"/>
+    <states name="62" incoming="/4/@transictions.1" outcoming="/4/@transictions.12"/>
+    <states name="76" incoming="/4/@transictions.17" outcoming="/4/@transictions.2"/>
+    <states name="82" incoming="/4/@transictions.2" outcoming="/4/@transictions.18"/>
+    <states name="123" incoming="/4/@transictions.15" outcoming="/4/@transictions.3"/>
+    <states name="129" incoming="/4/@transictions.3" outcoming="/4/@transictions.16"/>
+    <states name="134" incoming="/4/@transictions.13" outcoming="/4/@transictions.4"/>
+    <states name="135" incoming="/4/@transictions.4" outcoming="/4/@transictions.14"/>
+    <states name="152" incoming="/4/@transictions.18" outcoming="/4/@transictions.5"/>
+    <states name="168" incoming="/4/@transictions.5" outcoming="/4/@transictions.6 /4/@transictions.9"/>
+    <states name="176" incoming="/4/@transictions.6" outcoming="/4/@transictions.7"/>
+    <states name="184" incoming="/4/@transictions.7 /4/@transictions.10" outcoming="/4/@transictions.8"/>
+    <states name="192" incoming="/4/@transictions.8"/>
+    <states name="200" incoming="/4/@transictions.9" outcoming="/4/@transictions.10"/>
+    <states name="208" incoming="/4/@transictions.19" outcoming="/4/@transictions.11 /4/@transictions.13 /4/@transictions.15"/>
+    <states name="216" incoming="/4/@transictions.12 /4/@transictions.14 /4/@transictions.16" outcoming="/4/@transictions.17"/>
+    <states name="224" outcoming="/4/@transictions.20"/>
+    <states name="240" incoming="/4/@transictions.20" outcoming="/4/@transictions.21 /4/@transictions.25"/>
+    <states name="248" incoming="/4/@transictions.21" outcoming="/4/@transictions.22"/>
+    <states name="256" incoming="/4/@transictions.22 /4/@transictions.26" outcoming="/4/@transictions.23"/>
+    <states name="264" incoming="/4/@transictions.23" outcoming="/4/@transictions.24"/>
+    <states name="272" incoming="/4/@transictions.25" outcoming="/4/@transictions.26"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="40" to="46"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="56" to="62"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="76" to="82"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="123" to="129"/>
+    <transictions xsi:type="peerbehavior:Receive" from="134" to="135" message="/4/@in[name='?sendSimpleOffer']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="152" to="168"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="168" to="176"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="176" to="184"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="184" to="192"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="168" to="200"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="200" to="184"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="208" to="56"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="62" to="216"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="208" to="134"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="135" to="216"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="208" to="123"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="129" to="216"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="216" to="76"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="82" to="152"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="46" to="208"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="224" to="240"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="240" to="248"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="248" to="256"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="256" to="264"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="264" to="40"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="240" to="272"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="272" to="256"/>
+    <participantRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#//@participants.4"/>
+  </peerbehavior:Peer>
+  <peerbehavior:Peer initialState="225" name="In store totems and displays" id="Participant_12">
+    <in name="?reqDisplayOffer"/>
+    <states name="41" incoming="/5/@transictions.24" outcoming="/5/@transictions.0"/>
+    <states name="47" incoming="/5/@transictions.0" outcoming="/5/@transictions.19"/>
+    <states name="57" incoming="/5/@transictions.11" outcoming="/5/@transictions.1"/>
+    <states name="63" incoming="/5/@transictions.1" outcoming="/5/@transictions.12"/>
+    <states name="77" incoming="/5/@transictions.17" outcoming="/5/@transictions.2"/>
+    <states name="83" incoming="/5/@transictions.2" outcoming="/5/@transictions.18"/>
+    <states name="118" incoming="/5/@transictions.15" outcoming="/5/@transictions.3"/>
+    <states name="119" incoming="/5/@transictions.3" outcoming="/5/@transictions.16"/>
+    <states name="139" incoming="/5/@transictions.13" outcoming="/5/@transictions.4"/>
+    <states name="145" incoming="/5/@transictions.4" outcoming="/5/@transictions.14"/>
+    <states name="153" incoming="/5/@transictions.18" outcoming="/5/@transictions.5"/>
+    <states name="169" incoming="/5/@transictions.5" outcoming="/5/@transictions.6 /5/@transictions.9"/>
+    <states name="177" incoming="/5/@transictions.6" outcoming="/5/@transictions.7"/>
+    <states name="185" incoming="/5/@transictions.7 /5/@transictions.10" outcoming="/5/@transictions.8"/>
+    <states name="193" incoming="/5/@transictions.8"/>
+    <states name="201" incoming="/5/@transictions.9" outcoming="/5/@transictions.10"/>
+    <states name="209" incoming="/5/@transictions.19" outcoming="/5/@transictions.11 /5/@transictions.13 /5/@transictions.15"/>
+    <states name="217" incoming="/5/@transictions.12 /5/@transictions.14 /5/@transictions.16" outcoming="/5/@transictions.17"/>
+    <states name="225" outcoming="/5/@transictions.20"/>
+    <states name="241" incoming="/5/@transictions.20" outcoming="/5/@transictions.21 /5/@transictions.25"/>
+    <states name="249" incoming="/5/@transictions.21" outcoming="/5/@transictions.22"/>
+    <states name="257" incoming="/5/@transictions.22 /5/@transictions.26" outcoming="/5/@transictions.23"/>
+    <states name="265" incoming="/5/@transictions.23" outcoming="/5/@transictions.24"/>
+    <states name="273" incoming="/5/@transictions.25" outcoming="/5/@transictions.26"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="41" to="47"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="57" to="63"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="77" to="83"/>
+    <transictions xsi:type="peerbehavior:Receive" from="118" to="119" message="/5/@in[name='?reqDisplayOffer']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="139" to="145"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="153" to="169"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="169" to="177"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="177" to="185"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="185" to="193"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="169" to="201"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="201" to="185"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="209" to="57"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="63" to="217"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="209" to="139"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="145" to="217"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="209" to="118"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="119" to="217"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="217" to="77"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="83" to="153"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="47" to="209"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="225" to="241"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="241" to="249"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="249" to="257"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="257" to="265"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="265" to="41"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="241" to="273"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="273" to="257"/>
+    <participantRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#//@participants.5"/>
+  </peerbehavior:Peer>
+  <peerbehavior:Peer initialState="226" name="Client" id="Participant_13">
+    <in name="?completeTransaction"/>
+    <out name="!makeCheckout"/>
+    <states name="42" incoming="/6/@transictions.25" outcoming="/6/@transictions.0"/>
+    <states name="48" incoming="/6/@transictions.0" outcoming="/6/@transictions.20"/>
+    <states name="58" incoming="/6/@transictions.12" outcoming="/6/@transictions.1"/>
+    <states name="64" incoming="/6/@transictions.1" outcoming="/6/@transictions.13"/>
+    <states name="66" incoming="/6/@transictions.18" outcoming="/6/@transictions.2"/>
+    <states name="67" incoming="/6/@transictions.2" outcoming="/6/@transictions.3"/>
+    <states name="70" incoming="/6/@transictions.3" outcoming="/6/@transictions.19"/>
+    <states name="124" incoming="/6/@transictions.16" outcoming="/6/@transictions.4"/>
+    <states name="130" incoming="/6/@transictions.4" outcoming="/6/@transictions.17"/>
+    <states name="140" incoming="/6/@transictions.14" outcoming="/6/@transictions.5"/>
+    <states name="146" incoming="/6/@transictions.5" outcoming="/6/@transictions.15"/>
+    <states name="154" incoming="/6/@transictions.19" outcoming="/6/@transictions.6"/>
+    <states name="170" incoming="/6/@transictions.6" outcoming="/6/@transictions.7 /6/@transictions.10"/>
+    <states name="178" incoming="/6/@transictions.7" outcoming="/6/@transictions.8"/>
+    <states name="186" incoming="/6/@transictions.8 /6/@transictions.11" outcoming="/6/@transictions.9"/>
+    <states name="194" incoming="/6/@transictions.9"/>
+    <states name="202" incoming="/6/@transictions.10" outcoming="/6/@transictions.11"/>
+    <states name="210" incoming="/6/@transictions.20" outcoming="/6/@transictions.12 /6/@transictions.14 /6/@transictions.16"/>
+    <states name="218" incoming="/6/@transictions.13 /6/@transictions.15 /6/@transictions.17" outcoming="/6/@transictions.18"/>
+    <states name="226" outcoming="/6/@transictions.21"/>
+    <states name="242" incoming="/6/@transictions.21" outcoming="/6/@transictions.22 /6/@transictions.26"/>
+    <states name="250" incoming="/6/@transictions.22" outcoming="/6/@transictions.23"/>
+    <states name="258" incoming="/6/@transictions.23 /6/@transictions.27" outcoming="/6/@transictions.24"/>
+    <states name="266" incoming="/6/@transictions.24" outcoming="/6/@transictions.25"/>
+    <states name="274" incoming="/6/@transictions.26" outcoming="/6/@transictions.27"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="42" to="48"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="58" to="64"/>
+    <transictions xsi:type="peerbehavior:Send" from="66" to="67" message="/6/@out[name='!makeCheckout']"/>
+    <transictions xsi:type="peerbehavior:Receive" from="67" to="70" message="/6/@in[name='?completeTransaction']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="124" to="130"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="140" to="146"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="154" to="170"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="170" to="178"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="178" to="186"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="186" to="194"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="170" to="202"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="202" to="186"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="210" to="58"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="64" to="218"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="210" to="140"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="146" to="218"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="210" to="124"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="130" to="218"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="218" to="66"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="70" to="154"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="48" to="210"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="226" to="242"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="242" to="250"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="250" to="258"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="258" to="266"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="266" to="42"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="242" to="274"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="274" to="258"/>
+    <participantRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#//@participants.6"/>
+  </peerbehavior:Peer>
+  <peerbehavior:Peer initialState="227" name="Self checkout machine" id="Participant_14">
+    <in name="?makeCheckout"/>
+    <out name="!completeTransaction"/>
+    <out name="!recordBhoughtProducts"/>
+    <states name="43" incoming="/7/@transictions.25" outcoming="/7/@transictions.0"/>
+    <states name="49" incoming="/7/@transictions.0" outcoming="/7/@transictions.20"/>
+    <states name="59" incoming="/7/@transictions.12" outcoming="/7/@transictions.1"/>
+    <states name="65" incoming="/7/@transictions.1" outcoming="/7/@transictions.13"/>
+    <states name="68" incoming="/7/@transictions.18" outcoming="/7/@transictions.2"/>
+    <states name="69" incoming="/7/@transictions.2" outcoming="/7/@transictions.3"/>
+    <states name="71" incoming="/7/@transictions.3" outcoming="/7/@transictions.19"/>
+    <states name="125" incoming="/7/@transictions.16" outcoming="/7/@transictions.4"/>
+    <states name="131" incoming="/7/@transictions.4" outcoming="/7/@transictions.17"/>
+    <states name="141" incoming="/7/@transictions.14" outcoming="/7/@transictions.5"/>
+    <states name="147" incoming="/7/@transictions.5" outcoming="/7/@transictions.15"/>
+    <states name="155" incoming="/7/@transictions.19" outcoming="/7/@transictions.6"/>
+    <states name="171" incoming="/7/@transictions.6" outcoming="/7/@transictions.7 /7/@transictions.10"/>
+    <states name="179" incoming="/7/@transictions.7" outcoming="/7/@transictions.8"/>
+    <states name="187" incoming="/7/@transictions.8 /7/@transictions.11" outcoming="/7/@transictions.9"/>
+    <states name="195" incoming="/7/@transictions.9"/>
+    <states name="203" incoming="/7/@transictions.10" outcoming="/7/@transictions.11"/>
+    <states name="211" incoming="/7/@transictions.20" outcoming="/7/@transictions.12 /7/@transictions.14 /7/@transictions.16"/>
+    <states name="219" incoming="/7/@transictions.13 /7/@transictions.15 /7/@transictions.17" outcoming="/7/@transictions.18"/>
+    <states name="227" outcoming="/7/@transictions.21"/>
+    <states name="243" incoming="/7/@transictions.21" outcoming="/7/@transictions.22 /7/@transictions.26"/>
+    <states name="251" incoming="/7/@transictions.22" outcoming="/7/@transictions.23"/>
+    <states name="259" incoming="/7/@transictions.23 /7/@transictions.27" outcoming="/7/@transictions.24"/>
+    <states name="267" incoming="/7/@transictions.24" outcoming="/7/@transictions.25"/>
+    <states name="275" incoming="/7/@transictions.26" outcoming="/7/@transictions.27"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="43" to="49"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="59" to="65"/>
+    <transictions xsi:type="peerbehavior:Receive" from="68" to="69" message="/7/@in[name='?makeCheckout']"/>
+    <transictions xsi:type="peerbehavior:Send" from="69" to="71" message="/7/@out[name='!completeTransaction']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="125" to="131"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="141" to="147"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="155" to="171"/>
+    <transictions xsi:type="peerbehavior:Send" from="171" to="179" message="/7/@out[name='!recordBhoughtProducts']"/>
+    <transictions xsi:type="peerbehavior:Send" from="179" to="187" message="/7/@out[name='!recordBhoughtProducts']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="187" to="195"/>
+    <transictions xsi:type="peerbehavior:Send" from="171" to="203" message="/7/@out[name='!recordBhoughtProducts']"/>
+    <transictions xsi:type="peerbehavior:Send" from="203" to="187" message="/7/@out[name='!recordBhoughtProducts']"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="211" to="59"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="65" to="219"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="211" to="141"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="147" to="219"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="211" to="125"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="131" to="219"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="219" to="68"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="71" to="155"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="49" to="211"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="227" to="243"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="243" to="251"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="251" to="259"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="259" to="267"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="267" to="43"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="243" to="275"/>
+    <transictions xsi:type="peerbehavior:InternalTransition" from="275" to="259"/>
+    <participantRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#//@participants.7"/>
+  </peerbehavior:Peer>
+</xmi:XMI>

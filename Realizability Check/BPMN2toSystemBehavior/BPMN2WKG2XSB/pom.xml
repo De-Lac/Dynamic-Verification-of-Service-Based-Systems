@@ -1,0 +1,245 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.ow2.choreos.governance.v_and_v</groupId>
+	<artifactId>PartesWsTestGenerator</artifactId>
+	<packaging>war</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>PARticipant TESt generator</name>
+	<url>http://bpmn2-partes.sourceforge.net</url>  
+
+
+	<build>
+		<finalName>PartesWsTestGenerator</finalName>
+		<plugins>
+			<plugin><!-- SKIP TEST -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.15</version>
+				<configuration>
+					<skipTests>true</skipTests>
+				</configuration>
+			</plugin>
+			<plugin>
+				<!-- Maven compiler plugin -->
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<optimize>true</optimize>
+				</configuration>
+			</plugin>
+
+			<!-- Maven jetty plugin -->
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<configuration>
+					<webAppConfig>
+						<contextPath>/</contextPath>
+					</webAppConfig>
+				</configuration>
+			</plugin>
+
+			<!-- Maven axis2M plugin -->
+			<plugin>
+				<groupId>org.axis2m</groupId>
+				<artifactId>axis2m-plugins</artifactId>
+				<version>1.0M2</version>
+			</plugin>
+
+			
+
+		</plugins>
+	</build>
+
+	<dependencies>
+		
+
+
+
+
+
+
+		<!-- ======================================== -->
+
+		<!-- LOCAL DEPENDENCIES (TO FIX IN NEXT RELEASES) -->
+		<dependency>          
+			<groupId>unicam_atl_bpmn2TOwfg</groupId>
+			<artifactId>unicam_atl_bpmn2TOwfg</artifactId>
+			<version>1.0.48</version>
+		</dependency>  
+		<dependency>           
+			<groupId>ucsb_atl_wfgTOsys</groupId>
+			<artifactId>ucsb_atl_wfgTOsys</artifactId>
+			<version>1.0.101</version>        
+		</dependency>
+		<dependency>              
+			<groupId>ucsb_acceleo_sysTOxsb</groupId>
+			<artifactId>ucsb_acceleo_sysTOxsb</artifactId>
+			<version>1.0.17</version> 
+		</dependency>		
+		<dependency>
+			<groupId>stssimulator</groupId>
+			<artifactId>stssimulator</artifactId>
+			<version>271007</version>
+		</dependency>
+		<dependency>
+			<groupId>jdsl</groupId>
+			<artifactId>jdsl</artifactId>
+			<version>2.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.xmlbeans</groupId>
+			<artifactId>xmlbeans</artifactId>
+			<version>2.4.0</version>
+		</dependency>
+		<!--AXIS -->
+		<dependency>
+			<groupId>org.apache.axis2</groupId>
+			<artifactId>axis2</artifactId>
+			<version>${axis2ReleaseVersion}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ws.commons.axiom</groupId>
+			<artifactId>axiom-api</artifactId>
+			<version>${axiomReleaseVersion}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ws.commons.axiom</groupId>
+			<artifactId>axiom-impl</artifactId>
+			<version>${axiomReleaseVersion}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ws.commons.axiom</groupId>
+			<artifactId>axiom-dom</artifactId>
+			<version>${axiomReleaseVersion}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ws.commons.schema</groupId>
+			<artifactId>XmlSchema</artifactId>
+			<version>1.4.2</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.woden</groupId>
+			<artifactId>woden-api</artifactId>
+			<version>${wodenReleaseVersion}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>xerces</groupId>
+					<artifactId>xercesImpl</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>xml-apis</groupId>
+					<artifactId>xml-apis</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.woden</groupId>
+			<artifactId>woden-impl-dom</artifactId>
+			<version>${wodenReleaseVersion}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>xerces</groupId>
+					<artifactId>xercesImpl</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>xml-apis</groupId>
+					<artifactId>xml-apis</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>backport-util-concurrent</groupId>
+			<artifactId>backport-util-concurrent</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>annogen</groupId>
+			<artifactId>annogen</artifactId>
+			<version>0.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1</version>
+		</dependency>
+
+		<!-- <dependency> <groupId>cglib</groupId> <artifactId>cglib-nodep</artifactId> 
+			<version>2.1_3</version> <optional>true</optional> </dependency> -->
+
+		
+		<!--optional dependencies -->
+
+		<dependency>
+			<groupId>org.apache.ws.commons.neethi</groupId>
+			<artifactId>neethi</artifactId>
+			<version>2.0</version>
+		</dependency>
+
+		<!-- test dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>axis2m</id>
+			<name>Axis2m Repository</name>
+			<url>http://axis2m.sourceforge.net/repo/</url>
+		</repository>
+
+		<repository>
+			<id>lib</id>
+			<name>lib</name>
+			<releases>
+				<enabled>true</enabled>
+				<checksumPolicy>ignore</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<url>file://${project.basedir}/lib/repo</url>
+		</repository>
+		<repository>
+			<id>eviwareRepository</id>
+			<url>http://www.eviware.com/repository/maven2
+			</url>
+		</repository>
+		<!-- <repository> <id>L2fprodMaven2Repository</id> <url>http://www.l2fprod.com/maven2 
+			</url> </repository> -->
+
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>axis2m</id>
+			<name>Axis2m Repository</name>
+			<url>http://axis2m.sourceforge.net/repo/</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<axis2ReleaseVersion>1.4.1</axis2ReleaseVersion>
+		<axiomReleaseVersion>1.2.7</axiomReleaseVersion>
+		<wodenReleaseVersion>1.0M8</wodenReleaseVersion>
+		<neethiReleaseVersion>2.0</neethiReleaseVersion>
+		<rampartReleaseVersion>1.4.1</rampartReleaseVersion>
+
+	</properties>
+</project>

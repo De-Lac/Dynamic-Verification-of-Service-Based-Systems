@@ -1,0 +1,87 @@
+% -*- Mode: Prolog -*-
+:- [library].
+:- dynamic doneEp/1, doneND/1.
+
+%determinize(s1 - P4,in(b,P3),s3 - P4,[s1 - P4])
+a(_).
+deter :-
+	startPeer(P, S),
+	assertOnce(doneEp(S)),
+	findall((A, T), ptransStarWOEp1(P, S, A, T), L),
+	addPtrans(P, S, L),
+	deter(P, L),
+	fail.
+deter :-
+	startPeer(P, S),
+	a(P),
+	assertOnce(doneND(S)),
+	ptrans(P, S, A, T), 
+	findall(T1, (ptrans(P, S, A, T1), T1 \= T), L),
+	(L == [] -> true; selfLoop(S, T, L, NewT, NewL), determinize(S, A, NewT, NewL)),
+	deterNext(T),
+	fail.
+
+deter :- abolish_all_tables, clearDone.
+clearDone :- retractall(doneEp(_)), retractall(doneND(_)).
+	
+
+%:- table deterNext/1.
+deterNext(S) :-
+	(doneND(S)
+	->   true
+	;    assertOnce(doneND(S)),
+	     ptrans(P, S, A, T),	
+	     findall(T1, (ptrans(P, S, A, T1), T1 \= T), L),
+	     (L == [] -> true; selfLoop(S, T, L, NewT, NewL), determinize(S, A, NewT, NewL)),
+	     deterNext(T)
+	).
+
+addPtrans(P, S, []) :- !.
+addPtrans(P, S, [(A, T)|Rest]) :-
+	assertOnce(ptrans(P, S, A, T)),
+	addPtrans(P, S, Rest).
+
+
+deter(_P, []) :- !.
+deter(P, [(_, S)|Rest]) :-
+	deterState(P, S),
+	deter(P, Rest).
+
+deterState(P, S) :-
+	(doneEp(S)
+	-> true
+	;
+	   assertOnce(doneEp(S)),
+	   findall((A, T), ptransStarWOEp1(P, S, A, T), L),
+	   addPtrans(P, S, L),
+	   deter(P, L),
+	   fail
+	).
+deterState(_, _).
+	
+determinize(_, _, _, []) :- !.
+determinize(S, A, T, [T1|Rest]) :-
+	retract(ptrans(_, S, A, T1)),
+	merge(T, T1),
+	determinize(S, A, T, Rest).
+
+merge(S, T) :-
+	findall((P, A, T1), (ptrans(P, T, A, T1), retract(ptrans(P, T, A, T1))), L),
+	addNew(S, L).
+
+addNew(_, []) :- !.
+addNew(S, [(P, A, T)|Rest]) :-
+	assertOnce(ptrans(P, S, A, T)),
+	retract(doneND(S)), %% as this is getting updated 
+	addNew(S, Rest).
+
+
+selfLoop(S, T, [], T, []) :- !.
+selfLoop(S, T, [S|Rest], S, NewList) :-
+	(T \= S
+	->    selfLoop(S, S, Rest, S, Rest1),
+	      NewList = [T|Rest1]
+	;     selfLoop(S, S, Rest, S, NewList)
+	), !.
+selfLoop(S, T, [T1|Rest], NewT, [T1|NewRest]) :-
+	selfLoop(S, T, Rest, NewT, NewRest).

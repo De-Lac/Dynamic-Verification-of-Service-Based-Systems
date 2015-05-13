@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<systembehavior:SystemBehavior xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:peerbehavior="http://peerbehavior/1.0.2" xmlns:systembehavior="http://systembehavior/1.0.5" initialState="s4">
+  <peers href="/Users/deLac/Desktop/blabla//peers.peerbehavior#Participant_1"/>
+  <peers href="/Users/deLac/Desktop/blabla//peers.peerbehavior#Participant_2"/>
+  <peers href="/Users/deLac/Desktop/blabla//peers.peerbehavior#Participant_4"/>
+  <states id="s0" outcoming="//@transitions.0" incoming="//@transitions.3">
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#4"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#0"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#2"/>
+  </states>
+  <states id="s1" outcoming="//@transitions.4" incoming="//@transitions.0">
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#5"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#1"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#3"/>
+  </states>
+  <states id="s2" outcoming="//@transitions.1" incoming="//@transitions.4">
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#10"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#6"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#8"/>
+  </states>
+  <states id="s3" incoming="//@transitions.1">
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#11"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#7"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#9"/>
+  </states>
+  <states id="s4" outcoming="//@transitions.2">
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#16"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#12"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#14"/>
+  </states>
+  <states id="s5" outcoming="//@transitions.3" incoming="//@transitions.2">
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#17"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#13"/>
+    <states href="/Users/deLac/Desktop/blabla//peers.peerbehavior#15"/>
+  </states>
+  <transitions xsi:type="systembehavior:Send" from="s0" to="s1">
+    <source href="/Users/deLac/Desktop/blabla//peers.peerbehavior#Participant_4"/>
+    <target href="/Users/deLac/Desktop/blabla//peers.peerbehavior#Participant_2"/>
+    <message xsi:type="peerbehavior:output" href="/Users/deLac/Desktop/blabla//peers.peerbehavior#/2/@out[name='!displayAirlineNotification']"/>
+    <messageExchangeRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#ChoreographyTask_2"/>
+  </transitions>
+  <transitions xsi:type="systembehavior:Send" from="s2" to="s3">
+    <source href="/Users/deLac/Desktop/blabla//peers.peerbehavior#Participant_2"/>
+    <target href="/Users/deLac/Desktop/blabla//peers.peerbehavior#Participant_4"/>
+    <message xsi:type="peerbehavior:output" href="/Users/deLac/Desktop/blabla//peers.peerbehavior#/1/@out[name='!readAck']"/>
+    <messageExchangeRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#ChoreographyTask_3"/>
+  </transitions>
+  <transitions xsi:type="systembehavior:Send" from="s4" to="s5">
+    <source href="/Users/deLac/Desktop/blabla//peers.peerbehavior#Participant_1"/>
+    <target href="/Users/deLac/Desktop/blabla//peers.peerbehavior#Participant_2"/>
+    <message xsi:type="peerbehavior:output" href="/Users/deLac/Desktop/blabla//peers.peerbehavior#/0/@out[name='!announceService']"/>
+    <messageExchangeRef href="/Users/deLac/Desktop/blabla/wfg.workflowgraph#ChoreographyTask_1"/>
+  </transitions>
+  <transitions xsi:type="systembehavior:InternalTransition" from="s5" to="s0"/>
+  <transitions xsi:type="systembehavior:InternalTransition" from="s1" to="s2"/>
+</systembehavior:SystemBehavior>

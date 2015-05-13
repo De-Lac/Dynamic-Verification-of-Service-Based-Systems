@@ -1,0 +1,22 @@
+% -*- Mode: Prolog -*-     
+gtrans(s8, ('A', 'B', msg1), s9).
+gtrans(s9, ('A', 'C', msg3), s10).
+gtrans(s10, ('B', 'C', msg2), s12).
+gtrans(s9, ('B', 'C', msg2), s13).
+gtrans(s13, ('A', 'C', msg3), s12).
+gtrans(s8, ('A', 'C', msg3), s14).
+gtrans(s14, ('A', 'B', msg1), s10).
+
+peer('A').
+peer('B').
+peer('C').
+peer('D').
+peer('E').
+peer('F').
+
+start(s8).
+%% negategtrans(false, false).  --> use a default setting 
+%% this fact is used in the extension where automatic repair is performed using
+%% some simple domain knowledge. negatetrans(false, false) implies no such domain
+%% knowledge is available/provided. 
+negategtrans(false, false).  

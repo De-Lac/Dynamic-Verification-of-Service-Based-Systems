@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serviceGroup>
+
+	<service name="PartesWsTestGenerator">
+		<!-- <parameter name="ServiceObjectSupplier" locked="false">org.apache.axis2.extensions.spring.receivers.SpringServletContextObjectSupplier</parameter> -->
+		<!-- <parameter name="SpringBeanName" locked="false">myService</parameter> -->
+		<parameter name="ServiceClass">partes.service.PartesWs</parameter>
+		-
+		<operation name="helloService">
+			<messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</operation>
+		<operation name="getTestSuite">
+			<messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</operation>
+		<operation name="generateSOAPuiTestSuiteFromYmlPath">
+			<messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</operation>
+		<operation name="generateSOAPuiTestSuiteFromYmlContent">
+			<messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</operation>
+		<!-- <module ref="counterModule"/> -->
+	</service>
+
+
+
+</serviceGroup>

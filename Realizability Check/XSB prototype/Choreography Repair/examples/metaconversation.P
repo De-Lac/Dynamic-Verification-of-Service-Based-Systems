@@ -1,0 +1,27 @@
+gtrans(start, ('P2', 'P1', bStartcp), bRequested).
+gtrans(start, ('P1', 'P2', aStartcp), aRequested).
+
+
+gtrans(aRequested, ('P2', 'P1', bAccept), start).
+gtrans(aRequested, ('P2', 'P1', bRefuse), done).
+
+gtrans(bRequested, ('P1', 'P2', aAccept), start).
+gtrans(bRequested, ('P1', 'P2', aRefuse), done).
+
+peer('P1').
+peer('P2').
+
+start(start).
+
+negategtrans(false, false).
+
+%% Another interesting example
+% gtrans(start,(a  ','  b  ','  aStartcp),aRequested).
+% gtrans(start,(b  ','  a  ','  bStartcp),bRequested).
+% gtrans(aRequested,(b  ','  a  ','  bAccept),start).
+% gtrans(aRequested,(b  ','  a  ','  bRefuse),done).
+% gtrans(bRequested,(a  ','  b  ','  aAccept),start).
+% gtrans(bRequested,(a  ','  b  ','  aRefuse),done).
+% gtrans(bRequested,(a  ','  b  ','  aStartcp),aRequested).
+% gtrans(aRequested,(b  ','  a  ','  bStartcp),aRequested).
+       

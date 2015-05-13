@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WorkFlowGraph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://workflowgraph/1.0.4" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL-XMI" startingNode="ExclusiveGateway_1" endingNode="ChoreographyTask_4" innerGateway="ExclusiveGateway_3">
+  <gateways xsi:type="ExclusiveChoice" name="A" id="ExclusiveGateway_1" fork="true" refMerge="ExclusiveGateway_2" predecessors="ExclusiveGateway_2" successors="ExclusiveGateway_3">
+    <gatewayRef xsi:type="bpmn2:ExclusiveGateway" href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C7_ContextAware_personalized_AirportGroundService/C7.bpmn2#ExclusiveGateway_1"/>
+  </gateways>
+  <gateways xsi:type="ExclusiveChoice" name="A" id="ExclusiveGateway_2" merge="true" refFork="ExclusiveGateway_1" predecessors="ExclusiveGateway_4" successors="ExclusiveGateway_1 ChoreographyTask_3">
+    <gatewayRef xsi:type="bpmn2:ExclusiveGateway" href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C7_ContextAware_personalized_AirportGroundService/C7.bpmn2#ExclusiveGateway_2"/>
+  </gateways>
+  <gateways xsi:type="ExclusiveChoice" name="B" id="ExclusiveGateway_3" fork="true" refMerge="ExclusiveGateway_4" predecessors="ExclusiveGateway_1" successors="ChoreographyTask_2 ChoreographyTask_5">
+    <gatewayRef xsi:type="bpmn2:ExclusiveGateway" href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C7_ContextAware_personalized_AirportGroundService/C7.bpmn2#ExclusiveGateway_3"/>
+  </gateways>
+  <gateways xsi:type="ExclusiveChoice" name="B" id="ExclusiveGateway_4" merge="true" refFork="ExclusiveGateway_3" predecessors="ChoreographyTask_7 ChoreographyTask_1" successors="ExclusiveGateway_2">
+    <gatewayRef xsi:type="bpmn2:ExclusiveGateway" href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C7_ContextAware_personalized_AirportGroundService/C7.bpmn2#ExclusiveGateway_4"/>
+  </gateways>
+  <actions xsi:type="MessageExchange" name="Notify for Check-in" id="ChoreographyTask_3" successor="ChoreographyTask_4" predecessor="ExclusiveGateway_2" request="notifyCheckin" synchResponse="" sender="//@participants.0" receiver="//@participants.1">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C7_ContextAware_personalized_AirportGroundService/C7.bpmn2#ChoreographyTask_3"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Give back luggage gor Check-in" id="ChoreographyTask_4" predecessor="ChoreographyTask_3" request="giveBackLug" synchResponse="takeLuggage" sender="//@participants.0" receiver="//@participants.2">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C7_ContextAware_personalized_AirportGroundService/C7.bpmn2#ChoreographyTask_4"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Call Porter Service" id="ChoreographyTask_2" successor="ChoreographyTask_1" predecessor="ExclusiveGateway_3" request="callPorter" synchResponse="" sender="//@participants.1" receiver="//@participants.0">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C7_ContextAware_personalized_AirportGroundService/C7.bpmn2#ChoreographyTask_2"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Accept Call" id="ChoreographyTask_1" successor="ExclusiveGateway_4" predecessor="ChoreographyTask_2" request="acceptCall" synchResponse="sendPorterData" sender="//@participants.0" receiver="//@participants.1">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C7_ContextAware_personalized_AirportGroundService/C7.bpmn2#ChoreographyTask_1"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Pick up luggage" id="ChoreographyTask_5" successor="ChoreographyTask_7" predecessor="ExclusiveGateway_3" request="pickupLug" synchResponse="" sender="//@participants.0" receiver="//@participants.2">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C7_ContextAware_personalized_AirportGroundService/C7.bpmn2#ChoreographyTask_5"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Departure Check" id="ChoreographyTask_7" successor="ExclusiveGateway_4" predecessor="ChoreographyTask_5" request="departureCheck" synchResponse="" sender="//@participants.0" receiver="//@participants.3">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C7_ContextAware_personalized_AirportGroundService/C7.bpmn2#ChoreographyTask_7"/>
+  </actions>
+  <participants name="Porter" id="Participant_1">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C7_ContextAware_personalized_AirportGroundService/C7.bpmn2#Participant_1"/>
+  </participants>
+  <participants name="MID" id="Participant_2">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C7_ContextAware_personalized_AirportGroundService/C7.bpmn2#Participant_2"/>
+  </participants>
+  <participants name="Citizen" id="Participant_8">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C7_ContextAware_personalized_AirportGroundService/C7.bpmn2#Participant_8"/>
+  </participants>
+  <participants name="Airport" id="Participant_14">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C7_ContextAware_personalized_AirportGroundService/C7.bpmn2#Participant_14"/>
+  </participants>
+</WorkFlowGraph>

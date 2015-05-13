@@ -1,0 +1,30 @@
+digraph G {
+"Usr : s1"[style=filled,fillcolor=green]
+"IdP : s1"[style=filled,fillcolor=green]
+"SP : s1"[style=filled,fillcolor=green]
+"Log : s1"[style=filled,fillcolor=green]
+"Usr : s2" -> "Usr : s5" [label=" ?reqAuth"];
+"Usr : s5" -> "Usr : n(0)" [label=" ?m(0)"];
+"Usr : s7" -> "Usr : s11" [label=" ?give_access"];
+"Usr : s7" -> "Usr : s9" [label=" ?give_access"];
+"IdP : s1" -> "IdP : s6" [label=" ?authenticate"];
+"IdP : s6" -> "IdP : s8" [label=" ?validate"];
+"SP : s1" -> "SP : s2" [label=" ?reqRes"];
+"SP : n(0)" -> "SP : s7" [label=" ?reqRes"];
+"Log : s1" -> "Log : s5" [label=" ?log"];
+"Log : s5" -> "Log : s10" [label=" ?log"];
+"Log : s5" -> "Log : s11" [label=" ?log"];
+"Usr : s1" -> "Usr : s2" [label=" !reqRes"];
+"Usr : n(0)" -> "Usr : s6" [label=" !authenticate"];
+"Usr : s6" -> "Usr : s7" [label=" !reqRes"];
+"SP : s2" -> "SP : s3" [label=" !reqAuth"];
+"SP : s2" -> "SP : s4" [label=" !log"];
+"SP : s3" -> "SP : s5" [label=" !log"];
+"SP : s5" -> "SP : n(0)" [label=" !m(0)"];
+"SP : s7" -> "SP : s8" [label=" !validate"];
+"SP : s8" -> "SP : s9" [label=" !give_access"];
+"SP : s8" -> "SP : s10" [label=" !log"];
+"SP : s9" -> "SP : s11" [label=" !log"];
+"SP : s10" -> "SP : s11" [label=" !give_access"];
+"SP : s4" -> "SP : s5" [label=" !reqAuth"];
+}

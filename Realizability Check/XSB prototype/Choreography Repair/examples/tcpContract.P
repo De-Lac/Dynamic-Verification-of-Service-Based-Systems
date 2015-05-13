@@ -1,0 +1,13 @@
+%% realizable
+
+gtrans(ready, (c, s, createtcp), ready1).
+
+gtrans(ready1, (s, c, ack), ready).
+
+gtrans(start, (s, c, ready), ready).
+gtrans(start, (s, c, cnotsupport), done).
+
+peer(s).
+peer(c).
+
+start(start).

@@ -1,0 +1,1468 @@
+-- @nsURI WFG=http://workflowgraph/1.0.3
+-- @nsURI SYS=http://systembehavior/1.0.2
+-- @nsURI PEER=http://peerbehavior/1.0
+
+
+--#######################################################
+--########  it has still the bag @exploreNode() #########
+--########  whith cycles, iterate forever. ##############
+--######## next version has anymore this bag  ###########
+--#######################################################
+
+
+module inner;
+create OUT : PEER, OUT1 : SYS from IN : WFG;
+
+helper def : allPeers : Sequence(PEER!Peer)  = Sequence{};
+helper def : levelOfNesting : Integer  = 0;
+
+helper def : mappingCT_SYStrans : Map (SYS!Send, WFG!MessageExchange) = Map{};
+helper def : mappingSYSstate_Gateway : Map (SYS!PeerSituation, WFG!Gateway) = Map{};
+
+-- used for fork and loop
+helper def : gatewaysToExplode : Sequence (WFG!Gateway) = Sequence{};
+helper def : starting_loops : Sequence (WFG!Gateway) = Sequence{};
+helper def : starting_loops_successors : Map (WFG!Gateway, Set(String)) = Map{};
+helper def : newSysStartingLoops : Map (WFG!Gateway, SYS!PeerSituation) = Map{};
+
+--used to know when merge parallelism
+helper def : currentMergeParallelExecution : WFG!Gateway = OclUndefined;
+helper def : sys_states_to_delete : Set(SYS!PeerSituation) = Set{};
+helper def : indexs : Sequence(Integer) = Sequence{}; 
+
+-- the key is set of visited CT. in case of gateway, at the end it will contain just the end gateway,
+-- deleting all the CTs between the start and end (@see cleanCompletedGateways)
+helper def : mappingSuperSysState_VisitedCt : Map(Set(WFG!WfgNode), SYS!PeerSituation) = Map{};
+
+
+-- ========================================
+ 
+rule WFG2SYS
+	{
+	 from
+	 	 wfg : WFG!WorkFlowGraph
+	  to
+	     sys : SYS!SystemBehavior
+		 	(
+		  	 peers <-  wfg.participants -> collect(participant | thisModule.Participant2Peer(participant)) ,
+		  	 --initialState <- thisModule.createInitialPeerSituation(wfg),
+			 transitions <- wfg.actions -> collect(messExch | thisModule.MessEx2SysTr(messExch))
+		 	)
+	  do
+	  {
+	   thisModule.gatewaysToExplode <- wfg.gateways->select(gat | gat.fork);
+	   -- start transforming from the inner gateway
+	   if (thisModule.getInnerGateway() <> OclUndefined)
+	   		{ thisModule.Gateway2SysPeerSituation(thisModule.getInnerGateway()); }
+	   -- connect the outside part
+	   if (not wfg.startingNode.oclIsKindOf(WFG!Gateway))
+	   		{ thisModule.connectSysStates(wfg.startingNode, wfg.startingNode.successor); }
+	   
+	   -- identify the initial situation
+	   if (wfg.startingNode.oclIsTypeOf(WFG!MessageExchange))
+		 			{ sys.initialState <- thisModule.MessEx2SysTr(wfg.startingNode).from; }
+		else
+					{
+						if (wfg.startingNode.oclIsKindOf(WFG!Gateway))
+							{ sys.initialState <- thisModule.Gateway2SysPeerSituation(wfg.startingNode) ;
+							  --sys.initialState.toDOTforGraphViz();   print final graph
+							}
+	  				}
+	   for (peerState in sys.initialState.states)
+	   		{peerState.refImmediateComposite().initialState <- peerState;}
+	   sys.states <- SYS!PeerSituation.allInstances();
+	   sys.transitions <- SYS!Transition.allInstances();
+	}
+}
+
+
+-- create new states for all the peers, but not for those in peer_to_ignore.
+-- peer_to_ignore could be also an empty  Sequence{}
+helper def : createPeersState(peer_to_ignore : Sequence(PEER!PEER)) : Sequence(PEER!State)  =
+	thisModule.allPeers -> collect(peer | 
+		                                 if (peer_to_ignore.size()=0)
+		                                 	then thisModule.newPeerState(peer)
+										 else
+											if (peer_to_ignore.excludes(peer))
+		 										then
+													thisModule.newPeerState(peer)
+												else
+												OclUndefined
+											 endif
+										 endif
+								  );
+
+lazy rule newPeerState
+{
+	from
+		peer : PEER!Peer
+	to
+		state : PEER!State ()
+	do
+		{peer.states <- peer.states.including(state);}
+}
+
+
+
+unique lazy rule Participant2Peer
+{
+	from
+		participant : WFG!Participant
+	to 
+		peer : PEER!Peer
+		(
+		 id <- participant.id,
+		 name <- participant.name
+		)
+	do
+	{thisModule.allPeers <- thisModule.allPeers.append(thisModule.Participant2Peer(participant)); }
+}
+
+
+-- ===========================================================
+-- ==========  GATEWAY  ======================================
+-- ===========================================================
+	
+unique lazy rule Gateway2SysPeerSituation
+{
+	from
+		gat: WFG!Gateway
+	to
+		peerSitBefore : SYS!PeerSituation
+			( states <- thisModule.createPeersState(Sequence{})) 
+	do
+		{
+		 thisModule.mappingSYSstate_Gateway <- thisModule.mappingSYSstate_Gateway.including(peerSitBefore, gat);
+		 if (gat.oclIsTypeOf(WFG!ExclusiveChoice) and gat.fork)
+		 	{ -- connect branches
+		 	if ( gat.predecessors.includes(gat.refMerge))
+		 	 	{ -- LOOP!!!
+		 		 thisModule.newSysStartingLoops <- thisModule.newSysStartingLoops.including(gat, peerSitBefore); 
+		 	 	 let m : Sequence(String) = gat.exploreNode()
+				  in m;
+		 		 thisModule.starting_loops_successors <- thisModule.starting_loops_successors.including(gat, gat.exploreNode());
+		 	 	}
+		 	 for (succ in gat.successors)
+				{thisModule.forkExclusiveChoiceCT2SysTransitions(gat, succ);}
+		 	}
+		 else if (gat.oclIsTypeOf(WFG!ParallelExecution) and gat.fork)
+		 		{ -- explore parallel branches
+		 	 	 thisModule.forkParallelExecutionCT2SysTransitions(gat);
+		 		}
+		}
+}	
+
+  
+
+-- ===========================================================
+-- ==========  CONNECT TRANSFORMED BLOCKS  ===================
+-- ===========================================================
+
+	
+rule twoWfgNodes2SysTransition (pre : WFG!WfgNode, suc : WFG!WfgNode)
+{  
+ using 
+ 	{
+ 	 sys_from : SYS!PeerSituation = OclUndefined;
+     sys_to : SYS!PeerSituation = OclUndefined;
+ 	}	
+
+  do 
+	{
+	 if (pre.oclIsTypeOf(WFG!MessageExchange))
+	 	{ sys_from <- thisModule.MessEx2SysTr(pre).to ; }
+	 else
+	 	{
+		  if (pre.oclIsKindOf(WFG!Gateway))
+		  	{ sys_from <- thisModule.Gateway2SysPeerSituation(pre) ;}
+	 	}
+	
+	if (suc.oclIsTypeOf(WFG!MessageExchange))
+		 {sys_to <- thisModule.MessEx2SysTr(suc).from;}
+	else
+		{
+		 if (suc.oclIsKindOf(WFG!Gateway))
+		 	{ sys_to <- thisModule.Gateway2SysPeerSituation(suc);}
+		}
+	 thisModule.internalSysTransition(sys_from, sys_to);
+	}
+
+}	
+	
+
+rule connectPeersStates (from_sys_state : SYS!PeerSituation, to_sys_state : SYS!PeerSituation,
+						 peer1 : PEER!Peer,  peer2 : PEER!Peer 
+   					    )
+{
+	do
+		{
+		 for (state1 in from_sys_state.states)
+			 	{
+		 	     if (state1.refImmediateComposite() <> peer1  and
+		 	     	 state1.refImmediateComposite() <> peer2
+		 	        )
+		 	       { 
+					 	 thisModule.connectPeerStates(state1, 
+					 							      to_sys_state.states -> select (state2 | state2.refImmediateComposite() = state1.refImmediateComposite()).first(),
+													  state1.refImmediateComposite()
+													 );
+		 	       }
+			 	} 
+		}
+}
+ 
+
+
+
+
+
+-- ===========================================================
+-- ==========  EXCLUSIVE CHOICE =========================
+-- ===========================================================
+
+ rule forkExclusiveChoiceCT2SysTransitions (pre : WFG!ExclusiveChoice, suc : WFG!WfgNode)
+{ 
+	
+
+	do
+		{
+		 thisModule.levelOfNesting <- thisModule.levelOfNesting+1;
+		 thisModule.twoWfgNodes2SysTransition(pre, suc);
+		 if (suc.oclIsTypeOf(WFG!MessageExchange))
+		 	{-- continue the transformation inside the exclusive gateway
+		     thisModule.connectSysStates(suc, suc.successor);
+		 	}
+		 if (pre.successors.size() = thisModule.levelOfNesting)
+		    { -- all branches done, go haed
+		 	    thisModule.levelOfNesting <- 0;
+		        -- it can have just 1 successor, or 2 if it's a loop
+				if ( pre.refMerge.successors -> size() > 1 ) -- =2
+					{
+					 if ( pre.refMerge.successors.first() <> pre)
+					 	{ -- first goes on, second come back (loop)
+					 	 thisModule.connectSysStates(pre.refMerge, pre.refMerge.successors.first());
+					 	}
+					 else
+					 	{ -- second goes on, first come back (loop)
+					 	 thisModule.connectSysStates(pre.refMerge, pre.refMerge.successors.at(2));
+					 	}
+					 if (pre.refMerge.successors.at(2) = pre or pre.refMerge.successors.first() = pre )
+					 	{
+							 let loop : SYS!PeerSituation = 
+							 	 		thisModule.mappingSYSstate_Gateway.getKeys() 
+								 			-> select(key | thisModule.mappingSYSstate_Gateway.get(key) = pre).first()
+									in thisModule.loopSysTransition(thisModule.Gateway2SysPeerSituation(pre.refMerge), loop);
+					 	}
+					}
+				else
+					{ thisModule.connectSysStates(pre.refMerge, pre.refMerge.successors.first()); }
+		        
+		      
+		 		-- continue with the outer gateway
+				thisModule.gatewaysToExplode <- thisModule.gatewaysToExplode.excluding(pre);
+				 if (thisModule.getInnerGateway() <> OclUndefined)
+			   		{ 
+				 	 thisModule.Gateway2SysPeerSituation(thisModule.getInnerGateway()); 
+					 --connected to an already transformed block, now I should connect also the right side
+				  	-- thisModule.connectSysStates(pre.refImmediateComposite().innerGateway.refMerge, pre.refImmediateComposite().innerGateway.refMerge.successors.first());   
+			   		}
+		    }
+		}
+}
+
+-- ===========================================================
+-- ================  PARALLEL  =======================================
+-- ===========================================================
+ rule forkParallelExecutionCT2SysTransitions (pre : WFG!ParallelExecution)
+{ 
+	
+	do
+		{
+		 thisModule.currentMergeParallelExecution <- pre.refMerge;
+		 for (suc in pre.successors)
+			 {
+			  thisModule.twoWfgNodes2SysTransition(pre, suc);
+			  if (suc.oclIsTypeOf(WFG!MessageExchange))
+			 	{-- continue the transformation inside as was an exclusive gateway
+			     thisModule.connectSysStates(suc, suc.successor);
+			 	}
+			 }
+		
+		 -- all branches done, go haed
+		 thisModule.connectSysStates(pre.refMerge, pre.refMerge.successors.first());
+		 
+		 -- TO DELETE,JUST FOR DEBUG TO REBUILD STRUCTURE SU PAPER
+		
+		 for (sysState in thisModule.getNextSysStates(thisModule.Gateway2SysPeerSituation(pre).outcoming))
+		 	{
+		 	 -- build new superSysStates, made by union of parallel states
+		     thisModule.superSysState(sysState, 
+		 						      thisModule.Gateway2SysPeerSituation(pre),
+								      OclUndefined,
+									  Sequence{}
+								     );
+		 	}
+		 	
+	
+		 thisModule.delete_unused_object();
+	
+		 
+		 thisModule.currentMergeParallelExecution <- OclUndefined;
+		 thisModule.mappingSuperSysState_VisitedCt <- Map{};
+		 -- continue with the outer gateway
+		 thisModule.gatewaysToExplode <- thisModule.gatewaysToExplode.excluding(pre);
+		 if (thisModule.getInnerGateway() <> OclUndefined)
+		 		{ thisModule.Gateway2SysPeerSituation(thisModule.getInnerGateway()); }
+		    
+		}
+}
+
+
+
+rule getNextSysStates(transitions : Sequence(Set(SYS!Transitions)))
+{
+	using
+		{ parallel_branches : Sequence(Set(SYS!Transitions)) = Sequence{};   
+		  nextSysStates : Sequence(Sequence(SYS!PeerSituation)) = Sequence{};   
+		}
+ do
+ 	{
+ 	 thisModule.indexs <- Sequence{};
+ 	 for (init_trans in transitions)
+		 	{
+ 	 	     -- if from sysState X 
+		 	 parallel_branches <- parallel_branches.including(init_trans.exploreInternal()->collect(trans | trans.from)->asSet().asSequence());
+		 	 thisModule.indexs <- thisModule.indexs.including(1);
+		 	}
+ 	 nextSysStates <- thisModule.iterateOptions(parallel_branches, nextSysStates);
+ 	 nextSysStates;
+ 	}	
+}
+
+
+rule iterateOptions(parallel_branches : Sequence(Sequence(SYS!PeerSituation)),   
+		  		nextSysStates : Sequence(Sequence(SYS!PeerSituation))
+		  	   )
+{
+ do
+ 	{
+ 	 nextSysStates <- nextSysStates.including(thisModule.getMixedState(parallel_branches));
+ 	 if (thisModule.indexs.at(1) <= parallel_branches.at(1).size())
+ 	 	{ nextSysStates <- thisModule.iterateOptions(parallel_branches, nextSysStates); }
+ 	 nextSysStates;
+ 	}
+}
+
+rule getMixedState(parallel_branches : Sequence(Sequence(SYS!PeerSituation)))
+{
+	using {counter : Integer = 1;
+	       superState : Sequence(SYS!PeerSituation) = Sequence{};
+	      }
+do
+	{
+	 for (branch in parallel_branches)
+	 	{
+	 	 superState <- superState.including(parallel_branches.at(counter).at(thisModule.indexs.at(counter)));
+	 	 counter <- counter+1;
+	 	}
+	 thisModule.prepare_next_mix(parallel_branches, parallel_branches.size());
+	 superState;
+	}
+}
+
+
+	
+rule prepare_next_mix(parallel_branches : Sequence(Sequence(SYS!PeerSituation)),
+					       num_branch : Integer
+					       )  
+{
+do
+  {
+	 if (thisModule.indexs.at(num_branch) < parallel_branches.at(num_branch).size())
+	 	{
+	 	 if (num_branch > 1)
+	 	 	{thisModule.indexs <- thisModule.indexs.subSequence(1, num_branch-1)
+		 					  .including(thisModule.indexs.at(num_branch)+1)
+							  .including(thisModule.indexs.subSequence(num_branch+1, thisModule.indexs.size())).flatten();
+	 	 	}
+	 	 else
+	 	 	{
+	 	 	 thisModule.indexs <- Sequence{thisModule.indexs.at(num_branch)+1}
+							      .including(thisModule.indexs.subSequence(num_branch+1, thisModule.indexs.size())).flatten();
+	 	 	}
+	 	}
+	 else
+	 	{
+	 	 -- reset row
+		 if (num_branch > 1)
+		     {thisModule.indexs <- thisModule.indexs.subSequence(1, num_branch-1)
+		 					  .including(1)
+							  .including(thisModule.indexs.subSequence(num_branch+1, thisModule.indexs.size())).flatten();
+		     -- shift previous row
+			 thisModule.prepare_next_mix(parallel_branches, num_branch-1);
+		     }
+		 else
+		 	{ -- out of bound, to say that it was the last
+		 	 thisModule.indexs <- Sequence{thisModule.indexs.at(num_branch)+1}
+							      .including(thisModule.indexs.subSequence(num_branch+1, thisModule.indexs.size())).flatten();
+		 	}
+	 	}
+	
+  }
+}
+
+
+helper context SYS!Transition def : exploreInternal() : Sequence(SYS!Transition) = 
+	--  TypeOf(SYS!InternalTransition)  excludes LoopTransitions (otherwise it would be KindOf)
+	if (not self.oclIsTypeOf(SYS!InternalTransition) or
+		thisModule.mappingSYSstate_Gateway.get(self.to) = thisModule.currentMergeParallelExecution or
+		thisModule.mappingSYSstate_Gateway.get(self.from) = thisModule.currentMergeParallelExecution
+	   )
+		then Sequence{self}
+		else
+			if (self.to.outcoming.size() = 0)
+				then Sequence{self} -- final state
+				else
+					self.to.outcoming -> iterate(trans; good_states: Set(SYS!Transitions) = Set{} |
+												if (thisModule.mappingSYSstate_Gateway.get(trans.to) = thisModule.currentMergeParallelExecution)
+															then good_states.including(trans)
+															else good_states.including(trans.exploreInternal()).flatten()
+												endif
+												).flatten().asSequence()
+			endif
+	endif;
+
+helper context WFG!WfgNode def : exploreNode() : Set(String) = 
+	   if (self.oclIsKindOf(WFG!Gateway))
+	   		then
+			   if (self.successors.size() = 0)
+			   		then Set{} -- final state
+					else
+						 self.successors -> iterate(node; messages: Set(String) = Set{} |
+												if (node.oclIsTypeOf(WFG!MessageExchange))
+															then messages.including('!'+node.request)
+															else messages.including(node.exploreNode()).flatten()
+												endif
+												).flatten().asSequence()
+						
+			   endif
+			else
+				if (self.successor = OclUndefined)
+					then Set{} -- final state
+					else
+						if (self.successor.oclIsTypeOf(WFG!MessageExchange))
+							then Set{self.successor.request}
+							else Set{}.including(self.successor.exploreNode()).flatten()
+						endif
+				endif
+	   endif;
+	     
+			
+
+
+lazy rule superSysState 
+{
+	from 
+		sys_sts : Sequence(SYS!PeerSituation),
+		before_sys_state : SYS!PeerSituation,
+		ct : WFG!MessageExchange,
+		visitedCts : Sequence(WFG!WfgNode)  -- used just to merge equivalent super sys states
+	
+	using
+		{
+	     new_sys_states : Sequence(SYS!PeerSituation) = Sequence{};
+	     forecast_vcts : Sequence(WFG!WfgNode)  = Sequence{}; -- to check where i am going next step
+	     gateway : WFG!Gateway = OclUndefined; -- used for internal transition, when it's a gateway
+	     sys_states : Sequence(SYS!PeerSituation) = sys_sts;
+	     from_sys_state : SYS!PeerSituation = OclUndefined;
+	     to_remove : Boolean = true;
+	     vcts : Sequence(WFG!WfgNode)  = visitedCts; -- cannot modify source visitedCts, so create a copy
+		}
+	
+	to superState : SYS!PeerSituation
+	(
+	 states <- thisModule.createPeersState(Sequence{})
+	)
+
+	do
+	{   
+	 thisModule.starting_loops = Sequence{}; -- reset starting loop, it will be fille by add_previous_visited_gateways
+		if (ct <> OclUndefined)
+			{ 
+			 vcts <- vcts.including(thisModule.add_previous_visited_gateways(ct, vcts, true)).flatten();
+			 vcts <- thisModule.cleanCompletedGateways(vcts);
+			 vcts <- vcts.including(ct);
+			 thisModule.New_MessEx2SysTr(ct, before_sys_state, superState);  
+			}
+		else
+			{ thisModule.internalSysTransition(before_sys_state, superState); } 
+		
+		
+	 
+	 for (st in sys_sts) 
+	 	{ thisModule.add_stuff_to_delete(st);  --delete old states
+	 	  if ( thisModule.mappingSYSstate_Gateway.get(st) <> OclUndefined )
+	 		 {-- i am a gateway
+			  gateway <- thisModule.mappingSYSstate_Gateway.get(st);
+			  if (gateway = thisModule.currentMergeParallelExecution )
+			  	{
+			  	 -- check4loop = false becuase, if gateway it's the current Parallel Merge, I can't for sure add a starting loop
+			  	 vcts <- vcts.including(thisModule.add_previous_visited_gateways(gateway,vcts, false)).flatten(); 
+			  	 vcts <- vcts.including(gateway);
+			 	 vcts <- thisModule.cleanCompletedGateways(vcts);
+			     if (sys_states.size()>1)   -- I put the merge Parallel Gateway only at the end, when I have no more choices
+			  		{ sys_states <- sys_states.excluding(st); }
+			  	}
+			 }
+	 	}
+	 
+	 if ( 
+		  thisModule.mappingSuperSysState_VisitedCt.get(vcts.asSet()) <> OclUndefined and
+		  thisModule.mappingSuperSysState_VisitedCt.get(vcts.asSet()) <> superState
+		)
+		  	{ -- a state X with same mine visited ct already exists. Should I connect me to it?
+             -- considering my predecessor as Father, if X is my brother, I should NOT connect to it		  	
+			 from_sys_state <- thisModule.mappingSuperSysState_VisitedCt.get(vcts.asSet());
+			 let connect : Boolean = 
+			 				if (not (before_sys_state.outcoming->collect(out | if (out.to = from_sys_state) then false else true endif).contains(false)))
+			 					then true
+								else false
+							endif
+				in
+					if (connect)
+						 -- the same source can't go to the same target with 2 different messages
+						 then
+							 if (ct <> OclUndefined)
+									then thisModule.New_MessEx2SysTr(ct, before_sys_state, from_sys_state)
+							        else thisModule.internalSysTransition(before_sys_state, from_sys_state) 
+						     endif
+					     else OclUndefined
+				   endif;
+						
+			}
+	 else
+			{ 
+			 to_remove <- false;  
+			 from_sys_state <- superState; 
+			 
+			 thisModule.mappingSuperSysState_VisitedCt <- thisModule.mappingSuperSysState_VisitedCt.including(vcts.asSet(), superState);
+			--}
+	 
+	 
+	  
+	  ----------------------------LOOP----------------------------------------------
+									   -- for each starting gateway for a LOOP, I must know if I am in the SuperSysState that maps it
+									   -- I check this comparing the next possible transitions
+									   for (str_loop in thisModule.starting_loops_successors.getKeys())
+									     {
+											    	 
+									   	
+									   	   let possibleNextTransitions : Set(String) =
+											    	 	 	 sys_states->collect(sys_st | sys_st.outcoming->select(sys_trans | sys_trans.to <> OclUndefined)).flatten()
+															 				-> collect(trs | trs.exploreInternal()).flatten().asSet()
+																			   ->select(send | send.oclIsTypeOf(SYS!Send))-> collect(t | t.message.name).asSet()
+																in possibleNextTransitions;
+									   	
+									   	
+									   	
+									   	
+									   	
+											    	 	
+											    	 	 if (thisModule.starting_loops_successors.get(str_loop).asSet()
+											    	 	 		=
+											    	 	 	 sys_states->collect(sys_st | sys_st.outcoming->select(sys_trans | sys_trans.to <> OclUndefined)).flatten()
+															 				-> collect(trs | trs.exploreInternal()).flatten().asSet()
+																				->select(send | send.oclIsTypeOf(SYS!Send))-> collect(t | t.message.name).asSet()
+											    	 	 	  
+											    	 	 	)
+															   {-- send equals
+											    	 	 	    
+															   thisModule.mappingSYSstate_Gateway <- thisModule.mappingSYSstate_Gateway.including(
+															   let gg : SYS!PeerSituation = 
+																							 	 	thisModule.newSysStartingLoops.getKeys() 
+																								 			-> select(key | not thisModule.sys_states_to_delete.includes(key) and
+																								 				            thisModule.newSysStartingLoops.get(key) = str_loop
+																								 			          ).first() 
+																													  in gg, OclUndefined); 
+															   
+															   
+															     thisModule.newSysStartingLoops <- thisModule.newSysStartingLoops.including(str_loop,superState);
+															     thisModule.mappingSYSstate_Gateway <- thisModule.mappingSYSstate_Gateway.including(superState, str_loop);
+											    	 	        }
+						 	  	           }
+			}
+			 -------------------/LOOP-------------------------------------------------------
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 for (sys_st in sys_states)
+	 	{	 
+		-- ==== from_sys_state ======
+		if ( thisModule.mappingSYSstate_Gateway.get(sys_st) <> OclUndefined )
+			 {-- i am a gateway
+			  gateway <- thisModule.mappingSYSstate_Gateway.get(sys_st);
+			 }
+					
+						 for ( trs in sys_st.outcoming -> select(sys_trans | sys_trans.to <> OclUndefined))
+						 	 	{
+						 	  	 for (trans in trs.exploreInternal())
+						 	  	     {    
+						 	  	 	   if (gateway = thisModule.currentMergeParallelExecution)
+						 	  	 	   		{ 
+						 	  	 	   	     if (trans.oclIsTypeOf(SYS!Send))
+							 	  	 	   		{ thisModule.New_MessEx2SysTr(thisModule.mappingCT_SYStrans.get(trans), from_sys_state, trans.to); }
+						 	  	 	   	     else
+						 	  	 	   	     	{
+						 	  	 	   	     	 if (trans.oclIsKindOf(SYS!InternalTransition))
+						 	  	 	   	     	  { thisModule.internalSysTransition(from_sys_state, trans.to); }
+						 	  	 	   	     	}
+						 	  	 	   		}
+						 	  	 	   else
+						 	  	 	   		{						 	  
+						 	  	 	   	             forecast_vcts <- vcts;
+						 	  	 	   	             forecast_vcts <-
+													 	(
+							 	  	 	   	             let new_vct : WFG!WfgNode =
+									 	  	 	   	             	if (thisModule.mappingCT_SYStrans.get(trans) <> OclUndefined)
+									 	  	 	   	             		then thisModule.mappingCT_SYStrans.get(trans)
+																		else
+																			if (thisModule.mappingSYSstate_Gateway.get(trans.to) <> OclUndefined)
+																			    then thisModule.mappingSYSstate_Gateway.get(trans.to)
+																				else OclUndefined
+																			endif
+																	endif
+															  in forecast_vcts.including(new_vct).including(thisModule.add_previous_visited_gateways(new_vct,forecast_vcts, false)).flatten()
+														  );
+						 	  	 	   	             
+						 	  	 	   	             forecast_vcts <- thisModule.cleanCompletedGateways(forecast_vcts);
+													 new_sys_states <- sys_states.excluding(sys_st);
+													 if (new_sys_states.size() = 0   or   thisModule.mappingSYSstate_Gateway.get(trans.to) <> thisModule.currentMergeParallelExecution	)
+													 	  	{
+													 	     new_sys_states <- new_sys_states.including(trans.to);
+															
+													 	     -- ====== to_sys_state =======
+															if (trans.oclIsTypeOf(SYS!Send))
+																				 	 	 	{ -- SEND
+																				 	 	 	  if (thisModule.mappingSuperSysState_VisitedCt.get(forecast_vcts.asSet()) <> OclUndefined and
+																				 	 	 	 	  thisModule.mappingSuperSysState_VisitedCt.get(vcts.asSet()) = superState
+																								 )
+																							 		{ thisModule.New_MessEx2SysTr(thisModule.mappingCT_SYStrans.get(trans), from_sys_state, thisModule.mappingSuperSysState_VisitedCt.get(forecast_vcts.asSet())); }
+																				 	 	 	  else
+																					 	 	 	   	{
+																				 	 	 	 	       if (thisModule.mappingSuperSysState_VisitedCt.get(forecast_vcts.asSet()) = OclUndefined)
+																				 	 	 	 	 	      	{ thisModule.superSysState(new_sys_states, from_sys_state, thisModule.mappingCT_SYStrans.get(trans), vcts); }
+																				 	 	 	 	       else
+																				 	 	 	 	       		{ thisModule.superSysState(new_sys_states, from_sys_state, thisModule.mappingCT_SYStrans.get(trans), vcts); }
+																				 	 	 	 	    }
+																				 	 	 	 	
+																				 	 	 	}
+															else 
+																				 	 	 	{ -- LOOP TRANSITION
+																							 if (trans.oclIsKindOf(SYS!LoopTransition))
+																							 	{
+																							 	 let loop : SYS!PeerSituation = 
+																							 	 	thisModule.newSysStartingLoops.get(thisModule.mappingSYSstate_Gateway.get(trans.to))
+																							 	 	
+																							 	 	--thisModule.mappingSYSstate_Gateway.getKeys() 
+																								 	--		-> select(key | not thisModule.sys_states_to_delete.includes(key) and
+																								 	--			            thisModule.mappingSYSstate_Gateway.get(key) = thisModule.mappingSYSstate_Gateway.get(trans.to)
+																								 	--		          ).first() 
+																													  in thisModule.loopSysTransition(from_sys_state, loop);
+																							 	}
+																							 
+																							  else
+																							    { -- INTERNAL TRANSITION
+																							 	 	 	 if (trans.oclIsKindOf(SYS!InternalTransition))
+																							 	 	 	 	{
+																								 	 	 	 if (thisModule.mappingSuperSysState_VisitedCt.get(forecast_vcts.asSet()) = OclUndefined)
+																								 	 	 	 	  	{ thisModule.superSysState(new_sys_states, from_sys_state, OclUndefined, vcts);}
+																											 else
+																												  	{
+																													 if (thisModule.mappingSuperSysState_VisitedCt.get(forecast_vcts.asSet()) <> OclUndefined and
+																							 	 	 	 	 	  		 thisModule.mappingSuperSysState_VisitedCt.get(vcts.asSet()) = superState
+																												 		)
+																														   { thisModule.internalSysTransition(from_sys_state, thisModule.mappingSuperSysState_VisitedCt.get(forecast_vcts.asSet()));  }
+																												  	}
+																							 	 	 	 	  }
+																							    }
+																				 	 	 	 }
+									 	  	           }
+													 else
+															{-- reached an end of the parallel branch, just explore the others
+															 sys_states <- sys_states.excluding(sys_st); 
+															}
+						 	  	      		}
+						 	  	     }
+						 	 	}
+	 	}
+	 if (to_remove)
+	 	{ thisModule.add_stuff_to_delete(superState);}
+	}
+}
+		 	  	 	
+
+
+
+rule cleanCompletedGateways(visitedCT : Sequence(WFG!WfgNode))
+{
+ using {gatewayToClean : WFG!Gateway = OclUndefined;}
+ do
+ 	{
+ 	 gatewayToClean <- thisModule.getInnerGatewayToClear(visitedCT);
+ 	 if (gatewayToClean <> OclUndefined)
+		 	 {
+ 	 	        for (node in gatewayToClean.refFork.getBranches()->collect(branch | branch.nodes).flatten())
+					{
+ 	 	        	 if (true or not node.oclIsKindOf(WFG!Gateway)) 
+ 	 	        	   { visitedCT <- visitedCT.excluding(node); }
+ 	 	            }
+ 	 	        visitedCT <- visitedCT.excluding(gatewayToClean.refFork);
+		 	 	if (thisModule.getInnerGatewayToClear(visitedCT) <> OclUndefined)
+		 	 		{ visitedCT <- thisModule.cleanCompletedGateways(visitedCT);}
+		 	 }
+ 	 visitedCT;
+ 	}
+}
+
+
+-- CT1-GTW3f-CT2-GTW2f-GTW1f-GTW1m-GTW2m-GTW3m  gives GTW2merge to clean
+helper def: getInnerGatewayToClear(visitedCT : Sequence(WFG!WfgNode)) : WFG!Gateway =
+	visitedCT -> select(gtw | gtw.oclIsKindOf(WFG!Gateway)) ->
+			select(gtwm | gtwm.merge) ->
+			   select(inngtw | visitedCT.includes(inngtw.refFork)).first();
+			
+
+-- I have all the message available only during the first call, after that
+-- I can add the new SysState of that gateway, but they are not completed, so some messages 
+-- could be missing during the execution
+rule add_startingLoopGateway(gateway : WFG!Gateway)
+{
+ do
+ 	{
+ 	 -- if it's a starting loop, I must keep trace of it
+	 if (gateway.oclIsTypeOf(WFG!ExclusiveChoice))
+	   {
+		 if (gateway.fork and gateway.predecessors.includes(gateway.refMerge))
+		     { 
+		 	  if (not thisModule.starting_loops.includes(gateway))
+		 	  	{
+		 	  	 for (sysState_loop in thisModule.mappingSYSstate_Gateway.getKeys())
+					{
+					 if (thisModule.mappingSYSstate_Gateway.get(sysState_loop) = gateway and
+						 not thisModule.sys_states_to_delete.includes(gateway) 
+					    )
+					 	{ thisModule.starting_loops <- thisModule.starting_loops.including(gateway); }
+		 	  	    }
+		        }
+	         }
+ 	    }
+     }
+}
+
+
+rule add_previous_visited_gateways(node : WFG!WfgNode, visitedCT: Sequence(WFG!WfgNode), check4loop : Boolean )
+{
+ using {result : Sequence(WFG!WfgNode) = Sequence{};
+        gateway: WFG!Gateway = OclUndefined;
+       }
+ do
+ {
+ 	if (node = OclUndefined)
+ 		{OclUndefined;}
+ 	else
+ 		{
+			if (node.oclIsKindOf(WFG!MessageExchange))
+				{ 
+				 if (node.predecessor.oclIsKindOf(WFG!Gateway) and node.predecessor <> OclUndefined)
+				 	{
+				 	 gateway <- node.predecessor;
+				 	 -- ##visitedCT.includes(gateway.refFork)##  useless since a predecessor of a CT it's for sure of that branch
+					-- useless -> if (gateway.fork or visitedCT.includes(gateway.refFork) )
+					--  {
+						 if (check4loop)
+						  	{ thisModule.add_startingLoopGateway(gateway);  }
+						 result <- result.prepend(gateway);
+						 
+						 if ( thisModule.add_previous_visited_gateways(gateway, visitedCT, check4loop).size() > 0 )
+						 	{
+						 	 result <- result.prepend( thisModule.add_previous_visited_gateways(gateway,visitedCT, check4loop)).flatten();
+						 	}			 
+				--	  }
+				 	}
+				}
+			    else
+			    	{
+			    	 if (node.oclIsKindOf(WFG!Gateway) and node.predecessors.size()>0)
+			    	 	{
+			    	 	 for (pre in node.predecessors)
+			    	 	 	{
+			    	 	 	 if (pre.oclIsKindOf(WFG!Gateway))
+			    	 	 	 	{
+			    	 	 	 	     gateway <- pre;
+			    	 	 	 	     -- ##visitedCT.includes(gateway.refFork)##  because I can have an XOR ending gateway
+									 --        of another branch not mine
+									 --##gateway <> node.refFork##  because I can have a start Xor connected directly to the End
+			    	 	 	 	     if ( (gateway.fork and not visitedCT.includes(gateway))
+											or visitedCT.includes(gateway.refFork) 
+										)
+			    	 	 	 	       {
+										 if (check4loop)
+										  	{ thisModule.add_startingLoopGateway(gateway);  }
+											 	 
+						    	 	 	 result <- result.prepend(gateway);
+											 
+						    	 	 	 if (thisModule.add_previous_visited_gateways(gateway,visitedCT, check4loop).size() > 0)
+						    	 	 	 	{
+							    	 	 	 	for (r in (
+									    	 	 	 let res : Sequence(WFG!WfgNode) = thisModule.add_previous_visited_gateways(gateway,visitedCT, check4loop) 
+													 in 
+									    	 	 	    if ( res.size() > 0 )
+											 			  then res
+									    	 	 	      else OclUndefined
+														endif).flatten()
+													)
+							    	 	 	 		{
+							    	 	 	 		 gateway <- r;
+							    	 	 	 		 if ((gateway.fork and gateway <> node.refFork) or visitedCT.includes(gateway.refFork) )
+							    	 	 	 		  {
+								    	 	 	 	     if (check4loop)
+							  								{ thisModule.add_startingLoopGateway(gateway);  }				    	 	 	 		 
+								    	 	 	 		  result <- result.prepend(gateway);
+							    	 	 	 		  }
+							    	 	 	 		}
+						    	 	 	 	}
+			    	 	 	 	       }
+			    	 	 	 	}
+			    	 	 	}
+			    	 	}
+		 			}
+				result;
+		 }
+    }
+}
+
+rule add_stuff_to_delete(sys_st : SYS!PeerSituation)
+{
+ do
+ {
+ 
+   thisModule.sys_states_to_delete <- thisModule.sys_states_to_delete.including(sys_st);
+ 		
+ }
+}
+
+
+
+
+rule delete_unused_object()
+{
+ do
+ {
+  --thisModule.sys_trans_to_delete -> iterate(o; n: Integer = 0 |o.delete());
+  for (s in thisModule.sys_states_to_delete) 
+  	{ s.deleteCascade(); }
+  --thisModule.peer_states_to_delete -> iterate(o; n: Integer = 0 |o.delete());
+  --thisModule.peer_trans_to_delete -> iterate(o; n: Integer = 0 |o.delete());
+ }
+}
+
+
+
+lazy rule internalSysTransition
+{
+ from
+ 	pre : SYS!PeerSituation,
+	suc : SYS!PeerSituation
+to
+	int_trans : SYS!InternalTransition
+	(
+	 from <- pre,
+	 to <- suc
+	)
+do {
+	thisModule.connectPeersStates(pre, suc);
+    }
+}
+
+lazy rule loopSysTransition
+{
+ from
+ 	pre : SYS!PeerSituation,
+	suc : SYS!PeerSituation
+to
+	int_trans : SYS!LoopTransition
+	(
+	 from <- pre,
+	 to <- suc
+	)
+do {
+	thisModule.connectPeersStates(pre, suc);
+    }
+}
+
+
+
+
+
+-- ===========================================================
+-- ===========================================================
+-- ===========================================================
+
+
+	
+ rule sequentialCT2SysTransition  (pre : WFG!WfgNode, suc : WFG!MessageExchange)
+{
+ do
+	{
+ 	 thisModule.twoWfgNodes2SysTransition(pre, suc);
+ 	 -- continue the transformation of sequential MessageExchange components
+ 	 thisModule.connectSysStates(suc, suc.successor);
+	}
+}
+
+
+ 
+-- ===========================================================
+-- ==========  GENERAL  ======================================
+-- ===========================================================
+
+helper def : connectSysStates(pre : WFG!WfgNode, succ : WFG!WfgNode) : SYS!Transition =
+	if (succ = OclUndefined)
+		then
+			OclUndefined
+	else
+			if (succ.oclIsTypeOf(WFG!MessageExchange))     
+				 then  -- simple sequential
+						 thisModule.sequentialCT2SysTransition(pre, succ)
+				 else
+				 	 thisModule.twoWfgNodes2SysTransition(pre, succ)
+			endif
+	endif;
+
+
+ 
+
+
+
+
+
+-- ===========================================================
+-- ==========  MESSAGE EXCHANGE  ======================================
+-- ===========================================================
+
+helper def : MessEx2SysTr(ct : WFG!MessageExchange) : SYS!Send =
+  if (ct.synchResponse <> '')
+  	then  thisModule.MessEx2SysTr_withResp(ct)
+	else  thisModule.MessEx2SysTr_withoutResp(ct)
+  endif;
+
+	
+unique lazy rule MessEx2SysTr_withResp
+{
+ from 
+  		ct : WFG!MessageExchange
+  	to 
+	
+		sysTransition : SYS!Send 
+		(
+		 source <- thisModule.Participant2Peer(ct.sender),
+		 target <- thisModule.Participant2Peer(ct.receiver)
+		 ),
+	    
+		-- === REQUEST ===
+		senderState0 : PEER!State (),
+		senderState1 : PEER!State (),
+		
+		senderTransSend : PEER!Send 
+			(
+			 from <- senderState0,	
+			 to <- senderState1
+			),
+			
+		receiverState0 : PEER!State (),
+		receiverState1 : PEER!State (),
+		
+		receiverTransReceive : PEER!Receive
+			(
+			 from <- receiverState0,	
+			 to <- receiverState1
+			),
+			
+		-- === RESPONSE ===
+		senderState2 : PEER!State (),
+		
+		senderTransReceive : PEER!Receive 
+			(
+			 from <- senderState1,
+			 to <- senderState2
+			),
+		
+		receiverState2 : PEER!State ( ),
+		
+		receiverTransSend : PEER!Send 
+			(
+			 from <- receiverState1,
+			 to <- receiverState2
+			),
+		
+		-- === SYS ===
+		peerSitBefore : SYS!PeerSituation 
+			(states <- thisModule.createPeersState(Sequence{sysTransition.source, sysTransition.target}, ct)
+								  .append(senderState0).append(receiverState0)),
+		
+		peerSitAfter  : SYS!PeerSituation
+			(states <- thisModule.createPeersState(Sequence{sysTransition.source, sysTransition.target}, ct)
+								  .append(senderState2).append(receiverState2))
+	do
+		{
+		 
+		 thisModule.mappingCT_SYStrans <- thisModule.mappingCT_SYStrans.including(sysTransition, ct); -- I need thees later, for the parallel
+		 sysTransition.from <- peerSitBefore;
+		 sysTransition.to <- peerSitAfter;
+		 sysTransition.source.states <- sysTransition.source.states.including(senderState0).including(senderState1).including(senderState2);
+		 sysTransition.target.states <- sysTransition.target.states.including(receiverState0).including(receiverState1).including(receiverState2);
+		 
+		 -- fill peers transitions
+		 sysTransition.source.transictions <- sysTransition.source.transictions.append(senderTransSend);
+		 sysTransition.target.transictions <- sysTransition.target.transictions.append(receiverTransReceive);
+		 sysTransition.source.transictions <- sysTransition.source.transictions.append(senderTransReceive);
+		 sysTransition.target.transictions <- sysTransition.target.transictions.append(receiverTransSend);
+		 
+		  --sender.out <- request
+		 if ( sysTransition.source.getMessOut(ct.request) <> OclUndefined) 
+				{ --OclUndefined;
+				 sysTransition.message <-  sysTransition.source.getMessOut(ct.request);
+				 senderTransSend.message <- sysTransition.source.getMessOut(ct.request);
+				}
+			else 
+				{ sysTransition.source.out <- thisModule.message2TransOut(ct.request) ;
+				  sysTransition.message <- sysTransition.source.out.last();
+				  senderTransSend.message <- sysTransition.source.out.last();
+				}
+			
+			--receiver.in <- request
+			if (sysTransition.target.getMessIn(ct.request) <> OclUndefined)
+				{--OclUndefined;
+				 receiverTransReceive.message <- sysTransition.target.getMessIn(ct.request);
+				}
+			else
+				{
+				 sysTransition.target.in <- thisModule.message2TransIn(ct.request);
+				 receiverTransReceive.message <- sysTransition.target.in.last();
+				}
+			-- ===== RESPONSE ==== 
+			-- COLLEGARE GLI STATI DEI PEER NON INVOLTI
+			--sender.in <- response
+			if ( sysTransition.source.getMessIn(ct.synchResponse) <> OclUndefined) 
+				{-- OclUndefined;
+				  senderTransReceive.message <- sysTransition.source.getMessIn(ct.synchResponse);
+				}
+			else 
+				{ sysTransition.source.in <- thisModule.message2TransIn(ct.synchResponse) ;
+				  --sysTransition.message <- sysTransition.source.in.last();
+				  senderTransReceive.message <- sysTransition.source.in.last();
+				}
+			
+			--receiver.out <- response
+			if (sysTransition.target.getMessOut(ct.synchResponse) <> OclUndefined)
+				{OclUndefined;
+				 receiverTransSend.message <- sysTransition.target.getMessOut(ct.synchResponse);
+				}
+			else
+				{sysTransition.target.out <- thisModule.message2TransOut(ct.synchResponse);
+				 receiverTransSend.message <- sysTransition.target.out.last();
+				}
+			
+			-- connect all the other Peers not involved, with an internal transition
+			thisModule.connectPeersStates(peerSitBefore, peerSitAfter, sysTransition.source, sysTransition.target);
+			}	
+ }
+
+
+
+unique lazy rule MessEx2SysTr_withoutResp
+{
+ from 
+  		ct : WFG!MessageExchange
+  	to 
+	
+		sysTransition : SYS!Send 
+		(
+		 source <- thisModule.Participant2Peer(ct.sender),
+		 target <- thisModule.Participant2Peer(ct.receiver)
+		 ),
+	    
+		-- === REQUEST ===
+		senderState0 : PEER!State (),
+		senderState1 : PEER!State (),
+		
+		senderTransSend : PEER!Send 
+			(
+			 from <- senderState0,	
+			 to <- senderState1
+			),
+			
+		receiverState0 : PEER!State (),
+		receiverState1 : PEER!State (),
+		
+		receiverTransReceive : PEER!Receive
+			(
+			 from <- receiverState0,	
+			 to <- receiverState1
+			),
+		
+		-- === SYS ===
+		peerSitBefore : SYS!PeerSituation 
+			(states <- thisModule.createPeersState(Sequence{sysTransition.source, sysTransition.target}, ct)
+								  .append(senderState0).append(receiverState0)),
+		
+		peerSitAfter  : SYS!PeerSituation
+			(states <- thisModule.createPeersState(Sequence{sysTransition.source, sysTransition.target}, ct)
+								  .append(senderState1).append(receiverState1))
+	do
+		{
+		 
+		 thisModule.mappingCT_SYStrans <- thisModule.mappingCT_SYStrans.including(sysTransition, ct); -- I need thees later, for the parallel
+		 sysTransition.from <- peerSitBefore;
+		 sysTransition.to <- peerSitAfter;
+		 sysTransition.source.states <- sysTransition.source.states.including(senderState0).including(senderState1);
+		 sysTransition.target.states <- sysTransition.target.states.including(receiverState0).including(receiverState1);
+		 
+		 -- fill peers transitions
+		 sysTransition.source.transictions <- sysTransition.source.transictions.append(senderTransSend);
+		 sysTransition.target.transictions <- sysTransition.target.transictions.append(receiverTransReceive);
+		 
+		  --sender.out <- request
+		 if ( sysTransition.source.getMessOut(ct.request) <> OclUndefined) 
+				{ --OclUndefined;
+				 sysTransition.message <-  sysTransition.source.getMessOut(ct.request);
+				 senderTransSend.message <- sysTransition.source.getMessOut(ct.request);
+				}
+			else 
+				{ sysTransition.source.out <- thisModule.message2TransOut(ct.request) ;
+				  sysTransition.message <- sysTransition.source.out.last();
+				  senderTransSend.message <- sysTransition.source.out.last();
+				}
+			
+			--receiver.in <- request
+			if (sysTransition.target.getMessIn(ct.request) <> OclUndefined)
+				{--OclUndefined;
+				 receiverTransReceive.message <- sysTransition.target.getMessIn(ct.request);
+				}
+			else
+				{
+				 sysTransition.target.in <- thisModule.message2TransIn(ct.request);
+				 receiverTransReceive.message <- sysTransition.target.in.last();
+				}
+			
+			-- connect all the other Peers not involved, with an internal transition
+			thisModule.connectPeersStates(peerSitBefore, peerSitAfter, sysTransition.source, sysTransition.target);
+			}	
+ }
+
+ helper def : New_MessEx2SysTr(ct : WFG!MessageExchange,
+	                          peerSitBefore : SYS!PeerSituation, 
+		                      peerSitAfter : SYS!PeerSituation
+							 ) : SYS!Send =
+  if (ct.synchResponse <> '')
+  	then  thisModule.New_MessEx2SysTr_withResp(ct, peerSitBefore, peerSitAfter)
+	else  thisModule.New_MessEx2SysTr_withoutResp(ct, peerSitBefore, peerSitAfter)
+  endif;
+	
+
+ lazy rule New_MessEx2SysTr_withResp
+ {
+ from 
+  		ct : WFG!MessageExchange,
+		peerSitBefore : SYS!PeerSituation, 
+		peerSitAfter : SYS!PeerSituation 
+  	to 
+	
+		sysTransition : SYS!Send 
+		(
+		 source <- thisModule.Participant2Peer(ct.sender),
+		 target <- thisModule.Participant2Peer(ct.receiver)
+		 ),
+	    
+		-- === REQUEST ===
+--		senderState0 : PEER!State (),
+		senderState1 : PEER!State (),
+		
+		senderTransSend : PEER!Send 
+			(
+			 from <- peerSitBefore.states->select(state | state.refImmediateComposite() = sysTransition.source).first(),	
+			 to <- senderState1
+			),
+			
+--		receiverState0 : PEER!State (),
+		receiverState1 : PEER!State (),
+		
+		receiverTransReceive : PEER!Receive
+			(
+			 from <- peerSitBefore.states->select(state | state.refImmediateComposite() = sysTransition.target).first(),	
+			 to <- receiverState1
+			),
+			
+		-- === RESPONSE ===
+--		senderState2 : PEER!State (),
+		
+		senderTransReceive : PEER!Receive 
+			(
+			 from <- senderState1,
+			 to <- peerSitAfter.states->select(state | state.refImmediateComposite() = sysTransition.source).first()
+			),
+		
+--		receiverState2 : PEER!State ( ),
+		
+		receiverTransSend : PEER!Send 
+			(
+			 from <- receiverState1,
+			 to <- peerSitAfter.states->select(state | state.refImmediateComposite() = sysTransition.target).first()
+			)--,
+		
+		-- === SYS ===
+--		peerSitBefore : SYS!PeerSituation 
+--			(states <- thisModule.createPeersState(Sequence{sysTransition.source, sysTransition.target}, ct)
+--								  .append(senderState0).append(receiverState0)),
+		
+--		peerSitAfter  : SYS!PeerSituation
+--			(states <- thisModule.createPeersState(Sequence{sysTransition.source, sysTransition.target}, ct)
+--								  .append(senderState2).append(receiverState2))
+	do
+		{
+		 thisModule.mappingCT_SYStrans <- thisModule.mappingCT_SYStrans.including(sysTransition, ct); -- I need thees later, for the parallel
+		 sysTransition.from <- peerSitBefore;
+		 sysTransition.to <- peerSitAfter;
+		 sysTransition.source.states <- sysTransition.source.states.including(senderState1);
+		 sysTransition.target.states <- sysTransition.target.states.including(receiverState1);
+		 
+		 -- fill peers transitions
+		 sysTransition.source.transictions <- sysTransition.source.transictions.append(senderTransSend);
+		 sysTransition.target.transictions <- sysTransition.target.transictions.append(receiverTransReceive);
+		 sysTransition.source.transictions <- sysTransition.source.transictions.append(senderTransReceive);
+		 sysTransition.target.transictions <- sysTransition.target.transictions.append(receiverTransSend);
+		 
+		  --sender.out <- request
+		 if ( sysTransition.source.getMessOut(ct.request) <> OclUndefined) 
+				{ --OclUndefined;
+				 sysTransition.message <-  sysTransition.source.getMessOut(ct.request);
+				 senderTransSend.message <- sysTransition.source.getMessOut(ct.request);
+				}
+			else 
+				{ sysTransition.source.out <- thisModule.message2TransOut(ct.request) ;
+				  sysTransition.message <- sysTransition.source.out.last();
+				  senderTransSend.message <- sysTransition.source.out.last();
+				}
+			
+			--receiver.in <- request
+			if (sysTransition.target.getMessIn(ct.request) <> OclUndefined)
+				{--OclUndefined;
+				 receiverTransReceive.message <- sysTransition.target.getMessIn(ct.request);
+				}
+			else
+				{
+				 sysTransition.target.in <- thisModule.message2TransIn(ct.request);
+				 receiverTransReceive.message <- sysTransition.target.in.last();
+				}
+			-- ===== RESPONSE ==== 
+			
+			--sender.in <- response
+			if ( sysTransition.source.getMessIn(ct.synchResponse) <> OclUndefined) 
+				{-- OclUndefined;
+				  senderTransReceive.message <- sysTransition.source.getMessIn(ct.synchResponse);
+				}
+			else 
+				{ sysTransition.source.in <- thisModule.message2TransIn(ct.synchResponse) ;
+				  sysTransition.message <- sysTransition.source.in.last();
+				  senderTransReceive.message <- sysTransition.source.in.last();
+				}
+			
+			--receiver.out <- response
+			if (sysTransition.target.getMessOut(ct.synchResponse) <> OclUndefined)
+				{OclUndefined;
+				 receiverTransSend.message <- sysTransition.target.getMessOut(ct.synchResponse);
+				}
+			else
+				{sysTransition.target.out <- thisModule.message2TransOut(ct.synchResponse);
+				 receiverTransSend.message <- sysTransition.target.out.last();
+				}
+			
+			-- connect all the other Peers not involved, with an internal transition
+			thisModule.connectPeersStates(peerSitBefore, peerSitAfter, sysTransition.source, sysTransition.target);
+			}	
+ }
+ 
+ 
+ 
+ lazy rule New_MessEx2SysTr_withoutResp
+ {
+ from 
+  		ct : WFG!MessageExchange,
+		peerSitBefore : SYS!PeerSituation, 
+		peerSitAfter : SYS!PeerSituation 
+  	to 
+	
+		sysTransition : SYS!Send 
+		(
+		 source <- thisModule.Participant2Peer(ct.sender),
+		 target <- thisModule.Participant2Peer(ct.receiver)
+		 ),
+	    
+		-- === REQUEST ===
+		
+		senderTransSend : PEER!Send 
+			(
+			 from <- peerSitBefore.states->select(state | state.refImmediateComposite() = sysTransition.source).first(),	
+			 to <-    peerSitAfter.states->select(state | state.refImmediateComposite() = sysTransition.source).first()
+			),
+			
+		
+		receiverTransReceive : PEER!Receive
+			(
+			 from <- peerSitBefore.states->select(state | state.refImmediateComposite() = sysTransition.target).first(),	
+			 to <- peerSitAfter.states->select(state | state.refImmediateComposite() = sysTransition.target).first()
+			)
+			
+	do
+		{
+		-- COLLEGARE GLI STATI DEI PEER NON INVOLTI
+		 thisModule.mappingCT_SYStrans <- thisModule.mappingCT_SYStrans.including(sysTransition, ct); -- I need thees later, for the parallel
+		 sysTransition.from <- peerSitBefore;
+		 sysTransition.to <- peerSitAfter;
+		 
+		 -- fill peers transitions
+		 sysTransition.source.transictions <- sysTransition.source.transictions.append(senderTransSend);
+		 sysTransition.target.transictions <- sysTransition.target.transictions.append(receiverTransReceive);
+		 
+		  --sender.out <- request
+		 if ( sysTransition.source.getMessOut(ct.request) <> OclUndefined) 
+				{ --OclUndefined;
+				 sysTransition.message <-  sysTransition.source.getMessOut(ct.request);
+				 senderTransSend.message <- sysTransition.source.getMessOut(ct.request);
+				}
+			else 
+				{ sysTransition.source.out <- thisModule.message2TransOut(ct.request) ;
+				  sysTransition.message <- sysTransition.source.out.last();
+				  senderTransSend.message <- sysTransition.source.out.last();
+				}
+			
+			--receiver.in <- request
+			if (sysTransition.target.getMessIn(ct.request) <> OclUndefined)
+				{--OclUndefined;
+				 receiverTransReceive.message <- sysTransition.target.getMessIn(ct.request);
+				}
+			else
+				{
+				 sysTransition.target.in <- thisModule.message2TransIn(ct.request);
+				 receiverTransReceive.message <- sysTransition.target.in.last();
+				}
+			
+			-- connect all the other Peers not involved, with an internal transition
+			thisModule.connectPeersStates(peerSitBefore, peerSitAfter, sysTransition.source, sysTransition.target);
+			}
+}
+
+
+
+-- ===========================================================
+-- ==========  PEERS  ======================================
+-- ===========================================================
+
+helper context PEER!Peer def : getMessIn(mess:String) : PEER!input = 
+	self.in->select(message | message.name.substring(2, message.name.size()) = mess).first();
+		
+
+
+
+helper context PEER!Peer def : getMessOut(mess:String) : PEER!output = 
+	self.out->select(message | message.name.substring(2, message.name.size()) = mess).first();
+
+
+lazy rule message2TransIn
+{
+	from 
+		mess : String
+	to
+		trans: PEER!input
+		(name <- mess)
+}
+
+lazy rule message2TransOut
+{
+	from 
+		mess : String
+	to
+		trans: PEER!output
+		(name <- mess)
+}
+
+-- create an internal transition between 2 states of the same peer
+lazy rule connectPeerStates
+	{
+	 from
+	 	state1 : PEER!State,
+		state2 : PEER!State,
+		peer : PEER!Peer
+	to
+		intTrans : PEER!InternalTransition
+		(
+		 from <- state1,
+		 to <- state2
+		)
+	do 
+		{
+		 peer.states <- peer.states.including(state1).including(state2);
+		 peer.transictions  <- peer.transictions.including(intTrans);
+		}
+	}
+
+
+-- be careful!! You should take the most right inner Gateway, otherwise
+-- when you connect the end to its successor, could be another gateway (not inner)
+-- making start its mapping even if it's not inner. Taking the most right avoids this risk.
+-- in this version a ckeck the name, an higher String value means more right (start_4 > start_3)
+rule getInnerGateway()
+{
+	
+ using 
+ 	{
+ 	 stg : WFG!Gateway = OclUndefined;
+     containsOtherGateways : Boolean = false;
+ 	}
+ do
+  {
+   
+
+		  for (startGat in thisModule.gatewaysToExplode)
+	      	{
+	    	  containsOtherGateways <- false;
+	    	  for( branch in startGat.getBranches())
+	    	  	{
+	    		  for ( n in branch.getNodes())
+	    		  	{
+	    			  if (n.oclIsKindOf(WFG!Gateway) and  thisModule.gatewaysToExplode.includes(n))
+	    			  	{ containsOtherGateways <- true;  }
+	    		  	}
+	    	  	}
+	    	  if (not containsOtherGateways)
+	    	  	{ 
+	    	  	 if (stg = OclUndefined)
+	    	  	   { stg <- startGat; }
+	    	  	 else
+	    	  	   {
+	    	  	 	if (stg.name < startGat.name)
+	    	  	 	  {  stg <- startGat; }
+	    	  	   }
+	    	  	}
+	      	}
+	      stg;
+  }
+}
+

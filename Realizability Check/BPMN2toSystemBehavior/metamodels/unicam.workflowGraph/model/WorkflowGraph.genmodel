@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/unicam.workflowGraph/src" modelPluginID="unicam.workflowGraph"
+    modelName="WorkflowGraph" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    usedGenPackages="../../org.eclipse.bpmn2/model/BPMN20.genmodel#//bpmn2 ../../org.eclipse.bpmn2/model/BPMN20.genmodel#//di ../../org.eclipse.bpmn2/model/BPMN20.genmodel#//di.1 ../../org.eclipse.bpmn2/model/BPMN20.genmodel#//dc"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>WorkflowGraph.ecore</foreignModel>
+  <genPackages prefix="Workflowgraph" basePackage="unicam" disposableProviderFactory="true"
+      ecorePackage="WorkflowGraph.ecore#/">
+    <genClasses image="false" ecoreClass="WorkflowGraph.ecore#//WfgNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WorkflowGraph.ecore#//WfgNode/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WorkflowGraph.ecore#//WfgNode/id"/>
+      <genOperations ecoreOperation="WorkflowGraph.ecore#//WfgNode/add_set_successor">
+        <genParameters ecoreParameter="WorkflowGraph.ecore#//WfgNode/add_set_successor/node"/>
+      </genOperations>
+      <genOperations ecoreOperation="WorkflowGraph.ecore#//WfgNode/add_set_predecessor">
+        <genParameters ecoreParameter="WorkflowGraph.ecore#//WfgNode/add_set_predecessor/node"/>
+      </genOperations>
+      <genOperations ecoreOperation="WorkflowGraph.ecore#//WfgNode/remove_unset_successor">
+        <genParameters ecoreParameter="WorkflowGraph.ecore#//WfgNode/remove_unset_successor/node"/>
+      </genOperations>
+      <genOperations ecoreOperation="WorkflowGraph.ecore#//WfgNode/remove_unset_predecessor">
+        <genParameters ecoreParameter="WorkflowGraph.ecore#//WfgNode/remove_unset_predecessor/node"/>
+      </genOperations>
+      <genOperations ecoreOperation="WorkflowGraph.ecore#//WfgNode/clone"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="WorkflowGraph.ecore#//Gateway">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WorkflowGraph.ecore#//Gateway/fork"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WorkflowGraph.ecore#//Gateway/merge"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WorkflowGraph.ecore#//Gateway/refMerge"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WorkflowGraph.ecore#//Gateway/refFork"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WorkflowGraph.ecore#//Gateway/predecessors"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WorkflowGraph.ecore#//Gateway/successors"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WorkflowGraph.ecore#//Gateway/gatewayRef"/>
+      <genOperations ecoreOperation="WorkflowGraph.ecore#//Gateway/getBranches"/>
+    </genClasses>
+    <genClasses ecoreClass="WorkflowGraph.ecore#//ExclusiveChoice"/>
+    <genClasses ecoreClass="WorkflowGraph.ecore#//ParallelExecution"/>
+    <genClasses ecoreClass="WorkflowGraph.ecore#//Action">
+      <genTypeParameters ecoreTypeParameter="WorkflowGraph.ecore#//Action/GenericType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WorkflowGraph.ecore#//Action/successor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WorkflowGraph.ecore#//Action/predecessor"/>
+    </genClasses>
+    <genClasses ecoreClass="WorkflowGraph.ecore#//WorkFlowGraph">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WorkflowGraph.ecore#//WorkFlowGraph/gateways"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WorkflowGraph.ecore#//WorkFlowGraph/startingNode"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WorkflowGraph.ecore#//WorkFlowGraph/endingNode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WorkflowGraph.ecore#//WorkFlowGraph/actions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WorkflowGraph.ecore#//WorkFlowGraph/participants"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WorkflowGraph.ecore#//WorkFlowGraph/innerGateway"/>
+      <genOperations ecoreOperation="WorkflowGraph.ecore#//WorkFlowGraph/initialize"/>
+      <genOperations ecoreOperation="WorkflowGraph.ecore#//WorkFlowGraph/removeNode">
+        <genParameters ecoreParameter="WorkflowGraph.ecore#//WorkFlowGraph/removeNode/node"/>
+      </genOperations>
+      <genOperations ecoreOperation="WorkflowGraph.ecore#//WorkFlowGraph/addNode">
+        <genParameters ecoreParameter="WorkflowGraph.ecore#//WorkFlowGraph/addNode/node"/>
+      </genOperations>
+      <genOperations ecoreOperation="WorkflowGraph.ecore#//WorkFlowGraph/createNewExclusiveChoice">
+        <genParameters ecoreParameter="WorkflowGraph.ecore#//WorkFlowGraph/createNewExclusiveChoice/name"/>
+        <genParameters ecoreParameter="WorkflowGraph.ecore#//WorkFlowGraph/createNewExclusiveChoice/merge"/>
+        <genParameters ecoreParameter="WorkflowGraph.ecore#//WorkFlowGraph/createNewExclusiveChoice/fork"/>
+      </genOperations>
+      <genOperations ecoreOperation="WorkflowGraph.ecore#//WorkFlowGraph/createNewParallelExecution">
+        <genParameters ecoreParameter="WorkflowGraph.ecore#//WorkFlowGraph/createNewParallelExecution/name"/>
+        <genParameters ecoreParameter="WorkflowGraph.ecore#//WorkFlowGraph/createNewParallelExecution/merge"/>
+        <genParameters ecoreParameter="WorkflowGraph.ecore#//WorkFlowGraph/createNewParallelExecution/fork"/>
+      </genOperations>
+      <genOperations ecoreOperation="WorkflowGraph.ecore#//WorkFlowGraph/removeNodes">
+        <genParameters ecoreParameter="WorkflowGraph.ecore#//WorkFlowGraph/removeNodes/nodes"/>
+      </genOperations>
+      <genOperations ecoreOperation="WorkflowGraph.ecore#//WorkFlowGraph/toDOTforGraphViz"/>
+      <genOperations ecoreOperation="WorkflowGraph.ecore#//WorkFlowGraph/createNewMessageExchange">
+        <genParameters ecoreParameter="WorkflowGraph.ecore#//WorkFlowGraph/createNewMessageExchange/name"/>
+        <genParameters ecoreParameter="WorkflowGraph.ecore#//WorkFlowGraph/createNewMessageExchange/request"/>
+        <genParameters ecoreParameter="WorkflowGraph.ecore#//WorkFlowGraph/createNewMessageExchange/response"/>
+        <genParameters ecoreParameter="WorkflowGraph.ecore#//WorkFlowGraph/createNewMessageExchange/sender"/>
+        <genParameters ecoreParameter="WorkflowGraph.ecore#//WorkFlowGraph/createNewMessageExchange/receiver"/>
+      </genOperations>
+      <genOperations ecoreOperation="WorkflowGraph.ecore#//WorkFlowGraph/saveModel">
+        <genParameters ecoreParameter="WorkflowGraph.ecore#//WorkFlowGraph/saveModel/filename"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="WorkflowGraph.ecore#//MessageExchange">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WorkflowGraph.ecore#//MessageExchange/request"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WorkflowGraph.ecore#//MessageExchange/synchResponse"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference WorkflowGraph.ecore#//MessageExchange/sender"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference WorkflowGraph.ecore#//MessageExchange/receiver"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WorkflowGraph.ecore#//MessageExchange/choreographyTaskRef"/>
+    </genClasses>
+    <genClasses ecoreClass="WorkflowGraph.ecore#//Branch">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WorkflowGraph.ecore#//Branch/nodes"/>
+    </genClasses>
+    <genClasses ecoreClass="WorkflowGraph.ecore#//Participant">
+      <genTypeParameters ecoreTypeParameter="WorkflowGraph.ecore#//Participant/P"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WorkflowGraph.ecore#//Participant/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WorkflowGraph.ecore#//Participant/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference WorkflowGraph.ecore#//Participant/participantRef"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

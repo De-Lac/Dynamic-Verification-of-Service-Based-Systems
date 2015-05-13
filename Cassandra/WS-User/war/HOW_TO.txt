@@ -1,0 +1,3 @@
+if the war is deployed in a servlet external to Eclipse (like tomcat or jetty),
+the service will be available at
+http://localhost:8080/user/services/user    (add "?wsdl" to test)

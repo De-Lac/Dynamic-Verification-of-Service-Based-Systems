@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WorkFlowGraph xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://workflowgraph/1.0.4" startingNode="ChoreographyTask_1" endingNode="ChoreographyTask_3">
+  <actions xsi:type="MessageExchange" name="Display Notification" id="ChoreographyTask_2" successor="ChoreographyTask_3" predecessor="ChoreographyTask_1" request="displayAirlineNotification" synchResponse="" sender="//@participants.2" receiver="//@participants.1">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C3_Distributed_AlarmSystem/C3.bpmn2#ChoreographyTask_2"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Read Nitification Acknowledgement" id="ChoreographyTask_3" predecessor="ChoreographyTask_2" request="readAck" synchResponse="" sender="//@participants.1" receiver="//@participants.2">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C3_Distributed_AlarmSystem/C3.bpmn2#ChoreographyTask_3"/>
+  </actions>
+  <actions xsi:type="MessageExchange" name="Airline Announcement Service" id="ChoreographyTask_1" successor="ChoreographyTask_2" request="announceService" synchResponse="" sender="//@participants.0" receiver="//@participants.1">
+    <choreographyTaskRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C3_Distributed_AlarmSystem/C3.bpmn2#ChoreographyTask_1"/>
+  </actions>
+  <participants name="Airline" id="Participant_1">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C3_Distributed_AlarmSystem/C3.bpmn2#Participant_1"/>
+  </participants>
+  <participants name="Citizen" id="Participant_2">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C3_Distributed_AlarmSystem/C3.bpmn2#Participant_2"/>
+  </participants>
+  <participants name="MID" id="Participant_4">
+    <participantRef href="/Users/deLac/Documents/eclipse_workspace/BPMN2WKG2XSB/examples/dyna_route/C3_Distributed_AlarmSystem/C3.bpmn2#Participant_4"/>
+  </participants>
+</WorkFlowGraph>

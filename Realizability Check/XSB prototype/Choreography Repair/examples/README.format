@@ -1,0 +1,18 @@
+Choreography described as sets of transition relations, startstate and peers
+
+- transition relation
+
+  gtrans(sourcestate, (senderpeer, receiverpeer, message), destinationstate). 
+
+- start state fact
+
+  state(state).
+
+- peer facts
+
+  peer(peername).
+
+- use a default setting: negategtrans(false, false). 
+  ** this fact is used in the extension where automatic repair is performed using
+     some simple domain knowledge. negatetrans(false, false) implies no such domain
+     knowledge is available/provided. 

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://sample.bpmn2.org/bpmn2/sample/choreography">
+  <bpmn2:choreography id="Choreography_1" name="Default Choreography">
+    <bpmn2:participant id="Participant_1" name="MID"/>
+    <bpmn2:participant id="Participant_2" name="Citizen"/>
+    <bpmn2:participant id="Participant_6" name="TaxiCompany"/>
+    <bpmn2:participant id="Participant_15" name="Destinator Service"/>
+    <bpmn2:participant id="Participant_16" name="TaxiCabin"/>
+    <bpmn2:participant id="Participant_17" name="TouristPlace"/>
+    <bpmn2:participant id="Participant_25" name="TrafficService"/>
+    <bpmn2:participant id="Participant_26" name="TrafficCompany"/>
+    <bpmn2:participant id="Participant_39" name="SocialProximity"/>
+    <bpmn2:participant id="Participant_43" name="Friends"/>
+    <bpmn2:messageFlow id="MessageFlow_1" messageRef="Message_1" name="Message Flow 1" sourceRef="Participant_1" targetRef="Participant_2"/>
+    <bpmn2:messageFlow id="MessageFlow_2" messageRef="Message_2" name="Message Flow 2" sourceRef="Participant_2" targetRef="Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_3" messageRef="Message_3" name="Message Flow 3" sourceRef="Participant_1" targetRef="Participant_2"/>
+    <bpmn2:messageFlow id="MessageFlow_4" messageRef="Message_4" name="Message Flow 4" sourceRef="Participant_2" targetRef="Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_5" messageRef="Message_5" name="Message Flow 5" sourceRef="Participant_1" targetRef="Participant_6"/>
+    <bpmn2:messageFlow id="MessageFlow_6" messageRef="Message_6" name="Message Flow 6" sourceRef="Participant_6" targetRef="Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_7" messageRef="Message_7" name="Message Flow 7" sourceRef="Participant_1" targetRef="Participant_2"/>
+    <bpmn2:messageFlow id="MessageFlow_8" messageRef="Message_8" name="Message Flow 8" sourceRef="Participant_1" targetRef="Participant_2"/>
+    <bpmn2:messageFlow id="MessageFlow_9" messageRef="Message_9" name="Message Flow 9" sourceRef="Participant_2" targetRef="Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_10" messageRef="Message_9" name="Message Flow 10" sourceRef="Participant_16" targetRef="Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_11" messageRef="Message_11" name="Message Flow 11" sourceRef="Participant_1" targetRef="Participant_15"/>
+    <bpmn2:messageFlow id="MessageFlow_12" messageRef="Message_12" name="Message Flow 12" sourceRef="Participant_17" targetRef="Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_13" messageRef="Message_13" name="Message Flow 13" sourceRef="Participant_1" targetRef="Participant_2"/>
+    <bpmn2:messageFlow id="MessageFlow_14" messageRef="Message_14" name="Message Flow 14" sourceRef="Participant_2" targetRef="Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_15" messageRef="Message_15" name="Message Flow 15" sourceRef="Participant_17" targetRef="Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_16" messageRef="Message_16" name="Message Flow 16" sourceRef="Participant_15" targetRef="Participant_25"/>
+    <bpmn2:messageFlow id="MessageFlow_17" messageRef="Message_17" name="Message Flow 17" sourceRef="Participant_25" targetRef="Participant_15"/>
+    <bpmn2:messageFlow id="MessageFlow_18" messageRef="Message_18" name="Message Flow 18" sourceRef="Participant_26" targetRef="Participant_25"/>
+    <bpmn2:messageFlow id="MessageFlow_19" messageRef="Message_19" name="Message Flow 19" sourceRef="Participant_15" targetRef="Participant_16"/>
+    <bpmn2:messageFlow id="MessageFlow_20" messageRef="Message_20" name="Message Flow 20" sourceRef="Participant_15" targetRef="Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_21" messageRef="Message_21" name="Message Flow 21" sourceRef="Participant_1" targetRef="Participant_15"/>
+    <bpmn2:messageFlow id="MessageFlow_22" messageRef="Message_22" name="Message Flow 22" sourceRef="Participant_1" targetRef="Participant_2"/>
+    <bpmn2:messageFlow id="MessageFlow_23" messageRef="Message_23" name="Message Flow 23" sourceRef="Participant_2" targetRef="Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_24" messageRef="Message_24" name="Message Flow 24" sourceRef="Participant_1" targetRef="Participant_39"/>
+    <bpmn2:messageFlow id="MessageFlow_25" messageRef="Message_25" name="Message Flow 25" sourceRef="Participant_39" targetRef="Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_26" messageRef="Message_26" name="Message Flow 26" sourceRef="Participant_1" targetRef="Participant_2"/>
+    <bpmn2:messageFlow id="MessageFlow_27" messageRef="Message_27" name="Message Flow 27" sourceRef="Participant_2" targetRef="Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_28" messageRef="Message_28" name="Message Flow 28" sourceRef="Participant_1" targetRef="Participant_43"/>
+    <bpmn2:messageFlow id="MessageFlow_29" messageRef="Message_29" name="Message Flow 29" sourceRef="Participant_43" targetRef="Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_30" messageRef="Message_30" name="Message Flow 30" sourceRef="Participant_1" targetRef="Participant_2"/>
+    <bpmn2:messageFlow id="MessageFlow_31" messageRef="Message_31" name="Message Flow 31" sourceRef="Participant_2" targetRef="Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_32" messageRef="Message_32" name="Message Flow 32" sourceRef="Participant_2" targetRef="Participant_1"/>
+    <bpmn2:messageFlow id="MessageFlow_33" messageRef="Message_33" name="Message Flow 33" sourceRef="Participant_1" targetRef="Participant_2"/>
+    <bpmn2:messageFlow id="MessageFlow_34" messageRef="Message_34" name="Message Flow 34" sourceRef="Participant_1" targetRef="Participant_2"/>
+    <bpmn2:messageFlow id="MessageFlow_35" messageRef="Message_36" name="Message Flow 35" sourceRef="Participant_1" targetRef="Participant_2"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_11" name="SendTrafficMessages" initiatingParticipantRef="Participant_15">
+      <bpmn2:incoming>SequenceFlow_20</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_28</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_15</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_25</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_16</bpmn2:messageFlowRef>
+      <bpmn2:messageFlowRef>MessageFlow_17</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_28" name="" sourceRef="ChoreographyTask_11" targetRef="ExclusiveGateway_10"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_10" name="L" gatewayDirection="Diverging">
+      <bpmn2:incoming>SequenceFlow_28</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_39</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_38</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_38" name="" sourceRef="ExclusiveGateway_10" targetRef="ChoreographyTask_12"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_12" name="Transmit Traffic Jam" initiatingParticipantRef="Participant_26">
+      <bpmn2:incoming>SequenceFlow_38</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_34</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_26</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_25</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_18</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_34" name="" sourceRef="ChoreographyTask_12" targetRef="ExclusiveGateway_11"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_11" name="L" gatewayDirection="Converging">
+      <bpmn2:incoming>SequenceFlow_34</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_35</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_39</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_35" name="" sourceRef="ExclusiveGateway_11" targetRef="ChoreographyTask_13"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_39" name="" sourceRef="ExclusiveGateway_11" targetRef="ExclusiveGateway_10"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_13" name="Map Services" initiatingParticipantRef="Participant_15">
+      <bpmn2:incoming>SequenceFlow_35</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_36</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_15</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_16</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_19</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_36" name="" sourceRef="ChoreographyTask_13" targetRef="ChoreographyTask_14"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_14" name="Send Notifications Traffi Jam" initiatingParticipantRef="Participant_15">
+      <bpmn2:incoming>SequenceFlow_36</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_37</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_15</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_1</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_20</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_37" name="" sourceRef="ChoreographyTask_14" targetRef="ChoreographyTask_15"/>
+    <bpmn2:choreographyTask id="ChoreographyTask_15" name="Send Rerouting Message" initiatingParticipantRef="Participant_1">
+      <bpmn2:incoming>SequenceFlow_37</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_6</bpmn2:outgoing>
+      <bpmn2:participantRef>Participant_1</bpmn2:participantRef>
+      <bpmn2:participantRef>Participant_15</bpmn2:participantRef>
+      <bpmn2:messageFlowRef>MessageFlow_21</bpmn2:messageFlowRef>
+    </bpmn2:choreographyTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_6" name="" sourceRef="ChoreographyTask_15" targetRef="EndEvent_1"/>
+    <bpmn2:endEvent id="EndEvent_1" name="End Event 1">
+      <bpmn2:incoming>SequenceFlow_6</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:startEvent id="StartEvent_1" name="Start Event 1">
+      <bpmn2:outgoing>SequenceFlow_20</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_20" name="" sourceRef="StartEvent_1" targetRef="ChoreographyTask_11"/>
+  </bpmn2:choreography>
+  <bpmn2:message id="Message_1" name="proposeItinerary"/>
+  <bpmn2:message id="Message_2" name="confirmItinerary"/>
+  <bpmn2:message id="Message_3" name="confirmProposal"/>
+  <bpmn2:message id="Message_4" name="validate"/>
+  <bpmn2:message id="Message_5" name="requestTaxi"/>
+  <bpmn2:message id="Message_6" name="requestFromTaxi"/>
+  <bpmn2:message id="Message_7" name="showBookingInfo"/>
+  <bpmn2:message id="Message_8" name="reqGPSpair"/>
+  <bpmn2:message id="Message_9" name="respGPSpair"/>
+  <bpmn2:message id="Message_11" name="sendDestCoord"/>
+  <bpmn2:message id="Message_12" name="notifyTouristInfoAvailable"/>
+  <bpmn2:message id="Message_13" name="displayGuides"/>
+  <bpmn2:message id="Message_14" name="asynch_selectGuide"/>
+  <bpmn2:message id="Message_15" name="sendTouristData"/>
+  <bpmn2:message id="Message_16" name="sendPersonalTrafficInfo"/>
+  <bpmn2:message id="Message_17" name="trafficResp"/>
+  <bpmn2:message id="Message_18" name="transmitJam"/>
+  <bpmn2:message id="Message_19" name="notifyCabin"/>
+  <bpmn2:message id="Message_20" name="notifyMid"/>
+  <bpmn2:message id="Message_21" name="proposeReroute"/>
+  <bpmn2:message id="Message_22" name="listSocialNet"/>
+  <bpmn2:message id="Message_23" name="selectSocialNet"/>
+  <bpmn2:message id="Message_24" name="whoIsNear"/>
+  <bpmn2:message id="Message_25" name="nearFriendsResp"/>
+  <bpmn2:message id="Message_26" name="showNearFriends"/>
+  <bpmn2:message id="Message_27" name="selectFriend"/>
+  <bpmn2:message id="Message_28" name="reqMeeting"/>
+  <bpmn2:message id="Message_29" name="respMeeting"/>
+  <bpmn2:message id="Message_30" name="reqConfirmMeeting"/>
+  <bpmn2:message id="Message_31" name="respConfirmMeeting"/>
+  <bpmn2:message id="Message_32" name="pauseUntil"/>
+  <bpmn2:message id="Message_33" name="resumed"/>
+  <bpmn2:message id="Message_34" name="showEvent"/>
+  <bpmn2:message id="Message_36" name="proposeNewRoute"/>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1" name="DynaRoute">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Choreography_1">
+      <bpmndi:BPMNShape id="BPMNShape_Participant_15" bpmnElement="Participant_2" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="150.0" x="201.0" y="330.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_10" bpmnElement="ChoreographyTask_11">
+        <dc:Bounds height="80.0" width="153.0" x="150.0" y="160.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_32" bpmnElement="Participant_15" choreographyActivityShape="BPMNShape_ChoreographyTask_10" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="153.0" x="150.0" y="160.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_33" bpmnElement="Participant_25" choreographyActivityShape="BPMNShape_ChoreographyTask_10" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="153.0" x="150.0" y="220.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_10" bpmnElement="ExclusiveGateway_10" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="350.0" y="175.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_11" bpmnElement="ExclusiveGateway_11" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="630.0" y="175.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_11" bpmnElement="ChoreographyTask_12">
+        <dc:Bounds height="74.0" width="151.0" x="440.0" y="163.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_35" bpmnElement="Participant_26" choreographyActivityShape="BPMNShape_ChoreographyTask_11" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="151.0" x="440.0" y="163.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_36" bpmnElement="Participant_25" choreographyActivityShape="BPMNShape_ChoreographyTask_11" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="151.0" x="440.0" y="217.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_12" bpmnElement="ChoreographyTask_13">
+        <dc:Bounds height="84.0" width="150.0" x="740.0" y="175.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_38" bpmnElement="Participant_15" choreographyActivityShape="BPMNShape_ChoreographyTask_12" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="150.0" x="740.0" y="175.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_39" bpmnElement="Participant_16" choreographyActivityShape="BPMNShape_ChoreographyTask_12" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="150.0" x="740.0" y="239.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_13" bpmnElement="ChoreographyTask_14">
+        <dc:Bounds height="80.0" width="150.0" x="932.0" y="177.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_42" bpmnElement="Participant_15" choreographyActivityShape="BPMNShape_ChoreographyTask_13" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="150.0" x="932.0" y="177.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_43" bpmnElement="Participant_1" choreographyActivityShape="BPMNShape_ChoreographyTask_13" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="150.0" x="932.0" y="237.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ChoreographyTask_14" bpmnElement="ChoreographyTask_15">
+        <dc:Bounds height="91.0" width="150.0" x="1120.0" y="172.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_45" bpmnElement="Participant_1" choreographyActivityShape="BPMNShape_ChoreographyTask_14" isHorizontal="true" isMessageVisible="true">
+        <dc:Bounds height="20.0" width="150.0" x="1120.0" y="172.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Participant_46" bpmnElement="Participant_15" choreographyActivityShape="BPMNShape_ChoreographyTask_14" isHorizontal="true" isMessageVisible="true" participantBandKind="bottom_non_initiating">
+        <dc:Bounds height="20.0" width="150.0" x="1120.0" y="243.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_1" bpmnElement="EndEvent_1">
+        <dc:Bounds height="36.0" width="36.0" x="1290.0" y="199.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_StartEvent_1" bpmnElement="StartEvent_1">
+        <dc:Bounds height="36.0" width="36.0" x="50.0" y="172.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_28" bpmnElement="SequenceFlow_28" sourceElement="BPMNShape_ChoreographyTask_10" targetElement="BPMNShape_ExclusiveGateway_10">
+        <di:waypoint xsi:type="dc:Point" x="303.0" y="200.0"/>
+        <di:waypoint xsi:type="dc:Point" x="350.0" y="200.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_34" bpmnElement="SequenceFlow_34" sourceElement="BPMNShape_ChoreographyTask_11" targetElement="BPMNShape_ExclusiveGateway_11">
+        <di:waypoint xsi:type="dc:Point" x="591.0" y="200.0"/>
+        <di:waypoint xsi:type="dc:Point" x="630.0" y="200.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_35" bpmnElement="SequenceFlow_35" sourceElement="BPMNShape_ExclusiveGateway_11" targetElement="BPMNShape_ChoreographyTask_12">
+        <di:waypoint xsi:type="dc:Point" x="681.0" y="200.0"/>
+        <di:waypoint xsi:type="dc:Point" x="740.0" y="217.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_36" bpmnElement="SequenceFlow_36" sourceElement="BPMNShape_ChoreographyTask_12" targetElement="BPMNShape_ChoreographyTask_13">
+        <di:waypoint xsi:type="dc:Point" x="890.0" y="217.0"/>
+        <di:waypoint xsi:type="dc:Point" x="932.0" y="217.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_37" bpmnElement="SequenceFlow_37" sourceElement="BPMNShape_ChoreographyTask_13" targetElement="BPMNShape_ChoreographyTask_14">
+        <di:waypoint xsi:type="dc:Point" x="1082.0" y="217.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1120.0" y="217.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_38" bpmnElement="SequenceFlow_38" sourceElement="BPMNShape_ExclusiveGateway_10" targetElement="BPMNShape_ChoreographyTask_11">
+        <di:waypoint xsi:type="dc:Point" x="401.0" y="200.0"/>
+        <di:waypoint xsi:type="dc:Point" x="440.0" y="200.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_39" bpmnElement="SequenceFlow_39" sourceElement="BPMNShape_ExclusiveGateway_11" targetElement="BPMNShape_ExclusiveGateway_10">
+        <di:waypoint xsi:type="dc:Point" x="630.0" y="200.0"/>
+        <di:waypoint xsi:type="dc:Point" x="630.0" y="284.0"/>
+        <di:waypoint xsi:type="dc:Point" x="401.0" y="284.0"/>
+        <di:waypoint xsi:type="dc:Point" x="401.0" y="200.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_6" bpmnElement="SequenceFlow_6" sourceElement="BPMNShape_ChoreographyTask_14" targetElement="BPMNShape_EndEvent_1">
+        <di:waypoint xsi:type="dc:Point" x="1270.0" y="217.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1290.0" y="217.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_20" bpmnElement="SequenceFlow_20" sourceElement="BPMNShape_StartEvent_1" targetElement="BPMNShape_ChoreographyTask_10">
+        <di:waypoint xsi:type="dc:Point" x="86.0" y="190.0"/>
+        <di:waypoint xsi:type="dc:Point" x="150.0" y="200.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

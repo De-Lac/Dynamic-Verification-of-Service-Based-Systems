@@ -1,0 +1,43 @@
+% -*- Mode: Prolog -*-     
+        gtrans(s13, ('Marketingapp', 'Commercialpartners', notifyNeed4Proposal), s3).
+
+        gtrans(s11, ('Marketingapp', 'Marketingmanager', sendanalysis), s5).
+        gtrans(s24, ('Marketingapp', 'Marketingmanager', sendanalysis), s5).
+
+        gtrans(s11, ('Marketingapp', 'Marketingdirector', reqauthorization), s7).
+
+        gtrans(s3, ('Commercialpartners', 'Marketingapp', asynchsendProposal), s11).
+
+        gtrans(s5, ('Marketingmanager', 'Marketingapp', asynchsetSupplyEstimation), s13).
+
+        gtrans(s7, ('Marketingapp', 'Warehouses', reqStockAnalysis), s22).
+        gtrans(s28, ('Marketingapp', 'Warehouses', reqStockAnalysis), s22).
+
+        gtrans(s22, ('Marketingapp', 'Storesandshops', reqsalesAnalysis), s23).
+
+        gtrans(s23, ('Warehouses', 'Marketingapp', asynchrespStockAnalysis), s24).
+
+        gtrans(s22, ('Warehouses', 'Marketingapp', asynchrespStockAnalysis), s26).
+
+        gtrans(s26, ('Marketingapp', 'Storesandshops', reqsalesAnalysis), s24).
+
+        gtrans(s7, ('Marketingapp', 'Storesandshops', reqsalesAnalysis), s27).
+        gtrans(s28, ('Marketingapp', 'Storesandshops', reqsalesAnalysis), s27).
+
+        gtrans(s27, ('Marketingapp', 'Warehouses', reqStockAnalysis), s23).
+
+peer('Marketingapp').
+peer('Warehouses').
+peer('Storesandshops').
+peer('Marketingmanager').
+peer('Commercialpartners').
+peer('Marketingdirector').
+
+
+start(s28).
+%% negategtrans(false, false).  --> use a default setting 
+%% this fact is used in the extension where automatic repair is performed using
+%% some simple domain knowledge. negatetrans(false, false) implies no such domain
+%% knowledge is available/provided. 
+negategtrans(false, false).  
+

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ucsb.systemBehavior/src" modelPluginID="ucsb.systemBehavior"
+    templateDirectory="" dynamicTemplates="true" modelName="SystemBehavior" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    usedGenPackages="../../org.eclipse.bpmn2/model/BPMN20.genmodel#//bpmn2 ../../org.eclipse.bpmn2/model/BPMN20.genmodel#//di ../../org.eclipse.bpmn2/model/BPMN20.genmodel#//di.1 ../../org.eclipse.bpmn2/model/BPMN20.genmodel#//dc ../../unicam.workflowGraph/model/WorkflowGraph.genmodel#//workflowgraph"
+    operationReflection="true">
+  <foreignModel>converesationProtocol.ecore</foreignModel>
+  <foreignModel>SystemBehavior.ecore</foreignModel>
+  <genPackages prefix="Converesationprotocol" basePackage="ucsb" disposableProviderFactory="true"
+      ecorePackage="converesationProtocol.ecore#/">
+    <genClasses ecoreClass="converesationProtocol.ecore#//ConversationProtocol">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference converesationProtocol.ecore#//ConversationProtocol/states"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference converesationProtocol.ecore#//ConversationProtocol/messages"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference converesationProtocol.ecore#//ConversationProtocol/initialState"/>
+    </genClasses>
+    <genClasses ecoreClass="converesationProtocol.ecore#//State">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference converesationProtocol.ecore#//State/outgoing"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference converesationProtocol.ecore#//State/incoming"/>
+    </genClasses>
+    <genClasses ecoreClass="converesationProtocol.ecore#//Message">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference converesationProtocol.ecore#//Message/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference converesationProtocol.ecore#//Message/target"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference converesationProtocol.ecore#//Message/sender"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference converesationProtocol.ecore#//Message/receiver"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Systembehavior" basePackage="ucsb" disposableProviderFactory="true"
+      ecorePackage="SystemBehavior.ecore#/">
+    <genClasses ecoreClass="SystemBehavior.ecore#//SystemBehavior">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SystemBehavior.ecore#//SystemBehavior/peers"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SystemBehavior.ecore#//SystemBehavior/messages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SystemBehavior.ecore#//SystemBehavior/states"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SystemBehavior.ecore#//SystemBehavior/transitions"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SystemBehavior.ecore#//SystemBehavior/initialState"/>
+      <genOperations ecoreOperation="SystemBehavior.ecore#//SystemBehavior/toDOTforGraphViz"/>
+      <genOperations ecoreOperation="SystemBehavior.ecore#//SystemBehavior/saveModel">
+        <genParameters ecoreParameter="SystemBehavior.ecore#//SystemBehavior/saveModel/fileName"/>
+      </genOperations>
+      <genOperations ecoreOperation="SystemBehavior.ecore#//SystemBehavior/deleteInternalTransition"/>
+    </genClasses>
+    <genClasses ecoreClass="SystemBehavior.ecore#//PeerSituation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SystemBehavior.ecore#//PeerSituation/messages"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SystemBehavior.ecore#//PeerSituation/states"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SystemBehavior.ecore#//PeerSituation/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SystemBehavior.ecore#//PeerSituation/id"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SystemBehavior.ecore#//PeerSituation/outcoming"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SystemBehavior.ecore#//PeerSituation/incoming"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SystemBehavior.ecore#//PeerSituation/gatewayRef"/>
+    </genClasses>
+    <genClasses ecoreClass="SystemBehavior.ecore#//Transition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SystemBehavior.ecore#//Transition/from"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SystemBehavior.ecore#//Transition/to"/>
+    </genClasses>
+    <genClasses ecoreClass="SystemBehavior.ecore#//Send">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SystemBehavior.ecore#//Send/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SystemBehavior.ecore#//Send/target"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SystemBehavior.ecore#//Send/message"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SystemBehavior.ecore#//Send/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SystemBehavior.ecore#//Send/messageExchangeRef"/>
+    </genClasses>
+    <genClasses ecoreClass="SystemBehavior.ecore#//Receive"/>
+    <genClasses ecoreClass="SystemBehavior.ecore#//InternalTransition"/>
+    <genClasses ecoreClass="SystemBehavior.ecore#//LoopTransition"/>
+  </genPackages>
+  <genPackages prefix="Peerbehavior" basePackage="ucsb" disposableProviderFactory="true"
+      ecorePackage="PeerBehavior.ecore#/">
+    <genClasses ecoreClass="PeerBehavior.ecore#//Peer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PeerBehavior.ecore#//Peer/in"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PeerBehavior.ecore#//Peer/out"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PeerBehavior.ecore#//Peer/states"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PeerBehavior.ecore#//Peer/initialState"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PeerBehavior.ecore#//Peer/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PeerBehavior.ecore#//Peer/transictions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PeerBehavior.ecore#//Peer/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PeerBehavior.ecore#//Peer/test"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PeerBehavior.ecore#//Peer/participantRef"/>
+      <genOperations ecoreOperation="PeerBehavior.ecore#//Peer/toDOTforGraphViz"/>
+      <genOperations ecoreOperation="PeerBehavior.ecore#//Peer/saveModel">
+        <genParameters ecoreParameter="PeerBehavior.ecore#//Peer/saveModel/fileName"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="PeerBehavior.ecore#//Message">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PeerBehavior.ecore#//Message/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PeerBehavior.ecore#//Message/id"/>
+      <genOperations ecoreOperation="PeerBehavior.ecore#//Message/equals">
+        <genParameters ecoreParameter="PeerBehavior.ecore#//Message/equals/object"/>
+      </genOperations>
+      <genOperations ecoreOperation="PeerBehavior.ecore#//Message/hashCode"/>
+    </genClasses>
+    <genClasses ecoreClass="PeerBehavior.ecore#//State">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PeerBehavior.ecore#//State/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PeerBehavior.ecore#//State/incoming"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PeerBehavior.ecore#//State/outcoming"/>
+    </genClasses>
+    <genClasses ecoreClass="PeerBehavior.ecore#//Transition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PeerBehavior.ecore#//Transition/from"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PeerBehavior.ecore#//Transition/to"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PeerBehavior.ecore#//Transition/name"/>
+      <genOperations ecoreOperation="PeerBehavior.ecore#//Transition/toString"/>
+    </genClasses>
+    <genClasses ecoreClass="PeerBehavior.ecore#//Send">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PeerBehavior.ecore#//Send/message"/>
+    </genClasses>
+    <genClasses ecoreClass="PeerBehavior.ecore#//Receive">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PeerBehavior.ecore#//Receive/message"/>
+    </genClasses>
+    <genClasses ecoreClass="PeerBehavior.ecore#//input"/>
+    <genClasses ecoreClass="PeerBehavior.ecore#//output"/>
+    <genClasses ecoreClass="PeerBehavior.ecore#//InternalTransition"/>
+  </genPackages>
+</genmodel:GenModel>

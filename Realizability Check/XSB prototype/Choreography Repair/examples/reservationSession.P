@@ -1,0 +1,47 @@
+% -*- Mode: Prolog -*-
+
+gtrans(start, ('C', 'S', request), decide).
+
+gtrans(decide, ('S', 'C', succeed), success).
+gtrans(decide, ('S', 'C', failed), sink).
+gtrans(decide, ('C', 'S', cancel), decide0).
+
+gtrans(success, ('C', 'S', cancel), end).
+gtrans(success, ('C', 'S', confirm), end).
+
+gtrans(sink, ('C', 'S', cancel), end).
+
+gtrans(decide0, ('S', 'C', cancelled), end).
+
+%%%%%%%%%%%%%%%%%% negations
+negategtrans(false, false).
+%negategtrans(decide0, ('S', 'C', succeed)).
+
+
+%%
+peer('S').
+peer('C').
+
+start(start).
+
+%% Interesting example: where simple addition will
+%% alter the semantics of the protocol
+%% Perfect example to show that the user must be in the mix
+%% to decide whether to "relax" or "restrict" behavior
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The following result: add, remove, add, add (remove/restrict)
+%% to make sure the cancel is not followed by success
+%%   Can include some restriction based on the unconsumed
+%%   elements in the queues. 
+% gtrans(start,(c  ','  s  ','  request),decide).
+% gtrans(decide,(s  ','  c  ','  failed),sink).
+% gtrans(decide,(c  ','  s  ','  cancel),decide0).
+% gtrans(success,(c  ','  s  ','  cancel),end).
+% gtrans(success,(c  ','  s  ','  confirm),end).
+% gtrans(sink,(c  ','  s  ','  cancel),end).
+% gtrans(decide0,(s  ','  c  ','  cancelled),end).
+% gtrans(decide0,(s  ','  c  ','  failed),end).
+% gtrans(decide,(c  ','  s  ','  m(0)),s(0)).
+% gtrans(s(0),(s  ','  c  ','  succeed),success).
+% gtrans(sink,(c  ','  s  ','  m(0)),s(0)).
+% gtrans(s(0),(s  ','  c  ','  failed),s(0)).

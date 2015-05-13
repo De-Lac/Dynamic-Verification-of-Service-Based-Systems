@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated SystemBehavior -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="ucsb.converesationprotocol.presentation.ConveresationprotocolModelWizardID"
+            name="%_UI_ConveresationprotocolModelWizard_label"
+            class="ucsb.converesationprotocol.presentation.ConveresationprotocolModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ConveresationprotocolModelFile.gif">
+         <description>%_UI_ConveresationprotocolModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated SystemBehavior -->
+      <editor
+            id="ucsb.converesationprotocol.presentation.ConveresationprotocolEditorID"
+            name="%_UI_ConveresationprotocolEditor_label"
+            icon="icons/full/obj16/ConveresationprotocolModelFile.gif"
+            extensions="converesationprotocol"
+            class="ucsb.converesationprotocol.presentation.ConveresationprotocolEditor"
+            contributorClass="ucsb.converesationprotocol.presentation.ConveresationprotocolActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated SystemBehavior -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="ucsb.systembehavior.presentation.SystembehaviorModelWizardID"
+            name="%_UI_SystembehaviorModelWizard_label"
+            class="ucsb.systembehavior.presentation.SystembehaviorModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SystembehaviorModelFile.gif">
+         <description>%_UI_SystembehaviorModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated SystemBehavior -->
+      <editor
+            id="ucsb.systembehavior.presentation.SystembehaviorEditorID"
+            name="%_UI_SystembehaviorEditor_label"
+            icon="icons/full/obj16/SystembehaviorModelFile.gif"
+            extensions="systembehavior"
+            class="ucsb.systembehavior.presentation.SystembehaviorEditor"
+            contributorClass="ucsb.systembehavior.presentation.SystembehaviorActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated SystemBehavior -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="ucsb.peerbehavior.presentation.PeerbehaviorModelWizardID"
+            name="%_UI_PeerbehaviorModelWizard_label"
+            class="ucsb.peerbehavior.presentation.PeerbehaviorModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/PeerbehaviorModelFile.gif">
+         <description>%_UI_PeerbehaviorModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated SystemBehavior -->
+      <editor
+            id="ucsb.peerbehavior.presentation.PeerbehaviorEditorID"
+            name="%_UI_PeerbehaviorEditor_label"
+            icon="icons/full/obj16/PeerbehaviorModelFile.gif"
+            extensions="peerbehavior"
+            class="ucsb.peerbehavior.presentation.PeerbehaviorEditor"
+            contributorClass="ucsb.peerbehavior.presentation.PeerbehaviorActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
