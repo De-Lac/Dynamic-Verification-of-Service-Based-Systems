@@ -1,0 +1,15 @@
+#version=1
+#com.collabnet.subversion.merge,3.0.7,plugins/com.collabnet.subversion.merge_3.0.7.jar,4,true
+
+org.eclipse.equinox.common,3.3.0.200704022148,plugins/org.eclipse.equinox.common_3.3.0.200704022148.jar,4,true
+org.eclipse.equinox.http.servlet,1.0.0.200704022148,plugins/org.eclipse.equinox.http.servlet_1.0.0.200704022148.jar,4,true
+org.eclipse.equinox.http.servletbridge,1.0.0.200704022148,plugins/org.eclipse.equinox.http.servletbridge_1.0.0.200704022148.jar,4,true
+org.eclipse.equinox.http.registry,1.0.0.200704022148,plugins/org.eclipse.equinox.http.registry_1.0.0.200704022148.jar,4,true
+http_console,1.0.0,plugins/http_console_1.0.0.jar,5,true
+org.eclipse.equinox.registry,3.3.0.v20070318,org.eclipse.equinox.registry_3.3.0.v20070318.jar,4,false
+org.eclipse.osgi.services,3.1.100.200704022148,plugins/org.eclipse.osgi.services_3.1.100.200704022148.jar,4,true
+servicepot,1.0.0,plugins/servicepot.OSGI-0.0.1-SNAPSHOT-jar-with-dependencies.jar,4,true
+javax.servlet,2.5.0.v201103041518,plugins/javax.servlet_2.5.0.v201103041518.jar,4,true
+org.eclipse.equinox.servletbridge.extensionbundle,1.2.0.qualifier,plugins/org.eclipse.equinox.servletbridge.extensionbundle_1.2.0.qualifier.jar,4,true
+org.eclipse.equinox.servletbridge,1.2.0.v20091026,plugins/org.eclipse.equinox.servletbridge_1.2.0.v20091026.jar,4,true
+org.eclipse.equinox.registry,3.4.100.v20090520-1800,plugins/org.eclipse.equinox.registry_3.4.100.v20090520-1800.jar,4,true

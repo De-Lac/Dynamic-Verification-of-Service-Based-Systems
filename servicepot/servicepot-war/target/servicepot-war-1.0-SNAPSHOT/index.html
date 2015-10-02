@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+
+<html> 
+ <head>
+ 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  	<meta name="title"       content="ServicePot" /> 
+  	<meta name="description" content="ServicePot is an extensible registry for choreography-based solutions offering choreography lifecycle management and governance features." />  
+    <link rel="author"       href="https://plus.google.com/+danielefanì/"/>
+    <link rel="publisher"    href="https://plus.google.com/communities/113943625419913199450/">
+    <meta property="og:title" content="ServicePot"/>
+    <meta property="og:type"  content="website"/>
+    <meta property="og:image" content="http://www.choreos.eu/bin/download/ColorThemes/Choreos+New+Theme/CHLogowww.png"/>
+    <meta property="og:description" content="ServicePot is an extensible registry for choreography-based solutions offering choreography lifecycle management and governance features."/>
+    <meta property="fb:admins" content="1542450303"/>
+    <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+	<script type="text/javascript" src="gui/functions.js"></script>
+    
+	<style type="text/css">
+	
+
+.checkboxThree {
+	width: 120px;
+	height: 40px;
+	background: #333;
+	border-radius: 50px;
+	position: relative;
+}
+
+
+.checkboxThree:before {
+	content: 'On';
+	position: absolute;
+	top: 12px;
+	left: 13px;
+	height: 2px;
+	color: #26ca28;
+	font-size: 16px;
+}
+
+.checkboxThree:after {
+	content: 'Off';
+	position: absolute;
+	top: 12px;
+	left: 84px;
+	height: 2px;
+	color: #cc0000;
+	font-size: 16px;
+}
+
+.checkboxThree label {
+	display: block;
+	width: 52px;
+	height: 22px;
+	border-radius: 50px;
+
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+	transition: all .5s ease;
+	cursor: pointer;
+	position: absolute;
+	top: 9px;
+	z-index: 1;
+	left: 12px;
+	background: #ddd;
+}
+
+.checkboxThree input[type=checkbox]:checked + label {
+	left: 60px;
+	background: #26ca28;
+}
+
+.checkboxThree input[type=checkbox] {
+	visibility: hidden;
+}
+
+
+
+.code
+	{text-align:left;
+	 font-family:"Courier New", Courier, monospace;
+	}
+		
+.color_orange
+	{color :rgb(255,96,24);}
+		
+.color_blue
+	{color :blue;}
+	
+.color_red
+	{color :rgb(234, 49, 176);}
+	
+.color_green	
+	 {color : rgb(72,150,163);}
+	
+/*ANIMATIONS*/
+@-webkit-keyframes fadeIn { 
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+
+@-ms-keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}	
+
+
+
+#fade{
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 200%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index:1001;
+	}
+ 
+.popup {
+	position: absolute;
+	top: 16%;
+	left: 16%;
+	width: 68%;
+	height: 68%;
+	
+	
+	border-radius:12px;
+	-webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    
+    -moz-box-shadow: 0 5px 5px 5px #000;
+    -webkit-box-shadow: 0 5px 5px 5px#000;
+    box-shadow: 0 5px 5px 5px #000;
+    
+	background-color: #e8dfce;
+	z-index:1002;
+	overflow:auto;
+	padding:5px;	
+	padding-bottom: 25px;	
+	}
+	
+	
+.hidden
+{
+ display: none;
+ opacity: 0;
+}
+
+.notHidden
+{
+ display: block;
+ -webkit-animation: fadeIn 0.3s;
+ -moz-animation: fadeIn 0.3s;
+ -ms-animation: fadeIn 0.3s;
+}
+	
+#console
+{
+border-width:5px;	
+border-style:inset;
+min-width:50px;
+width:100%;
+overflow: auto;
+}	
+	
+#save_choreography
+{
+    background-image: url(gui/savechor.png);
+    background-position:center center;
+    background-repeat: no-repeat;
+    width: 72px;
+    height: 72px;
+}
+
+input
+{
+border-radius:12px;
+ -webkit-border-radius: 12px;
+ -moz-border-radius: 12px;
+}
+
+#save_service
+{
+    background-image: url(gui/savewsdl.png);
+    background-position:center center;
+    background-repeat: no-repeat;
+    width: 72px;
+    height: 72px;
+}
+
+#find_choreography
+{
+    background-image: url(gui/findchor.png);
+    background-position:center center;
+    background-repeat: no-repeat;
+    width: 72px;
+    height: 72px;
+}
+
+#find_service
+{
+    background-image: url(gui/findwsdl.png);
+    background-position:center center;
+    background-repeat: no-repeat;
+    width: 72px;
+    height: 72px;
+}
+
+	
+#wrapper
+{ 
+ min-width:900px;
+ max-width: 1200px;
+ width:80%; 
+ margin-left:auto; margin-right:auto; display:block;
+ margin-top:50px; 
+ margin-bottom:110px;
+ overflow: hidden;
+ 
+ -moz-box-shadow: 0 3px 3px 3px #333;
+ -webkit-box-shadow: 0 3px 3px 3px#333;
+ box-shadow: 0 3px 3px 3px #333;
+ 
+ background: #999; /* for non-css3 browsers */
+ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e8dfce', endColorstr='#c8c8c8'); /* for IE */
+ background: -webkit-gradient(linear, left top, left bottom, from(#e8dfce), to(#c8c8c8)); /* for webkit browsers */
+ background: -moz-linear-gradient(top,  #e8dfce,  #c8c8c8); /* for firefox 3.6+ */ 
+ 
+ border-style: none;
+ border-radius:12px;
+ -webkit-border-radius: 12px;
+ -moz-border-radius: 12px;
+}
+
+#footer
+{ 
+
+ width:80%; padding:10px; 
+	clear: both;
+	padding: 12px 24px 0 24px;
+ position:inherit; bottom:0px; 
+ margin-left:auto; margin-right:auto; 
+ overflow: hidden;
+ 
+ -moz-box-shadow: 0 3px 3px 3px #333;
+ -webkit-box-shadow: 0 3px 3px 3px#333;
+ box-shadow: 0 3px 3px 3px #333;
+ 
+ background: #999; /* for non-css3 browsers */
+ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#555555'); /* for IE */
+ background: -webkit-gradient(linear, left top, left bottom, from(#000000), to(#555555)); /* for webkit browsers */
+ background: -moz-linear-gradient(top,  #000000,  #555555); /* for firefox 3.6+ */ 
+ 
+ border-style: none;
+ border-radius:12px;
+ -webkit-border-radius: 12px;
+ -moz-border-radius: 12px;
+}
+	</style>    
+    
+       
+    <title>ServicePot</title>
+    <div style="width:0px; height:0px; overflow:hidden;">
+    <h1>ServicePot</h1>
+    <h1>extensible UDDI registry for choreography-based solutions offering choreography lifecycle management and governance features</h1>
+    </div>
+   
+  </head>
+
+      
+  <body style="background:#939ea4; /* for non-css3 browsers */
+  font-family: 'Open Sans', sans-serif;
+ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#939ea4', endColorstr='#c8c8c8'); /* for IE */
+ background: -webkit-radial-gradient(circle, #c8c8c8, #536976);/* Safari 5.1+, Chrome 10+ */
+ background: -moz-radial-gradient(circle, #c8c8c8, #536976);/* Firefox 3.6+ */ 
+ background: -ms-radial-gradient(circle, #c8c8c8, #536976);/* IE 10 */">
+  
+
+
+
+
+    <!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
+    <noscript>
+      <div style="width: 22em; position: absolute; left: 49%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+        Your web browser must have JavaScript enabled
+        in order for this application to display correctly.
+      </div>
+    </noscript>
+        
+    <span itemscope itemtype="http://schema.org/SoftwareApplication">
+	<div id="wrapper">
+   
+	<!-- fascia orizzontale-->
+	<div id="fascia_orizzontale">
+	   	
+	   <div id="servicepot" style="text-align:center;  margin-left: auto; margin-right: auto; display: block;padding:20px;">
+	        <b><span  itemprop="name" style="font-size:40pt;">ServicePot</span></b>
+	        <br><br>
+	        <span style="font-size:11pt;"><b>extensible UDDI registry for choreography-based solutions offering choreography lifecycle management and governance features</b></span>
+	        <br>
+	        <span style="font-size:8pt;">ServicePot can globally satisfy just one request at time. If it takes time...just wait :)</span>
+	        <br><br>
+	        <div style="margin-left: auto; margin-right: auto; display:block;">
+	        	<table width="100%">
+	        		<tr>
+	        		  <td>save choreography</td>
+	        		  <td>save service</td>
+	        		  <td>find choreography</td>
+	        		  <td>find service</td>
+	        		</tr>
+	        		<tr>
+	        		  <td><input id="save_choreography" type="button" value=" " onclick="show_popup('popup_save_chor');"/></td>
+	        		  <td><input id="save_service" type="button" value=" "/></td>
+	        		  <td><input id="find_choreography" type="button" value=" " onclick="show_popup('popup_find_chor');"/></td>
+	        		  <td><input id="find_service" type="button" value=" "/></td>
+	        		</tr>
+	        	</table>
+	        	console:
+	        	<div id="console"><br></div>
+	        </div>
+	      
+	   </div>
+	</div>
+	<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+	<span itemprop="name">daniele.fani@unicam.it</span></span></span>
+  </div>
+  
+  <div id="footer">
+  		 <A HREF="http://www.choreos.eu/bin/view/Documentation/ServicePot" style="margin-left:13%;">
+  		    <IMG itemprop="image"  SRC="http://www.choreos.eu/bin/download/ColorThemes/Choreos+New+Theme/CHLogowww.png" BORDER="0" width="80px">
+  		 </A>
+  		 <A HREF="http://cordis.europa.eu/fp7/home_en.html" style="margin-left:13%;">
+  		    <IMG SRC="http://anvil-project.net/upgraded_site/wordpress/wp-content/uploads/2013/02/Seventh_Framework_Programme_logo.png" BORDER="0" width="80px">
+  		 </A>
+  		 <A HREF="http://cs.unicam.it" style="margin-left:13%;">
+  		    <IMG SRC="http://www.cs.unicam.it/polini/img/logoUnicam.png" BORDER="0" width="60px">
+  		 </A>
+  		 <A HREF="http://www.isti.cnr.it" style="margin-left:13%;">
+  		    <IMG SRC="http://www.isti.cnr.it/img/logo.png" BORDER="0" width="60px">
+  		 </A>
+  </div>
+  
+  <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+<meta itemprop="name" content="https://plus.google.com/communities/113943625419913199450/"></span></span>
+  
+  <div id="partes_popup" class="hidden popup" style="word-wrap:break-word;height:120px; width:200px; z-index:10; position:fixed; top:10px; left:10px;">
+     <a href="javascript:void(0);" onclick="hide_partes_message();"><img src="http://icons.iconarchive.com/icons/iconarchive/red-orb-alphabet/256/Letter-X-icon.png" width="30px" height="30px" /></a>
+  </div>
+  
+  
+  <div id="popup_save_chor" class="hidden popup">
+  	<a href="javascript:void(0);" onclick="hidePopup('popup_save_chor');"><img src="http://icons.iconarchive.com/icons/iconarchive/red-orb-alphabet/256/Letter-X-icon.png" width="30px" height="30px" /></a>
+  	<div id="inner_popup" style="margin-left:auto; margin-right:auto; display:block;width:70%; height:70%;">
+  		<br><br><br>
+  		Put here the url of the choreography
+  		<input id="bpmnUrl"  placeholder=".bpmn choreography url" onclick="" style="width:100%; height:30%;font-size:18pt;"/>
+  		<br/><br/>
+  		<div style="overflow:auto;">
+  		<div class="checkboxThree" style="float:left;">
+  			<input type="checkbox" value="1" id="partes" name="partes" />
+	  		<label for="partes"></label>
+  		</div>
+  		<div style="float:left; margin-top:10px; margin-left:10px;">generates TestSuite with <a href="http://www.choreos.eu/bin/Documentation/Partes" title="http://www.choreos.eu/Partes">ParTes</a></div>
+  		</div>
+  			<br/><br/>
+  		<input id="save_choreography" type="button" value=" " onclick="save_choreography(document.getElementById('bpmnUrl').value);" style="margin-left:auto; margin-right:auto; display:block;"/>
+  		<!--bpmn example at:  https://dl.dropboxusercontent.com/u/13520648/wp6.bpmn -->
+  	</div>
+  </div>
+  
+  
+  <div id="popup_find_chor" class="hidden popup">
+  	<a href="javascript:void(0);" onclick="hidePopup('popup_find_chor');"><img src="http://icons.iconarchive.com/icons/iconarchive/red-orb-alphabet/256/Letter-X-icon.png" width="30px" height="30px" /></a>
+  	<div id="inner_popup" style="margin-left:auto; margin-right:auto; display:block;width:70%; height:70%;">
+  		<br><br><br>
+  		find a choreography (leave blank to find 'em all) 
+  		<input id="chorName"  placeholder="choreography name" value="" onclick="" style="width:100%; height:20%;font-size:14pt;"/>
+  		<input id="find_choreography" type="button" value=" " onclick="find_choreography(document.getElementById('chorName').value);" style="margin-left:auto; margin-right:auto; display:block;"/>
+  		then select one
+  		<select id="choose_chor" disabled="true" style="width:100%; height:20%;font-size:14pt;border-color:#999;"></select>
+  		<div style="margin-left:auto; margin-right:auto; display:block; text-align:center;">
+  			<input id="details_choreography" disabled="true" type="button" value="show details" onclick="details_choreography(document.getElementById('choose_chor').selectedIndex);" style="font-size:12pt;"/>
+  			<input id="roles_choreography"   disabled="true" type="button" value="show roles"   onclick="roles_choreography(document.getElementById('choose_chor').selectedIndex);" style="font-size:12pt;" />
+  			<input id="testsuite_choreography"   disabled="true" type="button" value="show test suite"   onclick="testSuite_choreography(document.getElementById('choose_chor').selectedIndex);" style="font-size:12pt;" />
+  		</div>
+  	</div>
+  </div>
+  
+  
+  
+  <div id="fade" class="hidden"></div>
+	    
+	    
+	    
+	    
+  </body>
+  
+</html>

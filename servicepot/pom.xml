@@ -19,17 +19,24 @@ Parent will remain disabled until we can compile it successfully
 <module>BPMN2JAXB</module>
 <module>ServicePot</module>
     <module>servicepot-war</module>
-    <module>ServicePotDHTPlugin</module>
+ <!--   <module>ServicePotDHTPlugin</module> -->
   </modules>
 
 <developers>
-        <developer>
-            <name>Midhat Ali</name>
-            <email>midhat.ali@unicam.it</email>
-            <organization>University of Camerino</organization>
-            <organizationUrl>http://www.unicam.it&gt;</organizationUrl>
-            <id>midhat</id>
-        </developer>
+      <developer>
+          <name>Midhat Ali</name>
+          <email>midhat.ali@unicam.it</email>
+          <organization>University of Camerino</organization>
+          <organizationUrl>http://www.unicam.it&gt;</organizationUrl>
+          <id>midhat</id>
+      </developer>
+      <developer>
+          <name>Daniele Fani'</name>
+          <email>daniele.fani@unicam.it</email>
+          <organization>University of Camerino</organization>
+          <organizationUrl>http://www.unicam.it&gt;</organizationUrl>
+          <id>midhat</id>
+      </developer>
     </developers>
     
 

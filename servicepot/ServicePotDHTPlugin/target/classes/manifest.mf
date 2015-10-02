@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: servicepotdht
+Bundle-SymbolicName: servicepotdht
+Bundle-Version: 1.0.0
+Bundle-Activator: it.unicam.servicepotdhtplugin.Activator
+Bundle-Localization: plugin
+Import-Package: org.ow2.choreos.registry.plugin.v2, org.ow2.choreos.registry.plugin, org.uddi.api_v3, org.ow2.choreos.uddi.extensions, org.osgi.framework;version="1.3.0", it.unicam.choreos.registry.proxy, javax.xml.ws
