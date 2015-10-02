@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.eclipse.osgi</groupId>
+  <artifactId>servletbridge</artifactId>
+  <version>1.2.0.v20091026</version>
+  <versioning>
+    <versions>
+      <version>1.2.0.v20091026</version>
+    </versions>
+    <lastUpdated>20120703092525</lastUpdated>
+  </versioning>
+</metadata>

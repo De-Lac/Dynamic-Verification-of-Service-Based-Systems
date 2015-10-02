@@ -1,0 +1,47 @@
+0ServicePot
+03/07/12
+Written by Midhat ALI (Unicam)
+
+== WHAT IS IT? ==
+ServicePot is a UDDI Registry for Web Service Choreographies. It provides functions to publish and retrieve Choreographies, in addition to the standard UDDI APIs for Web Services
+
+== REQUIREMETNS ==
+
+Before you compile the project you need to install
+
+#1 Java 1.6 or later
+
+#2 Apache Maven
+
+== CONFIGURING IT ==
+
+ServicePot uses a configuration file located at ServicePot/src/main/resources/UDDIProxy.properties
+This file needs to contain URIs to endpoints of a standard UDDI Registry
+
+== COMPILING IT ==
+
+Compile the project by entering the command "mvn install" at the command prompt. This will generate the war file in the servicepot-war/target directory
+
+== RUNNING IT ==
+
+Deploy the war file from dist directory to a tomcat server installation
+
+== VERIFYING IF IT WORKS ==
+
+Service Listing should be available at <ApplicationURL>/servicepot/services
+A graphical OSGi console will be available at <ApplicationURL>/servicepot/servlet/console.
+~                                                                                                                                               
+~                                                                                                                                               
+~                                                                                                                                               
+~                                                                                                                                               
+~                                                                                                                                               
+~                                                                                                                                               
+~                                                                                                                                               
+~                                                                                                                                               
+~                                                                                                                                               
+~                                                                                                                                               
+~                                                                                                                                               
+~                                                                                                                                               
+~                                                                                                                                               
+~                                                                                                                                               
+~                                                                                                      

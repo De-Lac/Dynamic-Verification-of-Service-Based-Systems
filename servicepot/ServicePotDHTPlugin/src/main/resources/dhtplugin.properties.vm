@@ -1,0 +1,6 @@
+UDDI.Endpoint.CustodyTransfer=http://172.16.69.133:8880/juddiv3/services/custody-transfer
+UDDI.Endpoint.Inquiry=http://172.16.69.133:8880/juddiv3/services/juddiv3-war-3.1.0/services/inquiry
+UDDI.Endpoint.Publication=http://172.16.69.133:8880/juddiv3/services/juddiv3-war-3.1.0/services/publish
+UDDI.Endpoint.Security=http://172.16.69.133:8880/juddiv3/services/juddiv3-war-3.1.0/services/security
+UDDI.Endpoint.SubscriptionListener=http://172.16.69.133:8880/juddiv3/services/juddiv3-war-3.1.0/services/subscription-listener
+UDDI.Endpoint.Subscription=http://172.16.69.133:8880/juddiv3/services/juddiv3-war-3.1.0/services/subscription

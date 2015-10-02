@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>servicepot</artifactId>
+        <groupId>org.ow2.choreos</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <groupId>it.unicam</groupId>
+    <artifactId>servicepot-war</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <name>servicepot-war</name>
+
+    <properties>
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+                <cxf.version>2.2.3</cxf.version>
+    </properties>
+        
+
+    <developers>
+        <developer>
+            <name>Midhat Ali</name>
+            <email>midhat.ali@unicam.it</email>
+            <organization>University of Camerino</organization>
+            <organizationUrl>http://www.unicam.it></organizationUrl>
+            <id>midhat</id>
+        </developer>
+    </developers>
+    <dependencies>
+        <dependency>
+            <groupId>org.eclipse.osgi</groupId>
+            <artifactId>servletbridge</artifactId>
+            <version>1.2.0.v20091026</version>
+        </dependency>
+     <!--   <dependency>
+            <groupId>org.ow2.choreos</groupId>
+            <artifactId>servicepot.OSGI</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <classifier>jar-with-dependencies</classifier>
+        </dependency> -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>6.0</version>
+            <scope>provided</scope>
+        </dependency>
+      
+        
+        
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <compilerArguments>
+                        <endorseddirs>${endorsed.dir}</endorseddirs>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+           
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.1</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${endorsed.dir}</outputDirectory>
+                            <silent>true</silent>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>javax</groupId>
+                                    <artifactId>javaee-endorsed-api</artifactId>
+                                    <version>6.0</version>
+                                    <type>jar</type>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.ow2.choreos</groupId>
+                                    <artifactId>servicepot.OSGI</artifactId>
+                                    <version>0.0.1-SNAPSHOT</version>
+                                    <classifier>jar-with-dependencies</classifier>
+                                    <type>jar</type>
+                                    <overWrite>false</overWrite>
+                                    <outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/WEB-INF/eclipse/plugins</outputDirectory>
+                                </artifactItem>
+                                
+                                 
+                                
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                  
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <repositories>
+        <repository>
+            <id>placeholder</id>
+            <url>file://${basedir}/libs</url>
+        </repository>
+    </repositories>
+
+</project>
