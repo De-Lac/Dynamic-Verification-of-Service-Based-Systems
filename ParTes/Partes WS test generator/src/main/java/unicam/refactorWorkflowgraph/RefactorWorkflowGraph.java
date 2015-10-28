@@ -1045,6 +1045,7 @@ public class RefactorWorkflowGraph {
          else
          	 {receiver = resolveQNameTParticipant(qnameParticipants.get(1), chor);}
 		 node = new ExtendedActivity(ct, sender, receiver);
+		 
 		 TMessageFlow messageRequest = null;
 		 try
 		 	{ messageRequest = resolveQNameTMessage(ct.getMessageFlowRef().get(0), chor); }
@@ -1064,15 +1065,12 @@ public class RefactorWorkflowGraph {
   		  	   error += ("\n tasks must have messages equals to operations of relative WSDLs");
   		  	   throw new BPMNmalformedException(error);
 		  	  }
-		  @SuppressWarnings("unused")
-		QName b = ((TMessage)messageRequestRef).getItemRef();
-		  @SuppressWarnings("unused")
-		String c = messageRequestRef.getItemRef().getLocalPart();
+		//QName b = ((TMessage)messageRequestRef).getItemRef();
+		//String c = messageRequestRef.getItemRef().getLocalPart();
 		  TItemDefinition item = null; 
 		  String method = null;
 		  try{
-		   item = InteractionTreeBuilder.getItem(messageRequestRef.getItemRef().getLocalPart()); 
-		   method = item.getStructureRef().getLocalPart();
+		   method = ((TMessage)messageRequestRef).getName();
 		  } 
 		  catch(java.lang.NullPointerException ex) {ex.printStackTrace();}
 		  /*

@@ -1,0 +1,10 @@
+participants:
+-   modelImplClass: Airport     
+    portTypeToSearch: IAirport
+    wsdlLocation: /Users/danielefani/Documents/workspace/eclipse/Mars/VVframework/Dynamic-Verification-of-Service-Based-Systems/ParTes/Partes WS test generator/TestSuiteExamples/Friendly_Passenger Airport/WSDL/Airport.wsdl
+-   modelImplClass: BusCompany
+    portTypeToSearch: IAirportBusCompany
+    wsdlLocation: /Users/danielefani/Documents/workspace/eclipse/Mars/VVframework/Dynamic-Verification-of-Service-Based-Systems/ParTes/Partes WS test generator/TestSuiteExamples/Friendly_Passenger Airport/WSDL/Airportbuscompany.wsdl
+-   modelImplClass: SecurityCompany
+    portTypeToSearch: ISecurityCompany
+    wsdlLocation: /Users/danielefani/Documents/workspace/eclipse/Mars/VVframework/Dynamic-Verification-of-Service-Based-Systems/ParTes/Partes WS test generator/TestSuiteExamples/Friendly_Passenger Airport/WSDL/Securitycompany.wsdl    
