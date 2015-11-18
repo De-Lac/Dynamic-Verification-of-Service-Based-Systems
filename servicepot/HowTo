@@ -28,6 +28,8 @@ Deploy the war file from dist directory to a tomcat server installation
 
 == VERIFYING IF IT WORKS ==
 
+ApplicationURL = tomcat_server_address/name_of_the_war
+
 Service Listing should be available at <ApplicationURL>/servicepot/services
 A graphical OSGi console will be available at <ApplicationURL>/servicepot/servlet/console.
 ~                                                                                                                                               

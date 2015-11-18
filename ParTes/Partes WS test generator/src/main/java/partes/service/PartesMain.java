@@ -168,7 +168,7 @@ public class PartesMain {
 			 System.out.println("\n\nno argument is passed, default is taken (for testing purpose)");
 			 args = new String[2];
 //			 args[0]="-p "+args[0];
-			 args[0]="-p /Users/danielefani/Documents/workspace/eclipse/Mars/VVframework/Dynamic-Verification-of-Service-Based-Systems/ParTes/Partes WS test generator/TestSuiteExamples/Friendly_Passenger Airport/choreography_1.bpmn";
+			 args[0]="-p /Users/danielefani/Documents/workspace/eclipse/Mars/VVframework/Dynamic-Verification-of-Service-Based-Systems/ParTes/Partes WS test generator/TestSuiteExamples/Friendly_Passenger Airport/Airport_choreography.bpmn";
 //			 args[0]="-p wp7.bpmn";
 			 args[1]="-y /Users/danielefani/Documents/workspace/eclipse/Mars/VVframework/Dynamic-Verification-of-Service-Based-Systems/ParTes/Partes WS test generator/TestSuiteExamples/Friendly_Passenger Airport/role_matching.yml";
 //			 args[2]="-d";

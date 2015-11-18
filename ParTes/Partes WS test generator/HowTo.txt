@@ -79,3 +79,9 @@ participants:
 -   modelImplClass: ATC
     portTypeToSearch: IAirTrafficControl
     wsdlLocation: /Users/DeLac/Desktop/rpst/AirTrafficControl.wsdl
+    
+== VERIFYING IF IT WORKS ==    
+    
+ApplicationURL = tomcat_server_address/name_of_the_war
+
+Service .wsdl should be available at <ApplicationURL>/services/PartesWsTestGenerator?wsdl    
